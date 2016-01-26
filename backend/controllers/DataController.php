@@ -197,20 +197,19 @@ class DataController extends Controller
 		//$model->jenis_kelamin = $model->getJenisKelamin($model->jenis_kelamin);
         if ($model->load(Yii::$app->request->post())&&$updatable->load(Yii::$app->request->post())) {
 			if($model->jenis_kelamin == '1'){
-				$nik = substr($updatable->kecamatan,6)+Yii::$app->formatter->asDate($model->tanggal_lahir, 'ddMMyy')+$model->nik;
+				$nik = substr($updatable->kecamatan,0,strlen($updatable->kecamatan)-1).Yii::$app->formatter->asDate($model->tanggal_lahir, 'ddMMyy').$model->nik;
 			}else{
-				$nik = substr($updatable->kecamatan,6)+((integer)Yii::$app->formatter->asDate($model->tanggal_lahir, 'dd')+40)+Yii::$app->formatter->asDate($model->tanggal_lahir, 'MMyy')+$model->nik;
+				$nik = substr($updatable->kecamatan,0,strlen($updatable->kecamatan)-1).((integer)Yii::$app->formatter->asDate($model->tanggal_lahir, 'dd')+40).Yii::$app->formatter->asDate($model->tanggal_lahir, 'MMyy').$model->nik;
 			}
-			
-			/*echo substr($updatable->kecamatan,0,strlen($updatable->kecamatan)-1);
-			echo "<br>";
-			echo Yii::$app->formatter->asDate($model->tanggal_lahir, 'ddMMyy');
-			echo "<br>";
-			echo $model->nik;*/
-			//if($model->save()){
-				
-			//}
-            //return $this->redirect(['view', 'id' => $model->nik]);
+			$model->nik = $nik;
+			if($model->save()){
+				return $this->redirect(['view', 'id' => $model->nik]);
+			}else{
+				return $this->render('create', [
+					'model' => $model,
+					'updatable' => $updatable,
+				]);
+			}
         } else {
             return $this->render('create', [
                 'model' => $model,
