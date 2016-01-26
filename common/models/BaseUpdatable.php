@@ -39,7 +39,7 @@ class BaseUpdatable extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'foto', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'alamat', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir'], 'required'],
+            [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'alamat', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir'], 'required'],
             [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan','pendidikan_terakhir'], 'integer'],
             [['foto'], 'string'],
             [['alamat', 'pekerjaan'], 'string', 'max' => 32],

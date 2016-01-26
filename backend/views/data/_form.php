@@ -43,47 +43,47 @@ use nex\datepicker\DatePicker;
 		<?= $form->field($model, 'kewarganegaraan')->radioList(array('1'=>'WNI','2'=>'WNA')); ?>
 		
 	<?php 
-		$model = $updatable;
+		//$model = $updatable;
 	}?>
 	
 	
-	<?= $form->field($model, 'agama')->dropdownList(['1' => 'Islam','2' => 'Kristen','3' => 'Katholik','4' => 'Hindu','5' => 'Budha','6' => 'Konghucu','7' => 'Lainnya'],['prompt'=>'Pilih Agama']) ?>
+	<?= $form->field($updatable, 'agama')->dropdownList(['1' => 'Islam','2' => 'Kristen','3' => 'Katholik','4' => 'Hindu','5' => 'Budha','6' => 'Konghucu','7' => 'Lainnya'],['prompt'=>'Pilih Agama']) ?>
 
 	<?php
 	$provinsi = ArrayHelper::map(Provinces::find()->orderBy('name')->all(),'id','name');
-	echo $form->field($model, 'provinsi')->dropdownList($provinsi,['prompt'=>'Pilih Provinsi','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kabupaten?id=').'"+$(this).val(), function( data ) {$( "select#kabupaten" ).html( data );});'])
+	echo $form->field($updatable, 'provinsi')->dropdownList($provinsi,['prompt'=>'Pilih Provinsi','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kabupaten?id=').'"+$(this).val(), function( data ) {$( "select#kabupaten" ).html( data );});'])
 	?>
 
 	<?php
-	$kabupaten = ArrayHelper::map(Regencies::find()->where(['province_id'=>$model->provinsi])->orderBy('name')->all(),'id','name');
-	echo $form->field($model, 'kabupaten')->dropdownList($kabupaten,['prompt'=>'Pilih Kabupaten','id'=>'kabupaten','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kecamatan?id=').'"+$(this).val(), function( data ) {$( "select#kecamatan" ).html( data );});']) ?>
+	$kabupaten = ArrayHelper::map(Regencies::find()->where(['province_id'=>$updatable->provinsi])->orderBy('name')->all(),'id','name');
+	echo $form->field($updatable, 'kabupaten')->dropdownList($kabupaten,['prompt'=>'Pilih Kabupaten','id'=>'kabupaten','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kecamatan?id=').'"+$(this).val(), function( data ) {$( "select#kecamatan" ).html( data );});']) ?>
 	
 	<?php
-	$kecamatan = ArrayHelper::map(Districts::find()->where(['regency_id'=>$model->kabupaten])->orderBy('name')->all(),'id','name');
-	echo $form->field($model, 'kecamatan')->dropdownList($kecamatan,['prompt'=>'Pilih Kecamatan','id'=>'kecamatan','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kelurahan?id=').'"+$(this).val(), function( data ) {$( "select#kelurahan" ).html( data );});']) ?>
+	$kecamatan = ArrayHelper::map(Districts::find()->where(['regency_id'=>$updatable->kabupaten])->orderBy('name')->all(),'id','name');
+	echo $form->field($updatable, 'kecamatan')->dropdownList($kecamatan,['prompt'=>'Pilih Kecamatan','id'=>'kecamatan','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kelurahan?id=').'"+$(this).val(), function( data ) {$( "select#kelurahan" ).html( data );});']) ?>
 	
 	<?php
-	$kelurahan = ArrayHelper::map(Villages::find()->where(['district_id'=>$model->kecamatan])->orderBy('name')->all(),'id','name');
-	echo $form->field($model, 'kelurahan')->dropdownList($kelurahan,['prompt'=>'Pilih Kelurahan','id'=>'kelurahan',]) ?>
+	$kelurahan = ArrayHelper::map(Villages::find()->where(['district_id'=>$updatable->kecamatan])->orderBy('name')->all(),'id','name');
+	echo $form->field($updatable, 'kelurahan')->dropdownList($kelurahan,['prompt'=>'Pilih Kelurahan','id'=>'kelurahan',]) ?>
 	
-	<?= $form->field($model, 'rt')->input('number',['maxlength' => true]) ?>
+	<?= $form->field($updatable, 'rt')->input('number',['maxlength' => true]) ?>
 	
-	<?= $form->field($model, 'rw')->input('number',['maxlength' => true]) ?>
+	<?= $form->field($updatable, 'rw')->input('number',['maxlength' => true]) ?>
 	
-	<?= $form->field($model, 'alamat')->textarea(['rows'=>3,'maxlength' => true]) ?>
+	<?= $form->field($updatable, 'alamat')->textarea(['rows'=>3,'maxlength' => true]) ?>
 	
-	<?= $form->field($model, 'status_perkawinan')->dropdownList(['0' => 'Belum Menikah','1' => 'Menikah', '2' => 'Cerai', '3' => 'Cerai ditinggal mati'],['prompt' => 'Pilih Status Perkawinan']) ?>
+	<?= $form->field($updatable, 'status_perkawinan')->dropdownList(['0' => 'Belum Menikah','1' => 'Menikah', '2' => 'Cerai', '3' => 'Cerai ditinggal mati'],['prompt' => 'Pilih Status Perkawinan']) ?>
 	
 	<?php
-	if($model->pekerjaan == 'NULL') $model->pekerjaan = '-';
-	echo $form->field($model, 'pekerjaan')->textInput(['maxlength' => true]) ?>
+	if($updatable->pekerjaan == 'NULL') $updatable->pekerjaan = '-';
+	echo $form->field($updatable, 'pekerjaan')->textInput(['maxlength' => true]) ?>
 	
-	<?= $form->field($model, 'pendidikan_terakhir')->dropdownList(['1' => 'SD', '2' => 'SMP', '3' => 'SMA','4' => 'D 1', '5' => 'D 2', '6' => 'D 3', '7' => 'D 4 / Sarjana (S 1)', '8' => 'Pasca Sarjana (S 2)', '9' => 'Pasca Sarjana (S 3)'],['prompt' => 'Pilih Pendidikan Terakhir']) ?>
+	<?= $form->field($updatable, 'pendidikan_terakhir')->dropdownList(['1' => 'SD', '2' => 'SMP', '3' => 'SMA','4' => 'D 1', '5' => 'D 2', '6' => 'D 3', '7' => 'D 4 / Sarjana (S 1)', '8' => 'Pasca Sarjana (S 2)', '9' => 'Pasca Sarjana (S 3)'],['prompt' => 'Pilih Pendidikan Terakhir']) ?>
 	
 </div><!--box body-->
 <div class="box-footer">
 	
-	<?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+	<?= Html::submitButton($updatable->isNewRecord ? 'Create' : 'Update', ['class' => $updatable->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 
 
     <?php ActiveForm::end(); ?>

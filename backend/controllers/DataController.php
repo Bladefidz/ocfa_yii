@@ -202,7 +202,10 @@ class DataController extends Controller
 				$nik = substr($updatable->kecamatan,0,strlen($updatable->kecamatan)-1).((integer)Yii::$app->formatter->asDate($model->tanggal_lahir, 'dd')+40).Yii::$app->formatter->asDate($model->tanggal_lahir, 'MMyy').$model->nik;
 			}
 			$model->nik = $nik;
-			if($model->save()){
+			$updatable->nik = $nik;
+			$model->tanggal_lahir = Yii::$app->formatter->asDate($model->tanggal_lahir, 'yyyy-MM-dd');
+			$model->tanggal_diterbitkan = date('Y-m-d');
+			if($model->save() && $updatable->save()){
 				return $this->redirect(['view', 'id' => $model->nik]);
 			}else{
 				return $this->render('create', [
