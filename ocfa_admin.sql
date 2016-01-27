@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Jan 2016 pada 13.45
+-- Generation Time: 27 Jan 2016 pada 18.11
 -- Versi Server: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -49,6 +49,21 @@ INSERT INTO `api_gateway` (`id`, `app_name`, `email`, `instansi`, `alamat_instan
 (126, 'SI Manajemen Sukodarmo', 'koenadi@sukoramo.co.id', 'PT Sukoramo', 'Jln Raya Gede Mangun 207 Surabaya', 0, 0, '0000-00-00', 'JAKARTA'),
 (128, 'SIM Manajemen Karya', 'gamerhacking@gmail.com', 'PT Karya Mega Sadra', 'Jln Bangaol No 44 Jakarta Selatan', 1, 1, '0000-00-00', 'JAWA_TIMUR'),
 (129, 'Statistik Pekerja Kantor', 'kamal.elfald@gmail.com', 'PT Surgeon', 'Jl Argawa No 112 Jakarta Pusat', 1, 1, '0000-00-00', 'JAWA_TIMUR');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `api_logs`
+--
+
+CREATE TABLE IF NOT EXISTS `api_logs` (
+  `id` int(11) NOT NULL,
+  `ip` char(15) NOT NULL,
+  `nik` bigint(16) NOT NULL,
+  `uri_access` varchar(128) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `method` char(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -7824,8 +7839,29 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `level`) VALUES
-(3502100710940002, 'user1', '5VWrqjq3mX05dH2lgeDOv6QUUm9L06mr', '$2y$13$51VsF7x1d4AU4rT3frwryeaOUOwB4FDLqFno6CPu97urFDrNpRLq2', NULL, 'user@ocfa.com', 10, 1453742818, 1453891156, 0),
+(3502100710940002, 'user', '5VWrqjq3mX05dH2lgeDOv6QUUm9L06mr', '$2y$13$51VsF7x1d4AU4rT3frwryeaOUOwB4FDLqFno6CPu97urFDrNpRLq2', NULL, 'user@ocfa.com', 10, 1453742818, 1453905843, 0),
 (3520082506930001, 'admin', 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh', '$2y$13$AQj8krMNQyjrPWyrB2gTJ.kQvrM95Ma3amqOzcHfLUk0ieJhBCp7W', NULL, 'admin@ocfa.com', 10, 1452840178, 1452840178, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_activity`
+--
+
+CREATE TABLE IF NOT EXISTS `user_activity` (
+  `id` int(11) NOT NULL,
+  `nik` bigint(16) NOT NULL,
+  `action` varchar(50) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user_activity`
+--
+
+INSERT INTO `user_activity` (`id`, `nik`, `action`, `timestamp`) VALUES
+(1, 3502100710940002, 'Melakukan login', '2016-01-27 16:31:04'),
+(2, 3520082506930001, 'Melakukan login', '2016-01-27 16:58:27');
 
 -- --------------------------------------------------------
 
@@ -89796,6 +89832,13 @@ ALTER TABLE `api_gateway`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `api_logs`
+--
+ALTER TABLE `api_logs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nik` (`nik`);
+
+--
 -- Indexes for table `base`
 --
 ALTER TABLE `base`
@@ -89849,6 +89892,13 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `password_reset_token` (`password_reset_token`);
 
 --
+-- Indexes for table `user_activity`
+--
+ALTER TABLE `user_activity`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `nik` (`nik`);
+
+--
 -- Indexes for table `villages`
 --
 ALTER TABLE `villages`
@@ -89865,13 +89915,29 @@ ALTER TABLE `villages`
 ALTER TABLE `api_gateway`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=130;
 --
+-- AUTO_INCREMENT for table `api_logs`
+--
+ALTER TABLE `api_logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `data_diri`
 --
 ALTER TABLE `data_diri`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `user_activity`
+--
+ALTER TABLE `user_activity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `api_logs`
+--
+ALTER TABLE `api_logs`
+  ADD CONSTRAINT `nik_log_fk` FOREIGN KEY (`nik`) REFERENCES `base` (`nik`);
 
 --
 -- Ketidakleluasaan untuk tabel `base_updatable`
@@ -89890,6 +89956,12 @@ ALTER TABLE `districts`
 --
 ALTER TABLE `regencies`
   ADD CONSTRAINT `province_id` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `user_activity`
+--
+ALTER TABLE `user_activity`
+  ADD CONSTRAINT `nik_user_act_fk` FOREIGN KEY (`nik`) REFERENCES `base` (`nik`);
 
 --
 -- Ketidakleluasaan untuk tabel `villages`
