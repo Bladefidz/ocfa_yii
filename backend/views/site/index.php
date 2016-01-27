@@ -7,9 +7,9 @@ $this->title = 'OCFA System Admin';
 <div class="site-index">
 
     <!-- Main content -->
-	<section class="content">
+	<section class="content col-lg-11">
 	  <!-- Small boxes (Stat box) -->
-	  <div class="row">
+	  <div class="row ">
 		<div class="col-lg-4 col-xs-6">
 		  <!-- small box -->
 		  <div class="small-box bg-aqua">
@@ -18,7 +18,7 @@ $this->title = 'OCFA System Admin';
 			  <h3>150</h3>
 			</div>
 			<div class="icon">
-			  <i class="ion ion-person"></i>
+			  <i class="fa fa-users"></i>
 			</div>
 		  </div>
 		</div><!-- ./col -->

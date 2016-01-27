@@ -61,7 +61,20 @@ class DataController extends Controller
 		$search = new UpdatableSearch();
 		$model->jenis_kelamin = $model->getJenisKelamin($model->jenis_kelamin);
 		$model->kewarganegaraan = $model->getKewarganegaraan($model->kewarganegaraan);
-		$data = $search->getData($model->nik);
+		$data = $this->exchangeData($search->getData($model->nik));
+        return $this->render('view', [
+            'model' => $model,
+			'updateable' => $data,
+        ]);
+    }
+	
+	/**
+     * Exchange all data
+	 * @param User $data
+     * @return mixed
+     */
+    public function exchangeData($data)
+    {
 		$data->provinsi = Provinces::findOne($data->provinsi)->name;
 		$data->kabupaten = Regencies::findOne($data->kabupaten)->name;
 		$data->kecamatan = Districts::findOne($data->kecamatan)->name;
@@ -109,11 +122,38 @@ class DataController extends Controller
 		if($data->pekerjaan == 'NULL'){
 			$data->pekerjaan = '-';
 		}
-        return $this->render('view', [
-            'model' => $model,
-			'updateable' => $data,
-        ]);
-    }
+		switch($data->pendidikan_terakhir){
+			case '1':
+				$pend_terakhir = 'SD';
+				break;
+			case '2':
+				$pend_terakhir = 'SMP';
+				break;
+			case '3':
+				$pend_terakhir = 'SMA';
+				break;
+			case '4':
+				$pend_terakhir = 'D 1';
+				break;
+			case '5':
+				$pend_terakhir = 'D 2';
+				break;
+			case '6':
+				$pend_terakhir = 'D 3';
+				break;
+			case '7':
+				$pend_terakhir = 'D 4 / Sarjana (S 1)';
+				break;
+			case '8':
+				$pend_terakhir = 'Pasca Sarjana (S 2)';
+				break;
+			case '9':
+				$pend_terakhir = 'Pasca Sarjana (S 3)';
+				break;
+		}
+		$data->pendidikan_terakhir = $pend_terakhir;
+		return $data;
+	}
 	
 	/**
 	 *	Get kabupaten by id
@@ -208,9 +248,14 @@ class DataController extends Controller
 			if($model->save() && $updatable->save()){
 				return $this->redirect(['view', 'id' => $model->nik]);
 			}else{
+				$alert = ['options' => [
+						'class' => 'alert-warning',
+					],
+					'body' => 'Ada kesalahan, silakan hubungi bagian teknisi',];
 				return $this->render('create', [
 					'model' => $model,
 					'updatable' => $updatable,
+					'alert' => $alert,
 				]);
 			}
         } else {
@@ -236,6 +281,7 @@ class DataController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+				'updatable' => $model,
             ]);
         }
     }

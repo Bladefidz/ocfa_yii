@@ -50,10 +50,22 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+			[['id'], 'required'],
+			[['id'], 'integer'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
+	
+	/**
+     * @inheritdoc
+     */
+	public function attributeLabels()
+    {
+        return [
+            'id' => 'NIK',
+			];
+	}
 
     /**
      * @inheritdoc

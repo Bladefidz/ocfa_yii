@@ -63,7 +63,7 @@ class DataManagement extends \yii\db\ActiveRecord
 	
 	/**
      * getJenisKelamin
-	 * @param $jenis_kelamin
+	 * @param string $jenis_kelamin
 	 * @return string
      */
     public function getJenisKelamin($jenis_kelamin)

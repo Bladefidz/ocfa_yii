@@ -110,7 +110,7 @@ class GoogleChart extends Widget
 			}';
 
         $view = $this->getView();
-        $view->registerJsFile('https://www.google.com/jsapi',['position' => View::POS_HEAD]);
+        $view->registerJsFile('js/jsapi.min.js',['position' => View::POS_HEAD]);
         $view->registerJs('google.load("visualization", "' . $this->loadVersion . '", {packages:["' . $this->packages . '"]});', View::POS_HEAD, __CLASS__ . '#' . $id);
         $view->registerJs($script, View::POS_HEAD, $id);
     }

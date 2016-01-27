@@ -23,12 +23,12 @@
                         'icon' => 'fa fa-user',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'User Data', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
+                            ['label' => 'User Data', 'icon' => 'fa fa-circle-o', 'url' => ['/user'],],
 							['label' => 'User Activity', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
                         ],
                     ],
 					['label' => 'API Management', 'icon' => 'fa fa-link', 'url' => ['../web']],
-					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web']],
+					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web']],//'visible' => Yii::$app->user->isGuest
                 ],
             ]
         ) ?>
