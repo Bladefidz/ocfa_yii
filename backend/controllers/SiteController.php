@@ -6,6 +6,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
 use common\models\User;
+use common\models\UserActivity;
 use yii\filters\VerbFilter;
 
 /**
@@ -76,6 +77,10 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 			//if($model->getUserLevel() == 1){
+				$activity = new UserActivity();
+				$activity->nik = Yii::$app->user->id;
+				$activity->action = 'Melakukan login';
+				$activity->save();
 				return $this->goBack();
 			//}else{
 				//return $this->redirect(['../../frontend/web/', 'id' => $modelUser->id]);

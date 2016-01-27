@@ -29,7 +29,7 @@ use backend\models\UserCreate;
                         'url' => '#',
                         'items' => [
                             ['label' => 'User Data', 'icon' => 'fa fa-circle-o', 'url' => ['/user'],],
-							['label' => 'User Activity', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
+							['label' => 'User Activity', 'icon' => 'fa fa-circle-o', 'url' => ['/user-activity'],],
                         ],
 						'visible' => UserCreate::isAdmin()
                     ],
