@@ -60,41 +60,16 @@ $this->title = 'OCFA System Admin';
 			</div><!-- /.box-header -->
 			<div class="box-body">
 			  <div class="row">
-				<div class="col-md-4">
+				<div class="col-md-11">
 					<?= 
-						GoogleChart::widget(array('visualization' => 'PieChart',
+						GoogleChart::widget(array('visualization' => 'LineChart',
 						'data' => array(
-							array('Jenis Kelamin', 'Jumlah'),
-							array('Laki-laki', 11),
-							array('Perempuan', 2)
+							array('Tanggal', 'Request'),
+							array('25-Jan-2016', 4),
+							array('26-Jan-2016', 11),
+							array(date('d-M-Y'), 2)
 						),
 						'options' => array('title' => 'Jenis Kelamin'))); 
-					?>
-				</div>
-				<div class="col-md-4">
-					<?= 
-						GoogleChart::widget(array('visualization' => 'PieChart',
-						'data' => array(
-							array('Status', 'Jumlah'),
-							array('Lahir', 11),
-							array('Meninggal', 2)
-						),
-						'options' => array('title' => 'Jumlah Kematian dan Kelahiran'))); 
-					?>
-				</div>
-				<div class="col-md-4">
-					<?= 
-						GoogleChart::widget(array('visualization' => 'PieChart',
-						'data' => array(
-							array('Range', 'Jumlah'),
-							array('0 - 5', 11),
-							array('6 - 12', 2),
-							array('13 - 20', 2),
-							array('21 - 50', 2),
-							array('51 - 65', 7),
-							array('66 - ...', 7)
-						),
-						'options' => array('title' => 'Umur rata-rata'))); 
 					?>
 				</div>
 			  </div><!-- /.row -->

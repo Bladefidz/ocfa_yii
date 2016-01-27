@@ -62,7 +62,7 @@ class SiteController extends Controller
 		if($getUser->level == 1){
 			return $this->render('index');
 		}else{
-			return $this->redirect(['../../frontend/web/', 'id' => Yii::$app->user->id]);
+			return $this->render('user_index');
 		}
     }
 
@@ -72,14 +72,14 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-		$modelUser = new User();
+		//$modelUser = new User();
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-			if($model->getUserLevel() == 1){
+			//if($model->getUserLevel() == 1){
 				return $this->goBack();
-			}else{
-				return $this->redirect(['../../frontend/web/', 'id' => $modelUser->id]);
-			}
+			//}else{
+				//return $this->redirect(['../../frontend/web/', 'id' => $modelUser->id]);
+			//}
         } else {
             return $this->render('login', [
                 'model' => $model,

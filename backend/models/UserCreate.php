@@ -39,6 +39,7 @@ class UserCreate extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+			[['username','email'] => 'safe'],
         ];
     }
 	
@@ -80,5 +81,16 @@ class UserCreate extends Model
         $user->generateAuthKey();
         
         return $user->save() ? $user : null;
+    }
+	
+	/**
+     * is Admin?
+	 * @param string $id
+	 * @return boolean
+     */
+    public function isAdmin()
+    {
+		$user = User::findIdentity(Yii::$app->user->id);
+        return $user->level == 1 ? true : false;
     }
 }

@@ -1,3 +1,6 @@
+<?php
+use backend\models\UserCreate;
+?>
 <aside class="main-sidebar">
 
     <section class="sidebar">
@@ -6,7 +9,8 @@
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
-                    ['label' => 'Admin Panel', 'options' => ['class' => 'header']],
+                    ['label' => 'Admin Panel', 'options' => ['class' => 'header'], 'visible' => UserCreate::isAdmin()],
+					['label' => 'User Panel', 'options' => ['class' => 'header'], 'visible' => !UserCreate::isAdmin()],
                     ['label' => 'Dashboard', 'icon' => 'fa fa-dashboard', 'url' => ['/']],
                     [
                         'label' => 'Data Management',
@@ -17,6 +21,7 @@
 							['label' => 'Statistik', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
 							['label' => 'Arsip', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
                         ],
+						'visible' => UserCreate::isAdmin()
                     ],
 					[
                         'label' => 'User Management',
@@ -26,9 +31,10 @@
                             ['label' => 'User Data', 'icon' => 'fa fa-circle-o', 'url' => ['/user'],],
 							['label' => 'User Activity', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
                         ],
+						'visible' => UserCreate::isAdmin()
                     ],
-					['label' => 'API Management', 'icon' => 'fa fa-link', 'url' => ['../web']],
-					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web']],//'visible' => Yii::$app->user->isGuest
+					['label' => 'API Management', 'icon' => 'fa fa-link', 'url' => ['../web'],'visible' => UserCreate::isAdmin()],
+					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web'],'visible' => UserCreate::isAdmin()],//'visible' => Yii::$app->user->isGuest
                 ],
             ]
         ) ?>
