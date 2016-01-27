@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\User;
+use common\models\DataManagement;
 //use backend\models\UserActivitySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,7 +35,7 @@ class StatistikController extends Controller
      */
     public function actionIndex()
     {
-        $model = new User();
+        $model = DataManagement::find()->select(['tanggal_diterbitkan'])->groupBy('tanggal_diterbitkan');
         //$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -78,7 +78,7 @@ class StatistikController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = UserActivity::findOne($id)) !== null) {
+        if (($model = DataManagement::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

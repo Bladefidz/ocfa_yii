@@ -18,7 +18,7 @@ use backend\models\UserCreate;
                         'url' => '#',
                         'items' => [
 							['label' => 'Data Kependudukan', 'icon' => 'fa fa-circle-o', 'url' => ['/data'],],
-							['label' => 'Statistik', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
+							['label' => 'Statistik', 'icon' => 'fa fa-circle-o', 'url' => ['/statistik'],],
 							['label' => 'Arsip', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
                         ],
 						'visible' => UserCreate::isAdmin()

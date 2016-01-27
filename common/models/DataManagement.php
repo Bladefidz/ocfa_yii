@@ -21,6 +21,7 @@ use Yii;
  */
 class DataManagement extends \yii\db\ActiveRecord
 {
+	public $jml;
     /**
      * @inheritdoc
      */
@@ -36,8 +37,8 @@ class DataManagement extends \yii\db\ActiveRecord
     {
         return [
             [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'nip_pencatat', 'kewarganegaraan'], 'required'],
-            [['nik', 'jenis_kelamin', 'nip_pencatat', 'kewarganegaraan'], 'integer'],
-            [['tanggal_lahir', 'tanggal_diterbitkan'], 'safe'],
+            [['nik', 'jenis_kelamin', 'nip_pencatat', 'kewarganegaraan', 'jml'], 'integer'],
+            [['tanggal_lahir', 'tanggal_diterbitkan', 'jml'], 'safe'],
             [['nama', 'tempat_lahir'], 'string', 'max' => 255],
             [['golongan_darah'], 'string', 'max' => 2],
         ];
