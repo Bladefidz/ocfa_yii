@@ -3,6 +3,36 @@ body {
     height: 100%;
 }
 
+hr.star-light,
+hr.star-primary {
+    margin: 25px auto 30px;
+    padding: 0;
+    max-width: 250px;
+    border: 0;
+    border-top: solid 5px;
+    text-align: center;
+}
+
+hr.star-light:after,
+hr.star-primary:after {
+    content: "\f005";
+    display: inline-block;
+    position: relative;
+    top: -.8em;
+    padding: 0 .25em;
+    font-family: FontAwesome;
+    font-size: 2em;
+}
+
+hr.star-light {
+    border-color: #444;
+}
+
+hr.star-light:after {
+    color: #444;
+    background-color: #eee;
+}
+
 .wrap {
     min-height: 100%;
     height: auto;
@@ -93,6 +123,13 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+}
+.jumbotron {
+    padding-bottom: 15%;
+    padding-top: 15%;
+}
+.about {
+    background-color: #13547A;
 }
 
 /* align the logout "link" (button in form) of the navbar */
