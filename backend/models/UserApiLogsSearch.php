@@ -5,17 +5,13 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\UserActivity;
+use common\models\ApiLogs;
 
 /**
- * UserActivitySearch represents the model behind the search form about `common\models\UserActivity`.
+ * ApiLogsSearch represents the model behind the search form about `common\models\ApiLogs`.
  */
-class UserActivitySearch extends UserActivity
+class UserApiLogsSearch extends ApiLogs
 {
-	
-	public $dari;
-	public $sampai;
-	
     /**
      * @inheritdoc
      */
@@ -23,8 +19,7 @@ class UserActivitySearch extends UserActivity
     {
         return [
             [['id', 'nik'], 'integer'],
-			[['dari', 'sampai'], 'string'],
-            [['action', 'timestamp'], 'safe'],
+            [['ip', 'uri_access', 'timestamp', 'method'], 'safe'],
         ];
     }
 
@@ -46,7 +41,7 @@ class UserActivitySearch extends UserActivity
      */
     public function search($params)
     {
-        $query = UserActivity::find();
+        $query = ApiLogs::find()->where('nik = '.Yii::$app->user->id);
 
         // add conditions that should always apply here
 
@@ -69,7 +64,9 @@ class UserActivitySearch extends UserActivity
             'timestamp' => $this->timestamp,
         ]);
 
-        $query->andFilterWhere(['like', 'action', $this->action]);
+        $query->andFilterWhere(['like', 'ip', $this->ip])
+            ->andFilterWhere(['like', 'uri_access', $this->uri_access])
+            ->andFilterWhere(['like', 'method', $this->method]);
 
         return $dataProvider;
     }

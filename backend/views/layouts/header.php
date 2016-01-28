@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use common\models\DataManagement;
+use common\models\User;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -69,17 +70,20 @@ use common\models\DataManagement;
                         <span class="hidden-xs"><?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <!-- User image -->
+                        <!-- User header -->
                         <li class="user-header">
                             <p>
                                 <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
-                                <small>Member since Nov. 2012</small>
+                                <small>Bergabung sejak <?= \Yii::$app->formatter->asDate(User::findOne(['id' => Yii::$app->user->getId()])->created_at,'php:d-M-Y');?></small>
                             </p>
+							<p>
+								<small>NIK Anda <?=Yii::$app->user->getId()?></small>
+							</p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">Pengaturan</a>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(

@@ -2,6 +2,7 @@
 use scotthuangzl\googlechart\GoogleChart;
 use common\models\DataManagement;
 use common\models\User;
+use common\models\UserActivity;
 /* @var $this yii\web\View */
 
 $this->title = 'OCFA System Admin';
@@ -41,7 +42,7 @@ $this->title = 'OCFA System Admin';
 		  <div class="small-box bg-yellow">
 			<div class="inner">
 			  <p>Aktivitas User Hari Ini</p>
-			  <h3>44</h3>
+			  <h3><?=UserActivity::find()->where('timestamp like "'.\Yii::$app->formatter->asDate('now','php:Y-m-d').'%"')->count()?></h3>
 			</div>
 			<div class="icon">
 			  <i class="fa fa-bar-chart"></i>

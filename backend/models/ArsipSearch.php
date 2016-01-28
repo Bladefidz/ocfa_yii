@@ -5,26 +5,21 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\UserActivity;
+use common\models\DataManagement;
 
 /**
- * UserActivitySearch represents the model behind the search form about `common\models\UserActivity`.
+ * ArsipSearch represents the model behind the search form about `common\models\DataManagement`.
  */
-class UserActivitySearch extends UserActivity
+class ArsipSearch extends DataManagement
 {
-	
-	public $dari;
-	public $sampai;
-	
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'nik'], 'integer'],
-			[['dari', 'sampai'], 'string'],
-            [['action', 'timestamp'], 'safe'],
+            [['nik', 'jenis_kelamin', 'nip_pencatat', 'kewarganegaraan','arsip'], 'integer'],
+            [['nama', 'tempat_lahir', 'tanggal_lahir', 'golongan_darah', 'tanggal_diterbitkan','ket'], 'safe'],
         ];
     }
 
@@ -46,7 +41,7 @@ class UserActivitySearch extends UserActivity
      */
     public function search($params)
     {
-        $query = UserActivity::find();
+        $query = DataManagement::find()->where('arsip != 0');
 
         // add conditions that should always apply here
 
@@ -64,12 +59,21 @@ class UserActivitySearch extends UserActivity
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
             'nik' => $this->nik,
-            'timestamp' => $this->timestamp,
+            'tanggal_lahir' => $this->tanggal_lahir,
+            'jenis_kelamin' => $this->jenis_kelamin,
+            'tanggal_diterbitkan' => $this->tanggal_diterbitkan,
+            'nip_pencatat' => $this->nip_pencatat,
+            'kewarganegaraan' => $this->kewarganegaraan,
+			'arsip' => $this->arsip,
+			'ket' => $this->ket,
         ]);
 
-        $query->andFilterWhere(['like', 'action', $this->action]);
+        $query->andFilterWhere(['like', 'nama', $this->nama])
+            ->andFilterWhere(['like', 'tempat_lahir', $this->tempat_lahir])
+            ->andFilterWhere(['like', 'golongan_darah', $this->golongan_darah])
+			->andFilterWhere(['like', 'arsip', $this->arsip])
+			->andFilterWhere(['like', 'ket', $this->ket]);
 
         return $dataProvider;
     }

@@ -1,5 +1,6 @@
 <?php
 use backend\models\UserCreate;
+$user = new UserCreate();
 ?>
 <aside class="main-sidebar">
 
@@ -9,9 +10,10 @@ use backend\models\UserCreate;
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
-                    ['label' => 'Admin Panel', 'options' => ['class' => 'header'], 'visible' => UserCreate::isAdmin()],
-					['label' => 'User Panel', 'options' => ['class' => 'header'], 'visible' => !UserCreate::isAdmin()],
+                    ['label' => 'Admin Panel', 'options' => ['class' => 'header'], 'visible' => $user->isAdmin()],
+					['label' => 'User Panel', 'options' => ['class' => 'header'], 'visible' => !$user->isAdmin()],
                     ['label' => 'Dashboard', 'icon' => 'fa fa-dashboard', 'url' => ['/']],
+					['label' => 'Access Log', 'icon' => 'fa fa-gear', 'url' => ['/api-logs'],'visible' => !$user->isAdmin()],
                     [
                         'label' => 'Data Management',
                         'icon' => 'fa fa-files-o',
@@ -19,9 +21,9 @@ use backend\models\UserCreate;
                         'items' => [
 							['label' => 'Data Kependudukan', 'icon' => 'fa fa-circle-o', 'url' => ['/data'],],
 							['label' => 'Statistik', 'icon' => 'fa fa-circle-o', 'url' => ['/statistik'],],
-							['label' => 'Arsip', 'icon' => 'fa fa-circle-o', 'url' => ['/gii'],],
+							['label' => 'Arsip', 'icon' => 'fa fa-circle-o', 'url' => ['/arsip'],],
                         ],
-						'visible' => UserCreate::isAdmin()
+						'visible' => $user->isAdmin()
                     ],
 					[
                         'label' => 'User Management',
@@ -31,10 +33,21 @@ use backend\models\UserCreate;
                             ['label' => 'User Data', 'icon' => 'fa fa-circle-o', 'url' => ['/user'],],
 							['label' => 'User Activity', 'icon' => 'fa fa-circle-o', 'url' => ['/user-activity'],],
                         ],
-						'visible' => UserCreate::isAdmin()
+						'visible' => $user->isAdmin()
                     ],
-					['label' => 'API Management', 'icon' => 'fa fa-link', 'url' => ['../web'],'visible' => UserCreate::isAdmin()],
-					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web'],'visible' => UserCreate::isAdmin()],//'visible' => Yii::$app->user->isGuest
+					[
+                        'label' => 'API Management',
+                        'icon' => 'fa fa-link',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Registration', 'icon' => 'fa fa-circle-o', 'url' => ['#'],],
+							['label' => 'Access Control', 'icon' => 'fa fa-circle-o', 'url' => ['#'],],
+							['label' => 'Access Log', 'icon' => 'fa fa-circle-o', 'url' => ['/api-logs'],],
+                        ],
+						'visible' => $user->isAdmin()
+                    ],
+					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web'],'visible' => $user->isAdmin()],
+					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web'],'visible' => !$user->isAdmin()],//'visible' => Yii::$app->user->isGuest
                 ],
             ]
         ) ?>

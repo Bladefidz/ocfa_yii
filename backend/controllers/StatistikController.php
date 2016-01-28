@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\DataManagement;
-//use backend\models\UserActivitySearch;
+use backend\models\UserActivitySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,11 +35,26 @@ class StatistikController extends Controller
      */
     public function actionIndex()
     {
-        $model = DataManagement::find()->select(['tanggal_diterbitkan'])->groupBy('tanggal_diterbitkan');
+		$model = new UserActivitySearch;
+		$request = Yii::$app->request;
+		if ($model->load(Yii::$app->request->post())){
+			if ($model->hasErrors()) {
+				
+		   } else {
+			$dbCommand = Yii::$app->db->createCommand("SELECT YEAR(tanggal_diterbitkan) as tanggal_diterbitkan,COUNT(*) as count FROM base WHERE tanggal_diterbitkan BETWEEN '".\Yii::$app->formatter->asDate($model->dari,'php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate($model->sampai,'php:Y-m-d')."' GROUP BY tanggal_diterbitkan");
+		   }
+		}else{
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT YEAR(tanggal_diterbitkan) as tanggal_diterbitkan,COUNT(*) as count FROM base WHERE tanggal_diterbitkan BETWEEN '".\Yii::$app->formatter->asDate('-1 year','php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate('now','php:Y-m-d')."' GROUP BY tanggal_diterbitkan
+			");
+		}
+
+		$query = $dbCommand->queryAll();
         //$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'model' => $model,
+            'query' => $query,
+			'model' => $model,
             //'dataProvider' => $dataProvider,
         ]);
     }

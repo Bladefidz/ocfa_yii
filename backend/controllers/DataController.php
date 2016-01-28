@@ -246,6 +246,7 @@ class DataController extends Controller
 			$model->tanggal_lahir = Yii::$app->formatter->asDate($model->tanggal_lahir, 'yyyy-MM-dd');
 			$model->tanggal_diterbitkan = date('Y-m-d');
 			if($model->save() && $updatable->save()){
+				$this->writeLog('Menambah Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
 				return $this->redirect(['view', 'id' => $model->nik]);
 			}else{
 				$alert = ['options' => [
@@ -277,6 +278,7 @@ class DataController extends Controller
         $model = $this->findModelUpdatable($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			$this->writeLog('Memperbarui Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
             return $this->redirect(['view', 'id' => $model->nik]);
         } else {
             return $this->render('update', [
@@ -330,4 +332,16 @@ class DataController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+	
+	/*
+	 * Write to table log
+	 * 
+	 * @param string $action
+	 */
+	public function writeLog($action){
+		$activity = new UserActivity();
+		$activity->nik = Yii::$app->user->id;
+		$activity->action = $action;
+		$activity->save();
+	}
 }

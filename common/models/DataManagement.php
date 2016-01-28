@@ -16,8 +16,12 @@ use Yii;
  * @property string $tanggal_diterbitkan
  * @property string $nip_pencatat
  * @property integer $kewarganegaraan
+ * @property integer $arsip
+ * @property string $ket
  *
+ * @property ApiLogs[] $apiLogs
  * @property BaseUpdatable $baseUpdatable
+ * @property UserActivity[] $userActivities
  */
 class DataManagement extends \yii\db\ActiveRecord
 {
@@ -36,11 +40,12 @@ class DataManagement extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'nip_pencatat', 'kewarganegaraan'], 'required'],
-            [['nik', 'jenis_kelamin', 'nip_pencatat', 'kewarganegaraan', 'jml'], 'integer'],
+            [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'nip_pencatat', 'kewarganegaraan','arsip'], 'required'],
+            [['nik', 'jenis_kelamin', 'nip_pencatat', 'kewarganegaraan', 'jml','arsip'], 'integer'],
             [['tanggal_lahir', 'tanggal_diterbitkan', 'jml'], 'safe'],
             [['nama', 'tempat_lahir'], 'string', 'max' => 255],
             [['golongan_darah'], 'string', 'max' => 2],
+			[['ket'], 'string', 'max' => 100],
         ];
     }
 
@@ -59,6 +64,8 @@ class DataManagement extends \yii\db\ActiveRecord
             'tanggal_diterbitkan' => 'Tanggal Diterbitkan',
             'nip_pencatat' => 'NIP Pencatat',
             'kewarganegaraan' => 'Kewarganegaraan',
+			'arsip' => 'Arsip',
+            'ket' => 'Ket',
         ];
     }
 	
@@ -89,6 +96,14 @@ class DataManagement extends \yii\db\ActiveRecord
 			return 'WNA';
 		}
     }
+	
+	/**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getApiLogs()
+    {
+        return $this->hasMany(ApiLogs::className(), ['nik' => 'nik']);
+    }
 
     /**
      * @return \yii\db\ActiveQuery
@@ -96,5 +111,13 @@ class DataManagement extends \yii\db\ActiveRecord
     public function getBaseUpdatable()
     {
         return $this->hasOne(BaseUpdatable::className(), ['nik' => 'nik']);
+    }
+	
+	/**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserActivities()
+    {
+        return $this->hasMany(UserActivity::className(), ['nik' => 'nik']);
     }
 }

@@ -77,10 +77,7 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 			//if($model->getUserLevel() == 1){
-				$activity = new UserActivity();
-				$activity->nik = Yii::$app->user->id;
-				$activity->action = 'Melakukan login';
-				$activity->save();
+				$this->writeLog('Melakukan Login');
 				return $this->goBack();
 			//}else{
 				//return $this->redirect(['../../frontend/web/', 'id' => $modelUser->id]);
@@ -106,7 +103,19 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
+		$this->writeLog('Melakukan Logout');
         return $this->goHome();
     }
+	
+	/*
+	 * Write to table log
+	 * 
+	 * @param string $action
+	 */
+	public function writeLog($action){
+		$activity = new UserActivity();
+		$activity->nik = Yii::$app->user->id;
+		$activity->action = $action;
+		$activity->save();
+	}
 }

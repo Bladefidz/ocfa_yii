@@ -5,23 +5,25 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "user_activity".
+ * This is the model class for table "api_logs".
  *
  * @property integer $id
+ * @property string $ip
  * @property string $nik
- * @property string $action
+ * @property string $uri_access
  * @property string $timestamp
+ * @property string $method
  *
  * @property Base $nik0
  */
-class UserActivity extends \yii\db\ActiveRecord
+class ApiLogs extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'user_activity';
+        return 'api_logs';
     }
 
     /**
@@ -30,10 +32,12 @@ class UserActivity extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'action'], 'required'],
+            [['ip', 'nik', 'uri_access', 'method'], 'required'],
             [['nik'], 'integer'],
             [['timestamp'], 'safe'],
-            [['action'], 'string', 'max' => 100],
+            [['ip'], 'string', 'max' => 15],
+            [['uri_access'], 'string', 'max' => 128],
+            [['method'], 'string', 'max' => 10],
             [['nik'], 'exist', 'skipOnError' => true, 'targetClass' => DataManagement::className(), 'targetAttribute' => ['nik' => 'nik']],
         ];
     }
@@ -45,9 +49,11 @@ class UserActivity extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'ip' => 'Ip',
             'nik' => 'Nik',
-            'action' => 'Action',
+            'uri_access' => 'Uri Access',
             'timestamp' => 'Timestamp',
+            'method' => 'Method',
         ];
     }
 

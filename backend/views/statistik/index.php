@@ -1,7 +1,10 @@
 <?php
+use nex\datepicker\DatePicker;
 use scotthuangzl\googlechart\GoogleChart;
 use common\models\DataManagement;
 use common\models\User;
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 
 $this->title = 'Statistik';
@@ -23,19 +26,48 @@ $this->params['breadcrumbs'][] = $this->title;
 			</div><!-- /.box-header -->
 			<div class="box-body">
 			  <div class="row">
+				<?php
+					$form = ActiveForm::begin(['layout' => 'horizontal']);
+				?>
+				<?= $form->field($model, 'dari')->widget(
+					DatePicker::className(), [
+						'size' => 'sm',
+						'readonly' => true,
+						'value' => \Yii::$app->formatter->asDate('-1 month','php:d-M-Y'),
+						'language' => 'id',
+						'clientOptions' => [
+							'format' => 'D-MMM-YYYY',
+						],
+				]);?>
+				
+				<?= $form->field($model, 'sampai')->widget(
+					DatePicker::className(), [
+						'size' => 'sm',
+						'readonly' => true,
+						'value' => \Yii::$app->formatter->asDate('-1 month','php:d-M-Y'),
+						'language' => 'id',
+						'clientOptions' => [
+							'format' => 'D-MMM-YYYY',
+						],
+				]);?>
+				<div class="col-md-12">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<?= Html::submitButton('OK', ['class' => 'btn btn-primary']) ?>
+						</div>
+					</div>
+				</div>
+				<?php ActiveForm::end() ?>
+			  </div>
+			  <div class="row">
 				<div class="col-md-11">
 					<?php
-						$dbCommand = Yii::$app->db->createCommand("
-						   SELECT tanggal_diterbitkan,COUNT(*) as count FROM base GROUP BY tanggal_diterbitkan
-						");
-
-						$query = $dbCommand->queryAll();
 						$data = array();
 						array_push($data,
 								array('Tanggal', 'Jumlah')
 							);
 						foreach($query as $isi){
-							//echo var_dump($isi);
 							array_push($data,
 								array($isi['tanggal_diterbitkan'], (int)$isi['count'])
 							);
