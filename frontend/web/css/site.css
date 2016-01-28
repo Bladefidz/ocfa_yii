@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    background-size: cover;
 }
 
 hr.star-light,
@@ -124,12 +125,23 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+.success {
+    background: #18bc9c none repeat scroll 0 0 !important;
+    color: #fff!important;
+}
+.section {
+    padding: 100px 0 !important;
+}
 .jumbotron {
     padding-bottom: 15%;
     padding-top: 15%;
+    background-color: #fff;
 }
 .about {
     background-color: #13547A;
+    padding-bottom: 15%;
+    padding-top: 15%;
+    color: #fff;
 }
 
 /* align the logout "link" (button in form) of the navbar */
