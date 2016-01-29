@@ -12,6 +12,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+	'homeUrl' => '/ocfa_yii/admin',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -28,6 +29,9 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+		'request' => [
+            'baseUrl' => '/ocfa_yii/admin',
         ],
         /*
         'urlManager' => [

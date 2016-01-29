@@ -44,9 +44,17 @@ class DataSearch extends DataManagement
         $query = DataManagement::find()->where('arsip = 0');
 
         // add conditions that should always apply here
+		$cache = Yii::$app->cache;   
+		$totalCount = $cache->get('countData');
+		if ($totalCount === false) {
+			$dependency = new \yii\caching\DbDependency(['sql' => 'SELECT MAX(nik) FROM base']);
+			$cache->set('countData', $query->count(), 0, $dependency);
+			$totalCount = $cache->get('countData');
+		}
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+			'totalCount' => (int)$totalCount,
         ]);
 
         $this->load($params);

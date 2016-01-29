@@ -3,7 +3,7 @@
 * http://github.com/RobinHerbots/jquery.inputmask
 * Copyright (c) 2010 - 2016 Robin Herbots
 * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
-* Version: 3.2.6
+* Version: 3.2.7
 */
 !function($) {
     function Inputmask(alias, options) {
@@ -267,8 +267,8 @@
             maskset.validPositions = {}, maskset.p = 0);
         }
         function getLastValidPosition(closestTo, strict) {
-            var before = -1, after = -1;
-            valids = getMaskSet().validPositions, void 0 === closestTo && (closestTo = -1);
+            var before = -1, after = -1, valids = getMaskSet().validPositions;
+            void 0 === closestTo && (closestTo = -1);
             for (var posNdx in valids) {
                 var psNdx = parseInt(posNdx);
                 valids[psNdx] && (strict || null !== valids[psNdx].match.fn) && (closestTo >= psNdx && (before = psNdx), 
@@ -762,7 +762,7 @@
             };
             begin = translatePosition(begin), end = translatePosition(end), end = "number" == typeof end ? end : begin;
             var scrollCalc = parseInt(((input.ownerDocument.defaultView || window).getComputedStyle ? (input.ownerDocument.defaultView || window).getComputedStyle(input, null) : input.currentStyle).fontSize) * end;
-            if (input.scrollLeft = scrollCalc > input.scrollWidth ? scrollCalc : 0, androidchrome || opts.insertMode !== !1 || begin !== end || end++, 
+            if (input.scrollLeft = scrollCalc > input.scrollWidth ? scrollCalc : 0, mobile || opts.insertMode !== !1 || begin !== end || end++, 
             input.setSelectionRange) input.selectionStart = begin, input.selectionEnd = end; else if (window.getSelection) {
                 if (range = document.createRange(), void 0 === input.firstChild || null === input.firstChild) {
                     var textNode = document.createTextNode("");
@@ -952,7 +952,7 @@
                         opts.onKeyValidation.call(self, k, valResult, opts);
                     }, 0), getMaskSet().writeOutBuffer && valResult !== !1) {
                         var buffer = getBuffer();
-                        writeBuffer(input, buffer, checkval ? void 0 : opts.numericInput && void 0 === valResult.caret ? seekPrevious(forwardPosition) : forwardPosition, e, checkval !== !0), 
+                        writeBuffer(input, buffer, opts.numericInput && void 0 === valResult.caret ? seekPrevious(forwardPosition) : forwardPosition, e, checkval !== !0), 
                         checkval !== !0 && setTimeout(function() {
                             isComplete(buffer) === !0 && $input.trigger("complete");
                         }, 0);
@@ -989,7 +989,15 @@
             if (getBuffer().join("") !== inputValue) {
                 var caretPos = caret(input);
                 if (inputValue = inputValue.replace(new RegExp("(" + Inputmask.escapeRegex(getBufferTemplate().join("")) + ")*"), ""), 
-                caretPos.begin > inputValue.length && (caret(input, inputValue.length), caretPos = caret(input)), 
+                iemobile) {
+                    var inputChar = inputValue.replace(getBuffer().join(""), "");
+                    if (1 === inputChar.length) {
+                        var keypress = new $.Event("keypress");
+                        return keypress.which = inputChar.charCodeAt(0), keypressEvent.call(input, keypress, !0, !0, !1, getMaskSet().validPositions[caretPos.begin - 1] ? caretPos.begin : caretPos.begin - 1), 
+                        !1;
+                    }
+                }
+                if (caretPos.begin > inputValue.length && (caret(input, inputValue.length), caretPos = caret(input)), 
                 getBuffer().length - inputValue.length !== 1 || inputValue.charAt(caretPos.begin) === getBuffer()[caretPos.begin] || inputValue.charAt(caretPos.begin + 1) === getBuffer()[caretPos.begin] || isMask(caretPos.begin)) {
                     for (var lvp = getLastValidPosition() + 1, bufferTemplate = getBuffer().slice(lvp).join(""); null === inputValue.match(Inputmask.escapeRegex(bufferTemplate) + "$"); ) bufferTemplate = bufferTemplate.slice(1);
                     inputValue = inputValue.replace(bufferTemplate, ""), inputValue = inputValue.split(""), 
@@ -1003,15 +1011,14 @@
             undoValue = getBuffer().join(""), "" === compositionData || 0 !== ev.data.indexOf(compositionData);
         }
         function compositionUpdateEvent(e) {
-            var input = this, ev = e.originalEvent || e;
-            0 === ev.data.indexOf(compositionData) && (resetMaskSet(), getMaskSet().p = seekNext(-1), 
-            skipInputEvent = !0);
+            var input = this, ev = e.originalEvent || e, inputBuffer = getBuffer().join("");
+            0 === ev.data.indexOf(compositionData) && (resetMaskSet(), getMaskSet().p = seekNext(-1));
             for (var newData = ev.data, i = 0; i < newData.length; i++) {
                 var keypress = new $.Event("keypress");
                 keypress.which = newData.charCodeAt(i), skipKeyPressEvent = !1, ignorable = !1, 
                 keypressEvent.call(input, keypress, !0, !1, !1, getMaskSet().p);
             }
-            setTimeout(function() {
+            inputBuffer !== getBuffer().join("") && setTimeout(function() {
                 var forwardPosition = getMaskSet().p;
                 writeBuffer(input, getBuffer(), opts.numericInput ? seekPrevious(forwardPosition) : forwardPosition);
             }, 0), compositionData = ev.data;
@@ -1117,7 +1124,7 @@
             EventRuler.on(el, "drop", pasteEvent), EventRuler.on(el, "cut", cutEvent), EventRuler.on(el, "complete", opts.oncomplete), 
             EventRuler.on(el, "incomplete", opts.onincomplete), EventRuler.on(el, "cleared", opts.oncleared), 
             EventRuler.on(el, "keydown", keydownEvent), EventRuler.on(el, "keypress", keypressEvent), 
-            EventRuler.on(el, "input", inputFallBackEvent), androidfirefox || (EventRuler.on(el, "compositionstart", compositionStartEvent), 
+            EventRuler.on(el, "input", inputFallBackEvent), mobile || (EventRuler.on(el, "compositionstart", compositionStartEvent), 
             EventRuler.on(el, "compositionupdate", compositionUpdateEvent), EventRuler.on(el, "compositionend", compositionEndEvent))), 
             EventRuler.on(el, "setvalue", setValueEvent), "" !== el.inputmask._valueGet() || opts.clearMaskOnLostFocus === !1) {
                 var initialValue = $.isFunction(opts.onBeforeMask) ? opts.onBeforeMask(el.inputmask._valueGet(), opts) || el.inputmask._valueGet() : el.inputmask._valueGet();
@@ -1128,10 +1135,9 @@
                 writeBuffer(el, buffer), document.activeElement === el && caret(el, seekNext(getLastValidPosition()));
             }
         }
-        var undoValue, compositionData, el, $el, maxLength, valueBuffer, isRTL = !1, skipKeyPressEvent = !1, skipInputEvent = !1, ignorable = !1, mouseEnter = !0, EventRuler = {
+        var undoValue, compositionData, el, $el, maxLength, valueBuffer, isRTL = !1, skipKeyPressEvent = !1, skipInputEvent = !1, ignorable = !1, mouseEnter = !0, inComposition = !1, EventRuler = {
             on: function(input, eventName, eventHandler) {
                 var ev = function(e) {
-                    var inComposition = !1, keydownPressed = !1;
                     if (void 0 === this.inputmask && "FORM" !== this.nodeName) {
                         var imOpts = $.data(this, "_inputmask_opts");
                         imOpts ? new Inputmask(imOpts).mask(this) : EventRuler.off(this);
@@ -1139,12 +1145,12 @@
                         if ("setvalue" === e.type || !(this.disabled || this.readOnly && !("keydown" === e.type && e.ctrlKey && 67 === e.keyCode || opts.tabThrough === !1 && e.keyCode === Inputmask.keyCode.TAB))) {
                             switch (e.type) {
                               case "input":
-                                if (skipInputEvent === !0 || inComposition === !0) return skipInputEvent = !1, e.preventDefault();
-                                keydownPressed = !1;
+                                if (skipInputEvent === !0 || inComposition === !0) return skipInputEvent = inComposition, 
+                                e.preventDefault();
                                 break;
 
                               case "keydown":
-                                skipKeyPressEvent = !1, inComposition = !1, keydownPressed = !0;
+                                skipKeyPressEvent = !1, skipInputEvent = !1, inComposition = !1;
                                 break;
 
                               case "keypress":
@@ -1157,15 +1163,24 @@
                                 break;
 
                               case "compositionupdate":
-                                skipInputEvent = keydownPressed;
+                                skipInputEvent = !0;
                                 break;
 
                               case "compositionend":
-                                inComposition = !1, keydownPressed = !1;
+                                inComposition = !1;
                                 break;
 
                               case "cut":
                                 skipInputEvent = !0;
+                                break;
+
+                              case "click":
+                                if (iemobile) {
+                                    var that = this;
+                                    return setTimeout(function() {
+                                        eventHandler.apply(that, arguments);
+                                    }, 0), !1;
+                                }
                             }
                             return eventHandler.apply(this, arguments);
                         }
@@ -1448,8 +1463,8 @@
         UP: 38,
         WINDOWS: 91
     };
-    var ua = navigator.userAgent, iemobile = /iemobile/i.test(ua), iphone = /iphone/i.test(ua) && !iemobile, androidchrome = (/android.*safari.*/i.test(ua) && !iemobile, 
-    /android.*chrome.*/i.test(ua)), androidfirefox = /android.*firefox.*/i.test(ua);
+    var ua = navigator.userAgent, mobile = /mobile/i.test(ua), iemobile = /iemobile/i.test(ua), iphone = /iphone/i.test(ua) && !iemobile;
+    /android.*safari.*/i.test(ua) && !iemobile;
     return window.Inputmask = Inputmask, Inputmask;
 }(jQuery), function($, Inputmask) {
     return void 0 === $.fn.inputmask && ($.fn.inputmask = function(fn, options) {
@@ -2495,21 +2510,24 @@
             countrycode: "",
             phoneCodeCache: {},
             mask: function(opts) {
-                return void 0 === opts.phoneCodeCache[opts.url] && (opts.definitions["#"] = opts.definitions[9], 
-                $.ajax({
-                    url: opts.url,
-                    async: !1,
-                    type: "get",
-                    dataType: "json",
-                    success: function(response) {
-                        maskList = response;
-                    },
-                    error: function(xhr, ajaxOptions, thrownError) {
-                        alert(thrownError + " - " + opts.url);
-                    }
-                }), opts.phoneCodeCache[opts.url] = maskList.sort(function(a, b) {
-                    return (a.mask || a) < (b.mask || b) ? -1 : 1;
-                })), opts.phoneCodeCache[opts.url];
+                if (void 0 === opts.phoneCodeCache[opts.url]) {
+                    var maskList = [];
+                    opts.definitions["#"] = opts.definitions[9], $.ajax({
+                        url: opts.url,
+                        async: !1,
+                        type: "get",
+                        dataType: "json",
+                        success: function(response) {
+                            maskList = response;
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + " - " + opts.url);
+                        }
+                    }), opts.phoneCodeCache[opts.url] = maskList.sort(function(a, b) {
+                        return (a.mask || a) < (b.mask || b) ? -1 : 1;
+                    });
+                }
+                return opts.phoneCodeCache[opts.url];
             },
             keepStatic: !1,
             nojumps: !0,

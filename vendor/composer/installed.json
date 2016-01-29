@@ -216,12 +216,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/yiisoft/yii2-framework.git",
-            "reference": "196c35a0c346eaf5480ba0cae40f1154975abe64"
+            "reference": "c1c502ff2b792fac5470356373e243b77d2a36c7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c7e457b3636b1e67fa7d71566e6748bc9a575328",
-            "reference": "196c35a0c346eaf5480ba0cae40f1154975abe64",
+            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c1c502ff2b792fac5470356373e243b77d2a36c7",
+            "reference": "c1c502ff2b792fac5470356373e243b77d2a36c7",
             "shasum": ""
         },
         "require": {
@@ -237,7 +237,7 @@
             "php": ">=5.4.0",
             "yiisoft/yii2-composer": "*"
         },
-        "time": "2016-01-25 19:36:11",
+        "time": "2016-01-26 17:20:14",
         "bin": [
             "yii"
         ],
@@ -738,12 +738,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fzaninotto/Faker.git",
-            "reference": "de2ed3bbe68254efeff68db60092fc8ed5298055"
+            "reference": "1039b239eaf5ea865ded8e403dc707da6a629474"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/de2ed3bbe68254efeff68db60092fc8ed5298055",
-            "reference": "de2ed3bbe68254efeff68db60092fc8ed5298055",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/1039b239eaf5ea865ded8e403dc707da6a629474",
+            "reference": "1039b239eaf5ea865ded8e403dc707da6a629474",
             "shasum": ""
         },
         "require": {
@@ -754,7 +754,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~1.5"
         },
-        "time": "2016-01-08 14:16:18",
+        "time": "2016-01-27 08:28:58",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1066,54 +1066,6 @@
             "AdminLTE",
             "extension",
             "yii2"
-        ]
-    },
-    {
-        "name": "bower-asset/jquery.inputmask",
-        "version": "3.2.6",
-        "version_normalized": "3.2.6.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-            "reference": "7963205cb506bfbf5cc4a3b92d1892e0aa131eb2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/7963205cb506bfbf5cc4a3b92d1892e0aa131eb2",
-            "reference": "7963205cb506bfbf5cc4a3b92d1892e0aa131eb2",
-            "shasum": ""
-        },
-        "require": {
-            "bower-asset/jquery": ">=1.7"
-        },
-        "type": "bower-asset-library",
-        "extra": {
-            "bower-asset-main": [
-                "./dist/inputmask/inputmask.js"
-            ],
-            "bower-asset-ignore": [
-                "**/*",
-                "!dist/*",
-                "!dist/inputmask/*",
-                "!dist/min/*",
-                "!dist/min/inputmask/*",
-                "!extra/bindings/*",
-                "!extra/dependencyLibs/*",
-                "!extra/phone-codes/*"
-            ]
-        },
-        "installation-source": "dist",
-        "license": [
-            "http://opensource.org/licenses/mit-license.php"
-        ],
-        "description": "jquery.inputmask is a jquery plugin which create an input mask.",
-        "keywords": [
-            "form",
-            "input",
-            "inputmask",
-            "jquery",
-            "mask",
-            "plugins"
         ]
     },
     {
@@ -1844,6 +1796,54 @@
             "extension",
             "widget",
             "yii2"
+        ]
+    },
+    {
+        "name": "bower-asset/jquery.inputmask",
+        "version": "3.2.7",
+        "version_normalized": "3.2.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
+            "reference": "5a72c563b502b8e05958a524cdfffafe9987be38"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/5a72c563b502b8e05958a524cdfffafe9987be38",
+            "reference": "5a72c563b502b8e05958a524cdfffafe9987be38",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.7"
+        },
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": [
+                "./dist/inputmask/inputmask.js"
+            ],
+            "bower-asset-ignore": [
+                "**/*",
+                "!dist/*",
+                "!dist/inputmask/*",
+                "!dist/min/*",
+                "!dist/min/inputmask/*",
+                "!extra/bindings/*",
+                "!extra/dependencyLibs/*",
+                "!extra/phone-codes/*"
+            ]
+        },
+        "installation-source": "dist",
+        "license": [
+            "http://opensource.org/licenses/mit-license.php"
+        ],
+        "description": "jquery.inputmask is a jquery plugin which create an input mask.",
+        "keywords": [
+            "form",
+            "input",
+            "inputmask",
+            "jquery",
+            "mask",
+            "plugins"
         ]
     }
 ]

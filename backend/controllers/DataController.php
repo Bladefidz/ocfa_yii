@@ -300,6 +300,22 @@ class DataController extends Controller
 
         return $this->redirect(['index']);
     }
+	
+	/**
+     * Arsip an exiting DataManagement model.
+     * If asrip is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionArsip($id,$ket)
+    {
+        $model = $this->findModel($id);
+		$model->arsip = 1;
+		$model->ket = $ket;
+		$model->update();
+
+        return $this->redirect(['index']);
+    }
 
     /**
      * Finds the DataManagement model based on its primary key value.

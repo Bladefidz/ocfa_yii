@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+	'homeUrl' => '/ocfa_yii',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -27,6 +28,9 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+		'request' => [
+            'baseUrl' => '/ocfa_yii',
         ],
         /*
         'urlManager' => [

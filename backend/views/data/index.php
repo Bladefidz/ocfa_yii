@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
@@ -44,21 +45,25 @@ $this->params['breadcrumbs'][] = $this->title;
 							'template'=>'{view} {update} {arsip}',
 							'buttons' => [
 								'arsip' => function ($url, $model) {
-									return Html::a('<span class="fa fa-file-archive-o"></span>', $url, [
+									return Html::a('<span class="fa fa-file-archive-o"></span>', '#', [
 												'title' => Yii::t('app', 'Arsip'),
+												'onclick' => 'arsip("'.$model->nik.'","'.substr($url,0,strlen($url)-20).'")',
 									]);
 								}
 							  ],
-							  'urlCreator' => function ($action, $model, $key, $index) {
-								if ($action === 'arsip') {
-									$url ='/arsip?id='.$model->nik;
-									return $url;
-								}
-							  }
 						],
 					],
 				]); ?>
 			</div><!--box footer-->
 		</div><!--box-->
     </div>
+	<script>
+function arsip(nik,url) {
+    var ket = prompt("Isikan keterangan", "");
+    
+    if (ket != null) {
+		window.open(url+'?id='+nik+'&ket='+encodeURI(ket),"_self");
+    }
+}
+</script>
 </div>
