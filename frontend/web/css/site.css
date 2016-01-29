@@ -4,6 +4,16 @@ body {
     background-size: cover;
 }
 
+.body-content{
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: #EEE;
+}
+.content {
+    padding: 0 !important;
+}
+
 hr.star-light,
 hr.star-primary {
     margin: 25px auto 30px;
@@ -26,12 +36,24 @@ hr.star-primary:after {
 }
 
 hr.star-light {
-    border-color: #444;
+    border-color: #fff;
 }
 
 hr.star-light:after {
-    color: #444;
-    background-color: #eee;
+    color: #fff;
+    background-color: #13547A;
+}
+
+hr.star-primary {
+    border-color: #2c3e50;
+}
+
+hr.star-primary:after {
+    color: #2c3e50;
+    background-color: #fff;
+}
+h1{
+    font-size: 60px;
 }
 
 .wrap {
@@ -126,8 +148,7 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 .success {
-    background: #18bc9c none repeat scroll 0 0 !important;
-    color: #fff!important;
+    background: #fff none repeat scroll 0 0 !important;
 }
 .section {
     padding: 100px 0 !important;
@@ -136,12 +157,19 @@ a.desc:after {
     padding-bottom: 15%;
     padding-top: 15%;
     background-color: #fff;
+    margin-bottom: 0;
 }
-.about {
+.blue {
     background-color: #13547A;
     padding-bottom: 15%;
     padding-top: 15%;
     color: #fff;
+}
+.white {
+    background-color: #fff;
+    padding-bottom: 15%;
+    padding-top: 15%;
+    color: #333;
 }
 
 /* align the logout "link" (button in form) of the navbar */

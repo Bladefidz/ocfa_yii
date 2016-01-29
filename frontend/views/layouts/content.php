@@ -1,10 +1,13 @@
 <?php
 use yii\widgets\Breadcrumbs;
 use dmstr\widgets\Alert;
+use frontend\assets\AppAsset;
+use yii\web\View;
+AppAsset::register($this);
 
 ?>
 <div class="content-wrapper">
-	<div class="container">
+	<div class="body-content">
 
     <section class="content">
         <?= Alert::widget() ?>
@@ -211,3 +214,6 @@ use dmstr\widgets\Alert;
 <!-- Add the sidebar's background. This div must be placed
      immediately after the control sidebar -->
 <div class='control-sidebar-bg'></div>
+<?php
+    $this->registerJsFile('http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js',['position'=>View::POS_READY]);
+?>
