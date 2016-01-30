@@ -13,6 +13,9 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+	public $id;
+	public $instansi;
+	public $telp;
 
     /**
      * @inheritdoc
@@ -33,6 +36,15 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+			
+			['id', 'required'],
+            ['id', 'integer', 'min' => 16, 'max' => 16],
+			
+			['instansi', 'required'],
+            ['instansi', 'string', 'max' => 50],
+			
+			['telp', 'required'],
+            ['telp', 'string', 'max' => 20],
         ];
     }
 

@@ -41,12 +41,15 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find();
+        $query = User::find()->where(['status' => '10']);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+			'pagination' => [
+				'pageSize' => 10,
+			]
         ]);
 
         $this->load($params);

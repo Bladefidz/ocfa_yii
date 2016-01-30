@@ -1,4 +1,6 @@
 <?php
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 
@@ -27,45 +29,28 @@ $this->title = 'My Yii Application';
         <div class="container">
             <h2 class="text-center">Registration</h2>
             <hr class="star-primary">
-            <div class="login-box">
-                <div class="login-logo">
-                    <a href="#"><b>Admin</b>LTE</a>
+            <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
+			
+				<?= $form->field($model, 'id')->input('number',['min' => 0])->label('NIK') ?>
+
+                <?= $form->field($model, 'username')->textInput() ?>
+				
+				<?= $form->field($model, 'instansi') ?>
+
+                <?= $form->field($model, 'email') ?>
+				
+				<?= $form->field($model, 'telp') ?>
+
+                <?= $form->field($model, 'password')->passwordInput() ?>
+
+                <div class="form-group">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-6 text-center">
+						<?= Html::submitButton('Signup', ['class' => 'btn-lg btn-primary', 'name' => 'signup-button']) ?>
+					</div>
                 </div>
-                <!-- /.login-logo -->
-                <div class="login-box-body">
-                    <p class="login-box-msg">Sign in to start your session</p>
 
-                    
-
-                    <div class="row">
-                        <div class="col-xs-8">
-                           
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-xs-4">
-                            
-                        </div>
-                        <!-- /.col -->
-                    </div>
-
-
-                    
-
-                    <div class="social-auth-links text-center">
-                        <p>- OR -</p>
-                        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in
-                            using Facebook</a>
-                        <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign
-                            in using Google+</a>
-                    </div>
-                    <!-- /.social-auth-links -->
-
-                    <a href="#">I forgot my password</a><br>
-                    <a href="register.html" class="text-center">Register a new membership</a>
-
-                </div>
-                <!-- /.login-box-body -->
-            </div><!-- /.login-box -->
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 

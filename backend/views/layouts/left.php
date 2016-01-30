@@ -12,7 +12,7 @@ $user = new UserCreate();
                 'items' => [
                     ['label' => 'Admin Panel', 'options' => ['class' => 'header'], 'visible' => $user->isAdmin()],
 					['label' => 'User Panel', 'options' => ['class' => 'header'], 'visible' => !$user->isAdmin()],
-                    ['label' => 'Dashboard', 'icon' => 'fa fa-dashboard', 'url' => ['/']],
+                    ['label' => 'Dashboard', 'icon' => 'fa fa-dashboard', 'url' => ['../admin']],
 					['label' => 'Access Log', 'icon' => 'fa fa-gear', 'url' => ['/api-logs'],'visible' => !$user->isAdmin()],
                     [
                         'label' => 'Data Management',
@@ -40,7 +40,7 @@ $user = new UserCreate();
                         'icon' => 'fa fa-link',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Registration', 'icon' => 'fa fa-circle-o', 'url' => ['#'],],
+                            ['label' => 'Registration', 'icon' => 'fa fa-circle-o', 'url' => ['/registration'],],
 							['label' => 'Access Control', 'icon' => 'fa fa-circle-o', 'url' => ['#'],],
 							['label' => 'Access Log', 'icon' => 'fa fa-circle-o', 'url' => ['/api-logs'],],
                         ],
