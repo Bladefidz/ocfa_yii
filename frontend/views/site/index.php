@@ -1,6 +1,11 @@
 <?php
+<<<<<<< HEAD
 use yii\helpers\Html; 
 use yii\bootstrap\ActiveForm;
+=======
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
+>>>>>>> origin/master
 
 /* @var $this yii\web\View */
 
@@ -29,6 +34,7 @@ $this->title = 'My Yii Application';
         <div class="container">
             <h2 class="text-center">Registration</h2>
             <hr class="star-primary">
+<<<<<<< HEAD
             
             <?php $form = ActiveForm::begin(['layout' => 'horizontal']) ?>
                 <?= $form->field($model, 'id')->input('string', ['min' => 16, 'max' => 16])->label('NIK') ?>
@@ -36,6 +42,29 @@ $this->title = 'My Yii Application';
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <?= $form->field($model, 'email')->input('email') ?>
                 <?= $form->field($model, 'no_telp')->textInput() ?>
+=======
+            <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
+			
+				<?= $form->field($model, 'id')->input('number',['min' => 0])->label('NIK') ?>
+
+                <?= $form->field($model, 'username')->textInput() ?>
+				
+				<?= $form->field($model, 'instansi') ?>
+
+                <?= $form->field($model, 'email') ?>
+				
+				<?= $form->field($model, 'telp') ?>
+
+                <?= $form->field($model, 'password')->passwordInput() ?>
+
+                <div class="form-group">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-6 text-center">
+						<?= Html::submitButton('Signup', ['class' => 'btn-lg btn-primary', 'name' => 'signup-button']) ?>
+					</div>
+                </div>
+
+>>>>>>> origin/master
             <?php ActiveForm::end(); ?>
         </div>
     </div>

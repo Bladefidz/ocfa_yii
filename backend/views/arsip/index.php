@@ -47,12 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									]);
 								}
 							  ],
-							  'urlCreator' => function ($action, $model, $key, $index) {
-								if ($action === 'take') {
-									$url ='arsip/take?id='.$model->nik;
-									return $url;
-								}
-							  }
+							  
 						],
 					],
 				]); ?>

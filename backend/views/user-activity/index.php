@@ -26,8 +26,20 @@ $this->params['breadcrumbs'][] = $this->title;
 					'columns' => [
 						['class' => 'yii\grid\SerialColumn'],
 
-						'id',
+						//'id',
 						'nik',
+						[
+							'attribute' => 'nama',
+							'format' => 'raw',
+							'value' => function ($data){
+								$isi = $data->nik0;
+								if(!empty($isi)){
+									return $isi->nama;
+								}else{
+									return '-';
+								}
+							}
+						],
 						'action',
 						'timestamp',
 

@@ -102,9 +102,9 @@ class SiteController extends Controller
 
     public function actionLogout()
     {
-        Yii::$app->user->logout();
 		$this->writeLog('Melakukan Logout');
-        return $this->goHome();
+        Yii::$app->user->logout();
+        return $this->redirect('../../');
     }
 	
 	/*

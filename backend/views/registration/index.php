@@ -7,22 +7,19 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User Management';
+$this->title = 'Registration';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-index">
+<div class="registration-index">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
 	<div class="col-md-11">
 		<div class="box box-info">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?='Data User'?></h3>
+				<h3 class="box-title"><?='Registered User'?></h3>
 			</div>
 			<div class="box-body">
-				<p>
-					<?= Html::a('Buat User Baru', ['buat'], ['class' => 'btn btn-success']) ?>
-				</p>
 				<?= GridView::widget([
 					'dataProvider' => $dataProvider,
 					'filterModel' => $searchModel,
@@ -42,15 +39,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
 						[
 							'class' => 'yii\grid\ActionColumn',
-							'template'=>'{view} {update} {block}',
+							'template'=>'{view} {accept}',
 							'buttons' => [
 								'block' => function ($url, $model) {
 									return Html::a('<span class="fa fa-ban"></span>', $url, [
 												'title' => Yii::t('app', 'Block'),
 												'data-confirm' => Yii::t('app','Apakah Anda yakin ingin memblokir user '.$model->username.'?'),
 									]);
+								},
+								'accept' => function ($url, $model) {
+									return Html::a('<span class="fa fa-check"></span>', $url, [
+												'title' => Yii::t('app', 'Accept'),
+									]);
 								}
-							  ],
+							],
 						],
 					],
 				]); ?>

@@ -4,8 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\User;
-use backend\models\UserSearch;
-use backend\models\UserCreate;
+use backend\models\RegistrationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends Controller
+class RegistrationController extends Controller
 {
     /**
      * @inheritdoc
@@ -36,7 +35,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
+        $searchModel = new RegistrationSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -136,7 +135,22 @@ class UserController extends Controller
 		$user->status = 0;
 		$user->save();
 
-        return $this->redirect(['/user']);
+        return $this->redirect(['/registration']);
+    }
+	
+	/**
+     * Accept an existing User model.
+     * If accept is successful, the browser will be redirected to the 'index' page.
+     * @param string $id
+     * @return mixed
+     */
+    public function actionAccept($id)
+    {
+        $user = $this->findModel($id);
+		$user->status = 10;
+		$user->save();
+
+        return $this->redirect(['/registration']);
     }
 
     /**

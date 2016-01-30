@@ -7,6 +7,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\UserActivity;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -72,10 +73,23 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+<<<<<<< HEAD
         $model = new SignupForm();
         return $this->render('index', [
             'model' => $model,
         ]);
+=======
+		$model = new SignupForm();
+		if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+		
+        return $this->render('index',['model' => $model]);
+>>>>>>> origin/master
     }
 
     /**
@@ -91,7 +105,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+			$this->writeLog('Melakukan Login');
+            return $this->redirect('../admin');
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -213,4 +228,16 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+	
+	/*
+	 * Write to table log
+	 * 
+	 * @param string $action
+	 */
+	public function writeLog($action){
+		$activity = new UserActivity();
+		$activity->nik = Yii::$app->user->id;
+		$activity->action = $action;
+		$activity->save();
+	}
 }

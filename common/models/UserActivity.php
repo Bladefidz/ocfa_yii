@@ -56,6 +56,6 @@ class UserActivity extends \yii\db\ActiveRecord
      */
     public function getNik0()
     {
-        return $this->hasOne(Base::className(), ['nik' => 'nik']);
+        return $this->hasOne(DataManagement::className(), ['nik' => 'nik']);
     }
 }

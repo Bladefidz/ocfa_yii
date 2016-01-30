@@ -39,7 +39,6 @@ class UserCreate extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
-			[['username','email'] => 'safe'],
         ];
     }
 	

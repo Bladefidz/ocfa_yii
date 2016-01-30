@@ -5,27 +5,21 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\UserActivity;
+use common\models\User;
 
 /**
- * UserActivitySearch represents the model behind the search form about `common\models\UserActivity`.
+ * UserSearch represents the model behind the search form about `common\models\User`.
  */
-class UserActivitySearch extends UserActivity
+class RegistrationSearch extends User
 {
-	
-	public $dari;
-	public $sampai;
-	public $nama;
-	
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'nik'], 'integer'],
-			[['dari', 'sampai', 'nama'], 'string'],
-            [['action', 'timestamp'], 'safe'],
+            [['id', 'status', 'created_at', 'updated_at', 'level'], 'integer'],
+            [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email'], 'safe'],
         ];
     }
 
@@ -47,7 +41,7 @@ class UserActivitySearch extends UserActivity
      */
     public function search($params)
     {
-        $query = UserActivity::find()->orderBy('timestamp desc');
+        $query = User::find()->where(['status' => '0']);
 
         // add conditions that should always apply here
 
@@ -65,23 +59,21 @@ class UserActivitySearch extends UserActivity
             // $query->where('0=1');
             return $dataProvider;
         }
-		
-		$dataProvider->query->joinWith([
-			'nik0' => function($q){
-				$q->from('base');
-			}
-		]);
 
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            //'nik' => $this->nik,
-            'timestamp' => $this->timestamp,
+            'status' => $this->status,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'level' => $this->level,
         ]);
 
-		$query->andFilterWhere(['like', 'action', $this->action]);
-        $query->andFilterWhere(['like', 'user_activity.nik', $this->nik]);
-		$query->andFilterWhere(['like', 'base.nama', $this->nama]);
+        $query->andFilterWhere(['like', 'username', $this->username])
+            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
+            ->andFilterWhere(['like', 'password_hash', $this->password_hash])
+            ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
+            ->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }

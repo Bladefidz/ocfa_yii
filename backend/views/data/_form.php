@@ -16,7 +16,7 @@ use nex\datepicker\DatePicker;
 
 <div class="data-management-form">
 
-	<?php $form = ActiveForm::begin(['layout' => 'horizontal']); 
+	<?php $form = ActiveForm::begin(['layout' => 'horizontal', 'options' => ['enctype'=>'multipart/form-data']]); 
 	
 	if($model->isNewRecord){?>
 		<?= $form->field($model, 'nik')->textInput() ?>
@@ -45,6 +45,9 @@ use nex\datepicker\DatePicker;
 	<?php 
 		//$model = $updatable;
 	}?>
+	
+	<?=$form->field($updatable, 'foto')->fileInput(['accept' => 'image/*', 'capture'=>'camera']);
+	?>
 	
 	
 	<?= $form->field($updatable, 'agama')->dropdownList(['1' => 'Islam','2' => 'Kristen','3' => 'Katholik','4' => 'Hindu','5' => 'Budha','6' => 'Konghucu','7' => 'Lainnya'],['prompt'=>'Pilih Agama']) ?>

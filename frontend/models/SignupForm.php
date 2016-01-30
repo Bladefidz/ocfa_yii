@@ -14,6 +14,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+<<<<<<< HEAD
     public $no_telp;
     public $app_name;
     public $corp_name;
@@ -23,6 +24,11 @@ class SignupForm extends Model
     public $corp_region;
     public $corp_district;
     public $corp_address;
+=======
+	public $id;
+	public $instansi;
+	public $telp;
+>>>>>>> origin/master
 
     /**
      * @inheritdoc
@@ -46,9 +52,21 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+<<<<<<< HEAD
 
             ['no_telp', 'filter', 'filter' => 'trim'],
             ['no_telp', 'required'],
+=======
+			
+			['id', 'required'],
+            ['id', 'integer', 'min' => 16, 'max' => 16],
+			
+			['instansi', 'required'],
+            ['instansi', 'string', 'max' => 50],
+			
+			['telp', 'required'],
+            ['telp', 'string', 'max' => 20],
+>>>>>>> origin/master
         ];
     }
 
