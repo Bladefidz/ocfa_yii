@@ -10,9 +10,19 @@ use Yii;
  */
 class SignupForm extends Model
 {
+    public $id;
     public $username;
     public $email;
     public $password;
+    public $no_telp;
+    public $app_name;
+    public $corp_name;
+    public $corp_telp;
+    public $corp_email;
+    public $corp_prov;
+    public $corp_region;
+    public $corp_district;
+    public $corp_address;
 
     /**
      * @inheritdoc
@@ -20,6 +30,9 @@ class SignupForm extends Model
     public function rules()
     {
         return [
+            ['id', 'required'],
+            ['id', 'string', 'min' => 16, 'max' => 16],
+
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
@@ -33,6 +46,9 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            ['no_telp', 'filter', 'filter' => 'trim'],
+            ['no_telp', 'required'],
         ];
     }
 

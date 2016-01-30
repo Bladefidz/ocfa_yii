@@ -2,9 +2,27 @@
 
 namespace frontend\controllers;
 
-use yii\rest\ActiveController;
+use yii;
 
-class ApiController extends ActiveController
+class ApiController extends \yii\rest\Controller
 {
-    public $modelClass = 'common\models\DataManagement';
+	public function behaviors(){
+      	$behaviors = parent::behaviors();
+      	$behaviors['authenticator'] = [
+        	'class' => QueryParamAuth::className(),
+      	];
+      	return $behaviors;
+    }
+
+	protected function verbs()
+	{
+		return [
+		   'data' => ['GET'],
+		];
+	}
+
+    public function actionData()
+    {
+    	
+    }
 }

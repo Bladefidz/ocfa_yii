@@ -32,10 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
 						//'uri_access',
 						'timestamp',
 						'method',
-
 						[
 							'class' => 'yii\grid\ActionColumn',
-							'template' => '{view} {delete}'
+							'template' => '{view}',
+							'header' => 'Actions'
 						],
 					],
 				]); ?>
