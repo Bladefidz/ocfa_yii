@@ -55,6 +55,11 @@ $this->params['breadcrumbs'][] = $this->title;
 				<?= DetailView::widget([
 					'model' => $updateable,
 					'attributes' => [
+						[
+							'attribute'=>'foto',
+							'value'=>$updateable->foto,
+							'format' => ['image',['width'=>'320','height'=>'240']],
+						],
 						'agama',
 						'provinsi',
 						'kabupaten',

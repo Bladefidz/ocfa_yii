@@ -9,6 +9,7 @@ use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
+use common\models\UserActivity;
 use backend\models\DataSearch;
 use backend\models\UpdatableSearch;
 use yii\web\Controller;
@@ -278,7 +279,7 @@ class DataController extends Controller
         $model = $this->findModelUpdatable($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			$this->writeLog('Memperbarui Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
+			$this->writeLog('Memperbarui Data dengan NIK '.$model->nik);
             return $this->redirect(['view', 'id' => $model->nik]);
         } else {
             return $this->render('update', [

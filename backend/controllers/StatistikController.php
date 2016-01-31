@@ -38,10 +38,8 @@ class StatistikController extends Controller
 		$model = new UserActivitySearch;
 		$request = Yii::$app->request;
 		if ($model->load(Yii::$app->request->post())){
-			if ($model->hasErrors()) {
-				
-		   } else {
-			$dbCommand = Yii::$app->db->createCommand("SELECT YEAR(tanggal_diterbitkan) as tanggal_diterbitkan,COUNT(*) as count FROM base WHERE tanggal_diterbitkan BETWEEN '".\Yii::$app->formatter->asDate($model->dari,'php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate($model->sampai,'php:Y-m-d')."' GROUP BY tanggal_diterbitkan");
+			if (!$model->hasErrors()) {
+				$dbCommand = Yii::$app->db->createCommand("SELECT YEAR(tanggal_diterbitkan) as tanggal_diterbitkan,COUNT(*) as count FROM base WHERE tanggal_diterbitkan BETWEEN '".\Yii::$app->formatter->asDate($model->dari,'php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate($model->sampai,'php:Y-m-d')."' GROUP BY tanggal_diterbitkan");
 		   }
 		}else{
 			$dbCommand = Yii::$app->db->createCommand("

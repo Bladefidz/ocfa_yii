@@ -61,7 +61,58 @@ class SiteController extends Controller
 		$getUser = User::findIdentity(Yii::$app->user->id);
 		// check user level, if level equals 1 then user is an admin, he can through frontend or backend, if else user is a user, he only can through frontend
 		if($getUser->level == 1){
-			return $this->render('index');
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE jenis_kelamin = 1
+			");
+			$laki = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE jenis_kelamin = 0
+			");
+			$pr = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE arsip = 0
+			");
+			$hidup = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE arsip = 2
+			");
+			$mati = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE tanggal_lahir BETWEEN '".\Yii::$app->formatter->asDate('-5 year','php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate('now','php:Y-m-d')."'
+			");
+			$balita = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE tanggal_lahir BETWEEN '".\Yii::$app->formatter->asDate('-12 year','php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate('-6 year','php:Y-m-d')."'
+			");
+			$anak = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE tanggal_lahir BETWEEN '".\Yii::$app->formatter->asDate('-20 year','php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate('-13 year','php:Y-m-d')."'
+			");
+			$remaja = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE tanggal_lahir BETWEEN '".\Yii::$app->formatter->asDate('-50 year','php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate('-21 year','php:Y-m-d')."'
+			");
+			$dewasa = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE tanggal_lahir BETWEEN '".\Yii::$app->formatter->asDate('-65 year','php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate('-51 year','php:Y-m-d')."'
+			");
+			$tua = $dbCommand->queryOne();
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT COUNT(*) as count FROM base WHERE tanggal_lahir < '".\Yii::$app->formatter->asDate('-66 year','php:Y-m-d')."'
+			");
+			$lansia = $dbCommand->queryOne();
+			return $this->render('index',[
+				'laki' => $laki,
+				'pr' => $pr,
+				'hidup' => $hidup,
+				'mati' => $mati,
+				'balita' => $balita,
+				'anak' => $anak,
+				'remaja' => $remaja,
+				'dewasa' => $dewasa,
+				'tua' => $tua,
+				'lansia' => $lansia,
+			]);
 		}else{
 			return $this->render('user_index');
 		}
