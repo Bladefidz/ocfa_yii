@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "21d7e3bf9f98f9be2c3367978d23ebfd",
-    "content-hash": "44790df46bf82d9ae7a643fb76f494d9",
+    "hash": "f6118dd690d41bbe96469fa2cca61632",
+    "content-hash": "bc46dc290d6b25a11abdd5c000669e9b",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -305,7 +305,8 @@
                     "package.js",
                     "package.json"
                 ]
-            }
+            },
+            "time": "2016-01-09 13:13:07"
         },
         {
             "name": "bower-asset/moment-timezone",
@@ -338,7 +339,8 @@
                     "package.json"
                 ]
             },
-            "description": "Parse and display moments in any timezone."
+            "description": "Parse and display moments in any timezone.",
+            "time": "2015-12-28 16:14:26"
         },
         {
             "name": "bower-asset/punycode",
@@ -403,7 +405,8 @@
             },
             "license": [
                 "MIT"
-            ]
+            ],
+            "time": "2015-12-31 08:33:51"
         },
         {
             "name": "cebe/js-search",
@@ -1527,7 +1530,11 @@
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7ccbfdf4cfb0ce025e27455dc3e516af23eb2800",
+<<<<<<< HEAD
+                "reference": "c1c502ff2b792fac5470356373e243b77d2a36c7",
+=======
                 "reference": "7ccbfdf4cfb0ce025e27455dc3e516af23eb2800",
+>>>>>>> refs/remotes/origin/master
                 "shasum": ""
             },
             "require": {
@@ -1672,6 +1679,54 @@
                 "yii2"
             ],
             "time": "2016-01-23 08:03:23"
+        },
+        {
+            "name": "yiisoft/yii2-authclient",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-authclient.git",
+                "reference": "e593da06f6477d2fcb21323dfd0b766291c67fe5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/e593da06f6477d2fcb21323dfd0b766291c67fe5",
+                "reference": "e593da06f6477d2fcb21323dfd0b766291c67fe5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "yiisoft/yii2": ">=2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\authclient\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "External authentication via OAuth and OpenID for the Yii framework",
+            "keywords": [
+                "OpenId",
+                "auth",
+                "oauth",
+                "yii2"
+            ],
+            "time": "2015-12-15 10:24:41"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1859,8 +1914,13 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/b312ab9d0c446971069e22a524fec01c7cddc75e",
+                "reference": "1039b239eaf5ea865ded8e403dc707da6a629474",
+=======
                 "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/e493d3dc48d15a6d44e213d02c729ad61cc758a9",
                 "reference": "7abdb59318447db23ee77ba2d576c20e7718e27f",
+>>>>>>> refs/remotes/origin/master
                 "shasum": ""
             },
             "require": {

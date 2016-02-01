@@ -14,7 +14,7 @@ return [
 	'homeUrl' => '/ocfa_yii',
     'components' => [
         'user' => [
-            'identityClass' => 'frontend\models\User',
+            'identityClass' => 'common\models\User',
             'enableSession' => true
         ],
         'log' => [
