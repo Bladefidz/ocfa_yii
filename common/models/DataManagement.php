@@ -74,7 +74,7 @@ class DataManagement extends \yii\db\ActiveRecord
 	 * @param string $jenis_kelamin
 	 * @return string
      */
-    public function getJenisKelamin($jenis_kelamin)
+    public static function getJenisKelamin($jenis_kelamin)
     {
         if($jenis_kelamin == "1"){
 			return 'Laki-laki';
@@ -88,7 +88,7 @@ class DataManagement extends \yii\db\ActiveRecord
 	 * @param $kewarganegaraan
 	 * @return string
      */
-    public function getKewarganegaraan($kewarganegaraan)
+    public static function getKewarganegaraan($kewarganegaraan)
     {
         if($kewarganegaraan == "1"){
 			return 'WNI';

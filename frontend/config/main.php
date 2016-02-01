@@ -15,8 +15,7 @@ return [
     'components' => [
         'user' => [
             'identityClass' => 'frontend\models\User',
-            'enableSession' => false,
-            'loginUrl' => null,
+            'enableSession' => true
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
