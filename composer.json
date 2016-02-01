@@ -23,10 +23,7 @@
         "yiisoft/yii2-apidoc": "^2.0",
         "scotthuangzl/yii2-google-chart": "dev-master",
         "nex/yii2-datepicker": "*",
-<<<<<<< HEAD
         "yiisoft/yii2-authclient": "^2.0"
-=======
->>>>>>> refs/remotes/origin/master
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
