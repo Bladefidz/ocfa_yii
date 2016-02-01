@@ -1,19 +1,16 @@
 <?php
 
 use yii\helpers\Html;
-//use backend\assets\AppAsset;
-//AppAsset::register($this);
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\DataManagement */
+/* @var $model common\models\Keluarga */
 
-$this->title = 'Create Data Management';
-$this->params['breadcrumbs'][] = ['label' => 'Data Managements', 'url' => ['index']];
+$this->title = 'Create Keluarga';
+$this->params['breadcrumbs'][] = ['label' => 'Keluargas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
-<div class="data-management-create">
+<div class="keluarga-create">
 
     <div class="col-md-11">
 		<div class="box box-info">
@@ -23,7 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
 			<div class="box-body">
 				<?= $this->render('_form', [
 					'model' => $model,
-					'updatable' => $updatable,
 				]) ?>
 			</div><!--box footer-->
 		</div><!--box-->

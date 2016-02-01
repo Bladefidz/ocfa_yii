@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
@@ -20,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				<h3 class="box-title"><?='Registered User'?></h3>
 			</div>
 			<div class="box-body">
+				<?php Pjax::begin() ?>
 				<?= GridView::widget([
 					'dataProvider' => $dataProvider,
 					'filterModel' => $searchModel,
@@ -56,6 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						],
 					],
 				]); ?>
+				<?php Pjax::end() ?>
 			</div><!--box footer-->
 		</div><!--box-->
     </div>

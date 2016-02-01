@@ -9,6 +9,7 @@ use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
+use common\models\UserActivity;
 use backend\models\DataSearch;
 use backend\models\UpdatableSearch;
 use yii\web\Controller;
@@ -245,7 +246,7 @@ class DataController extends Controller
 			$updatable->nik = $nik;
 			$model->tanggal_lahir = Yii::$app->formatter->asDate($model->tanggal_lahir, 'yyyy-MM-dd');
 			$model->tanggal_diterbitkan = date('Y-m-d');
-			if($model->save() && $updatable->save()){
+			if($model->validate() && $updatable->validate() && $model->save() && $updatable->save()){
 				$this->writeLog('Menambah Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
 				return $this->redirect(['view', 'id' => $model->nik]);
 			}else{
@@ -278,7 +279,7 @@ class DataController extends Controller
         $model = $this->findModelUpdatable($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-			$this->writeLog('Memperbarui Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
+			$this->writeLog('Memperbarui Data dengan NIK '.$model->nik);
             return $this->redirect(['view', 'id' => $model->nik]);
         } else {
             return $this->render('update', [

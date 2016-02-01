@@ -15,39 +15,45 @@ $this->title = 'OCFA System Admin';
 	  <div class="row ">
 		<div class="col-lg-4 col-xs-6">
 		  <!-- small box -->
-		  <div class="small-box bg-aqua">
-			<div class="inner">
-			  <p>Jumlah Penduduk</p>
-			  <h3><?=DataManagement::find()->count() ?></h3>
-			</div>
-			<div class="icon">
-			  <i class="fa fa-users"></i>
-			</div>
-		  </div>
+		  <a href="admin/data">
+			  <div class="small-box bg-aqua">
+				<div class="inner">
+				  <p>Jumlah Penduduk</p>
+				  <h3><?=DataManagement::find()->count() ?></h3>
+				</div>
+				<div class="icon">
+				  <i class="fa fa-users"></i>
+				</div>
+			  </div>
+		  </a>
 		</div><!-- ./col -->
 		<div class="col-lg-4 col-xs-6">
 		  <!-- small box -->
-		  <div class="small-box bg-green">
-			<div class="inner">
-			  <p>Jumlah User</p>
-			  <h3><?=User::find()->count() ?></h3>
-			</div>
-			<div class="icon">
-			  <i class="fa fa-user"></i>
-			</div>
-		  </div>
+		  <a href="admin/user">
+			  <div class="small-box bg-green">
+				<div class="inner">
+				  <p>Jumlah User</p>
+				  <h3><?=User::find()->count() ?></h3>
+				</div>
+				<div class="icon">
+				  <i class="fa fa-user"></i>
+				</div>
+			  </div>
+		  </a>
 		</div><!-- ./col -->
 		<div class="col-lg-4 col-xs-6">
 		  <!-- small box -->
-		  <div class="small-box bg-yellow">
-			<div class="inner">
-			  <p>Aktivitas User Hari Ini</p>
-			  <h3><?=UserActivity::find()->where('timestamp like "'.\Yii::$app->formatter->asDate('now','php:Y-m-d').'%"')->count()?></h3>
-			</div>
-			<div class="icon">
-			  <i class="fa fa-bar-chart"></i>
-			</div>
-		  </div>
+		  <a href="admin/user-activity">
+			  <div class="small-box bg-yellow">
+				<div class="inner">
+				  <p>Aktivitas User Hari Ini</p>
+				  <h3><?=UserActivity::find()->where('timestamp like "'.\Yii::$app->formatter->asDate('now','php:Y-m-d').'%"')->count()?></h3>
+				</div>
+				<div class="icon">
+				  <i class="fa fa-bar-chart"></i>
+				</div>
+			  </div>
+		  </a>
 		</div><!-- ./col -->
 	  </div><!-- /.row -->
 	  <!-- Main row -->
@@ -66,10 +72,10 @@ $this->title = 'OCFA System Admin';
 						GoogleChart::widget(array('visualization' => 'PieChart',
 						'data' => array(
 							array('Jenis Kelamin', 'Jumlah'),
-							array('Laki-laki', 11),
-							array('Perempuan', 2)
+							array('Laki-laki', $laki['count'] != 0 ? (int)$laki['count'] : 0),
+							array('Perempuan', $pr['count'] != 0 ? (int)$pr['count'] : 0)
 						),
-						'options' => array('title' => 'Jenis Kelamin'))); 
+						'options' => array('title' => 'Jenis Kelamin', 'sliceVisibilityThreshold' => '0', 'is3D' => true))); 
 					?>
 				</div>
 				<div class="col-md-4">
@@ -77,10 +83,10 @@ $this->title = 'OCFA System Admin';
 						GoogleChart::widget(array('visualization' => 'PieChart',
 						'data' => array(
 							array('Status', 'Jumlah'),
-							array('Lahir', 11),
-							array('Meninggal', 2)
+							array('Hidup', $hidup['count'] != 0 ? (int)$hidup['count'] : 0),
+							array('Meninggal', $mati['count'] != 0 ? (int)$mati['count'] : 0)
 						),
-						'options' => array('title' => 'Jumlah Kematian dan Kelahiran'))); 
+						'options' => array('title' => 'Jumlah Kematian dan Kelahiran', 'sliceVisibilityThreshold' => '0', 'is3D' => true))); 
 					?>
 				</div>
 				<div class="col-md-4">
@@ -88,14 +94,14 @@ $this->title = 'OCFA System Admin';
 						GoogleChart::widget(array('visualization' => 'PieChart',
 						'data' => array(
 							array('Range', 'Jumlah'),
-							array('0 - 5', 11),
-							array('6 - 12', 2),
-							array('13 - 20', 2),
-							array('21 - 50', 2),
-							array('51 - 65', 7),
-							array('66 - ...', 7)
+							array('0 - 5', (int)$balita['count']),
+							array('6 - 12', (int)$anak['count']),
+							array('13 - 20', (int)$remaja['count']),
+							array('21 - 50', (int)$dewasa['count']),
+							array('51 - 65', (int)$tua['count']),
+							array('66 - ...', (int)$lansia['count'])
 						),
-						'options' => array('title' => 'Umur rata-rata'))); 
+						'options' => array('title' => 'Umur rata-rata', 'sliceVisibilityThreshold' => '0', 'is3D' => true))); 
 					?>
 				</div>
 			  </div><!-- /.row -->

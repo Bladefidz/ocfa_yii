@@ -8,6 +8,7 @@ use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
 use nex\datepicker\DatePicker;
+use yii\web\View;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\DataManagement */
@@ -46,9 +47,28 @@ use nex\datepicker\DatePicker;
 		//$model = $updatable;
 	}?>
 	
-	<?=$form->field($updatable, 'foto')->fileInput(['accept' => 'image/*', 'capture'=>'camera']);
-	?>
+	<div class="form-group">
+		<div class="col-md-3"></div>
+		<div class="col-md-3">
+			<div class="text-center">
+				<h3>Foto Baru</h3>
+			</div>
+			<div id="my_camera"></div><br>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-3">
+		<?php if(!$model->isNewRecord){ ?>
+			<div class="text-center">
+				<h3>Foto Lama</h3>
+			</div>
+			<img src="data:image/jpeg;base64,<?=base64_encode($updatable->foto)?>" style="max-width:320px;max-height:240px"/>
+		<?php } ?>
+		</div>
+	</div>
 	
+	<?= $form->field($updatable, 'foto')->input('button',['class' => 'btn btn-primary', 'onclick'=>'take_snapshot()', 'value' => 'Ambil Foto']) ?>
+	
+	<div id="results"></div>
 	
 	<?= $form->field($updatable, 'agama')->dropdownList(['1' => 'Islam','2' => 'Kristen','3' => 'Katholik','4' => 'Hindu','5' => 'Budha','6' => 'Konghucu','7' => 'Lainnya'],['prompt'=>'Pilih Agama']) ?>
 
@@ -92,3 +112,24 @@ use nex\datepicker\DatePicker;
     <?php ActiveForm::end(); ?>
 
 </div>
+<?= $this->registerJsFile('https://pixlcore.com/demos/webcamjs/webcam.js', ['position' => View::POS_END]);?>
+<?=$this->registerJs('
+	
+	Webcam.set({
+			width: 320,
+			height: 240,
+			image_format: \'jpeg\',
+			jpeg_quality: 90
+		});
+	Webcam.attach( \'#my_camera\' );
+	function take_snapshot() {
+	//Webcam.loaded = true;
+	// take snapshot and get image data
+	Webcam.snap( function(data_uri) {
+		// display results in page
+		document.getElementById(\'results\').innerHTML = 
+			\'<input type="hidden" name="BaseUpdatable[foto]" value="\'+data_uri+\'">\';
+		
+	} );
+	Webcam.freeze();
+	}', View::POS_END); ?>

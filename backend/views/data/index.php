@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\DataSearch */
@@ -10,6 +11,28 @@ use yii\grid\GridView;
 
 $this->title = 'Data Managements';
 $this->params['breadcrumbs'][] = $this->title;
+$gridColumns = [
+    'nik',
+	'nama',
+	'tempat_lahir',
+	'tanggal_lahir',
+	//'jenis_kelamin',
+	 //'golongan_darah',
+	 'tanggal_diterbitkan',
+	// 'nip_pencatat',
+	// 'kewarganegaraan',
+];
+$gridHeader = [
+    'nik' => 'NIK',
+	'nama' => 'Nama',
+	'tempat_lahir' => 'Tempat Lahir',
+	'tanggal_lahir' => 'Tanggal Lahir',
+	//'jenis_kelamin',
+	 //'golongan_darah',
+	 'tanggal_diterbitkan' => 'Tanggal Diterbitkan',
+	// 'nip_pencatat',
+	// 'kewarganegaraan',
+];
 ?>
 <div class="data-management-index">
 
@@ -24,6 +47,13 @@ $this->params['breadcrumbs'][] = $this->title;
 				<p>
 					<?= Html::a('Input Data Penduduk', ['create'], ['class' => 'btn btn-success']) ?>
 				</p>
+				<?php /*Excel::widget([
+					'models' => \common\models\DataManagement::find(),
+					'mode' => 'export', //default value as 'export'
+					'columns' => $gridColumns, //without header working, because the header will be get label from attribute label. 
+					'headers' => $gridHeader,
+				]); FAILLL*/ ?>
+				<?php Pjax::begin() ?>
 				<?= GridView::widget([
 					'dataProvider' => $dataProvider,
 					'filterModel' => $searchModel,
@@ -54,6 +84,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						],
 					],
 				]); ?>
+				<?php Pjax::end() ?>
 			</div><!--box footer-->
 		</div><!--box-->
     </div>
