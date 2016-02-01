@@ -16,6 +16,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use yii\filters\auth\QueryParamAuth;
 
 class ApiController extends \yii\rest\Controller
 {
@@ -27,6 +28,14 @@ class ApiController extends \yii\rest\Controller
 	    parent::init();
 	    \Yii::$app->user->enableSession = false;
 	}
+
+	public function behaviors(){
+      	$behaviors = parent::behaviors();
+      	$behaviors['authenticator'] = [
+        	'class' => QueryParamAuth::className(),
+      	];
+      	return $behaviors;
+    }
 
 	protected function verbs()
 	{
@@ -205,10 +214,12 @@ class ApiController extends \yii\rest\Controller
 	{
 		$this->setCols();
 		$reqCols = $this->getCols($field);
-    	$model = new ApiResources();
-    	$data = $model->getPenduduk($nik, $reqCols);
 
-    	return $this->exchangeData($data);
+		if(!empty($reqCols)) {
+    		$model = new ApiResources();
+    		$data = $model->getPenduduk($nik, $reqCols);
+    		return $this->exchangeData($data);
+		}
 	}
 
     public function actionPenduduk()
@@ -223,30 +234,20 @@ class ApiController extends \yii\rest\Controller
 	    $response = [];
 	    
 	    if(empty($nik) || empty($field)){
-	      	$response = [
-	        	'status' => '400',
-	        	'message' => 'Bad request',
-	        	'data' => '',
-	      	];
+	      	throw new yii\web\BadRequestHttpException;
 	    } else {
 	    	$data = $this->getPenduduk($nik, $field);
-
+	    	
 	    	if(!empty($data)) {
-	    		$response = [
-		        	'status' => '200',
-		        	'message' => 'data found',
+	    		return [
+	    			"name" => "success",
+	    			'status' => '200',
+		        	'message' => 'found',
 		        	'data' => $data
 		      	];
 	    	} else {
-	    		$response = [
-		        	'status' => '404',
-		        	'message' => 'data not found',
-		        	'data' => null,
-		      	];
+	    		throw new yii\web\NotAcceptableHttpException;
 	    	}
 	    }
-
-	    // \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        return $response;
     }
 }
