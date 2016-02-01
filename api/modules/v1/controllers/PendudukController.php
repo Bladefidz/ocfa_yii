@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\controllers;
+namespace api\modules\v1\controllers;
 
 use yii;
 use common\models\DataManagement;
@@ -9,7 +9,7 @@ use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
-use frontend\models\ApiResources;
+use api\modules\v1\models\ApiResources;
 use backend\controllers\DataController;
 use backend\models\UpdatableSearch;
 use yii\web\Controller;
@@ -18,17 +18,28 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use yii\filters\auth\QueryParamAuth;
 
-class ApiController extends \yii\rest\Controller
+/**
+ * ApiControoler class
+ * localhost/ocfa_yii/api/<method>
+ */
+class PendudukController extends \yii\rest\Controller
 {
 	private $baseCols = array();
 	private $baseUpdatableCols = array();
 
+	/**
+	 * Yii default to call all object 
+	 * @return 
+	 */
 	public function init()
 	{
 	    parent::init();
-	    \Yii::$app->user->enableSession = false;
 	}
 
+	/**
+	 * Yii class behavior
+	 * @return
+	 */
 	public function behaviors(){
       	$behaviors = parent::behaviors();
       	$behaviors['authenticator'] = [
@@ -37,13 +48,20 @@ class ApiController extends \yii\rest\Controller
       	return $behaviors;
     }
 
+    /**
+     * Verb to controll allowed action method
+     * @return array key is controller's name dan value is method
+     */
 	protected function verbs()
 	{
 		return [
-		   'data' => ['POST'],
+		   'index' => ['POST'],
 		];
 	}
 
+	/**
+	 * Set list of base and base_updatable column name
+	 */
 	private function setCols()
 	{
 		$this->baseCols = array(
@@ -74,6 +92,11 @@ class ApiController extends \yii\rest\Controller
 		);
 	}
 
+	/**
+	 * Get requested parameter identified by column's name
+	 * @param  String $field request parameter separated by '-'
+	 * @return array        list of requested column's name
+	 */
 	private function getCols($field)
 	{
 		$selectedCols = null;
@@ -96,6 +119,11 @@ class ApiController extends \yii\rest\Controller
 		return substr_replace($selectedCols, '', -1);
 	}
 
+	/**
+	 * Nomalize requested civil data to be human readable
+	 * @param  array $data civil data
+	 * @return array       normalized civil data
+	 */
 	public static function exchangeData($data)
 	{
 		if(isset($data['jenis_kelamin'])) {
@@ -210,6 +238,12 @@ class ApiController extends \yii\rest\Controller
 		return $data;
 	}
 
+	/**
+	 * Get civil data
+	 * @param  integer $nik   civil unique indentity
+	 * @param  string $field requested column name
+	 * @return array        normalized civil data
+	 */
 	private function getPenduduk($nik, $field)
 	{
 		$this->setCols();
@@ -222,7 +256,11 @@ class ApiController extends \yii\rest\Controller
 		}
 	}
 
-    public function actionPenduduk()
+	/**
+	 * API to access civil data
+	 * @return
+	 */
+    public function actionIndex()
     {
     	$request = Yii::$app->request;
 
