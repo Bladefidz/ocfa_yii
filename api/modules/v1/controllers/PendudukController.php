@@ -55,7 +55,7 @@ class PendudukController extends \yii\rest\Controller
 	protected function verbs()
 	{
 		return [
-		   'index' => ['POST'],
+		   'index' => ['POST', 'GET'],
 		];
 	}
 
@@ -266,26 +266,28 @@ class PendudukController extends \yii\rest\Controller
 
     	if ($request->isPost) {
     		$nik = !empty($_POST['nik'])?$_POST['nik']:'';
-    		$field = !empty($_POST['field'])?$_POST['field']:'';
-    	}
+    	} elseif($request->isGet) {
+    		$nik = !empty($_GET['nik'])?$_GET['nik']:'';
+    		$field = !empty($_GET['field'])?$_GET['field']:'';
 
-	    $response = [];
-	    
-	    if(empty($nik) || empty($field)){
-	      	throw new yii\web\BadRequestHttpException;
-	    } else {
-	    	$data = $this->getPenduduk($nik, $field);
-	    	
-	    	if(!empty($data)) {
-	    		return [
-	    			"name" => "success",
-	    			'status' => '200',
-		        	'message' => 'found',
-		        	'data' => $data
-		      	];
-	    	} else {
-	    		throw new yii\web\NotAcceptableHttpException;
-	    	}
-	    }
+    		if(empty($nik) || empty($field)){
+		      	throw new yii\web\BadRequestHttpException;
+		    } else {
+		    	$data = $this->getPenduduk($nik, $field);
+		    	
+		    	if(!empty($data)) {
+		    		return [
+		    			"name" => "success",
+		    			'status' => '200',
+			        	'message' => 'found',
+			        	'data' => $data
+			      	];
+		    	} else {
+		    		throw new yii\web\NotAcceptableHttpException;
+		    	}
+		    }
+    	} else {
+    		throw new yii\web\MethodNotAllowedHttpException;
+    	}
     }
 }
