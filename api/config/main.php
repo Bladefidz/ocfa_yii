@@ -19,11 +19,6 @@ return [
             'class' => 'api\modules\v1\Module'
         ]
     ],
-    'controllerNamespace' => [
-        'api\modules\v1\controllers',
-        'api\modules\v0\controllers'
-    ],
-    'homeUrl' => '/ocfa_yii/api',
     'components' => [        
         'user' => [
             'identityClass' => 'api\common\models\User',
