@@ -106,7 +106,7 @@
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7ccbfdf4cfb0ce025e27455dc3e516af23eb2800",
-            "reference": "c1c502ff2b792fac5470356373e243b77d2a36c7",
+            "reference": "7ccbfdf4cfb0ce025e27455dc3e516af23eb2800",
             "shasum": ""
         },
         "require": {
@@ -132,7 +132,7 @@
                 "dev-master": "2.0.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "yii\\": ""
@@ -543,12 +543,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/fzaninotto/Faker.git",
-            "reference": "7abdb59318447db23ee77ba2d576c20e7718e27f"
+            "reference": "b312ab9d0c446971069e22a524fec01c7cddc75e"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/b312ab9d0c446971069e22a524fec01c7cddc75e",
-            "reference": "1039b239eaf5ea865ded8e403dc707da6a629474",
+            "reference": "b312ab9d0c446971069e22a524fec01c7cddc75e",
             "shasum": ""
         },
         "require": {
@@ -559,14 +559,14 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~1.5"
         },
-        "time": "2016-01-31 22:12:33",
+        "time": "2016-02-01 17:08:46",
         "type": "library",
         "extra": {
             "branch-alias": {
                 "dev-master": "1.6.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Faker\\": "src/Faker/"
