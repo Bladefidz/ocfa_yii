@@ -5,22 +5,25 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\UserActivitySearch */
+/* @var $searchModel backend\models\KeluargaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User Activities';
+$this->title = 'Keluarga';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-activity-index">
+<div class="keluarga-index">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+	
 	<div class="col-md-11">
 		<div class="box box-info">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?='Data User'?></h3>
+				<h3 class="box-title"><?='Data Penduduk'?></h3>
 			</div>
 			<div class="box-body">
+				<p>
+					<?= Html::a('Tambah KK', ['create'], ['class' => 'btn btn-success']) ?>
+				</p>
 				<?php Pjax::begin() ?>
 				<?= GridView::widget([
 					'dataProvider' => $dataProvider,
@@ -28,27 +31,15 @@ $this->params['breadcrumbs'][] = $this->title;
 					'columns' => [
 						['class' => 'yii\grid\SerialColumn'],
 
-						//'id',
-						'nik',
-						[
-							'attribute' => 'nama',
-							'format' => 'raw',
-							'value' => function ($data){
-								$isi = $data->nik0;
-								if(!empty($isi)){
-									return $isi->nama;
-								}else{
-									return '-';
-								}
-							}
-						],
-						'action',
-						'timestamp',
+						'id',
+						'kepala_keluarga',
+						'jml_anak',
+						'jml_anggota',
+						'tanggal_terbit',
+						// 'tanggal_pembaruan',
+						// 'status',
 
-						[
-							'class' => 'yii\grid\ActionColumn',
-							'template'=>'{view} {delete}',
-						],
+						['class' => 'yii\grid\ActionColumn'],
 					],
 				]); ?>
 				<?php Pjax::end() ?>

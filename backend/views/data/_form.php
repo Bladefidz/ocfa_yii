@@ -57,10 +57,10 @@ use yii\web\View;
 		</div>
 		<div class="col-md-1"></div>
 		<div class="col-md-3">
+		<?php if(!$model->isNewRecord){ ?>
 			<div class="text-center">
 				<h3>Foto Lama</h3>
 			</div>
-		<?php if(!$model->isNewRecord){ ?>
 			<img src="data:image/jpeg;base64,<?=base64_encode($updatable->foto)?>" style="max-width:320px;max-height:240px"/>
 		<?php } ?>
 		</div>

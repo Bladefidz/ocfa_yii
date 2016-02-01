@@ -55,6 +55,7 @@ class DataSearch extends DataManagement
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
 			'totalCount' => (int)$totalCount,
+			'pagination' => ['pageSize' => 20],
         ]);
 
         $this->load($params);

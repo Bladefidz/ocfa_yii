@@ -111,4 +111,49 @@ return array (
       '@nex/datepicker' => $vendorDir . '/nex/yii2-datepicker',
     ),
   ),
+  'kartik-v/yii2-krajee-base' => 
+  array (
+    'name' => 'kartik-v/yii2-krajee-base',
+    'version' => '1.8.2.0',
+    'alias' => 
+    array (
+      '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base',
+    ),
+  ),
+  'kartik-v/yii2-grid' => 
+  array (
+    'name' => 'kartik-v/yii2-grid',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
+    ),
+  ),
+  'kartik-v/yii2-export' => 
+  array (
+    'name' => 'kartik-v/yii2-export',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/export' => $vendorDir . '/kartik-v/yii2-export',
+    ),
+  ),
+  'kartik-v/yii2-mpdf' => 
+  array (
+    'name' => 'kartik-v/yii2-mpdf',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/mpdf' => $vendorDir . '/kartik-v/yii2-mpdf',
+    ),
+  ),
+  'moonlandsoft/yii2-phpexcel' => 
+  array (
+    'name' => 'moonlandsoft/yii2-phpexcel',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@moonland/phpexcel' => $vendorDir . '/moonlandsoft/yii2-phpexcel',
+    ),
+  ),
 );

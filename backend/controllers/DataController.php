@@ -246,7 +246,7 @@ class DataController extends Controller
 			$updatable->nik = $nik;
 			$model->tanggal_lahir = Yii::$app->formatter->asDate($model->tanggal_lahir, 'yyyy-MM-dd');
 			$model->tanggal_diterbitkan = date('Y-m-d');
-			if($model->save() && $updatable->save()){
+			if($model->validate() && $updatable->validate() && $model->save() && $updatable->save()){
 				$this->writeLog('Menambah Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
 				return $this->redirect(['view', 'id' => $model->nik]);
 			}else{
