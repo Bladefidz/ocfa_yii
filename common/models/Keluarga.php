@@ -9,8 +9,6 @@ use Yii;
  *
  * @property string $id
  * @property string $kepala_keluarga
- * @property integer $jml_anak
- * @property integer $jml_anggota
  * @property string $tanggal_terbit
  * @property string $tanggal_pembaruan
  * @property integer $status
@@ -33,8 +31,8 @@ class Keluarga extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'kepala_keluarga', 'jml_anggota', 'tanggal_terbit', 'tanggal_pembaruan', 'status'], 'required'],
-            [['id', 'kepala_keluarga', 'jml_anak', 'jml_anggota', 'status'], 'integer'],
+            [['id', 'kepala_keluarga', 'tanggal_terbit', 'tanggal_pembaruan', 'status'], 'required'],
+            [['id', 'kepala_keluarga', 'status'], 'integer'],
             [['tanggal_terbit', 'tanggal_pembaruan'], 'safe'],
             [['kepala_keluarga'], 'exist', 'skipOnError' => true, 'targetClass' => DataManagement::className(), 'targetAttribute' => ['kepala_keluarga' => 'nik']],
         ];
@@ -48,8 +46,6 @@ class Keluarga extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'kepala_keluarga' => 'Kepala Keluarga',
-            'jml_anak' => 'Jumlah Anak',
-            'jml_anggota' => 'Jumlah Anggota',
             'tanggal_terbit' => 'Tanggal Terbit',
             'tanggal_pembaruan' => 'Tanggal Pembaruan',
             'status' => 'Status',

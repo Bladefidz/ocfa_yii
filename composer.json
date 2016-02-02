@@ -23,7 +23,9 @@
         "yiisoft/yii2-apidoc": "^2.0",
         "scotthuangzl/yii2-google-chart": "dev-master",
         "nex/yii2-datepicker": "*",
-        "yiisoft/yii2-authclient": "^2.0"
+        "yiisoft/yii2-authclient": "^2.0",
+        "yiisoft/yii2-jui": "^2.0",
+        "kartik-v/yii2-widget-select2": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

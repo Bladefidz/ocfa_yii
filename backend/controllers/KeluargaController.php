@@ -4,10 +4,12 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Keluarga;
+use common\models\BaseUpdatable;
 use backend\models\KeluargaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\VarDumper;
 
 /**
  * KeluargaController implements the CRUD actions for Keluarga model.
@@ -65,10 +67,24 @@ class KeluargaController extends Controller
     {
         $model = new Keluarga();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+			$no_kk = substr($model->kepala_keluarga,0,6).Yii::$app->formatter->asDate('now', 'ddMMyy').$model->id;
+			$model->id = $no_kk;
+			$model->tanggal_terbit = date('Y-m-d');
+			$model->tanggal_pembaruan = date('Y-m-d');
+			$model->status = 1;
+			$updatable = BaseUpdatable::findOne($model->kepala_keluarga);
+			$updatable->no_kk = $no_kk;
+			$updatable->status_keluarga = 1;
+			//echo var_dump($model);
+			if($model->save() && $updatable->save()){
+				return $this->redirect(['view', 'id' => $model->id]);
+			}else{
+				VarDumper::dump($model->getErrors(),5678,true);
+				//return $this->actionIndex();
+			}
         } else {
-            return $this->render('create', [
+            return $this->renderAjax('create', [
                 'model' => $model,
             ]);
         }

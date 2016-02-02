@@ -7,12 +7,18 @@ use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
+use common\models\Keluarga;
+use common\models\DataManagement;
 use nex\datepicker\DatePicker;
 use yii\web\View;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\DataManagement */
 /* @var $form yii\widgets\ActiveForm */
+
+$ayah = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '.$model->nik.' and jenis_kelamin = 1')->all(),'nik','nik');
+$ibu = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '.$model->nik.' and jenis_kelamin = 2')->all(),'nik','nik');
 ?>
 
 <div class="data-management-form">
@@ -20,7 +26,7 @@ use yii\web\View;
 	<?php $form = ActiveForm::begin(['layout' => 'horizontal', 'options' => ['enctype'=>'multipart/form-data']]); 
 	
 	if($model->isNewRecord){?>
-		<?= $form->field($model, 'nik')->textInput() ?>
+		<?= $form->field($model, 'nik')->input('number', ['min' => '0'])->label('Empat Digit Terakhir *') ?>
 		
 		<?= $form->field($model, 'nama')->textInput() ?>
 		
@@ -38,8 +44,6 @@ use yii\web\View;
 		<?= $form->field($model, 'golongan_darah')->radioList(array('o'=>'O','a'=>'A','b'=>'B','ab'=>'AB')); ?>
 
 		<?= $form->field($model, 'tanggal_diterbitkan')->input('hidden')->label(false) ?>
-
-		<?= $form->field($model, 'nip_pencatat')->textInput(['maxlength' => true]) ?>
 
 		<?= $form->field($model, 'kewarganegaraan')->radioList(array('1'=>'WNI','2'=>'WNA')); ?>
 		
@@ -61,7 +65,7 @@ use yii\web\View;
 			<div class="text-center">
 				<h3>Foto Lama</h3>
 			</div>
-			<img src="data:image/jpeg;base64,<?=base64_encode($updatable->foto)?>" style="max-width:320px;max-height:240px"/>
+			<img src="<?=$updatable->foto?>" style="max-width:320px;max-height:240px"/>
 		<?php } ?>
 		</div>
 	</div>
@@ -74,26 +78,77 @@ use yii\web\View;
 
 	<?php
 	$provinsi = ArrayHelper::map(Provinces::find()->orderBy('name')->all(),'id','name');
-	echo $form->field($updatable, 'provinsi')->dropdownList($provinsi,['prompt'=>'Pilih Provinsi','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kabupaten?id=').'"+$(this).val(), function( data ) {$( "select#kabupaten" ).html( data );});'])
+	echo $form->field($updatable, 'provinsi')->widget(Select2::classname(), [
+		'data' => $provinsi,
+		'language' => 'id',
+		'options' => ['prompt'=>'Pilih Provinsi','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kabupaten?id=').'"+$(this).val(), function( data ) {$( "select#kabupaten" ).html( data );});'],
+		'theme' => Select2::THEME_BOOTSTRAP,
+	])
 	?>
 
 	<?php
 	$kabupaten = ArrayHelper::map(Regencies::find()->where(['province_id'=>$updatable->provinsi])->orderBy('name')->all(),'id','name');
-	echo $form->field($updatable, 'kabupaten')->dropdownList($kabupaten,['prompt'=>'Pilih Kabupaten','id'=>'kabupaten','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kecamatan?id=').'"+$(this).val(), function( data ) {$( "select#kecamatan" ).html( data );});']) ?>
+	echo $form->field($updatable, 'kabupaten')->widget(Select2::classname(), [
+		'data' => $kabupaten,
+		'language' => 'id',
+		'options' => ['prompt'=>'Pilih Kabupaten','id'=>'kabupaten','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kecamatan?id=').'"+$(this).val(), function( data ) {$( "select#kecamatan" ).html( data );});'],
+		'theme' => Select2::THEME_BOOTSTRAP,
+	]) ?>
 	
 	<?php
 	$kecamatan = ArrayHelper::map(Districts::find()->where(['regency_id'=>$updatable->kabupaten])->orderBy('name')->all(),'id','name');
-	echo $form->field($updatable, 'kecamatan')->dropdownList($kecamatan,['prompt'=>'Pilih Kecamatan','id'=>'kecamatan','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kelurahan?id=').'"+$(this).val(), function( data ) {$( "select#kelurahan" ).html( data );});']) ?>
+	echo $form->field($updatable, 'kecamatan')->widget(Select2::classname(), [
+		'data' => $kecamatan,
+		'language' => 'id',
+		'options' => ['prompt'=>'Pilih Kecamatan','id'=>'kecamatan','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kelurahan?id=').'"+$(this).val(), function( data ) {$( "#kelurahan" ).html( data );});'],
+		'theme' => Select2::THEME_BOOTSTRAP,
+	]) ?>
 	
 	<?php
 	$kelurahan = ArrayHelper::map(Villages::find()->where(['district_id'=>$updatable->kecamatan])->orderBy('name')->all(),'id','name');
-	echo $form->field($updatable, 'kelurahan')->dropdownList($kelurahan,['prompt'=>'Pilih Kelurahan','id'=>'kelurahan',]) ?>
+	echo $form->field($updatable, 'kelurahan')->widget(Select2::classname(), [
+		'data' => $kelurahan,
+		'language' => 'id',
+		'options' => ['prompt' => 'Pilih Kelurahan', 'id' => 'kelurahan'],
+		'theme' => Select2::THEME_BOOTSTRAP,
+	]) ?>
 	
-	<?= $form->field($updatable, 'rt')->input('number',['maxlength' => true]) ?>
+	<?= $form->field($updatable, 'rt')->input('number',['min' => 1,'maxlength' => true]) ?>
 	
-	<?= $form->field($updatable, 'rw')->input('number',['maxlength' => true]) ?>
+	<?= $form->field($updatable, 'rw')->input('number',['min' => 1,'maxlength' => true]) ?>
 	
 	<?= $form->field($updatable, 'alamat')->textarea(['rows'=>3,'maxlength' => true]) ?>
+	
+	<?php $data = ArrayHelper::map(Keluarga::find()->asArray()->all(),'id','id'); ?>
+	<?= $form->field($updatable, 'no_kk')->widget(Select2::classname(), [
+		'data' => $data,
+		'language' => 'id',
+		'options' => ['prompt' => 'Masukkan No KK','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/statkk?id=').'"+$(this).val(), function( data ) {$( "#kelurahan" ).html( data );});'],
+		'theme' => Select2::THEME_BOOTSTRAP,
+	])->label('No KK'); ?>
+	
+	<?= $form->field($updatable, 'status_keluarga')->dropdownList(['2' => 'Istri','3' => 'Anak'],['prompt'=>'Pilih Status Keluarga', 'id' => 'status_keluarga']) ?>
+	
+	<div class="form-group">
+		<div class="col-md-3"></div>
+		<div class="col-md-8">
+			<p><strong>Catatan : </strong>Untuk mengganti Kepala Keluarga, silakan diganti di menu Data Keluarga</p>
+		</div>
+	</div>
+	
+	<?= $form->field($updatable, 'ayah')->widget(Select2::classname(), [
+		'data' => $ayah,
+		'language' => 'id',
+		'options' => ['prompt' => 'Pilih NIK Ayah','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/statkk?id=').'"+$(this).val(), function( data ) {$( "#kelurahan" ).html( data );});'],
+		'theme' => Select2::THEME_BOOTSTRAP,
+	]) ?>
+	
+	<?= $form->field($updatable, 'ibu')->widget(Select2::classname(), [
+		'data' => $ibu,
+		'language' => 'id',
+		'options' => ['prompt' => 'Pilih NIK Ibu','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/statkk?id=').'"+$(this).val(), function( data ) {$( "#kelurahan" ).html( data );});'],
+		'theme' => Select2::THEME_BOOTSTRAP,
+	]) ?>
 	
 	<?= $form->field($updatable, 'status_perkawinan')->dropdownList(['0' => 'Belum Menikah','1' => 'Menikah', '2' => 'Cerai', '3' => 'Cerai ditinggal mati'],['prompt' => 'Pilih Status Perkawinan']) ?>
 	
@@ -103,8 +158,15 @@ use yii\web\View;
 	
 	<?= $form->field($updatable, 'pendidikan_terakhir')->dropdownList(['1' => 'SD', '2' => 'SMP', '3' => 'SMA','4' => 'D 1', '5' => 'D 2', '6' => 'D 3', '7' => 'D 4 / Sarjana (S 1)', '8' => 'Pasca Sarjana (S 2)', '9' => 'Pasca Sarjana (S 3)'],['prompt' => 'Pilih Pendidikan Terakhir']) ?>
 	
+	<div class="form-group">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h4><strong>* Harus diisi</strong></h4>
+		</div>
+	</div>
+	
 </div><!--box body-->
-<div class="box-footer">
+<div class="box-footer text-center">
 	
 	<?= Html::submitButton($updatable->isNewRecord ? 'Create' : 'Update', ['class' => $updatable->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 
@@ -112,7 +174,7 @@ use yii\web\View;
     <?php ActiveForm::end(); ?>
 
 </div>
-<?= $this->registerJsFile('https://pixlcore.com/demos/webcamjs/webcam.js', ['position' => View::POS_END]);?>
+
 <?=$this->registerJs('
 	
 	Webcam.set({
