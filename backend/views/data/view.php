@@ -68,6 +68,8 @@ $this->params['breadcrumbs'][] = $this->title;
 						'rt',
 						'rw',
 						'alamat',
+						'no_kk',
+						'status_keluarga',
 						'status_perkawinan',
 						'pekerjaan',
 						'pendidikan_terakhir',

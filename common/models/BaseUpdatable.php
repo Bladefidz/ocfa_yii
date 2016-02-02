@@ -8,6 +8,10 @@ use Yii;
  * This is the model class for table "base_updatable".
  *
  * @property string $nik
+ * @property string $no_kk
+ * @property integer $status_keluarga
+ * @property string $ayah
+ * @property string $ibu
  * @property resource $foto
  * @property integer $agama
  * @property integer $provinsi
@@ -19,7 +23,7 @@ use Yii;
  * @property string $alamat
  * @property integer $status_perkawinan
  * @property string $pekerjaan
- * @property string $pendidikan_terakhir
+ * @property integer $pendidikan_terakhir
  *
  * @property Base $nik0
  */
@@ -40,7 +44,7 @@ class BaseUpdatable extends \yii\db\ActiveRecord
     {
         return [
             [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'alamat', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir'], 'required'],
-            [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan','pendidikan_terakhir'], 'integer'],
+            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan', 'pendidikan_terakhir'], 'integer'],
             [['foto'], 'string'],
             [['alamat', 'pekerjaan'], 'string', 'max' => 32],
             [['nik'], 'exist', 'skipOnError' => true, 'targetClass' => DataManagement::className(), 'targetAttribute' => ['nik' => 'nik']],
@@ -49,23 +53,28 @@ class BaseUpdatable extends \yii\db\ActiveRecord
 
     /**
      * @inheritdoc
+	 * status_keluarga => [1 => Kepala Keluarga, 2 => Istri, 3 => Anak]
      */
     public function attributeLabels()
     {
         return [
-            'nik' => 'Nik',
+            'nik' => 'NIK *',
+			'no_kk' => 'Nomor KK',
+            'status_keluarga' => 'Status Keluarga',
+            'ayah' => 'NIK Ayah',
+            'ibu' => 'NIK Ibu',
             'foto' => 'Foto',
-            'agama' => 'Agama',
-            'provinsi' => 'Provinsi',
-            'kabupaten' => 'Kabupaten',
-            'kecamatan' => 'Kecamatan',
-            'kelurahan' => 'Kelurahan',
+            'agama' => 'Agama *',
+            'provinsi' => 'Provinsi *',
+            'kabupaten' => 'Kabupaten *',
+            'kecamatan' => 'Kecamatan *',
+            'kelurahan' => 'Kelurahan *',
             'rt' => 'Rt',
             'rw' => 'Rw',
-            'alamat' => 'Alamat',
-            'status_perkawinan' => 'Status Perkawinan',
-            'pekerjaan' => 'Pekerjaan',
-            'pendidikan_terakhir' => 'Pendidikan Terakhir',
+            'alamat' => 'Alamat *',
+            'status_perkawinan' => 'Status Perkawinan *',
+            'pekerjaan' => 'Pekerjaan *',
+            'pendidikan_terakhir' => 'Pendidikan Terakhir *',
         ];
     }
 

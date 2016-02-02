@@ -42,7 +42,7 @@ class DataManagement extends \yii\db\ActiveRecord
         return [
             [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'nip_pencatat', 'kewarganegaraan','arsip'], 'required'],
             [['nik', 'jenis_kelamin', 'nip_pencatat', 'kewarganegaraan', 'jml','arsip'], 'integer'],
-            [['tanggal_lahir', 'tanggal_diterbitkan', 'jml'], 'safe'],
+            [['ket','jml'], 'safe'],
             [['nama', 'tempat_lahir'], 'string', 'max' => 255],
             [['golongan_darah'], 'string', 'max' => 2],
 			[['ket'], 'string', 'max' => 100],
@@ -55,16 +55,16 @@ class DataManagement extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'nik' => 'Empat digit terakhir',
-            'nama' => 'Nama',
-            'tempat_lahir' => 'Tempat Lahir',
-            'tanggal_lahir' => 'Tanggal Lahir',
-            'jenis_kelamin' => 'Jenis Kelamin',
-            'golongan_darah' => 'Golongan Darah',
-            'tanggal_diterbitkan' => 'Tanggal Diterbitkan',
-            'nip_pencatat' => 'NIP Pencatat',
-            'kewarganegaraan' => 'Kewarganegaraan',
-			'arsip' => 'Arsip',
+            'nik' => 'NIK *',
+            'nama' => 'Nama *',
+            'tempat_lahir' => 'Tempat Lahir *',
+            'tanggal_lahir' => 'Tanggal Lahir *',
+            'jenis_kelamin' => 'Jenis Kelamin *',
+            'golongan_darah' => 'Golongan Darah *',
+            'tanggal_diterbitkan' => 'Tanggal Diterbitkan *',
+            'nip_pencatat' => 'NIP Pencatat *',
+            'kewarganegaraan' => 'Kewarganegaraan *',
+			'arsip' => 'Arsip *',
             'ket' => 'Ket',
         ];
     }
@@ -119,5 +119,13 @@ class DataManagement extends \yii\db\ActiveRecord
     public function getUserActivities()
     {
         return $this->hasMany(UserActivity::className(), ['nik' => 'nik']);
+    }
+	
+	/**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getKeluargas()
+    {
+        return $this->hasMany(Keluarga::className(), ['kepala_keluarga' => 'nik']);
     }
 }

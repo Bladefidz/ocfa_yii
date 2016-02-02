@@ -12,13 +12,15 @@ use common\models\Keluarga;
  */
 class KeluargaSearch extends Keluarga
 {
+	public $nama;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'kepala_keluarga', 'jml_anak', 'jml_anggota', 'status'], 'integer'],
+            [['id', 'kepala_keluarga', 'status'], 'integer'],
+			[['nama'], 'string'],
             [['tanggal_terbit', 'tanggal_pembaruan'], 'safe'],
         ];
     }
@@ -47,6 +49,9 @@ class KeluargaSearch extends Keluarga
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+			'pagination' => [
+				'pageSize' => 10,
+			]
         ]);
 
         $this->load($params);
@@ -56,17 +61,26 @@ class KeluargaSearch extends Keluarga
             // $query->where('0=1');
             return $dataProvider;
         }
+		
+		$dataProvider->query->joinWith([
+			'kepalaKeluarga' => function($q){
+				$q->from('base');
+			}
+		]);
 
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'kepala_keluarga' => $this->kepala_keluarga,
-            'jml_anak' => $this->jml_anak,
-            'jml_anggota' => $this->jml_anggota,
+            //'kepala_keluarga' => $this->kepala_keluarga,
             'tanggal_terbit' => $this->tanggal_terbit,
             'tanggal_pembaruan' => $this->tanggal_pembaruan,
             'status' => $this->status,
         ]);
+		
+		$query->andFilterWhere(['like', 'id', $this->id]);
+		$query->andFilterWhere(['like', 'tanggal_terbit', $this->tanggal_terbit]);
+        $query->andFilterWhere(['like', 'base.nama', $this->kepala_keluarga]);
+		$query->andFilterWhere(['like', 'status', $this->status]);
 
         return $dataProvider;
     }

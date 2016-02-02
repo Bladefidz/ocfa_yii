@@ -15,6 +15,7 @@ use backend\models\UpdatableSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+//use yii\helpers\VarDumper;
 
 /**
  * DataController implements the CRUD actions for DataManagement model.
@@ -120,6 +121,18 @@ class DataController extends Controller
 				break;
 		}
 		$data->status_perkawinan = $status_perkawinan;
+		switch($data->status_keluarga){
+			case '1':
+				$status_keluarga = 'Kepala Keluarga';
+				break;
+			case '2':
+				$status_keluarga = 'Istri';
+				break;
+			case '3':
+				$status_keluarga = 'Anak';
+				break;
+		}
+		$data->status_keluarga = $status_keluarga;
 		if($data->pekerjaan == 'NULL'){
 			$data->pekerjaan = '-';
 		}
@@ -242,18 +255,23 @@ class DataController extends Controller
 			}else{
 				$nik = substr($updatable->kecamatan,0,strlen($updatable->kecamatan)-1).((integer)Yii::$app->formatter->asDate($model->tanggal_lahir, 'dd')+40).Yii::$app->formatter->asDate($model->tanggal_lahir, 'MMyy').$model->nik;
 			}
+			$temp = $model->nik;
 			$model->nik = $nik;
 			$updatable->nik = $nik;
 			$model->tanggal_lahir = Yii::$app->formatter->asDate($model->tanggal_lahir, 'yyyy-MM-dd');
 			$model->tanggal_diterbitkan = date('Y-m-d');
-			if($model->validate() && $updatable->validate() && $model->save() && $updatable->save()){
+			$model->arsip = 0;
+			$model->nip_pencatat = Yii::$app->user->id;
+			if($model->validate() && $model->save() && $updatable->save()){
 				$this->writeLog('Menambah Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
 				return $this->redirect(['view', 'id' => $model->nik]);
 			}else{
+				//VarDumper::dump($updatable->getErrors(),5678,true);
 				$alert = ['options' => [
 						'class' => 'alert-warning',
 					],
 					'body' => 'Ada kesalahan, silakan hubungi bagian teknisi',];
+				$model->nik = $temp;
 				return $this->render('create', [
 					'model' => $model,
 					'updatable' => $updatable,

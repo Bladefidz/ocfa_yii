@@ -18,8 +18,8 @@ class UpdatableSearch extends BaseUpdatable
     public function rules()
     {
         return [
-            [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan'], 'integer'],
-            [['foto','alamat', 'pekerjaan','pendidikan_terakhir'], 'safe'],
+            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan', 'pendidikan_terakhir'], 'integer'],
+            [['foto', 'alamat', 'pekerjaan'], 'safe'],
         ];
     }
 
@@ -60,9 +60,24 @@ class UpdatableSearch extends BaseUpdatable
         // grid filtering conditions
         $query->andFilterWhere([
             'nik' => $this->nik,
+            'no_kk' => $this->no_kk,
+            'status_keluarga' => $this->status_keluarga,
+            'ayah' => $this->ayah,
+            'ibu' => $this->ibu,
+            'agama' => $this->agama,
+            'provinsi' => $this->provinsi,
+            'kabupaten' => $this->kabupaten,
+            'kecamatan' => $this->kecamatan,
+            'kelurahan' => $this->kelurahan,
+            'rt' => $this->rt,
+            'rw' => $this->rw,
+            'status_perkawinan' => $this->status_perkawinan,
+            'pendidikan_terakhir' => $this->pendidikan_terakhir,
         ]);
 
-        //$query->andFilterWhere(['like', 'nama', $this->nama]);
+        $query->andFilterWhere(['like', 'foto', $this->foto])
+            ->andFilterWhere(['like', 'alamat', $this->alamat])
+            ->andFilterWhere(['like', 'pekerjaan', $this->pekerjaan]);
 
         return $dataProvider;
     }
