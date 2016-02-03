@@ -59,4 +59,9 @@ class ApiResources extends Model
 		$data = $command->queryOne();
 		return $data;
 	}
+
+	public function getStatistic()
+	{
+		
+	}
 }

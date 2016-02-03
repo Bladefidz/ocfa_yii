@@ -24,7 +24,16 @@ use yii\filters\auth\QueryParamAuth;
  */
 class PendudukController extends \yii\rest\Controller
 {
+	/**
+	 * List of base table column name.
+	 * @var array
+	 */
 	private $baseCols = array();
+
+	/**
+	 * List of base_updatable table column name.
+	 * @var array
+	 */
 	private $baseUpdatableCols = array();
 
 	/**
@@ -34,6 +43,9 @@ class PendudukController extends \yii\rest\Controller
 	public function init()
 	{
 	    parent::init();
+
+	    $this->setBaseCols();
+	    $this->setUpdatableCols();
 	}
 
 	/**
@@ -60,9 +72,9 @@ class PendudukController extends \yii\rest\Controller
 	}
 
 	/**
-	 * Set list of base and base_updatable column name
+	 * Set list of column name from base table
 	 */
-	private function setCols()
+	private function setBaseCols()
 	{
 		$this->baseCols = array(
 			'nama',
@@ -74,7 +86,13 @@ class PendudukController extends \yii\rest\Controller
 			'nip_pencatat',
 			'kewarganegaraan'
 		);
+	}
 
+	/**
+	 * Set list of column name from base_updatable table
+	 */
+	private function setUpdatableCols()
+	{
 		$this->baseUpdatableCols = array(
 			'nik',
 			'agama',
@@ -97,7 +115,7 @@ class PendudukController extends \yii\rest\Controller
 	 * @param  String $field request parameter separated by '-'
 	 * @return array        list of requested column's name
 	 */
-	private function getCols($field)
+	private function getSelectedCols($field)
 	{
 		$selectedCols = null;
     	$cols = explode('-', $field);
@@ -246,8 +264,7 @@ class PendudukController extends \yii\rest\Controller
 	 */
 	private function getPenduduk($nik, $field)
 	{
-		$this->setCols();
-		$reqCols = $this->getCols($field);
+		$reqCols = $this->getSelectedCols($field);
 
 		if(!empty($reqCols)) {
     		$model = new ApiResources();
@@ -268,9 +285,10 @@ class PendudukController extends \yii\rest\Controller
     		$nik = !empty($_POST['nik'])?$_POST['nik']:'';
     	} elseif($request->isGet) {
     		$nik = !empty($_GET['nik'])?$_GET['nik']:'';
-    		$field = !empty($_GET['field'])?$_GET['field']:'';
+    		$field = isset($_GET['field'])?$_GET['field']:"nama-jenis_kelamin-tempat_lahir-tanggal_lahir";
+    		$search = !empty($_GET['search'])?$_GET['search']:'';
 
-    		if(empty($nik) || empty($field)){
+    		if(empty($nik)){
 		      	throw new yii\web\BadRequestHttpException;
 		    } else {
 		    	$data = $this->getPenduduk($nik, $field);
