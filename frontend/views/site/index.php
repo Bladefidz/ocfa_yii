@@ -25,7 +25,7 @@ $this->title = 'My Yii Application';
             </p>
         </div>   
     </div>
-    <div class="col-lg-12 white" id="registration" style="padding: 15px 0px 0px 0px">
+    <div class="col-lg-12 white" id="registration" style="padding: 5% 0px">
         <div class="container">
             <h2 class="text-center">Registration</h2>
             <hr class="star-primary">
@@ -46,7 +46,7 @@ $this->title = 'My Yii Application';
                 <div class="form-group">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-6 text-center">
-						<?= Html::submitButton('Signup', ['class' => 'btn-lg btn-primary', 'name' => 'signup-button']) ?>
+						<?= Html::submitButton('Sign Up', ['class' => 'btn-lg btn-primary', 'name' => 'signup-button']) ?>
 					</div>
                 </div>
             <?php ActiveForm::end(); ?>
