@@ -47,7 +47,7 @@ $user = new UserCreate();
                         ],
 						'visible' => $user->isAdmin()
                     ],
-					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web'],'visible' => $user->isAdmin()],
+					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['/pengaturan'],'visible' => $user->isAdmin()],
 					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web'],'visible' => !$user->isAdmin()],//'visible' => Yii::$app->user->isGuest
                 ],
             ]
