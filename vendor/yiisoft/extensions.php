@@ -147,4 +147,22 @@ return array (
       '@kartik/select2' => $vendorDir . '/kartik-v/yii2-widget-select2',
     ),
   ),
+  'kartik-v/yii2-grid' => 
+  array (
+    'name' => 'kartik-v/yii2-grid',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
+    ),
+  ),
+  'arturoliveira/yii2-excelview' => 
+  array (
+    'name' => 'arturoliveira/yii2-excelview',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@arturoliveira' => $vendorDir . '/arturoliveira/yii2-excelview',
+    ),
+  ),
 );
