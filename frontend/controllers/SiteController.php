@@ -2,17 +2,20 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\base\Model;
+use yii\base\InvalidParamException;
+use yii\web\BadRequestHttpException;
+use yii\web\UploadedFile;
+use yii\web\Controller;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\User;
+use common\models\UserPublic;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use common\models\UserActivity;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * Site controller
@@ -93,7 +96,7 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 			$this->writeLog('Melakukan Login');
-            return $this->redirect('../admin');
+            return $this->redirect('/ocfa_yii/admin');
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -141,9 +144,18 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionAbout()
+    public function actionTentang()
     {
-        return $this->render('about');
+        return $this->render('tentang');
+    }
+
+    /**
+     * [actionApi description]
+     * @return [type] [description]
+     */
+    public function actionApidoc()
+    {
+        return $this->render('api_doc');
     }
 
     /**
@@ -153,18 +165,35 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+        $user = new User();
+        $userPublic = new UserPublic();
+
+        if ($user->load(Yii::$app->request->post()) && $userPublic->load(Yii::$app->request->post()) && Model::validateMultiple([$user, $userPublic]) ) {
+            $user->setPassword($user->password);
+            $user->generateAuthKey();
+            $user->status = 0;
+            $user->level = 0;
+            if ($userId = $user->save()) {
+                if ($userPublic->load(Yii::$app->request->post())) {
+                    $userPublic->nik = $userId;
+                    $fn = $userPublic->nama_instansi;
+                    $userPublic->upload_tdp = UploadedFile::getInstance($userPublic, 'upload_tdp');
+                    $fpath = 'uploads/' . $fn . '.' . $userPublic->upload_tdp->extension;
+                    $userPublic->upload_tdp->saveAs($fpath);
+                    $userPublic->scan_tdp = $fpath;
+                    if ($userPublic->save()) {
+                        if (Yii::$app->getUser()->login(userId)) {
+                            return $this->goHome();
+                        }
+                    }
                 }
             }
+        } else {
+            return $this->render('signup', [
+                'user' => $user,
+                'userPublic' => $userPublic
+            ]);
         }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -215,10 +244,10 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-	
+
 	/*
 	 * Write to table log
-	 * 
+	 *
 	 * @param string $action
 	 */
 	public function writeLog($action){

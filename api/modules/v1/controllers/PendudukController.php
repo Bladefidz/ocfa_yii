@@ -9,7 +9,9 @@ use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
+use api\common\models\User;
 use api\modules\v1\models\ApiResources;
+use api\common\libraries\Logger;
 use backend\controllers\DataController;
 use backend\models\UpdatableSearch;
 use yii\web\Controller;
@@ -253,6 +255,10 @@ class PendudukController extends \yii\rest\Controller
 			$data['pendidikan_terakhir'] = $pend_terakhir;
 		}
 
+		if(isset($data['tanggal_lahir'])) {
+			$data['tanggal_lahir'] = date("d-m-Y", strtotime($data['tanggal_lahir']));
+		}
+
 		return $data;
 	}
 
@@ -280,13 +286,17 @@ class PendudukController extends \yii\rest\Controller
     public function actionIndex()
     {
     	$request = Yii::$app->request;
+    	$logger = new Logger();
+    	$user = new User();
 
     	if ($request->isPost) {
     		$nik = !empty($_POST['nik'])?$_POST['nik']:'';
+    		$accToken = !empty($_POST['access-token'])?$_POST['access-token']:'';
     	} elseif($request->isGet) {
     		$nik = !empty($_GET['nik'])?$_GET['nik']:'';
     		$field = isset($_GET['field'])?$_GET['field']:"nama-jenis_kelamin-tempat_lahir-tanggal_lahir";
     		$search = !empty($_GET['search'])?$_GET['search']:'';
+    		$accToken = !empty($_GET['access-token'])?$_GET['access-token']:'';
 
     		if(empty($nik)){
 		      	throw new yii\web\BadRequestHttpException;
@@ -298,6 +308,7 @@ class PendudukController extends \yii\rest\Controller
 		    			"name" => "success",
 		    			'status' => '200',
 			        	'message' => 'found',
+			        	'nik_responsible' => $user->findIdentityByAccessToken($accToken)->id,
 			        	'data' => $data
 			      	];
 		    	} else {
@@ -306,6 +317,10 @@ class PendudukController extends \yii\rest\Controller
 		    }
     	} else {
     		throw new yii\web\MethodNotAllowedHttpException;
+    	}
+
+    	if (!empty($accToken)) {
+    		$logger->write($user->findIdentityByAccessToken($accToken)->id);
     	}
     }
 }

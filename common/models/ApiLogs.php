@@ -35,7 +35,7 @@ class ApiLogs extends \yii\db\ActiveRecord
             [['ip', 'nik', 'uri_access', 'method'], 'required'],
             [['nik'], 'integer'],
             [['timestamp'], 'safe'],
-            [['ip'], 'string', 'max' => 15],
+            [['ip'], 'string', 'max' => 45],
             [['uri_access'], 'string', 'max' => 128],
             [['method'], 'string', 'max' => 10],
             [['nik'], 'exist', 'skipOnError' => true, 'targetClass' => DataManagement::className(), 'targetAttribute' => ['nik' => 'nik']],

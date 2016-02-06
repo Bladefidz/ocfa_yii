@@ -5889,3 +5889,1643 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1454461802.25
     'REQUEST_TIME' => 1454461802
 ]
+2016-02-04 02:18:21 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('api')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('api')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('api', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-04 02:18:21 [::1][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => '6kdk4tkbvt01ibnj4koegsbv21'
+    '_csrf' => '5e44ecd0bc7792f7cfc2cb40f8bd5e3dfb2e3acecd80db5a214709c1867d9fc2a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"sRKOMDPygpuTnJ2V_i_4gxslLgBGp59f\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.97 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ocfa_yii/api/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=6kdk4tkbvt01ibnj4koegsbv21; _csrf=5e44ecd0bc7792f7cfc2cb40f8bd5e3dfb2e3acecd80db5a214709c1867d9fc2a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22sRKOMDPygpuTnJ2V_i_4gxslLgBGp59f%22%3B%7D'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '5092'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//api'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ocfa_yii/api/api'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454548701.374
+    'REQUEST_TIME' => 1454548701
+]
+2016-02-06 07:30:43 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ')', expecting variable (T_VARIABLE)' in D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php:13
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-06 07:30:40 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '674cf57d-9485-8114-fd0b-a5d366acf91d'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2961'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454740240.667
+    'REQUEST_TIME' => 1454740240
+]
+2016-02-06 07:31:04 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:2] exception 'yii\base\ErrorException' with message 'Missing argument 1 for api\common\libraries\Logger::write(), called in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php on line 286 and defined' in D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php:17
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php(17): yii\base\ErrorHandler->handleError(2, 'Missing argumen...', 'D:\\xampp\\htdocs...', 17, Array)
+#1 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(286): api\common\libraries\Logger->write()
+#2 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#9 {main}
+2016-02-06 07:31:04 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => 'f9d991b3-f1a6-4a37-95b4-b6f512dadbfc'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2964'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454740264.144
+    'REQUEST_TIME' => 1454740264
+]
+2016-02-06 07:31:24 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'yii\common\ApiLogs' not found' in D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php:18
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-06 07:31:23 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => 'a8577ff0-b03d-0e9f-fb9c-c377178887cd'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2968'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454740283.955
+    'REQUEST_TIME' => 1454740283
+]
+2016-02-06 07:31:59 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'yii\common\models\ApiLogs' not found' in D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php:18
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-06 07:31:59 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '6f551090-d6ea-1c51-a320-4b8f23e99c1e'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2971'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454740319.524
+    'REQUEST_TIME' => 1454740319
+]
+2016-02-06 07:54:40 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: access_token' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:295
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(295): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'D:\\xampp\\htdocs...', 295, Array)
+#1 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#8 {main}
+2016-02-06 07:54:40 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => 'ba1c3593-a726-b116-7d6b-36b2949475d6'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3184'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454741680.185
+    'REQUEST_TIME' => 1454741680
+]
+2016-02-06 07:55:38 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: access_token' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:295
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(295): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'D:\\xampp\\htdocs...', 295, Array)
+#1 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#8 {main}
+2016-02-06 07:55:38 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '067e7a3d-3068-cfec-98be-c2d30114f82c'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3188'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454741738.653
+    'REQUEST_TIME' => 1454741738
+]
+2016-02-06 07:55:39 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: access_token' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:295
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(295): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'D:\\xampp\\htdocs...', 295, Array)
+#1 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#8 {main}
+2016-02-06 07:55:39 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '98dd41ce-3bc4-c120-5dcc-f397004bdc70'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3190'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454741739.636
+    'REQUEST_TIME' => 1454741739
+]
+2016-02-06 07:55:40 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: access_token' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:295
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(295): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'D:\\xampp\\htdocs...', 295, Array)
+#1 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#8 {main}
+2016-02-06 07:55:40 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '2f403d53-ad7c-d5c2-bde4-6790a819646e'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3192'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454741740.47
+    'REQUEST_TIME' => 1454741740
+]
+2016-02-06 07:55:41 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: access_token' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:295
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(295): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'D:\\xampp\\htdocs...', 295, Array)
+#1 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#8 {main}
+2016-02-06 07:55:41 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '235f86d7-de86-06ac-2320-33ff8cd76e4b'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3194'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454741741.208
+    'REQUEST_TIME' => 1454741741
+]
+2016-02-06 07:55:42 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: access_token' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:295
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(295): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'D:\\xampp\\htdocs...', 295, Array)
+#1 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#8 {main}
+2016-02-06 07:55:41 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '698f715b-ae8d-10fc-8d1b-2b7d3bba037e'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3196'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454741741.858
+    'REQUEST_TIME' => 1454741741
+]
+2016-02-06 07:55:55 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: access_token' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:295
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(295): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'D:\\xampp\\htdocs...', 295, Array)
+#1 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#8 {main}
+2016-02-06 07:55:55 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '8rnht5njc15tjil2glo5gdaun0'
+    '_csrf' => '4dbdc512baba6885c98e57bf9604ff37716a1d843e936b460aeca9a1c353bb7fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4nKhaV8r17i-DIrevBaGzwMukzHGyS_d\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=8rnht5njc15tjil2glo5gdaun0; _csrf=4dbdc512baba6885c98e57bf9604ff37716a1d843e936b460aeca9a1c353bb7fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224nKhaV8r17i-DIrevBaGzwMukzHGyS_d%22%3B%7D'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3199'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454741755.241
+    'REQUEST_TIME' => 1454741755
+]
+2016-02-06 07:57:22 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'access_token' in 'where clause'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php:839
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(839): PDOStatement->execute()
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\ActiveQuery.php(290): yii\db\Query->one(NULL)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#5 D:\xampp\htdocs\ocfa_yii\common\models\User.php(103): yii\db\BaseActiveRecord::findOne(Array)
+#6 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(307): common\models\User::findIdentityByAccessToken('j6kJVA5n_1hBTxj...')
+#7 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#11 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#12 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'access_token' in 'where clause'
+The SQL being executed was: SELECT * FROM `user` WHERE `access_token`='j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\ActiveQuery.php(290): yii\db\Query->one(NULL)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#5 D:\xampp\htdocs\ocfa_yii\common\models\User.php(103): yii\db\BaseActiveRecord::findOne(Array)
+#6 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(307): common\models\User::findIdentityByAccessToken('j6kJVA5n_1hBTxj...')
+#7 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#11 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#12 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'access_token' in 'where clause'
+)
+
+2016-02-06 07:57:21 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '8rnht5njc15tjil2glo5gdaun0'
+    '_csrf' => '4dbdc512baba6885c98e57bf9604ff37716a1d843e936b460aeca9a1c353bb7fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4nKhaV8r17i-DIrevBaGzwMukzHGyS_d\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=8rnht5njc15tjil2glo5gdaun0; _csrf=4dbdc512baba6885c98e57bf9604ff37716a1d843e936b460aeca9a1c353bb7fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224nKhaV8r17i-DIrevBaGzwMukzHGyS_d%22%3B%7D'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3250'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454741841.882
+    'REQUEST_TIME' => 1454741841
+]
+2016-02-06 08:26:50 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ':'' in D:\xampp\htdocs\ocfa_yii\api\common\models\Logger.php:29
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-06 08:26:47 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '8rnht5njc15tjil2glo5gdaun0'
+    '_csrf' => '4dbdc512baba6885c98e57bf9604ff37716a1d843e936b460aeca9a1c353bb7fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4nKhaV8r17i-DIrevBaGzwMukzHGyS_d\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=8rnht5njc15tjil2glo5gdaun0; _csrf=4dbdc512baba6885c98e57bf9604ff37716a1d843e936b460aeca9a1c353bb7fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224nKhaV8r17i-DIrevBaGzwMukzHGyS_d%22%3B%7D'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3521'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454743606.279
+    'REQUEST_TIME' => 1454743606
+]
+2016-02-06 08:32:28 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'api\common\libraries\Query' not found' in D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php:16
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-06 08:32:28 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '8rnht5njc15tjil2glo5gdaun0'
+    '_csrf' => '4dbdc512baba6885c98e57bf9604ff37716a1d843e936b460aeca9a1c353bb7fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"4nKhaV8r17i-DIrevBaGzwMukzHGyS_d\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=8rnht5njc15tjil2glo5gdaun0; _csrf=4dbdc512baba6885c98e57bf9604ff37716a1d843e936b460aeca9a1c353bb7fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%224nKhaV8r17i-DIrevBaGzwMukzHGyS_d%22%3B%7D'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3573'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454743948.829
+    'REQUEST_TIME' => 1454743948
+]
+2016-02-06 09:07:55 [::1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ','' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:259
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-06 09:07:55 [::1][-][-][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '8rnht5njc15tjil2glo5gdaun0'
+    '_csrf' => '2a335219cf04903c071d3a0f235c2b059865ccb55a9d92bec9147132dbc36d9ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0CWv6PtvK1DENtBdhHbA3w0wSlegX5jC\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=8rnht5njc15tjil2glo5gdaun0; _csrf=2a335219cf04903c071d3a0f235c2b059865ccb55a9d92bec9147132dbc36d9ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220CWv6PtvK1DENtBdhHbA3w0wSlegX5jC%22%3B%7D'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '1029'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454746075.701
+    'REQUEST_TIME' => 1454746075
+]
+2016-02-06 09:08:07 [::1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected '}'' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:260
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-06 09:08:07 [::1][-][-][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '8rnht5njc15tjil2glo5gdaun0'
+    '_csrf' => '2a335219cf04903c071d3a0f235c2b059865ccb55a9d92bec9147132dbc36d9ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0CWv6PtvK1DENtBdhHbA3w0wSlegX5jC\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=8rnht5njc15tjil2glo5gdaun0; _csrf=2a335219cf04903c071d3a0f235c2b059865ccb55a9d92bec9147132dbc36d9ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220CWv6PtvK1DENtBdhHbA3w0wSlegX5jC%22%3B%7D'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '1034'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454746087.096
+    'REQUEST_TIME' => 1454746087
+]
+2016-02-06 09:35:19 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php:839
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(839): PDOStatement->execute()
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(33): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(277): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(304): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+The SQL being executed was: SELECT `base`.`nama`,`base`.`jenis_kelamin`,`base`.`tanggal_lahir` FROM `base` LEFT JOIN `base_updatable` ON base.nik = base_updatable.nik WHERE base.nik='3502100710940002'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'SELECT `base`.`...')
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(33): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(277): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(304): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => HY093
+    [1] => 0
+)
+
+2016-02-06 09:35:19 [::1][3520082506930001][8rnht5njc15tjil2glo5gdaun0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '8rnht5njc15tjil2glo5gdaun0'
+    '_csrf' => '2a335219cf04903c071d3a0f235c2b059865ccb55a9d92bec9147132dbc36d9ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"0CWv6PtvK1DENtBdhHbA3w0wSlegX5jC\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=8rnht5njc15tjil2glo5gdaun0; _csrf=2a335219cf04903c071d3a0f235c2b059865ccb55a9d92bec9147132dbc36d9ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%220CWv6PtvK1DENtBdhHbA3w0wSlegX5jC%22%3B%7D'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '1097'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454747719.549
+    'REQUEST_TIME' => 1454747719
+]
+2016-02-06 14:58:42 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected '/'' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php:40
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-06 14:58:42 [::1][3520082506930001][qm3ae2vq6jr5ovbt0g65qhpjk0][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'qm3ae2vq6jr5ovbt0g65qhpjk0'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '8f324d94-8f66-a8c7-56f5-29b5b017568d'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=qm3ae2vq6jr5ovbt0g65qhpjk0'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3583'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1454767122.043
+    'REQUEST_TIME' => 1454767122
+]

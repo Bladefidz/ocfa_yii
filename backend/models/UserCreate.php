@@ -29,7 +29,7 @@ class UserCreate extends Model
 			['id', 'filter', 'filter' => 'trim'],
             ['id', 'required'],
             ['id', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['id', 'integer', 'min' => 16, 'max' => 16],
+            ['id', 'string', 'min' => 16, 'max' => 16],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
