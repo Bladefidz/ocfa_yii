@@ -22,39 +22,6 @@ $this->title = 'My Yii Application';
             <p class="lead">
                 Sistem informasi kependudukan terintegrasi, mempermudah pemerintah dalam melakukan managemen data kependudukan dari tingkat desa sampai nasional. Menyediakan layanan API sehingga data kependudukan dapat diakses oleh siapapun dan kapanpun. 
             </p>
-        </div>   
-<<<<<<< HEAD
-    </div>    
-=======
-    </div>
-    <div class="col-lg-12 white" id="registration" style="padding: 5% 0px">
-        <div class="container">
-            <h2 class="text-center">Registration</h2>
-            <hr class="star-primary">
-            <?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
-			
-				<?= $form->field($model, 'id')->input('number',['min' => 0])->label('NIK') ?>
-
-                <?= $form->field($model, 'username')->textInput() ?>
-				
-				<?= $form->field($model, 'corp_name')->label('Nama Instansi') ?>
-
-                <?= $form->field($model, 'email') ?>
-				
-				<?= $form->field($model, 'no_telp')->label('No Telephone') ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <div class="form-group">
-					<div class="col-sm-3"></div>
-					<div class="col-sm-6 text-center">
-						<?= Html::submitButton('Sign Up', ['class' => 'btn-lg btn-primary', 'name' => 'signup-button']) ?>
-					</div>
-                </div>
-            <?php ActiveForm::end(); ?>
         </div>
     </div>
-
-    
->>>>>>> refs/remotes/origin/master
 </div>
