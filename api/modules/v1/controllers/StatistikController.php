@@ -3,38 +3,28 @@
 namespace api\modules\v1\controllers;
 
 use yii;
-use common\models\DataManagement;
-use common\models\BaseUpdatable;
-use common\models\Provinces;
-use common\models\Regencies;
-use common\models\Districts;
-use common\models\Villages;
+use api\common\models\User;
 use api\modules\v1\models\ApiResources;
-use backend\controllers\DataController;
-use backend\models\UpdatableSearch;
+use api\common\libraries\Logger;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use yii\filters\auth\QueryParamAuth;
 
 /**
  * ApiControoler class
  * localhost/ocfa_yii/api/<method>
  */
-class StatistikController extends \yii\rest\Controller
+class StatistikController extends \api\common\libraries\RestReactor
 {
 	/**
-	 * Yii class behavior
-	 * @return
+	 * Yii default to call all object 
+	 * @return 
 	 */
-	public function behaviors(){
-      	$behaviors = parent::behaviors();
-      	$behaviors['authenticator'] = [
-        	'class' => QueryParamAuth::className(),
-      	];
-      	return $behaviors;
-    }
+	public function init()
+	{
+	    parent::init();
+	}
 
     /**
      * Verb to controll allowed action method
@@ -48,51 +38,90 @@ class StatistikController extends \yii\rest\Controller
 	}
 
 	/**
+	 * [getAllStat description]
+	 * @return [type] [description]
+	 */
+	public function getAllStat()
+	{
+
+	}
+
+	/**
+	 * [getStatbyLoc description]
+	 * @return [type] [description]
+	 */
+	private function getStatbyLoc()
+	{
+		$model = new ApiResources();
+
+		$model->provinsi = !empty($_GET['provinsi'])?$_GET['provinsi']:'';
+		$model->kota = !empty($_GET['kota'])?$_GET['kota']:'';
+		$model->kecamatan = !empty($_GET['kecamatan'])?$_GET['kecamatan']:'';
+		$model->kelurahan = !empty($_GET['kelurahan'])?$_GET['kelurahan']:'';
+
+		return $model->getStatJmlPddbyLocation();
+	}
+
+	/**
+	 * [getStatbyYear description]
+	 * @return [type] [description]
+	 */
+	private function getStatbyYear()
+	{
+		$yearstart = !empty($_GET['mulai_tahun'])?$_GET['mulai_tahun']:'';
+		$yearend = !empty($_GET['sampai_tahun'])?$_GET['sampai_tahun']:'';
+		$year = !empty($_GET['tahun'])?$_GET['tahun']:'';
+
+		$model = new ApiResources();
+		if (!empty($yearstart) && !empty($yearend) && empty($year)) {
+			return $model->getStatJmlPddbyRangeYear($yearstart, $yearend);
+		} elseif (!empty($year) && empty($yearstart) && empty($yearend)) {
+			return $model->getStatJmlPddbyYear($year);
+		} else {
+			throw new yii\web\BadRequestHttpException;
+			exit();
+		}
+	}
+
+	/**
 	 * API to access civil statistic data
 	 * @return
 	 */
     public function actionIndex()
     {
-    	$model = new ApiResources();
+    	$request = Yii::$app->request;
     	$logger = new Logger();
     	$user = new User();
 
     	if ($request->isGet) {
-    		$accToken = !empty($_POST['access-token'])?$_POST['access-token']:'';
+    		$accToken = !empty($_GET['access-token'])?$_GET['access-token']:'';
     		$type = !empty($_GET['type'])?$_GET['type']:'';
-    		$yearstart = !empty($_GET['tahun_mulai'])?$_GET['tahun_mulai']:'';
-    		$yearend = !empty($_GET['tahun_sampai'])?$_GET['tahun_sampai']:'';
 
-    		$model->provinsi = !empty($_GET['provinsi'])?$_GET['provinsi']:'';
-    		$model->kota = !empty($_GET['kota'])?$_GET['kota']:'';
-    		$model->kecamatan = !empty($_GET['kecamatan'])?$_GET['kecamatan']:'';
-    		$model->kelurahan = !empty($_GET['kelurahan'])?$_GET['kelurahan']:'';
-
-    		if (empty($type) && empty($accToken)) {
+    		if (empty($type)) {
     			throw new yii\web\BadRequestHttpException;
     		} else {    			
     			switch ($type) {
-	    			case 'jumlah_penduduk':
-	    				return [
-			    			"name" => "success",
-			    			'status' => '200',
-				        	'message' => 'found',
-				        	'nik_responsible' => $user->findIdentityByAccessToken($accToken)->id,
-				        	'data' => $model->getStatJmlPdd()
-				      	];
+	    			case 'lokasi':
+	    				$data = $this->getStatbyLoc();
 	    				break;
-	    			case 'kematian_kelahiran':
-	    				# code...
-	    				break;
-	    			case 'umur':
-	    				# code...
-	    				break;
-	    			
+	    			case 'tahun':
+			    		$data = $this->getStatbyYear();
+	    				break;	    			
 	    			default:
-	    				# code...
+	    				throw new yii\web\BadRequestHttpException;
 	    				break;
 	    		}
+
+	    		return [
+	    			"name" => "success",
+	    			'status' => '200',
+		        	'message' => empty($data)?'found':'not found',
+		        	'nik_responsible' => $user->findIdentityByAccessToken($accToken)->id,
+		        	'data' => $data
+		      	];
     		}
+    	} else {
+    		throw new yii\web\MethodNotAllowedHttpException;
     	}
     }
 }
