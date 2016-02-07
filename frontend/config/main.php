@@ -32,14 +32,20 @@ return [
 		'request' => [
             'baseUrl' => '/ocfa_yii',
         ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'defaultRoute' => 'frontend/index',
+                'api_doc' => 'site/apidoc',
+                'tentang' => 'site/tentang',
+                'signup' => 'site/signup',
+                'login' => 'site/login',
+                'logout' => 'site/logout',
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 	'name'=>'OCFA System',
