@@ -2,17 +2,6 @@
 namespace frontend\controllers;
 
 use Yii;
-<<<<<<< HEAD
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
-use common\models\UserActivity;
-use common\models\BaseUpdatable;
-=======
-use yii\base\Model;
->>>>>>> origin/master
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\UploadedFile;
