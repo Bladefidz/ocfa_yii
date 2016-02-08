@@ -27,7 +27,7 @@ return array(
     'cebe\\markdown\\latex\\' => array($vendorDir . '/cebe/markdown-latex'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'cebe\\jssearch\\' => array($vendorDir . '/cebe/js-search/lib'),
-    'arturoliveira\\' => array($vendorDir . '/arturoliveira/yii2-excelview'),
+    'arogachev\\excel\\' => array($vendorDir . '/arogachev/yii2-excel/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
 );

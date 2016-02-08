@@ -70,11 +70,11 @@ class SiteController extends Controller
 			");
 			$pr = $dbCommand->queryOne();
 			$dbCommand = Yii::$app->db->createCommand("
-			   SELECT COUNT(*) as count FROM base WHERE arsip = 0
+			   SELECT COUNT(*) as count FROM base
 			");
 			$hidup = $dbCommand->queryOne();
 			$dbCommand = Yii::$app->db->createCommand("
-			   SELECT COUNT(*) as count FROM base WHERE arsip = 2
+			   SELECT COUNT(*) as count FROM tabel_kematian
 			");
 			$mati = $dbCommand->queryOne();
 			$dbCommand = Yii::$app->db->createCommand("

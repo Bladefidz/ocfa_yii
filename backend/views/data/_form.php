@@ -17,8 +17,6 @@ use kartik\select2\Select2;
 /* @var $model common\models\DataManagement */
 /* @var $form yii\widgets\ActiveForm */
 
-$ayah = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '.$model->nik.' and jenis_kelamin = 1')->all(),'nik','nik');
-$ibu = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '.$model->nik.' and jenis_kelamin = 2')->all(),'nik','nik');
 ?>
 
 <div class="data-management-form">
@@ -135,6 +133,16 @@ $ibu = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '
 			<p><strong>Catatan : </strong>Untuk mengganti Kepala Keluarga, silakan diganti di menu Data Keluarga</p>
 		</div>
 	</div>
+	
+	<?php
+		if(!$model->isNewRecord){
+			$ayah = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '.$model->nik.' and jenis_kelamin = 1')->all(),'nik','nik');
+			$ibu = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '.$model->nik.' and jenis_kelamin = 2')->all(),'nik','nik');
+		}else{
+			$ayah = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('jenis_kelamin = 1')->all(),'nik','nik');
+			$ibu = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('jenis_kelamin = 2')->all(),'nik','nik');
+		}
+	?>
 	
 	<?= $form->field($updatable, 'ayah')->widget(Select2::classname(), [
 		'data' => $ayah,
