@@ -2,51 +2,48 @@
 namespace frontend\models;
 
 use common\models\User;
-use yii\base\Model;
+use common\models\UserPublic;
 use Yii;
+use yii\base\Model;
+use yii\web\UploadedFile;
 
 /**
  * Signup form
  */
 class SignupForm extends Model
 {
-    public $id;
     public $username;
     public $email;
     public $password;
     public $no_telp;
-    public $app_name;
-    public $corp_name;
-    public $corp_telp;
-    public $corp_email;
-    public $corp_prov;
-    public $corp_region;
-    public $corp_district;
-    public $corp_address;
+    public $upload_tdp;
+    public $userId;
+    private $user;
+    private $userPublic;
+
+    /**
+     * [__construct description]
+     */
+    public function __construct() {
+        $this->user = new User();
+        $this->userPublic = new UserPublic();
+    }
 
     /**
      * @inheritdoc
      */
     public function rules()
     {
-        return [
-            ['id', 'required'],
-            ['id', 'integer', 'min' => 16, 'max' => 16],
+        return array_merge($this->user->rules(), $this->userPublic->rules());
+    }
 
-            ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
-
-            ['email', 'filter', 'filter' => 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
-            ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
-
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
-        ];
+    /**
+     * [attributeLabels description]
+     * @return [type] [description]
+     */
+    public function attributeLabels()
+    {
+        return array_merge($this->user->attributeLabels(), $this->userPublic->attributeLabels());
     }
 
     /**
@@ -56,16 +53,46 @@ class SignupForm extends Model
      */
     public function signup()
     {
-        if (!$this->validate()) {
-            return null;
+        $status = false;
+
+        if ($this->user->load(Yii::$app->request->post()) && $this->userPublic->load(Yii::$app->request->post()) && Model::validateMultiple([$this->user, $this->userPublic]) ) {
+            $this->user->setPassword($this->password);
+            $this->user->generateAuthKey();
+            $this->user->status = 0;
+            $this->user->level = 0;
+            if ($this->userId = $this->user->save()) {
+                $this->userPublic->nik = $this->userId;
+                $fn = $this->userPublic->nama_instansi;
+                $this->userPublic->upload_tdp = UploadedFile::getInstance($this->userPublic, 'upload_tdp');
+                $fpath = 'uploads/' . $fn . '.' . $this->userPublic->upload_tdp->extension;
+                $this->userPublic->upload_tdp->saveAs($fpath);
+                $this->scan_tdp = $fpath;
+                if ($this->userPublic->save()) {
+                    $status = true;
+                }
+            }
         }
-        
-        $user = new User();
-        $user->username = $this->username;
-        $user->email = $this->email;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
-        
-        return $user->save() ? $user : null;
+
+        return $status;
+    }
+
+    /**
+     * [upload description]
+     * @return [type] [description]
+     */
+    public function upload()
+    {
+        $image = UploadedFile::getInstance($this, 'upload_tdp');
+
+        // if no image was uploaded abort the upload
+        if (empty($image)) {
+            return false;
+        }
+
+        // generate random name for the file
+        $this->pic = time(). '.' . $image->extension;
+
+        // the uploaded image instance
+        return $image;
     }
 }

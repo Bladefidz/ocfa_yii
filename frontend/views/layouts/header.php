@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Html;
+use common\models\DataManagement;
+use common\models\User;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -19,9 +21,19 @@ use yii\helpers\Html;
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 		  <ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-			<li class="page-scroll"><a href="#about">About Us</a></li>
-			<li class="page-scroll"><a href="signup">Registration</a></li>
+			<li id="home"><a href="<?= Yii::$app->homeUrl;?>">Home <span class="sr-only">(current)</span></a></li>
+			<li id="api_doc" class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" id="api" aria-expanded="false" href="api_doc">
+					API
+					<span class="caret"></span>
+				</a>
+
+				<ul class="dropdown-menu" aria-labelledby="api" role="menu">
+    				<li><a href="api_doc">Dokumentasi</a></li>
+    				<li><a href="signup">Registrasi</a></li>
+    			</ul>
+			</li>
+			<li id="tentang"><a href="tentang">Tentang OCFA</a></li>
 			<!-- <li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
 			  <ul class="dropdown-menu" role="menu">
@@ -51,7 +63,7 @@ use yii\helpers\Html;
 				<li class="">
                     <?= Html::a(
 						'Log In',
-						['/site/login'],
+						['/login'],
 						['data-method' => 'post', 'class' => 'btn btn-flat']
 					) ?>
                     
@@ -61,23 +73,25 @@ use yii\helpers\Html;
 				?>
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">
+                            <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
-                        
+                        <!-- User header -->
                         <li class="user-header">
-                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
-                                 alt="User Image"/>
-
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                                <small>Bergabung sejak <?= \Yii::$app->formatter->asDate(User::findOne(['id' => Yii::$app->user->getId()])->created_at,'php:d-M-Y');?></small>
                             </p>
+							<p>
+								<small>NIK Anda <?=Yii::$app->user->getId()?></small>
+							</p>
                         </li>
+                        <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">Pengaturan</a>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(

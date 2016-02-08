@@ -67,7 +67,9 @@ use common\models\User;
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="hidden-xs"><?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?></span>
+                        <span class="hidden-xs">
+                            <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User header -->

@@ -43,7 +43,7 @@ use kartik\select2\Select2;
 
 		<?= $form->field($model, 'tanggal_diterbitkan')->input('hidden')->label(false) ?>
 
-		<?= $form->field($model, 'kewarganegaraan')->radioList(array('1'=>'WNI','2'=>'WNA')); ?>
+		<?= $form->field($updatable, 'kewarganegaraan')->radioList(array('1'=>'WNI','2'=>'WNA')); ?>
 		
 	<?php 
 		//$model = $updatable;

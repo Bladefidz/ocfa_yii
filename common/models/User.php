@@ -26,6 +26,8 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public $password;
+
     /**
      * @inheritdoc
      */
@@ -50,14 +52,29 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-			[['id'], 'required'],
-			[['id'], 'integer'],
-			[['username','email'], 'safe'],
+            [['username','email'], 'safe'],
+            [['id', 'username','email', 'password', 'telp'], 'required'],
+
+            ['id', 'integer', 'min' => 16],
+
+            ['username', 'filter', 'filter' => 'trim'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+
+            ['password', 'string', 'min' => 6],
+
+            ['telp', 'string', 'max' => 20],
+
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
-	
+
 	/**
      * @inheritdoc
      */
@@ -65,6 +82,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'NIK',
+            'telp' => 'Nomor Telepon'
 			];
 	}
 
@@ -81,7 +99,8 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+        // throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+        return static::findOne(['auth_key' => $token]);
     }
 
     /**

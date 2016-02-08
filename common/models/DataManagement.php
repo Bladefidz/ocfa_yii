@@ -15,9 +15,6 @@ use Yii;
  * @property string $golongan_darah
  * @property string $tanggal_diterbitkan
  * @property string $nip_pencatat
- * @property integer $kewarganegaraan
- * @property integer $arsip
- * @property string $ket
  *
  * @property ApiLogs[] $apiLogs
  * @property BaseUpdatable $baseUpdatable
@@ -40,13 +37,12 @@ class DataManagement extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'nip_pencatat', 'kewarganegaraan','arsip'], 'required'],
-            [['nik', 'jenis_kelamin', 'nip_pencatat', 'kewarganegaraan', 'jml','arsip'], 'integer'],
-            [['ket','jml'], 'safe'],
+            [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'tanggal_diterbitkan', 'nip_pencatat'], 'required'],
+            [['nik', 'jenis_kelamin', 'nip_pencatat'], 'integer'],
+            [['tanggal_lahir', 'tanggal_diterbitkan'], 'safe'],
             [['nama', 'tempat_lahir'], 'string', 'max' => 255],
             [['golongan_darah'], 'string', 'max' => 2],
-			[['ket'], 'string', 'max' => 100],
-        ];
+        ]; 
     }
 
     /**
@@ -54,19 +50,16 @@ class DataManagement extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
-        return [
-            'nik' => 'NIK *',
-            'nama' => 'Nama *',
-            'tempat_lahir' => 'Tempat Lahir *',
-            'tanggal_lahir' => 'Tanggal Lahir *',
-            'jenis_kelamin' => 'Jenis Kelamin *',
-            'golongan_darah' => 'Golongan Darah *',
-            'tanggal_diterbitkan' => 'Tanggal Diterbitkan *',
-            'nip_pencatat' => 'NIP Pencatat *',
-            'kewarganegaraan' => 'Kewarganegaraan *',
-			'arsip' => 'Arsip *',
-            'ket' => 'Ket',
-        ];
+        return [ 
+            'nik' => 'Nik',
+            'nama' => 'Nama',
+            'tempat_lahir' => 'Tempat Lahir',
+            'tanggal_lahir' => 'Tanggal Lahir',
+            'jenis_kelamin' => 'Jenis Kelamin',
+            'golongan_darah' => 'Golongan Darah',
+            'tanggal_diterbitkan' => 'Tanggal Diterbitkan',
+            'nip_pencatat' => 'Nip Pencatat',
+        ]; 
     }
 	
 	/**
@@ -80,20 +73,6 @@ class DataManagement extends \yii\db\ActiveRecord
 			return 'Laki-laki';
 		}else{
 			return 'Perempuan';
-		}
-    }
-	
-	/**
-     * getKewarganegaraan
-	 * @param $kewarganegaraan
-	 * @return string
-     */
-    public static function getKewarganegaraan($kewarganegaraan)
-    {
-        if($kewarganegaraan == "1"){
-			return 'WNI';
-		}else{
-			return 'WNA';
 		}
     }
 	
