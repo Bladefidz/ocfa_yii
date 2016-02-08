@@ -7,3 +7,4 @@ themes/classic/views/
 *.log
 api/runtime/debug/index.data
 *.data
+*.data
