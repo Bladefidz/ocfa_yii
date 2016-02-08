@@ -64,6 +64,8 @@ class ApiResources extends Model
 		$this->query 	->select([$field])
 						->from('base')
 						->leftjoin('base_updatable', 'base.nik = base_updatable.nik')
+						->leftjoin('tabel_kematian', 'base.nik = tabel_kematian.nik')
+						->leftjoin('tabel_domisili', 'base.nik = tabel_domisili.nik')
 						->where('base.nik=:nik', array(':nik'=>$nik));
 		$command = $this->query->createCommand();
 		$data = $command->queryOne();
@@ -93,27 +95,31 @@ class ApiResources extends Model
 
 	public function getStatJmlPddbyYear($year)
 	{
-		$rawQuery = "SELECT SUM(case when jenis_kelamin=1 then 1 else 0 end) as jml_laki, SUM(case when jenis_kelamin=2 then 1 else 0 end) as jml_perempuan, count(*) as total FROM base WHERE EXTRACT(YEAR FROM tanggal_diterbitkan)=$year";
+		$rawQuery = "SELECT $year as 'tahun', SUM(case when base.jenis_kelamin=1 then 1 else 0 end) as 'jumlah_laki', SUM(case when base.jenis_kelamin=2 then 1 else 0 end) as 'jumlah_perempuan', count('jml_laki'+'jml_perempuan') as 'total' FROM base LEFT JOIN tabel_kematian as tk ON(base.nik = tk.nik) LEFT JOIN tabel_kewarganegaraan as tkw ON(base.nik = tkw.nik) WHERE YEAR(base.tanggal_lahir)<=$year AND (CASE WHEN tkw.tanggal_imigrasi IS NULL THEN 9999 ELSE YEAR(tkw.tanggal_imigrasi) END) > $year AND (CASE WHEN tk.tanggal_kematian IS NULL THEN 9999 ELSE YEAR(tk.tanggal_kematian) END) > $year";
 
 		$command = Yii::$app->getDb()->createCommand($rawQuery);
-		$data = $command->queryAll();
+		$data = $command->queryOne();
 		return $data;
 	}
 
 	public function getStatJmlPddbyRangeYear($yearstart, $yearend)
 	{
-		$rawQuery = "SELECT SUM(case when jenis_kelamin=1 then 1 else 0 end) as jml_laki, SUM(case when jenis_kelamin=2 then 1 else 0 end) as jml_perempuan, count(*) as total, EXTRACT(YEAR FROM tanggal_diterbitkan) AS tahun FROM base WHERE EXTRACT(YEAR FROM tanggal_diterbitkan)>=$yearstart AND EXTRACT(YEAR FROM tanggal_diterbitkan)<=$yearend GROUP BY tahun";
+		// $rawQuery = "SELECT $year as 'tahun', SUM(case when base.jenis_kelamin=1 then 1 else 0 end) as 'jumlah_laki', SUM(case when base.jenis_kelamin=2 then 1 else 0 end) as 'jumlah_perempuan', count('jml_laki'+'jml_perempuan') as 'total' FROM base LEFT JOIN tabel_kematian as tk ON(base.nik = tk.nik) LEFT JOIN tabel_kewarganegaraan as tkw ON(base.nik = tkw.nik) WHERE YEAR(tanggal_diterbitkan)<=$year AND tkw.tanggal_imigrasi IS NULL AND tk.tanggal_kematian IS NULL";
 
-		$rawQuery2 = "SELECT SUM(case when base.jenis_kelamin=1 then 1 else 0 end) as jml_laki, SUM(case when base.jenis_kelamin=2 then 1 else 0 end) as jml_perempuan, count(base.nik) as total, EXTRACT(YEAR FROM base.tanggal_diterbitkan) AS tahun FROM base LEFT JOIN status_kematian ON(base.nik = status_kematian.nik) LEFT JOIN status_domisili WHERE EXTRACT(YEAR FROM tanggal_diterbitkan)>=$yearstart AND EXTRACT(YEAR FROM tanggal_diterbitkan) <=$yearend  AND arsip != 0 GROUP BY tahun";
-
-		$command = Yii::$app->getDb()->createCommand($rawQuery);
-		$data = $command->queryAll();
+		// $command = Yii::$app->getDb()->createCommand($rawQuery);
+		// $data = $command->queryAll();
+		
+		$data = [];
+		while ($yearstart <= $yearend) {
+			$data[] = $this->getStatJmlPddbyYear($yearstart);
+			$yearstart++;
+		}
 		return $data;
 	}
 
-	public function getStatAvgAges()
+	public function getStatAges($year)
 	{
-		$rawQuery = "SELECT COUNT(@age:=YEAR(now())-YEAR(tanggal_lahir)), @age FROM base GROUP BY @age";
+		$rawQuery = "SELECT @age:=YEAR(now())-YEAR(tanggal_lahir) as umur, COUNT(@age) as jumlah FROM base WHERE YEAR(base.tanggal_lahir)<=$year GROUP BY umur";
 		$command = Yii::$app->getDb()->createCommand($rawQuery);
 		$data = $command->queryAll();
 		return $data;

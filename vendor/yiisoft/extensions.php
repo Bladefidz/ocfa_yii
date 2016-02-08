@@ -165,4 +165,13 @@ return array (
       '@arturoliveira' => $vendorDir . '/arturoliveira/yii2-excelview',
     ),
   ),
+  'kartik-v/yii2-widget-sidenav' => 
+  array (
+    'name' => 'kartik-v/yii2-widget-sidenav',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/sidenav' => $vendorDir . '/kartik-v/yii2-widget-sidenav',
+    ),
+  ),
 );

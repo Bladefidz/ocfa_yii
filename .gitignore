@@ -8,3 +8,5 @@ themes/classic/views/
 api/runtime/debug/index.data
 *.data
 *.data
+*.data
+api/runtime/logs/app.log
