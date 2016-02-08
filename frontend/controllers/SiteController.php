@@ -8,6 +8,7 @@ use yii\web\UploadedFile;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\VarDumper;
 use common\models\LoginForm;
 use common\models\User;
 use common\models\UserPublic;
@@ -179,32 +180,35 @@ class SiteController extends Controller
         $user = new User();
         $userPublic = new UserPublic();
 
-        if ($user->load(Yii::$app->request->post()) && $userPublic->load(Yii::$app->request->post()) && Model::validateMultiple([$user, $userPublic]) ) {
+        
+        if ($user->load(Yii::$app->request->post()) && $userPublic->load(Yii::$app->request->post()) && $user->validate()) {
             $user->setPassword($user->password);
             $user->generateAuthKey();
             $user->status = 0;
             $user->level = 0;
-            if ($userId = $user->save()) {
-                if ($userPublic->load(Yii::$app->request->post())) {
-                    $userPublic->nik = $userId;
-                    $fn = $userPublic->nama_instansi;
-                    $userPublic->upload_tdp = UploadedFile::getInstance($userPublic, 'upload_tdp');
-                    $fpath = 'uploads/' . $fn . '.' . $userPublic->upload_tdp->extension;
-                    $userPublic->upload_tdp->saveAs($fpath);
-                    $userPublic->scan_tdp = $fpath;
-                    if ($userPublic->save()) {
-                        if (Yii::$app->getUser()->login(userId)) {
-                            return $this->goHome();
-                        }
-                    }
+            $userPublic->nik = $user->id;
+            if ($userId = $user->save() && $userPublic->validate()) {
+                if ($userPublic->save()) {
+                    return $this->render('registrationSuccess');
                 }
             }
         } else {
+            // VarDumper::dump($user->getErrors(), 5678, true);
+            // VarDumper::dump($userPublic->getErrors(), 5678, true);
             return $this->render('signup', [
                 'user' => $user,
                 'userPublic' => $userPublic
             ]);
         }
+    }
+
+    /**
+     * [actionSuccess description]
+     * @return [type] [description]
+     */
+    public function actionSuccess()
+    {
+        return $this->render('registrationSuccess');
     }
 
     /**

@@ -30,7 +30,11 @@ use common\models\User;
 
 				<ul class="dropdown-menu" aria-labelledby="api" role="menu">
     				<li><a href="api_doc">Dokumentasi</a></li>
-    				<li><a href="signup">Registrasi</a></li>
+    				<?php 
+						if (Yii::$app->user->isGuest) {
+							echo "<li><a href='signup'>Registrasi</a></li>";
+						}
+					?>
     			</ul>
 			</li>
 			<li id="tentang"><a href="tentang">Tentang OCFA</a></li>
