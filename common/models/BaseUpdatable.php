@@ -24,6 +24,9 @@ use Yii;
  * @property integer $status_perkawinan
  * @property string $pekerjaan
  * @property integer $pendidikan_terakhir
+ * @property integer $kewarganegaraan
+ * @property integer $arsip
+ * @property string $ket
  *
  * @property Base $nik0
  */
@@ -43,12 +46,13 @@ class BaseUpdatable extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'alamat', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir'], 'required'],
-            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan', 'pendidikan_terakhir'], 'integer'],
+            [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'alamat', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir', 'kewarganegaraan', 'arsip', 'ket'], 'required'],
+            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan', 'pendidikan_terakhir', 'kewarganegaraan', 'arsip'], 'integer'],
             [['foto'], 'string'],
             [['alamat', 'pekerjaan'], 'string', 'max' => 32],
+            [['ket'], 'string', 'max' => 100],
             [['nik'], 'exist', 'skipOnError' => true, 'targetClass' => DataManagement::className(), 'targetAttribute' => ['nik' => 'nik']],
-        ];
+        ]; 
     }
 
     /**
@@ -75,6 +79,9 @@ class BaseUpdatable extends \yii\db\ActiveRecord
             'status_perkawinan' => 'Status Perkawinan *',
             'pekerjaan' => 'Pekerjaan *',
             'pendidikan_terakhir' => 'Pendidikan Terakhir *',
+            'kewarganegaraan' => 'Kewarganegaraan *',
+            'arsip' => 'Arsip',
+            'ket' => 'Ket',
         ];
     }
 

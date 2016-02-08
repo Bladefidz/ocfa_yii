@@ -18,8 +18,8 @@ class DataSearch extends DataManagement
     public function rules()
     {
         return [
-            [['nik', 'jenis_kelamin', 'nip_pencatat', 'kewarganegaraan','arsip'], 'integer'],
-            [['nama', 'tempat_lahir', 'tanggal_lahir', 'golongan_darah', 'tanggal_diterbitkan','ket'], 'safe'],
+            [['nik', 'jenis_kelamin', 'nip_pencatat'], 'integer'],
+            [['nama', 'tempat_lahir', 'tanggal_lahir', 'golongan_darah', 'tanggal_diterbitkan'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class DataSearch extends DataManagement
      */
     public function search($params)
     {
-        $query = DataManagement::find()->where('arsip = 0');
+        $query = DataManagement::find()->joinWith(['baseUpdatable'])->where('base_updatable.arsip = 0');
 
         // add conditions that should always apply here
 		$cache = Yii::$app->cache;   
@@ -73,16 +73,11 @@ class DataSearch extends DataManagement
             'jenis_kelamin' => $this->jenis_kelamin,
             'tanggal_diterbitkan' => $this->tanggal_diterbitkan,
             'nip_pencatat' => $this->nip_pencatat,
-            'kewarganegaraan' => $this->kewarganegaraan,
-			'arsip' => $this->arsip,
-			'ket' => $this->ket,
         ]);
 
         $query->andFilterWhere(['like', 'nama', $this->nama])
             ->andFilterWhere(['like', 'tempat_lahir', $this->tempat_lahir])
-            ->andFilterWhere(['like', 'golongan_darah', $this->golongan_darah])
-			->andFilterWhere(['like', 'arsip', $this->arsip])
-			->andFilterWhere(['like', 'ket', $this->ket]);
+            ->andFilterWhere(['like', 'golongan_darah', $this->golongan_darah]);
 
         return $dataProvider;
     }

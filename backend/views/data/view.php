@@ -38,7 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
 						'golongan_darah',
 						'tanggal_diterbitkan',
 						'nip_pencatat',
-						'kewarganegaraan',
 					],
 					
 				]);
@@ -73,6 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						'status_perkawinan',
 						'pekerjaan',
 						'pendidikan_terakhir',
+						'kewarganegaraan',
 					],
 					
 				]);

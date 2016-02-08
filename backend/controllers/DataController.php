@@ -62,8 +62,8 @@ class DataController extends Controller
 		$model = $this->findModel($id);
 		$search = new UpdatableSearch();
 		$model->jenis_kelamin = $model->getJenisKelamin($model->jenis_kelamin);
-		$model->kewarganegaraan = $model->getKewarganegaraan($model->kewarganegaraan);
-		$data = $this->exchangeData($search->getData($model->nik));
+		$data = $search->getData($model->nik);
+		$data = $this->exchangeData($data);
         return $this->render('view', [
             'model' => $model,
 			'updateable' => $data,
@@ -166,6 +166,13 @@ class DataController extends Controller
 				break;
 		}
 		$data->pendidikan_terakhir = $pend_terakhir;
+
+		if ($data->kewarganegaraan == "1") {
+            $data->kewarganegaraan = 'WNI';
+        } else {
+            $data->kewarganegaraan = 'WNA';
+        }
+
 		return $data;
 	}
 	
@@ -260,7 +267,7 @@ class DataController extends Controller
 			$updatable->nik = $nik;
 			$model->tanggal_lahir = Yii::$app->formatter->asDate($model->tanggal_lahir, 'yyyy-MM-dd');
 			$model->tanggal_diterbitkan = date('Y-m-d');
-			$model->arsip = 0;
+			$updatable->arsip = 0;
 			$model->nip_pencatat = Yii::$app->user->id;
 			if($model->validate() && $model->save() && $updatable->save()){
 				$this->writeLog('Menambah Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
@@ -328,7 +335,7 @@ class DataController extends Controller
      */
     public function actionArsip($id,$ket)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModelUpdatable($id);
 		$model->arsip = 1;
 		$model->ket = $ket;
 		$model->update();

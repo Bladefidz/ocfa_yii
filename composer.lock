@@ -48,51 +48,53 @@
             "time": "2015-10-23 14:50:49"
         },
         {
-            "name": "arturoliveira/yii2-excelview",
-            "version": "dev-master",
+            "name": "arogachev/yii2-excel",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://bitbucket.org/artur_oliveira/yii2-excelview.git",
-                "reference": "80124fd9865c08c3d382c1559873098f5b668818"
+                "url": "https://github.com/arogachev/yii2-excel.git",
+                "reference": "009d6acf734b1f603c96d97a3ea9663a35a3539f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://bitbucket.org/artur_oliveira/yii2-excelview/get/80124fd9865c08c3d382c1559873098f5b668818.zip",
-                "reference": "80124fd9865c08c3d382c1559873098f5b668818",
+                "url": "https://api.github.com/repos/arogachev/yii2-excel/zipball/009d6acf734b1f603c96d97a3ea9663a35a3539f",
+                "reference": "009d6acf734b1f603c96d97a3ea9663a35a3539f",
                 "shasum": ""
             },
             "require": {
-                "kartik-v/yii2-grid": "*",
-                "phpoffice/phpexcel": "1.8.0",
+                "phpoffice/phpexcel": "1.8.*",
                 "yiisoft/yii2": "*"
+            },
+            "require-dev": {
+                "yiisoft/yii2-codeception": "~2.0"
             },
             "type": "yii2-extension",
             "autoload": {
                 "psr-4": {
-                    "arturoliveira\\": ""
+                    "arogachev\\excel\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
-                    "name": "Artur Oliveira",
-                    "email": "artur.oliveira@gmail.com"
+                    "name": "Alexey Rogachev",
+                    "email": "arogachev90@gmail.com"
                 }
             ],
-            "description": "ExcelView",
+            "description": "ActiveRecord import and export based on PHPExcel for Yii 2 framework",
+            "homepage": "https://github.com/arogachev/yii2-excel",
             "keywords": [
-                "OpenXML",
+                "Active Record",
+                "PHPExcel",
                 "excel",
-                "extension",
-                "spreadsheet",
-                "xls",
-                "xlsx",
+                "export",
+                "import",
                 "yii2"
             ],
-            "time": "2014-10-16 17:06:43"
+            "time": "2015-05-16 11:51:20"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -776,55 +778,6 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
-        },
-        {
-            "name": "kartik-v/yii2-grid",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/ea7bd283f086b06bec2f5705f642855cfca9088e",
-                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "~1.7"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "kartik\\grid\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Yii 2 GridView on steroids. Various enhancements and utilities for the Yii 2.0 GridView widget.",
-            "homepage": "https://github.com/kartik-v/yii2-grid",
-            "keywords": [
-                "extension",
-                "grid",
-                "widget",
-                "yii2"
-            ],
-            "time": "2016-01-28 16:50:34"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -1972,6 +1925,55 @@
                 "fixtures"
             ],
             "time": "2016-02-01 17:08:46"
+        },
+        {
+            "name": "kartik-v/yii2-grid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-grid.git",
+                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/ea7bd283f086b06bec2f5705f642855cfca9088e",
+                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\grid\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Yii 2 GridView on steroids. Various enhancements and utilities for the Yii 2.0 GridView widget.",
+            "homepage": "https://github.com/kartik-v/yii2-grid",
+            "keywords": [
+                "extension",
+                "grid",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-01-28 16:50:34"
         },
         {
             "name": "phpspec/php-diff",

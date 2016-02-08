@@ -2,7 +2,6 @@
 namespace frontend\controllers;
 
 use Yii;
-use yii\base\Model;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\UploadedFile;
@@ -49,6 +48,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+					'user' => ['get'],
                 ],
             ],
         ];
@@ -103,6 +103,17 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+	
+	/**
+     * Logs in a user.
+     *
+     * @return mixed
+     */
+    public function actionUser($id)
+    {
+        $user = BaseUpdatable::findOne($id)->foto;
+		echo '<img src="'.$user.'" width="320px"/>';
     }
 
     /**
