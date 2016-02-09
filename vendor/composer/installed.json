@@ -2055,18 +2055,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/yiisoft/yii2-composer.git",
-            "reference": "d33d1046a5951f2f7823fe343f28ddc58b3421a4"
+            "reference": "574dcb1d101ae55be230e0c00a2428af6ec4c5c1"
         },
         "dist": {
             "type": "zip",
             "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/d33d1046a5951f2f7823fe343f28ddc58b3421a4",
-            "reference": "d33d1046a5951f2f7823fe343f28ddc58b3421a4",
+            "reference": "574dcb1d101ae55be230e0c00a2428af6ec4c5c1",
             "shasum": ""
         },
         "require": {
             "composer-plugin-api": "^1.0"
         },
-        "time": "2016-02-06 01:03:32",
+        "time": "2015-12-01 20:06:03",
         "type": "composer-plugin",
         "extra": {
             "class": "yii\\composer\\Plugin",
@@ -2094,119 +2094,6 @@
         "keywords": [
             "composer",
             "extension installer",
-            "yii2"
-        ]
-    },
-    {
-        "name": "phpoffice/phpexcel",
-        "version": "1.8.x-dev",
-        "version_normalized": "1.8.9999999.9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/PHPOffice/PHPExcel.git",
-            "reference": "36d2ba12e38b6be60429e31f217c09afe781d620"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/36d2ba12e38b6be60429e31f217c09afe781d620",
-            "reference": "36d2ba12e38b6be60429e31f217c09afe781d620",
-            "shasum": ""
-        },
-        "require": {
-            "ext-mbstring": "*",
-            "ext-xml": "*",
-            "ext-xmlwriter": "*",
-            "php": "^5.2|^7.0"
-        },
-        "require-dev": {
-            "squizlabs/php_codesniffer": "2.*"
-        },
-        "time": "2016-01-25 19:04:40",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "PHPExcel": "Classes/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL-2.1"
-        ],
-        "authors": [
-            {
-                "name": "Maarten Balliauw",
-                "homepage": "http://blog.maartenballiauw.be"
-            },
-            {
-                "name": "Mark Baker"
-            },
-            {
-                "name": "Erik Tilt"
-            },
-            {
-                "name": "Franck Lefevre",
-                "homepage": "http://rootslabs.net"
-            }
-        ],
-        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
-        "homepage": "http://phpexcel.codeplex.com",
-        "keywords": [
-            "OpenXML",
-            "excel",
-            "php",
-            "spreadsheet",
-            "xls",
-            "xlsx"
-        ]
-<<<<<<< HEAD
-    },
-    {
-        "name": "arturoliveira/yii2-excelview",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://bitbucket.org/artur_oliveira/yii2-excelview.git",
-            "reference": "80124fd9865c08c3d382c1559873098f5b668818"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://bitbucket.org/artur_oliveira/yii2-excelview/get/80124fd9865c08c3d382c1559873098f5b668818.zip",
-            "reference": "80124fd9865c08c3d382c1559873098f5b668818",
-            "shasum": ""
-        },
-        "require": {
-            "kartik-v/yii2-grid": "*",
-            "phpoffice/phpexcel": "1.8.0",
-            "yiisoft/yii2": "*"
-        },
-        "time": "2014-10-16 17:06:43",
-        "type": "yii2-extension",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "arturoliveira\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Artur Oliveira",
-                "email": "artur.oliveira@gmail.com"
-            }
-        ],
-        "description": "ExcelView",
-        "keywords": [
-            "OpenXML",
-            "excel",
-            "extension",
-            "spreadsheet",
-            "xls",
-            "xlsx",
             "yii2"
         ]
     },
@@ -2285,6 +2172,214 @@
             "plugin",
             "sidenav",
             "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "mdmsoft/yii2-upload-file",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mdmsoft/yii2-upload-file.git",
+            "reference": "c44f0d9694e02a7b62a270f142ae1cc1f2638435"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mdmsoft/yii2-upload-file/zipball/c44f0d9694e02a7b62a270f142ae1cc1f2638435",
+            "reference": "c44f0d9694e02a7b62a270f142ae1cc1f2638435",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "~2.0"
+        },
+        "time": "2015-10-26 10:58:52",
+        "type": "yii2-extension",
+        "extra": {
+            "bootstrap": "mdm\\upload\\Bootstrap",
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "mdm\\upload\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Misbahul Munir",
+                "email": "misbahuldmunir@gmail.com"
+            }
+        ],
+        "description": "Yii2 upload file tools",
+        "keywords": [
+            "file",
+            "upload",
+            "yii"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-grid",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-grid.git",
+            "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/ea7bd283f086b06bec2f5705f642855cfca9088e",
+            "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-krajee-base": "~1.7"
+        },
+        "time": "2016-01-28 16:50:34",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\grid\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Yii 2 GridView on steroids. Various enhancements and utilities for the Yii 2.0 GridView widget.",
+        "homepage": "https://github.com/kartik-v/yii2-grid",
+        "keywords": [
+            "extension",
+            "grid",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "phpoffice/phpexcel",
+        "version": "1.8.0",
+        "version_normalized": "1.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PHPExcel.git",
+            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
+            "reference": "e69a5e4d0ffa7fb6f171859e0a04346e580df30b",
+            "shasum": ""
+        },
+        "require": {
+            "ext-xml": "*",
+            "ext-xmlwriter": "*",
+            "php": ">=5.2.0"
+        },
+        "time": "2014-03-02 15:22:49",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PHPExcel": "Classes/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "http://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Mark Baker"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "http://blog.rootslabs.net"
+            },
+            {
+                "name": "Erik Tilt"
+            }
+        ],
+        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "http://phpexcel.codeplex.com",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
+        ]
+    },
+    {
+        "name": "arturoliveira/yii2-excelview",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://bitbucket.org/artur_oliveira/yii2-excelview.git",
+            "reference": "80124fd9865c08c3d382c1559873098f5b668818"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://bitbucket.org/artur_oliveira/yii2-excelview/get/80124fd9865c08c3d382c1559873098f5b668818.zip",
+            "reference": "80124fd9865c08c3d382c1559873098f5b668818",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-grid": "*",
+            "phpoffice/phpexcel": "1.8.0",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2014-10-16 17:06:43",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "arturoliveira\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Artur Oliveira",
+                "email": "artur.oliveira@gmail.com"
+            }
+        ],
+        "description": "ExcelView",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "extension",
+            "spreadsheet",
+            "xls",
+            "xlsx",
             "yii2"
         ]
     }

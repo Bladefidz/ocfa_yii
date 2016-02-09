@@ -27,7 +27,8 @@
         "yiisoft/yii2-jui": "^2.0",
         "kartik-v/yii2-widget-select2": "@dev",
         "arturoliveira/yii2-excelview": "*",
-        "kartik-v/yii2-widget-sidenav": "*"
+        "kartik-v/yii2-widget-sidenav": "*",
+        "mdmsoft/yii2-upload-file": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

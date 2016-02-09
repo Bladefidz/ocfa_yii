@@ -20,7 +20,7 @@ $this->title = 'OCFA System Admin';
 		  <!-- Custom tabs (Charts with tabs)-->
 		  <div class="box box-info">
 			<div class="box-header with-border">
-			  <h3 class="box-title">Export/Import Semua Data</h3>
+			  <h3 class="box-title">Export Semua Data</h3>
 			</div><!-- /.box-header -->
 			<?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
 			<div class="box-body">
@@ -38,29 +38,30 @@ $this->title = 'OCFA System Admin';
 		  <!-- Custom tabs (Charts with tabs)-->
 		  <div class="box box-info">
 			<div class="box-header with-border">
-			  <h3 class="box-title">Export/Import Data Penduduk</h3>
+			  <h3 class="box-title">Import Semua Data Penduduk</h3>
 			</div><!-- /.box-header -->
 			<div class="box-body">
 			  <div class="row">
+
+				<?php $form = ActiveForm::begin(['layout' => 'horizontal','options' => ['enctype' => 'multipart/form-data']]) ?>
+
+					<?= $form->field($upload, 'file')->fileInput() ?>
+					
+					<?php if ($upload->file_id): ?>
+						<div class="form-group">
+							<?= Html::img(['/file', 'id' => $model->file_id]) ?>
+						</div>
+					<?php endif; ?>
+					
+			  </div><!-- /.box-body -->
+				<div class="box-footer text-center">
+					<?= Html::submitButton('Import', ['class' => 'btn btn-success']) ?>
+
+				<?php ActiveForm::end() ?>
 			  </div><!-- /.row -->
 			</div><!-- /.box-body -->
 		  </div><!-- /.box -->
 		</div>
-	  </div><!-- /.row (main row) -->
-	  <div class="row">
-		<!-- Left col -->
-		<div class="col-lg-6">
-		  <!-- Custom tabs (Charts with tabs)-->
-		  <div class="box box-info">
-			<div class="box-header with-border">
-			  <h3 class="box-title">Export/Import Data Spesifik</h3>
-			</div><!-- /.box-header -->
-			<div class="box-body">
-			  <div class="row">
-			  </div><!-- /.row -->
-			</div><!-- /.box-body -->
-		  </div><!-- /.box -->
-		</div><!-- /.Left col -->
 	  </div><!-- /.row (main row) -->
 	</section><!-- /.content -->
 </div>

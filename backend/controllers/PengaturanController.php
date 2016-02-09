@@ -10,8 +10,13 @@ use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
+use common\models\TabelDomisili;
+use common\models\UserActivity;
+use common\models\TabelKewarganegaraan;
 use backend\models\KeluargaSearch;
 use backend\models\DataExportSearch;
+use backend\models\UploadForm;
+use yii\web\UploadedFile;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -48,6 +53,22 @@ class PengaturanController extends Controller
 	
 	public function actionExport()
     {
+		$upload = new \yii\base\DynamicModel([
+        'nama', 'file_id'
+        ]);
+ 
+		// behavior untuk upload file
+		$upload->attachBehavior('upload', [
+			'class' => 'mdm\upload\UploadBehavior',
+			'attribute' => 'file',
+			'savedAttribute' => 'file_id' // coresponding with $model->file_id
+		]);
+	 
+		// rule untuk model
+		$upload->addRule('nama', 'string')
+			->addRule('file', 'file', ['extensions' => 'xls,xlsx']);
+		//return $this->render('upload',['model' => $model]);
+		
 		$model = new \yii\base\DynamicModel(['tabel']);
 		$model->addRule(['tabel'], 'string', ['max' => 20]);
 		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -57,14 +78,22 @@ class PengaturanController extends Controller
 					//return $this->redirect('export');
 					break;
 				case '2':
-					
+					$this->exportKeluarga();
+					break;
+				case '3':
+					$this->exportAktivitasUser();
+					break;
 			}
-		}else{
+		}elseif ($upload->load(Yii::$app->request->post()) && $upload->validate()) {
+			if ($upload->saveUploadedFile() !== false) {
+				Yii::$app->session->setFlash('success', 'Upload Sukses');
+			}
+		}
 		
 		return $this->render('index',[
-			'model' => $model
+			'model' => $model,
+			'upload' => $upload,
 		]);
-		}
     }
 	
 	function exportPenduduk(){
@@ -83,8 +112,7 @@ class PengaturanController extends Controller
 					<th>Jenis Kelamin</th>
 					<th>Golongan Darah</th>
 					<th>Tanggal Diterbitkan</th>
-					<th>NIP Pencatat</th>
-					<th>Kewarganegaraan</th>
+					<th>NIK Pencatat</th>
 					<th>Nomor KK</th>
 					<th>Status Keluarga</th>
 					<th>NIK Ayah</th>
@@ -105,9 +133,12 @@ class PengaturanController extends Controller
 			</thead>';
 			foreach($isi as $data){
 				$subData = BaseUpdatable::findOne($data['nik']);
-				//echo var_dump($data);
-				//echo var_dump($subData);
-				$data['kewarganegaraan'] == 1 ? $kewarganegaraan = 'WNI' : $kewarganegaraan = 'WNA';
+				$domisili = TabelDomisili::find()->where('current = 1 and nik = '.$data['nik'])->one();
+				// echo var_dump($data);
+				// echo "<br><br>";
+				// echo var_dump($subData);
+				// echo "<br><br>";
+				// echo var_dump($domisili);
 				$data['jenis_kelamin'] == 1 ? $jk = 'Laki-laki' : $jk = 'Perempuan';
 				switch($subData->pendidikan_terakhir){
 					case '1':
@@ -147,8 +178,7 @@ class PengaturanController extends Controller
 						<td>'.$jk.'</td>
 						<td>'.$data['golongan_darah'].'</td>
 						<td>'.$data['tanggal_diterbitkan'].'</td>
-						<td class="str">'.$data['nip_pencatat'].'</td>
-						<td>'.$kewarganegaraan.'</td>
+						<td class="str">'.$data['nik_pencatat'].'</td>
 						<td class="str">'.$subData->no_kk.'</td>
 						<td>';
 							if($subData->status_keluarga == 1){
@@ -186,13 +216,13 @@ class PengaturanController extends Controller
 									break;
 							}
 						echo '</td>
-						<td>'.Provinces::findOne($subData->provinsi)->name.'</td>
-						<td>'.Regencies::findOne($subData->kabupaten)->name.'</td>
-						<td>'.Districts::findOne($subData->kecamatan)->name.'</td>
-						<td>'.Villages::findOne($subData->kelurahan)->name.'</td>
-						<td>'.$subData->rt.'</td>
-						<td>'.$subData->rw.'</td>
-						<td>'.$subData->alamat.'</td>
+						<td>'.Provinces::findOne(substr($domisili->kelurahan,0,strlen($domisili->kelurahan)-8))['name'].'</td>
+						<td>'.Regencies::findOne(substr($domisili->kelurahan,0,strlen($domisili->kelurahan)-6))['name'].'</td>
+						<td>'.Districts::findOne(substr($domisili->kelurahan,0,strlen($domisili->kelurahan)-3))['name'].'</td>
+						<td>'.Villages::findOne($domisili->kelurahan)['name'].'</td>
+						<td>'.$domisili['rt'].'</td>
+						<td>'.$domisili['rw'].'</td>
+						<td>'.$domisili['alamat'].'</td>
 						<td>';
 							if($subData->status_perkawinan == 0){
 								echo 'Belum Menikah';
@@ -216,6 +246,7 @@ class PengaturanController extends Controller
 	
 	function exportKeluarga(){
 		$isi = Keluarga::find()->asArray()->all();
+		
 		$filename = 'Data Keluarga-'.Date('YmdGis').'.xls';
 		header("Content-type: application/vnd-ms-excel");
 		header("Content-Disposition: attachment; filename=".$filename);
@@ -231,8 +262,8 @@ class PengaturanController extends Controller
 					<th>Desa/Kelurahan</th>
 					<th>Kecamatan</th>
 					<th>Kabupaten/Kota</th>
-					<th>Kode Pos</th>
 					<th>Provinsi</th>
+					<th>Dikeluarkan Tanggal</th>
 					<th>Nama Lengkap</th>
 					<th>NIK</th>
 					<th>Jenis Kelamin</th>
@@ -246,118 +277,171 @@ class PengaturanController extends Controller
 					<th>Kewarganegaraan</th>
 					<th>Nama Ayah</th>
 					<th>Nama Ibu</th>
-					<th>Dikeluarkan Tanggal</th>
 				</tr>
 			</thead>';
+			$i = 0;
 			foreach($isi as $data){
-				$subData = BaseUpdatable::findOne($data['nik']);
-				//echo var_dump($data);
+				$subData = BaseUpdatable::find()->where('status_keluarga = "1" and no_kk = "'.$data['id'].'"')->one();
+				$base = DataManagement::findOne($subData['nik']);
+				$domisili = TabelDomisili::find()->where('nik = '.$subData['nik'])->one();
+				//echo var_dump($subData->nik);
 				//echo var_dump($subData);
-				$data['kewarganegaraan'] == 1 ? $kewarganegaraan = 'WNI' : $kewarganegaraan = 'WNA';
-				$data['jenis_kelamin'] == 1 ? $jk = 'Laki-laki' : $jk = 'Perempuan';
-				switch($subData->pendidikan_terakhir){
-					case '1':
-						$pend = 'SD';
-						break;
-					case '2':
-						$pend = 'SMP';
-						break;
-					case '3':
-						$pend = 'SMA';
-						break;
-					case '4':
-						$pend = 'D 1';
-						break;
-					case '5':
-						$pend = 'D 2';
-						break;
-					case '6':
-						$pend = 'D 3';
-						break;
-					case '7':
-						$pend = 'Sarjana S 1/D 4';
-						break;
-					case '8':
-						$pend = 'Pasca Sarjana S 2';
-						break;
-					case '9':
-						$pend = 'Pasca Sarjana S 3';
-						break;
+				$rawNikKeluarga = BaseUpdatable::find()->where('no_kk = '.$data['id'])->asArray()->all();
+				$nikKeluarga = "";
+				foreach($rawNikKeluarga as $val){
+					if($nikKeluarga != null){
+						$nikKeluarga .= ",";
+					}
+					$nikKeluarga .= $val['nik'];
 				}
+				$dataKeluarga = DataManagement::find()->joinWith('baseUpdatable')->where('base.nik in ('.$nikKeluarga.')')->asArray()->all();
+				$count = count($dataKeluarga);
 				echo '
 					<tr>
-						<td class="str">'.$data['nik'].'</td>
-						<td>'.$data['nama'].'</td>
-						<td>'.$data['tempat_lahir'].'</td>
-						<td>'.$data['tanggal_lahir'].'</td>
-						<td>'.$jk.'</td>
-						<td>'.$data['golongan_darah'].'</td>
-						<td>'.$data['tanggal_diterbitkan'].'</td>
-						<td class="str">'.$data['nip_pencatat'].'</td>
-						<td>'.$kewarganegaraan.'</td>
-						<td class="str">'.$subData->no_kk.'</td>
-						<td>';
-							if($subData->status_keluarga == 1){
-								echo 'Kepala Keluarga';
-							}elseif($subData->status_keluarga == 2){
-								echo 'Istri';
-							}elseif($subData->status_keluarga == 3){
-								echo 'Anak';
-							}
-						echo '</td>
-						<td class="str">'.$subData->ayah.'</td>
-						<td class="str">'.$subData->ibu.'</td>
-						<td>';
-							switch($subData->agama){
+						<td class="str" rowspan="'.$count.'">'.$data['id'].'</td>
+						<td rowspan="'.$count.'">'.$base['nama'].'</td>
+						<td rowspan="'.$count.'">'.$domisili['alamat'].'</td>
+						<td rowspan="'.$count.'">'.$domisili['rt'].'</td>
+						<td rowspan="'.$count.'">'.$domisili['rw'].'</td>
+						<td rowspan="'.$count.'">'.Villages::findOne($domisili['kelurahan'])->name.'</td>
+						<td rowspan="'.$count.'">'.Districts::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-3))->name.'</td>
+						<td rowspan="'.$count.'">'.Regencies::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-6))->name.'</td>
+						<td rowspan="'.$count.'">'.Provinces::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-8))->name.'</td>
+						<td rowspan="'.$count.'">'.Keluarga::findOne($data['id'])->tanggal_terbit.'</td>';
+						foreach($dataKeluarga as $value){
+							$jk = $value['jenis_kelamin'] == 1 ? 'Laki-laki' : 'Perempuan';
+							//echo var_dump($value['baseUpdatable']['agama']);
+							switch($value['baseUpdatable']['agama']){
 								case '1':
-									echo 'Islam';
+									$agama = 'Islam';
 									break;
 								case '2':
-									echo 'Kristen';
+									$agama = 'Kristen';
 									break;
 								case '3':
-									echo 'Katholik';
+									$agama = 'Katholik';
 									break;
 								case '4':
-									echo 'Hindu';
+									$agama = 'Hindu';
 									break;
 								case '5':
-									echo 'Budha';
+									$agama = 'Budha';
 									break;
 								case '6':
-									echo 'Konghucu';
+									$agama = 'Konghucu';
 									break;
 								case '7':
-									echo 'Lainnya';
+									$agama = 'Lainnya';
 									break;
 							}
-						echo '</td>
-						<td>'.Provinces::findOne($subData->provinsi)->name.'</td>
-						<td>'.Regencies::findOne($subData->kabupaten)->name.'</td>
-						<td>'.Districts::findOne($subData->kecamatan)->name.'</td>
-						<td>'.Villages::findOne($subData->kelurahan)->name.'</td>
-						<td>'.$subData->rt.'</td>
-						<td>'.$subData->rw.'</td>
-						<td>'.$subData->alamat.'</td>
-						<td>';
-							if($subData->status_perkawinan == 0){
-								echo 'Belum Menikah';
-							}elseif($subData->status_perkawinan == 1){
-								echo 'Menikah';
-							}elseif($subData->status_perkawinan == 2){
-								echo 'Cerai';
-							}elseif($subData->status_perkawinan == 3){
-								echo 'Cerai Ditinggal Mati';
+							switch($value['baseUpdatable']['pendidikan_terakhir']){
+								case '1':
+									$pend = 'SD';
+									break;
+								case '2':
+									$pend = 'SMP';
+									break;
+								case '3':
+									$pend = 'SMA';
+									break;
+								case '4':
+									$pend = 'D 1';
+									break;
+								case '5':
+									$pend = 'D 2';
+									break;
+								case '6':
+									$pend = 'D 3';
+									break;
+								case '7':
+									$pend = 'Sarjana S 1/D 4';
+									break;
+								case '8':
+									$pend = 'Pasca Sarjana S 2';
+									break;
+								case '9':
+									$pend = 'Pasca Sarjana S 3';
+									break;
 							}
-						echo '</td>
-						<td>'.$subData->pekerjaan.'</td>
-						<td>'.$pend.'</td>
-						<td>http://localhost/ocfa_yii/site/user?id='.$data['nik'].'</td>
-					</tr>
-				';
+							if($value['baseUpdatable']['status_perkawinan'] == 0){
+								$status_perkawinan = 'Belum Menikah';
+							}elseif($value['baseUpdatable']['status_perkawinan'] == 1){
+								$status_perkawinan = 'Menikah';
+							}elseif($value['baseUpdatable']['status_perkawinan'] == 2){
+								$status_perkawinan = 'Cerai';
+							}elseif($value['baseUpdatable']['status_perkawinan'] == 3){
+								$status_perkawinan = 'Cerai Ditinggal Mati';
+							}
+							$status_keluarga = $value['baseUpdatable']['status_keluarga'];
+							//echo var_dump($status_keluarga);
+							if($status_keluarga == 1){
+								$statusKeluarga = 'Kepala Keluarga';
+							}elseif($status_keluarga == 2){
+								$statusKeluarga = 'Istri';
+							}elseif($status_keluarga == 3){
+								$statusKeluarga = 'Anak';
+							}
+							if(TabelKewarganegaraan::findOne($value['nik']) !== null){
+								$kewarganegaraan = 'WNA';
+							}else{
+								$kewarganegaraan = 'WNI';
+							}
+							echo '
+								<td>'.$value['nama'].'</td>
+								<td>'.$value['nik'].'</td>
+								<td>'.$jk.'</td>
+								<td>'.$value['tempat_lahir'].'</td>
+								<td>'.$value['tanggal_lahir'].'</td>
+								<td>'.$agama.'</td>
+								<td>'.$pend.'</td>
+								<td>'.$value['baseUpdatable']['pekerjaan'].'</td>
+								<td>'.$status_perkawinan.'</td>
+								<td>'.$statusKeluarga.'</td>
+								<td>'.$kewarganegaraan.'</td>
+								<td>'.DataManagement::findOne(BaseUpdatable::findOne($value['nik'])->ayah)['nama'].'</td>
+								<td>'.DataManagement::findOne(BaseUpdatable::findOne($value['nik'])->ibu)['nama'].'</td>
+							';
+							if($i < $count-1){
+								echo '</tr><tr>';
+							}else{
+								echo '</tr>';
+							}
+							$i++;
+						}
+						//echo '</tr>';
+					
 			}
 		echo '</table>';
 		return true;
+	}
+	
+	function exportAktivitasUser(){
+		$isi = UserActivity::find()->orderBy('timestamp desc')->asArray()->all();
+		//VarDumper::dump($isi,5678);
+		$filename = 'Data Aktivitas User-'.Date('YmdGis').'.xls';
+		header("Content-type: application/vnd-ms-excel");
+		header("Content-Disposition: attachment; filename=".$filename);
+		echo "<style> .str{ mso-number-format:\@; } </style>";
+		echo '<table border="1" width="100%">
+			<thead>
+				<tr>
+					<th>NIK</th>
+					<th>Nama</th>
+					<th>Aksi</th>
+					<th>Timestamp</th>
+				</tr>
+			</thead>';
+		foreach($isi as $data){
+			$nama = DataManagement::findOne($data['nik'])->nama;
+			echo '
+			<tr>
+				<td>'.$data['nik'].'</td>
+				<td>'.$nama.'</td>
+				<td>'.$data['action'].'</td>
+				<td>'.$data['timestamp'].'</td>
+			</tr>
+			';
+		}
 	}
 
     /**

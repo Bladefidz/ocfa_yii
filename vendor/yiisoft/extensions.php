@@ -174,4 +174,23 @@ return array (
       '@kartik/sidenav' => $vendorDir . '/kartik-v/yii2-widget-sidenav',
     ),
   ),
+  'mdmsoft/yii2-upload-file' => 
+  array (
+    'name' => 'mdmsoft/yii2-upload-file',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@mdm/upload' => $vendorDir . '/mdmsoft/yii2-upload-file',
+    ),
+    'bootstrap' => 'mdm\\upload\\Bootstrap',
+  ),
+  'kartik-v/yii2-grid' => 
+  array (
+    'name' => 'kartik-v/yii2-grid',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
+    ),
+  ),
 );
