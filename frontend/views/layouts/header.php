@@ -24,6 +24,11 @@ use common\models\User;
 			<li id="home"><a href="<?= Yii::$app->homeUrl;?>">Home <span class="sr-only">(current)</span></a></li>
 			<li id="tentang"><a href="#about">Tentang OCFA</a></li>
 			<li id="api_doc"><a href="#api">API</a></li>
+			<?php 
+				if (!Yii::$app->user->isGuest) {
+			?>
+			<li id="user_admin"><a href="admin">Admin</a></li>
+				<?php } ?>
 			<!-- <li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
 			  <ul class="dropdown-menu" role="menu">
@@ -37,11 +42,11 @@ use common\models\User;
 			  </ul>
 			</li> -->
 		  </ul>
-		  <form class="navbar-form navbar-left" role="search">
+		  <!--<form class="navbar-form navbar-left" role="search">
 			<div class="form-group">
 			  <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
 			</div>
-		  </form>
+		  </form>-->
 		</div><!-- /.navbar-collapse -->
 		<div class="navbar-custom-menu">
 

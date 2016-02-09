@@ -12,6 +12,7 @@ use yii\helpers\VarDumper;
 use common\models\LoginForm;
 use common\models\User;
 use common\models\UserPublic;
+use common\models\UserActivity;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
