@@ -68,15 +68,12 @@ class StatistikController extends \api\common\libraries\RestReactor
 	 */
 	private function getStatbyYear()
 	{
-		$yearstart = !empty($_GET['mulai_tahun'])?$_GET['mulai_tahun']:'';
-		$yearend = !empty($_GET['sampai_tahun'])?$_GET['sampai_tahun']:'';
-		$year = !empty($_GET['tahun'])?$_GET['tahun']:'';
-
 		$model = new ApiResources();
-		if (!empty($yearstart) && !empty($yearend) && empty($year)) {
-			return $model->getStatJmlPddbyRangeYear($yearstart, $yearend);
-		} elseif (!empty($year) && empty($yearstart) && empty($yearend)) {
-			return $model->getStatJmlPddbyYear($year);
+
+		if (!isset($_GET['tahun']) && isset($_GET['mulai_tahun']) && isset($_GET['sampai_tahun'])) {
+			return $model->getStatJmlPddbyRangeYear($_GET['mulai_tahun'], $_GET['sampai_tahun']);
+		} elseif (isset($_GET['tahun']) && !isset($_GET['mulai_tahun']) && !isset($_GET['sampai_tahun'])) {
+			return $model->getStatJmlPddbyYear($_GET['tahun']);
 		} else {
 			throw new yii\web\BadRequestHttpException;
 			exit();
@@ -106,7 +103,7 @@ class StatistikController extends \api\common\libraries\RestReactor
 	    				break;
 	    			case 'tahun':
 			    		$data = $this->getStatbyYear();
-	    				break;	    			
+	    				break;			
 	    			default:
 	    				throw new yii\web\BadRequestHttpException;
 	    				break;
@@ -115,7 +112,7 @@ class StatistikController extends \api\common\libraries\RestReactor
 	    		return [
 	    			"name" => "success",
 	    			'status' => '200',
-		        	'message' => empty($data)?'found':'not found',
+		        	'message' => count($data)>0?'found':'not found',
 		        	'nik_responsible' => $user->findIdentityByAccessToken($accToken)->id,
 		        	'data' => $data
 		      	];

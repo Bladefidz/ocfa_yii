@@ -83,7 +83,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             'id' => 'NIK',
             'telp' => 'Nomor Telepon'
-			];
+		];
 	}
 
     /**

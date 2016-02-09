@@ -180,3 +180,24 @@ a.desc:after {
 .nav > li > form > button:hover {
     text-decoration: none;
 }
+
+@media (min-width: 768px)
+
+.success-registration {
+    text-align: center;
+    background: #18bc9c;
+    color: white;
+    width: 100%;
+}
+
+.intro-text .name {
+    font-size: 4.75em;
+}
+
+.intro-text .name {
+    display: block;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2em;
+}

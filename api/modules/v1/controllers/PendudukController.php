@@ -30,6 +30,12 @@ class PendudukController extends \api\common\libraries\RestReactor
 	private $baseUpdatableCols = array();
 
 	/**
+	 * [$domisili description]
+	 * @var array
+	 */
+	private $domisiliCols = array();
+
+	/**
 	 * Yii default to call all object 
 	 * @return 
 	 */
@@ -39,6 +45,7 @@ class PendudukController extends \api\common\libraries\RestReactor
 
 	    $this->setBaseCols();
 	    $this->setUpdatableCols();
+	    $this->setDomisili();
 	}
 
     /**
@@ -65,7 +72,6 @@ class PendudukController extends \api\common\libraries\RestReactor
 			'golongan_darah',
 			'tanggal_diterbitkan',
 			'nip_pencatat',
-			'kewarganegaraan'
 		);
 	}
 
@@ -78,16 +84,23 @@ class PendudukController extends \api\common\libraries\RestReactor
 			'nik',
 			'agama',
 			'foto',
+			'status_perkawinan',
+			'pekerjaan',
+			'pendidikan_terakhir',
+			'kewarganegaraan'
+		);
+	}
+
+	/**
+	 * [setDomisili description]
+	 */
+	private function setDomisili()
+	{
+		$this->domisiliCols = array(
+			'kelurahan',
 			'alamat',
 			'rt',
 			'rw',
-			'kecamatan',
-			'kelurahan',
-			'kabupaten',
-			'provinsi',
-			'status_perkawinan',
-			'pekerjaan',
-			'pendidikan_terakhir'
 		);
 	}
 
@@ -110,6 +123,8 @@ class PendudukController extends \api\common\libraries\RestReactor
 				$selectedCols .= "`base`.`$col`".",";
 			} elseif (in_array($col, $this->baseUpdatableCols)) {
 				$selectedCols .= "`base_updatable`.`$col`".",";
+			} elseif (in_array($col, $this->domisiliCols)) {
+				$selectedCols .= "`tabel_domisili`.`$col`".",";
 			} else {
 				continue;
 			}

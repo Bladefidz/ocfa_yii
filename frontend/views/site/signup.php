@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h2 class="text-center">Registration</h2>
             <hr class="star-primary">
 
-            <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'], 'method' => 'post', 'action' => ['site/signup'], 'layout' => 'horizontal']) ?>
+            <?php $form = ActiveForm::begin(['layout' => 'horizontal']) ?>
                 <h4 class="text-center" style="padding: 15px 0px 0px 0px">Informasi Pemohon</h4>
                 <hr>
                 <?= $form->field($user, 'id')->textInput(['placeholder' => 'Masukkan NIK Anda']) ?>
@@ -33,8 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($userPublic, 'email_instansi')->input('email') ?>
                 <?= $form->field($userPublic, 'no_telp_instansi')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($userPublic, 'alamat_instansi')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($userPublic, 'tdp')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($userPublic, 'upload_tdp')->fileInput() ?>
 
                 <div class="form-group">
                     <div class="col-sm-3"></div>

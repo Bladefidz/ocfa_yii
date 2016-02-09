@@ -22,18 +22,8 @@ use common\models\User;
 		<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 		  <ul class="nav navbar-nav">
 			<li id="home"><a href="<?= Yii::$app->homeUrl;?>">Home <span class="sr-only">(current)</span></a></li>
-			<li id="api_doc" class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" id="api" aria-expanded="false" href="api_doc">
-					API
-					<span class="caret"></span>
-				</a>
-
-				<ul class="dropdown-menu" aria-labelledby="api" role="menu">
-    				<li><a href="api_doc">Dokumentasi</a></li>
-    				<li><a href="signup">Registrasi</a></li>
-    			</ul>
-			</li>
-			<li id="tentang"><a href="tentang">Tentang OCFA</a></li>
+			<li id="tentang"><a href="#about">Tentang OCFA</a></li>
+			<li id="api_doc"><a href="#api">API</a></li>
 			<!-- <li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
 			  <ul class="dropdown-menu" role="menu">
