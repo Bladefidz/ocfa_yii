@@ -42,8 +42,6 @@ use kartik\select2\Select2;
 		<?= $form->field($model, 'golongan_darah')->radioList(array('o'=>'O','a'=>'A','b'=>'B','ab'=>'AB')); ?>
 
 		<?= $form->field($model, 'tanggal_diterbitkan')->input('hidden')->label(false) ?>
-
-		<?= $form->field($updatable, 'kewarganegaraan')->radioList(array('1'=>'WNI','2'=>'WNA')); ?>
 		
 	<?php 
 		//$model = $updatable;
@@ -68,7 +66,7 @@ use kartik\select2\Select2;
 		</div>
 	</div>
 	
-	<?= $form->field($updatable, 'foto')->input('button',['class' => 'btn btn-primary', 'onclick'=>'take_snapshot()', 'value' => 'Ambil Foto']) ?>
+	<?= $form->field($updatable, 'foto')->input('button',['class' => 'btn btn-primary', 'onclick'=>'take_snapshot()', 'value' => 'Ambil Foto', 'id' => 'foto']) ?>
 	
 	<div id="results"></div>
 	
@@ -76,7 +74,7 @@ use kartik\select2\Select2;
 
 	<?php
 	$provinsi = ArrayHelper::map(Provinces::find()->orderBy('name')->all(),'id','name');
-	echo $form->field($updatable, 'provinsi')->widget(Select2::classname(), [
+	echo $form->field($lokasi, 'provinsi')->widget(Select2::classname(), [
 		'data' => $provinsi,
 		'language' => 'id',
 		'options' => ['prompt'=>'Pilih Provinsi','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kabupaten?id=').'"+$(this).val(), function( data ) {$( "select#kabupaten" ).html( data );});'],
@@ -85,8 +83,8 @@ use kartik\select2\Select2;
 	?>
 
 	<?php
-	$kabupaten = ArrayHelper::map(Regencies::find()->where(['province_id'=>$updatable->provinsi])->orderBy('name')->all(),'id','name');
-	echo $form->field($updatable, 'kabupaten')->widget(Select2::classname(), [
+	$kabupaten = ArrayHelper::map(Regencies::find()->where(['province_id'=>$lokasi->provinsi])->orderBy('name')->all(),'id','name');
+	echo $form->field($lokasi, 'kabupaten')->widget(Select2::classname(), [
 		'data' => $kabupaten,
 		'language' => 'id',
 		'options' => ['prompt'=>'Pilih Kabupaten','id'=>'kabupaten','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kecamatan?id=').'"+$(this).val(), function( data ) {$( "select#kecamatan" ).html( data );});'],
@@ -94,8 +92,8 @@ use kartik\select2\Select2;
 	]) ?>
 	
 	<?php
-	$kecamatan = ArrayHelper::map(Districts::find()->where(['regency_id'=>$updatable->kabupaten])->orderBy('name')->all(),'id','name');
-	echo $form->field($updatable, 'kecamatan')->widget(Select2::classname(), [
+	$kecamatan = ArrayHelper::map(Districts::find()->where(['regency_id'=>$lokasi->kabupaten])->orderBy('name')->all(),'id','name');
+	echo $form->field($lokasi, 'kecamatan')->widget(Select2::classname(), [
 		'data' => $kecamatan,
 		'language' => 'id',
 		'options' => ['prompt'=>'Pilih Kecamatan','id'=>'kecamatan','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/kelurahan?id=').'"+$(this).val(), function( data ) {$( "#kelurahan" ).html( data );});'],
@@ -103,19 +101,19 @@ use kartik\select2\Select2;
 	]) ?>
 	
 	<?php
-	$kelurahan = ArrayHelper::map(Villages::find()->where(['district_id'=>$updatable->kecamatan])->orderBy('name')->all(),'id','name');
-	echo $form->field($updatable, 'kelurahan')->widget(Select2::classname(), [
+	$kelurahan = ArrayHelper::map(Villages::find()->where(['district_id'=>$lokasi->kecamatan])->orderBy('name')->all(),'id','name');
+	echo $form->field($lokasi, 'kelurahan')->widget(Select2::classname(), [
 		'data' => $kelurahan,
 		'language' => 'id',
 		'options' => ['prompt' => 'Pilih Kelurahan', 'id' => 'kelurahan'],
 		'theme' => Select2::THEME_BOOTSTRAP,
 	]) ?>
 	
-	<?= $form->field($updatable, 'rt')->input('number',['min' => 1,'maxlength' => true]) ?>
+	<?= $form->field($domisili, 'alamat')->textarea(['rows'=>3,'maxlength' => true]) ?>
 	
-	<?= $form->field($updatable, 'rw')->input('number',['min' => 1,'maxlength' => true]) ?>
+	<?= $form->field($domisili, 'rt')->input('number',['min' => 1,'maxlength' => true]) ?>
 	
-	<?= $form->field($updatable, 'alamat')->textarea(['rows'=>3,'maxlength' => true]) ?>
+	<?= $form->field($domisili, 'rw')->input('number',['min' => 1,'maxlength' => true]) ?>
 	
 	<?php $data = ArrayHelper::map(Keluarga::find()->asArray()->all(),'id','id'); ?>
 	<?= $form->field($updatable, 'no_kk')->widget(Select2::classname(), [
@@ -193,13 +191,24 @@ use kartik\select2\Select2;
 		});
 	Webcam.attach( \'#my_camera\' );
 	function take_snapshot() {
-	//Webcam.loaded = true;
-	// take snapshot and get image data
-	Webcam.snap( function(data_uri) {
-		// display results in page
-		document.getElementById(\'results\').innerHTML = 
-			\'<input type="hidden" name="BaseUpdatable[foto]" value="\'+data_uri+\'">\';
-		
-	} );
-	Webcam.freeze();
+		if(document.getElementById(\'foto\').value == \'Ulangi\'){
+			Webcam.unfreeze();
+			document.getElementById(\'hasilFoto\').value = 
+					null;
+			document.getElementById(\'foto\').value = 
+					\'Ambil Foto\';
+
+		}else{
+			//Webcam.loaded = true;
+			// take snapshot and get image data
+			Webcam.snap( function(data_uri) {
+				// display results in page
+				document.getElementById(\'results\').innerHTML = 
+					\'<input type="hidden" id="hasilFoto" name="BaseUpdatable[foto]" value="\'+data_uri+\'">\';
+				
+			} );
+			Webcam.freeze();
+			document.getElementById(\'foto\').value = 
+					\'Ulangi\';
+		}
 	}', View::POS_END); ?>

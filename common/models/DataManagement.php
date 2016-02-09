@@ -14,10 +14,14 @@ use Yii;
  * @property integer $jenis_kelamin
  * @property string $golongan_darah
  * @property string $tanggal_diterbitkan
- * @property string $nip_pencatat
+ * @property string $nik_pencatat
  *
  * @property ApiLogs[] $apiLogs
  * @property BaseUpdatable $baseUpdatable
+ * @property Keluarga[] $keluargas
+ * @property TabelDomisili $tabelDomisili
+ * @property TabelKematian $tabelKematian
+ * @property TabelKewarganegaraan $tabelKewarganegaraan
  * @property UserActivity[] $userActivities
  */
 class DataManagement extends \yii\db\ActiveRecord
@@ -37,8 +41,8 @@ class DataManagement extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'tanggal_diterbitkan', 'nip_pencatat'], 'required'],
-            [['nik', 'jenis_kelamin', 'nip_pencatat'], 'integer'],
+            [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'nik_pencatat'], 'required'],
+            [['nik', 'jenis_kelamin', 'nik_pencatat'], 'integer'],
             [['tanggal_lahir', 'tanggal_diterbitkan'], 'safe'],
             [['nama', 'tempat_lahir'], 'string', 'max' => 255],
             [['golongan_darah'], 'string', 'max' => 2],
@@ -51,14 +55,14 @@ class DataManagement extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [ 
-            'nik' => 'Nik',
+            'nik' => 'NIK',
             'nama' => 'Nama',
             'tempat_lahir' => 'Tempat Lahir',
             'tanggal_lahir' => 'Tanggal Lahir',
             'jenis_kelamin' => 'Jenis Kelamin',
             'golongan_darah' => 'Golongan Darah',
             'tanggal_diterbitkan' => 'Tanggal Diterbitkan',
-            'nip_pencatat' => 'Nip Pencatat',
+            'nik_pencatat' => 'NIK Pencatat',
         ]; 
     }
 	
@@ -91,20 +95,44 @@ class DataManagement extends \yii\db\ActiveRecord
     {
         return $this->hasOne(BaseUpdatable::className(), ['nik' => 'nik']);
     }
-	
-	/**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUserActivities()
-    {
-        return $this->hasMany(UserActivity::className(), ['nik' => 'nik']);
-    }
-	
-	/**
+
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getKeluargas()
     {
         return $this->hasMany(Keluarga::className(), ['kepala_keluarga' => 'nik']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTabelDomisili()
+    {
+        return $this->hasOne(TabelDomisili::className(), ['nik' => 'nik']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTabelKematian()
+    {
+        return $this->hasOne(TabelKematian::className(), ['nik' => 'nik']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTabelKewarganegaraan()
+    {
+        return $this->hasOne(TabelKewarganegaraan::className(), ['nik' => 'nik']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserActivities()
+    {
+        return $this->hasMany(UserActivity::className(), ['nik' => 'nik']);
     }
 }

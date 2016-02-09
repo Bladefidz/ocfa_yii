@@ -34,22 +34,36 @@ $this->params['breadcrumbs'][] = $this->title;
 						'tanggal_lahir',
 						//'jenis_kelamin',
 						 'golongan_darah',
-						 'tanggal_diterbitkan',
+						[
+							'attribute' => 'tabelKematian.tanggal_kematian',
+							'label' => 'Tanggal Perubahan',
+							'value' => function($model){
+								return $model->tabelKematian['tanggal_kematian'] != null ? $model->tabelKematian['tanggal_kematian'] : $model->tabelKewarganegaraan['tanggal_imigrasi'];
+							}
+							,
+						],
+						[
+							'attribute' => 'tabelKematian.tanggal_kematian',
+							'label' => 'Status',
+							'value' => function($model){
+								return $model->tabelKematian['tanggal_kematian'] != null ? 'Meninggal' : 'Pindah Kewarganegaraan';
+							}
+							,
+						],
 						// 'nip_pencatat',
 						// 'kewarganegaraan',
-						'ket',
 
 						[
 							'class' => 'yii\grid\ActionColumn',
-							'template'=>'{view} {take}',
-							'buttons' => [
+							'template'=>'{view}',
+							/*'buttons' => [
 								'take' => function ($url, $model) {
 									return Html::a('<span class="fa fa-link"></span>', $url, [
 												'title' => Yii::t('app', 'Take'),
 									]);
 								}
 							  ],
-							  
+							  */
 						],
 					],
 				]); ?>

@@ -14,19 +14,9 @@ use Yii;
  * @property string $ibu
  * @property resource $foto
  * @property integer $agama
- * @property integer $provinsi
- * @property integer $kabupaten
- * @property integer $kecamatan
- * @property string $kelurahan
- * @property integer $rt
- * @property integer $rw
- * @property string $alamat
  * @property integer $status_perkawinan
  * @property string $pekerjaan
  * @property integer $pendidikan_terakhir
- * @property integer $kewarganegaraan
- * @property integer $arsip
- * @property string $ket
  *
  * @property Base $nik0
  */
@@ -46,11 +36,10 @@ class BaseUpdatable extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'alamat', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir', 'kewarganegaraan', 'arsip', 'ket'], 'required'],
-            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan', 'pendidikan_terakhir', 'kewarganegaraan', 'arsip'], 'integer'],
+            [['nik', 'agama', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir'], 'required'],
+            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'status_perkawinan', 'pendidikan_terakhir'], 'integer'],
             [['foto'], 'string'],
-            [['alamat', 'pekerjaan'], 'string', 'max' => 32],
-            [['ket'], 'string', 'max' => 100],
+            [['pekerjaan'], 'string', 'max' => 32],
             [['nik'], 'exist', 'skipOnError' => true, 'targetClass' => DataManagement::className(), 'targetAttribute' => ['nik' => 'nik']],
         ]; 
     }
@@ -62,26 +51,16 @@ class BaseUpdatable extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'nik' => 'NIK *',
-			'no_kk' => 'Nomor KK',
+            'nik' => 'NIK',
+            'no_kk' => 'No KK',
             'status_keluarga' => 'Status Keluarga',
             'ayah' => 'NIK Ayah',
             'ibu' => 'NIK Ibu',
             'foto' => 'Foto',
-            'agama' => 'Agama *',
-            'provinsi' => 'Provinsi *',
-            'kabupaten' => 'Kabupaten *',
-            'kecamatan' => 'Kecamatan *',
-            'kelurahan' => 'Kelurahan *',
-            'rt' => 'Rt',
-            'rw' => 'Rw',
-            'alamat' => 'Alamat *',
-            'status_perkawinan' => 'Status Perkawinan *',
-            'pekerjaan' => 'Pekerjaan *',
-            'pendidikan_terakhir' => 'Pendidikan Terakhir *',
-            'kewarganegaraan' => 'Kewarganegaraan *',
-            'arsip' => 'Arsip',
-            'ket' => 'Ket',
+            'agama' => 'Agama',
+            'status_perkawinan' => 'Status Perkawinan',
+            'pekerjaan' => 'Pekerjaan',
+            'pendidikan_terakhir' => 'Pendidikan Terakhir',
         ];
     }
 

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\DataSearch */
@@ -75,9 +76,12 @@ $gridHeader = [
 							'template'=>'{view} {update} {arsip}',
 							'buttons' => [
 								'arsip' => function ($url, $model) {
-									return Html::a('<span class="fa fa-file-archive-o"></span>', '#', [
+									return Html::a('<span class="fa fa-file-archive-o"></span>', $url, [
 												'title' => Yii::t('app', 'Arsip'),
-												'onclick' => 'arsip("'.$model->nik.'","'.substr($url,0,strlen($url)-20).'")',
+												//'onclick' => 'arsip("'.$model->nik.'","'.substr($url,0,strlen($url)-20).'")',
+												'data-toggle' => 'modal',
+												'data-target' => '#arsip',
+												'data-title' => 'Arsipkan',
 									]);
 								}
 							  ],
@@ -85,16 +89,42 @@ $gridHeader = [
 					],
 				]); ?>
 				<?php Pjax::end() ?>
+				<?php
+					Modal::begin([
+						'id' => 'arsip',
+						'header' => '<h4 class="modal-title">Arsipkan</h4>'
+					]);
+					
+					echo '...';
+					
+					Modal::end();
+				?>
 			</div><!--box footer-->
 		</div><!--box-->
     </div>
 	<script>
-function arsip(nik,url) {
+/*function arsip(nik,url) {
     var ket = prompt("Isikan keterangan", "");
     
     if (ket != null) {
 		window.open(url+'?id='+nik+'&ket='+encodeURI(ket),"_self");
     }
-}
+}*/
 </script>
 </div>
+<?php
+	$this->registerJs("
+		$('#arsip').on('show.bs.modal', function(event){
+			var button = $(event.relatedTarget);
+			var modal = $(this);
+			var title = button.data('title');
+			var href = button.attr('href');
+			modal.find('.modal-title').html(title);
+			modal.find('.modal-body').html('<i class=\"fa fa-spinner fa-spin\"></i>');
+			$.post(href)
+				.done(function(data){
+					modal.find('.modal-body').html(data);
+				});
+		});
+	");
+?>

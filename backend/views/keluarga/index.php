@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						'id',
 						[
 							'attribute' => 'nama',
+							'label' => 'Nama Kepala Keluarga',
 							'format' => 'raw',
 							'value' => function ($data){
 								$isi = $data->kepalaKeluarga;

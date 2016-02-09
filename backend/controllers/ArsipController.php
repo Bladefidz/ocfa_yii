@@ -57,15 +57,33 @@ class ArsipController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-		$search = new UpdatableSearch();
+		//$search = $model->baseUpdatable;
 		$model->jenis_kelamin = $model->getJenisKelamin($model->jenis_kelamin);
-		$model->kewarganegaraan = $model->getKewarganegaraan($model->kewarganegaraan);
-		$data = $this->exchangeData($search->getData($model->nik));
+		$lokasi = new \yii\base\DynamicModel(['kelurahan','kecamatan','kabupaten','provinsi']);
+		$lokasi->addRule(['kelurahan','kecamatan','kabupaten','provinsi'], 'string', ['max' => 20]);
+		$updatable =$model->baseUpdatable;
+		$updatable = $this->exchangeData($updatable);
+		$updatable =$model->tabelDomisili;
+		$updatable = $this->exchangeDomisili($lokasi,$updatable);
+		//$model->link('lokasi',$lokasi);
         return $this->render('view', [
             'model' => $model,
-			'updateable' => $data,
+			'lokasi' => $lokasi,
         ]);	
     }
+	
+	/**
+     * Exchange all location data
+	 * @param User $data, Lokasi $lokasi
+     * @return mixed
+     */
+    public function exchangeDomisili($lokasi,$data)
+    {
+		$lokasi->kelurahan = Villages::findOne($data->kelurahan)->name;
+		$lokasi->kecamatan = Districts::findOne(substr($data->kelurahan,0,strlen($data->kelurahan)-3))->name;
+		$lokasi->kabupaten = Regencies::findOne(substr($data->kelurahan,0,strlen($data->kelurahan)-6))->name;
+		$lokasi->provinsi = Provinces::findOne(substr($data->kelurahan,0,strlen($data->kelurahan)-8))->name;
+	}
 	
 	/**
      * Exchange all data
@@ -74,10 +92,6 @@ class ArsipController extends Controller
      */
     public function exchangeData($data)
     {
-		$data->provinsi = Provinces::findOne($data->provinsi)->name;
-		$data->kabupaten = Regencies::findOne($data->kabupaten)->name;
-		$data->kecamatan = Districts::findOne($data->kecamatan)->name;
-		$data->kelurahan = Villages::findOne($data->kelurahan)->name;
 		switch($data->agama){
 			case '1':
 				$agama = 'Islam';
