@@ -21,6 +21,7 @@ return array(
     'rmrevin\\yii\\fontawesome\\' => array($vendorDir . '/rmrevin/yii2-fontawesome'),
     'nex\\datepicker\\' => array($vendorDir . '/nex/yii2-datepicker'),
     'mdm\\upload\\' => array($vendorDir . '/mdmsoft/yii2-upload-file'),
+    'm35\\thecsv\\' => array($vendorDir . '/m35/thecsv'),
     'kartik\\sidenav\\' => array($vendorDir . '/kartik-v/yii2-widget-sidenav'),
     'kartik\\select2\\' => array($vendorDir . '/kartik-v/yii2-widget-select2'),
     'kartik\\grid\\' => array($vendorDir . '/kartik-v/yii2-grid'),

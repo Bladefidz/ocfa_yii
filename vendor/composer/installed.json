@@ -443,7 +443,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/8d8e0e1a6151a46ea5cda344e2234b7225c61e7a",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ff1d463edb2c74e39f4ec76f7eb99fd47b237507",
             "reference": "b312ab9d0c446971069e22a524fec01c7cddc75e",
             "shasum": ""
         },
@@ -2380,6 +2380,50 @@
             "spreadsheet",
             "xls",
             "xlsx",
+            "yii2"
+        ]
+    },
+    {
+        "name": "m35/thecsv",
+        "version": "v1.0-stable",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/13552277443/yii2-thecsv.git",
+            "reference": "6d9d3285a82bac3d49f094db0bed309a2f0f5c73"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/13552277443/yii2-thecsv/zipball/6d9d3285a82bac3d49f094db0bed309a2f0f5c73",
+            "reference": "6d9d3285a82bac3d49f094db0bed309a2f0f5c73",
+            "shasum": ""
+        },
+        "time": "2015-07-08 03:17:55",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "m35\\thecsv\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "m35",
+                "email": "wsskoko@126.com",
+                "homepage": "https://github.com/13552277443/",
+                "role": "Creator"
+            }
+        ],
+        "description": "yii2 csv export extension",
+        "homepage": "https://github.com/13552277443/yii2-thecsv",
+        "keywords": [
+            "csv",
+            "export",
+            "yii",
             "yii2"
         ]
     }

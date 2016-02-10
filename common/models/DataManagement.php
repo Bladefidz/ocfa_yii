@@ -95,6 +95,30 @@ class DataManagement extends \yii\db\ActiveRecord
 	/**
      * @return \yii\db\ActiveQuery
      */
+    public function getTabelDomisilis()
+    {
+        return $this->hasMany(TabelDomisili::className(), ['nik' => 'nik']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTabelKematian()
+    {
+        return $this->hasOne(TabelKematian::className(), ['nik' => 'nik']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTabelKewarganegaraan()
+    {
+        return $this->hasOne(TabelKewarganegaraan::className(), ['nik' => 'nik']);
+    }
+	
+	/**
+     * @return \yii\db\ActiveQuery
+     */
     public function getUserActivities()
     {
         return $this->hasMany(UserActivity::className(), ['nik' => 'nik']);

@@ -29,20 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
 					'columns' => [
 						['class' => 'yii\grid\SerialColumn'],
 						'ip',
-//<<<<<<< HEAD
-						//'nik',
 						[
 							'attribute' => 'uri_access',
 							'value' => function($model){
 								return BaseStringHelper::truncate($model->uri_access,50,' ..... ',null,true);
 							}
 						],
-						
-						//'method',
-						//'timestamp',
-//=======
 						'timestamp',
-						// 'method',
 						[
 							'attribute' => 'method',
 							'format' => 'raw',
@@ -51,7 +44,6 @@ $this->params['breadcrumbs'][] = $this->title;
 							},
 							'filter' => array('GET' => 'GET', 'POST' => 'POST', 'PUT' => 'PUT', 'DELETE' => 'DELETE', 'OPTION' => 'OPTION')
 						],
-//>>>>>>> origin/master
 						[
 							'class' => 'yii\grid\ActionColumn',
 							'template' => '{view}',

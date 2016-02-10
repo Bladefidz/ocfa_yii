@@ -94,12 +94,12 @@ class PengaturanController extends Controller
     public function actionDeaktivasi()
     {
 		// get user instansi from class User by id
-		$status = User::find(Yii::$app->user->id)->select('status')->one();
+		$status = User::findIdentity(Yii::$app->user->id);
 		$status->status = '0';
 		if($status->update()){
 			$this->actionIndex();
 		}
-		VarDumper::dump($status,5678,true);
+		VarDumper::dump($status->id,5678,true);
     }
 	
 	public function actionExport()

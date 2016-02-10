@@ -193,4 +193,13 @@ return array (
       '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
     ),
   ),
+  'm35/thecsv' => 
+  array (
+    'name' => 'm35/thecsv',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@m35/thecsv' => $vendorDir . '/m35/thecsv',
+    ),
+  ),
 );

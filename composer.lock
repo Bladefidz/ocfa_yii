@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e143def619ace13565ac2f662eb9c4e",
-    "content-hash": "dec9ad811de6875f9037eefec4dac63c",
+    "hash": "81373e6186d6887c582a5a409ff8fe60",
+    "content-hash": "46453e69c9d2970049baaa580276b7cf",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -968,6 +968,48 @@
                 "yii2"
             ],
             "time": "2015-04-21 15:38:40"
+        },
+        {
+            "name": "m35/thecsv",
+            "version": "v1.0-stable",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/13552277443/yii2-thecsv.git",
+                "reference": "6d9d3285a82bac3d49f094db0bed309a2f0f5c73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/13552277443/yii2-thecsv/zipball/6d9d3285a82bac3d49f094db0bed309a2f0f5c73",
+                "reference": "6d9d3285a82bac3d49f094db0bed309a2f0f5c73",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "m35\\thecsv\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "m35",
+                    "email": "wsskoko@126.com",
+                    "homepage": "https://github.com/13552277443/",
+                    "role": "Creator"
+                }
+            ],
+            "description": "yii2 csv export extension",
+            "homepage": "https://github.com/13552277443/yii2-thecsv",
+            "keywords": [
+                "csv",
+                "export",
+                "yii",
+                "yii2"
+            ],
+            "time": "2015-07-08 03:17:55"
         },
         {
             "name": "mdmsoft/yii2-upload-file",
@@ -2029,7 +2071,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/8d8e0e1a6151a46ea5cda344e2234b7225c61e7a",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ff1d463edb2c74e39f4ec76f7eb99fd47b237507",
                 "reference": "b312ab9d0c446971069e22a524fec01c7cddc75e",
                 "shasum": ""
             },
