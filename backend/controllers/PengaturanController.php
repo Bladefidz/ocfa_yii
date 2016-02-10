@@ -53,7 +53,7 @@ class PengaturanController extends Controller
 		// get user level from class User by id
 		$getUser = User::findIdentity(Yii::$app->user->id);
 		// check user level, if level equals 1 then user is an admin, he can through frontend or backend, if else user is a user, he only can through frontend
-		if($getUser->status != 0){
+		if($getUser['status'] != 0){
 			if($getUser->level == 1){
 				$this->redirect('pengaturan/export');
 			}else{
