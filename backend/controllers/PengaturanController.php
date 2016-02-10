@@ -22,6 +22,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\VarDumper;
+use m35\thecsv\theCsv;
 
 /**
  * KeluargaController implements the CRUD actions for Keluarga model.
@@ -122,17 +123,40 @@ class PengaturanController extends Controller
 		
 		$model = new \yii\base\DynamicModel(['tabel']);
 		$model->addRule(['tabel'], 'string', ['max' => 20]);
+		
+		$uploadCsv = new \yii\base\DynamicModel([
+        'nama', 'file_id'
+        ]);
+ 
+		// behavior untuk upload file
+		$uploadCsv->attachBehavior('upload', [
+			'class' => 'mdm\upload\UploadBehavior',
+			'attribute' => 'file',
+			'savedAttribute' => 'file_id' // coresponding with $model->file_id
+		]);
+	 
+		// rule untuk model
+		$uploadCsv->addRule('nama', 'string')
+			->addRule('file', 'file', ['extensions' => 'xls,xlsx']);
+		//return $this->render('upload',['model' => $model]);
+		
+		$modelCsv = new \yii\base\DynamicModel(['tabel']);
+		$modelCsv->addRule(['tabel'], 'string', ['max' => 20]);
+		
 		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+			//VarDumper::dump($model,5678,true);
 			switch($model->tabel){
 				case '1':
-					$this->exportPenduduk();
+					//$this->exportPenduduk();
 					//return $this->redirect('export');
 					break;
 				case '2':
-					$this->exportKeluarga();
+					//$this->exportKeluarga();
 					break;
 				case '3':
-					$this->exportAktivitasUser();
+					//$this->exportAktivitasUser();
+					break;
+				default:
 					break;
 			}
 		}elseif ($upload->load(Yii::$app->request->post()) && $upload->validate()) {
@@ -141,10 +165,54 @@ class PengaturanController extends Controller
 			}
 		}
 		
+		if ($modelCsv->load(Yii::$app->request->post()) && $modelCsv->validate()) {
+			//VarDumper::dump($modelCsv,5678,true);
+			switch($modelCsv->tabel){
+				case '1':
+					$exCsv = theCsv::export(['tables' => 'base,base_updatable']);
+					// VarDumper::dump($this->exportDataCsv(),5678,true);
+					//return $this->redirect('export');
+					break;
+				case '2':
+					//$this->exportKeluarga();
+					break;
+				case '3':
+					//$this->exportAktivitasUser();
+					break;
+			}
+		}elseif ($uploadCsv->load(Yii::$app->request->post()) && $uploadCsv->validate()) {
+			if ($uploadCsv->saveUploadedFile() !== false) {
+				Yii::$app->session->setFlash('success', 'Upload Sukses');
+			}
+		}
+		
 		return $this->render('index',[
+			'modelCsv' => $modelCsv,
+			'uploadCsv' => $uploadCsv,
 			'model' => $model,
 			'upload' => $upload,
 		]);
+    }
+	
+	public function exportDataCsv()
+    {
+		$isi = DataManagement::find()->asArray()->all();
+		$filename = 'Data Penduduk-'.Date('YmdGis').'.csv';
+		header("Content-Type: text/csv");
+		header("Content-Disposition: attachment; filename=".$filename);
+		// Disable caching
+		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+		header("Pragma: no-cache"); // HTTP 1.0
+		header("Expires: 0"); // Proxies
+		
+		$outstream = fopen("php://output", "w");
+
+		foreach($isi as $result)
+		{
+			fputcsv($outstream, $result);
+		}
+
+		fclose($outstream);
     }
 	
 	function exportPenduduk(){

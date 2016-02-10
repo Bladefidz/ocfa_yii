@@ -29,7 +29,8 @@
         "arturoliveira/yii2-excelview": "*",
         "kartik-v/yii2-widget-sidenav": "*",
         "mdmsoft/yii2-upload-file": "dev-master",
-        "m35/thecsv": "^1.0"
+        "m35/thecsv": "^1.0",
+        "kartik-v/yii2-export": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
