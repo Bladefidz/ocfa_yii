@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ],
                                 [
                                     'label' => 'Data Kartu Keluarga',
-                                    'icon' => 'credit-card',
+                                    'icon' => 'list-alt',
                                     'items' => [
                                         ['label' => 'Pencarian Nomor KK', 'icon'=>'search', 'url'=>'#kartu-keluarga'],
                                         ['label' => 'Pencarian NIK', 'icon'=>'search', 'url'=>'#kartu-keluarga'],
@@ -119,7 +119,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="page-header bs-header">
                             <h1 id="statistik-penduduk" class="text-warning">
                                 <a class="kv-anchor" title="" href="#statistik-penduduk" data-toggle="tooltip" data-original-title="Permalink">
-                                    <span class="glyphicon glyphicon-signal"></span>
+                                    <span class="glyphicon glyphicon-stats"></span>
                                 </a> Statistik Penduduk
                             </h1>
                         </div>
