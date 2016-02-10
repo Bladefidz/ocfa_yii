@@ -31,18 +31,14 @@ $this->title = 'My Yii Application';
     		<h1>OCFA System API</h1>
     		<hr class="star-primary">
     		<h4>Registrasi sekarang juga !</h4>
-    		<div class="col-lg-4"></div>
-    		<div class="col-lg-2">
-    			<a href="api_doc"><button type="button" class="btn btn-lg btn-success">Dokumentasi</button></a>
-    		</div>
-    		<div class="col-lg-2">
+    			<a href="api_doc"><button type="button" style="margin: 3%;" class="btn btn-lg btn-success">Dokumentasi</button></a>
+    		
     			<?php 
 						if (Yii::$app->user->isGuest) {
-							echo "<a href='signup'><button type='button' class='btn btn-lg btn-primary'>Registrasi</button></a>";
+							echo "<a href='signup'><button type='button' style='margin: 3%;' class='btn btn-lg btn-primary'>Registrasi</button></a>";
 						}
 					?>
-    		</div>
-    		<div class="col-lg-4"></div>
+    		
     	</div>
     </div>
 </div>
