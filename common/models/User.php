@@ -25,8 +25,8 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-
-    public $password;
+    const STATUS_PENDING = 20;
+    const STATUS_BLOCKED = 30;
 
     /**
      * @inheritdoc
@@ -53,7 +53,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username','email'], 'safe'],
-            [['id', 'username','email', 'password', 'telp'], 'required'],
+            [['id', 'username','email', 'telp'], 'required'],
 
             ['id', 'integer', 'min' => 16],
 
@@ -66,12 +66,8 @@ class User extends ActiveRecord implements IdentityInterface
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
-            ['password', 'string', 'min' => 6],
-
-            ['telp', 'string', 'max' => 20],
-
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'default', 'value' => self::STATUS_BLOCKED],
+            ['status', 'in', 'range' => [self::STATUS_BLOCKED, self::STATUS_PENDING, self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
 
@@ -82,7 +78,6 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'NIK',
-            'telp' => 'Nomor Telepon'
 		];
 	}
 
