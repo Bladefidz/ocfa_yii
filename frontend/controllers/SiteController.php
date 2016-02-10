@@ -13,6 +13,7 @@ use common\models\LoginForm;
 use common\models\User;
 use common\models\UserPublic;
 use common\models\UserActivity;
+use backend\models\UserCreate;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -78,7 +79,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new SignupForm();
+        $model = new UserCreate();
         return $this->render('index', [
             'model' => $model,
         ]);
@@ -178,24 +179,15 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
-        $user = new User();
+        $user = new SignupForm();
         $userPublic = new UserPublic();
 
-        
-        if ($user->load(Yii::$app->request->post()) && $userPublic->load(Yii::$app->request->post()) && $user->validate()) {
-            $user->setPassword($user->password);
-            $user->generateAuthKey();
-            $user->status = 0;
-            $user->level = 0;
+        if ($user->load(Yii::$app->request->post()) && $userPublic->load(Yii::$app->request->post()) && $user->signup()) {
             $userPublic->nik = $user->id;
-            if ($userId = $user->save() && $userPublic->validate()) {
-                if ($userPublic->save()) {
-                    return $this->render('registrationSuccess');
-                }
+            if ($userPublic->validate() && $userPublic->save()) {
+                return $this->render('registrationSuccess');
             }
         } else {
-            // VarDumper::dump($user->getErrors(), 5678, true);
-            // VarDumper::dump($userPublic->getErrors(), 5678, true);
             return $this->render('signup', [
                 'user' => $user,
                 'userPublic' => $userPublic

@@ -8,9 +8,9 @@ use yii\data\ActiveDataProvider;
 use common\models\User;
 
 /**
- * UserSearch represents the model behind the search form about `common\models\User`.
+ * AccessSearch represents the model behind the search form about `common\models\User`.
  */
-class RegistrationSearch extends User
+class ApiAccessSearch extends User
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class RegistrationSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
-            [['created_at', 'updated_at', 'level'], 'string'],
+            [['id', 'status', 'level'], 'integer'],
+            [['created_at', 'updated_at'], 'string'],
             [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email'], 'safe'],
         ];
     }
@@ -42,21 +42,21 @@ class RegistrationSearch extends User
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $status = [20], $level = null)
+    public function search($params, $level = null)
     {
-        if(!empty($level)) {
-            $query = User::find()->where(['status' => $status, 'level' => $level]);
+        if (!empty($level)) {
+            $query = User::find()->where(['status' => [10, 30], 'level' => $level]);
         } else {
-            $query = User::find()->where(['status' => $status]);
+            $query = User::find()->where(['status' => [10, 30]]);
         }
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-			'pagination' => [
-				'pageSize' => 10,
-			]
+            'pagination' => [
+                'pageSize' => 10,
+            ]
         ]);
 
         $this->load($params);

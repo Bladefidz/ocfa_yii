@@ -28,9 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
 					'filterModel' => $searchModel,
 					'columns' => [
 						['class' => 'yii\grid\SerialColumn'],
-
-						//'id',
 						'ip',
+//<<<<<<< HEAD
 						//'nik',
 						[
 							'attribute' => 'uri_access',
@@ -39,8 +38,20 @@ $this->params['breadcrumbs'][] = $this->title;
 							}
 						],
 						
-						'method',
+						//'method',
+						//'timestamp',
+//=======
 						'timestamp',
+						// 'method',
+						[
+							'attribute' => 'method',
+							'format' => 'raw',
+							'value' => function ($data){
+								return $data->method;
+							},
+							'filter' => array('GET' => 'GET', 'POST' => 'POST', 'PUT' => 'PUT', 'DELETE' => 'DELETE', 'OPTION' => 'OPTION')
+						],
+//>>>>>>> origin/master
 						[
 							'class' => 'yii\grid\ActionColumn',
 							'template' => '{view}',

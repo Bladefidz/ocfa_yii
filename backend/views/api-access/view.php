@@ -10,7 +10,7 @@ $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Registration', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="registration-view">
+<div class="api-access-view">
 
     <?= DetailView::widget([
         'model' => $model,
@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'status',
             'created_at:datetime',
+            'updated_at:datetime',
             'level',
         ],
     ]) ?>

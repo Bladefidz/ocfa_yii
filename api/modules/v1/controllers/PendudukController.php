@@ -172,14 +172,17 @@ class PendudukController extends \api\common\libraries\RestReactor
     		if(empty($nik)){
 		      	throw new yii\web\BadRequestHttpException;
 		    } else {
+		    	$accNIK = $user->findIdentityByAccessToken($accToken)->id;
 		    	$data = $this->getPenduduk($nik, $field);
 		    	
+		    	Logger::write($accNIK);
+
 		    	if(!empty($data)) {
 		    		return [
 		    			"name" => "success",
 		    			'status' => '200',
 			        	'message' => 'found',
-			        	'nik_responsible' => $user->findIdentityByAccessToken($accToken)->id,
+			        	'nik_responsible' => $accNIK,
 			        	'data' => $data
 			      	];
 		    	} else {
@@ -188,10 +191,6 @@ class PendudukController extends \api\common\libraries\RestReactor
 		    }
     	} else {
     		throw new yii\web\MethodNotAllowedHttpException;
-    	}
-
-    	if (!empty($accToken)) {
-    		$logger->write($user->findIdentityByAccessToken($accToken)->id);
     	}
     }
 }

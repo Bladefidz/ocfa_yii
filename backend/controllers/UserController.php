@@ -56,13 +56,19 @@ class UserController extends Controller
 		//echo var_dump($model);
         switch($model->level){
 			case '0':
-				$level = 'Instansi Non Pemerintah';
+				$level = 'Internal Instansi Non Pemerintah';
 				break;
 			case '1':
 				$level = 'Admin';
 				break;
 			case '2':
-				$level = 'Instansi Pemerintah';
+				$level = 'Internal Instansi Pemerintah';
+				break;
+			case '3':
+				$level = 'Eksternal Instansi Non Pemerintah';
+				break;
+			case '4':
+				$level = 'Eksternal Instansi Pemerintah';
 				break;
 		}
 		$model->level = $level;

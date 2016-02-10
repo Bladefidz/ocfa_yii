@@ -2,48 +2,80 @@
 namespace frontend\models;
 
 use common\models\User;
-use common\models\UserPublic;
-use Yii;
 use yii\base\Model;
-use yii\web\UploadedFile;
+use yii\helpers\VarDumper;
+use Yii;
 
 /**
- * Signup form
+ * UserCreate
  */
 class SignupForm extends Model
 {
+    const LEVEL_INTERNAL_NON_PEMERINTAH = 0;
+    const LEVEL_ADMIN = 1;
+    const LEVEL_INTERNAL_PEMERINTAH = 2;
+    const LEVEL_EKSTERNAL_NON_PEMERINTAH = 3;
+    const LEVEL_EKSTERNAL_PEMERINTAH = 4;
+
     public $username;
     public $email;
     public $password;
-    public $no_telp;
-    public $upload_tdp;
-    public $userId;
-    private $user;
-    private $userPublic;
-
-    /**
-     * [__construct description]
-     */
-    public function __construct() {
-        $this->user = new User();
-        $this->userPublic = new UserPublic();
-    }
+    public $id;
+    public $telp;
+    public $level;
 
     /**
      * @inheritdoc
      */
     public function rules()
     {
-        return array_merge($this->user->rules(), $this->userPublic->rules());
-    }
+        return [
+            ['username', 'filter', 'filter' => 'trim'],
+            ['username', 'required'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+            
+            ['id', 'filter', 'filter' => 'trim'],
+            ['id', 'required'],
+            ['id', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['id', 'string', 'min' => 16, 'max' => 16],
 
+            ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+
+            ['telp', 'required'],
+            ['telp', 'string', 'length' => [5, 20]],
+
+            ['password', 'required'],
+            ['password', 'string', 'min' => 6],
+
+            ['level', 'default', 'value' => self::LEVEL_EKSTERNAL_NON_PEMERINTAH],
+            ['level', 'in', 'range' => [self::LEVEL_INTERNAL_NON_PEMERINTAH, self::LEVEL_ADMIN, self::LEVEL_INTERNAL_NON_PEMERINTAH, self::LEVEL_EKSTERNAL_NON_PEMERINTAH, self::LEVEL_EKSTERNAL_PEMERINTAH]],
+        ];
+    }
+    
     /**
-     * [attributeLabels description]
-     * @return [type] [description]
+     * @inheritdoc
      */
     public function attributeLabels()
     {
-        return array_merge($this->user->attributeLabels(), $this->userPublic->attributeLabels());
+        return [
+            'id' => 'NIK',
+            'telp' => 'Telephone'
+            ];
+    }
+    
+    /**
+     * Find user
+     * @param string id
+     * @return User model
+     */
+    public function findUser($id)
+    {
+        return User::findOne($id);
     }
 
     /**
@@ -53,46 +85,30 @@ class SignupForm extends Model
      */
     public function signup()
     {
-        $status = false;
-
-        if ($this->user->load(Yii::$app->request->post()) && $this->userPublic->load(Yii::$app->request->post()) && Model::validateMultiple([$this->user, $this->userPublic]) ) {
-            $this->user->setPassword($this->password);
-            $this->user->generateAuthKey();
-            $this->user->status = 0;
-            $this->user->level = 0;
-            if ($this->userId = $this->user->save()) {
-                $this->userPublic->nik = $this->userId;
-                $fn = $this->userPublic->nama_instansi;
-                $this->userPublic->upload_tdp = UploadedFile::getInstance($this->userPublic, 'upload_tdp');
-                $fpath = 'uploads/' . $fn . '.' . $this->userPublic->upload_tdp->extension;
-                $this->userPublic->upload_tdp->saveAs($fpath);
-                $this->scan_tdp = $fpath;
-                if ($this->userPublic->save()) {
-                    $status = true;
-                }
-            }
+        if (!$this->validate()) {
+            return null;
         }
-
-        return $status;
+        
+        $user = new User();
+        $user->id = $this->id;
+        $user->username = $this->username;
+        $user->email = $this->email;
+        $user->telp = $this->telp;
+        $user->status = 20;
+        $user->level = $this->level;
+        $user->setPassword($this->password);
+        $user->generateAuthKey();
+        return $user->save() ? $user : null;
     }
-
+    
     /**
-     * [upload description]
-     * @return [type] [description]
+     * is Admin?
+     * @param string $id
+     * @return boolean
      */
-    public function upload()
+    public function isAdmin()
     {
-        $image = UploadedFile::getInstance($this, 'upload_tdp');
-
-        // if no image was uploaded abort the upload
-        if (empty($image)) {
-            return false;
-        }
-
-        // generate random name for the file
-        $this->pic = time(). '.' . $image->extension;
-
-        // the uploaded image instance
-        return $image;
+        $user = User::findIdentity(Yii::$app->user->id);
+        return $user->level == 1 ? true : false;
     }
 }
