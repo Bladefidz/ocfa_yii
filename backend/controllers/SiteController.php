@@ -7,7 +7,10 @@ use yii\web\Controller;
 use common\models\LoginForm;
 use common\models\User;
 use common\models\UserActivity;
+use common\models\ApiLogs;
 use yii\filters\VerbFilter;
+use backend\models\ApiRequestSearch;
+use backend\models\ApiLogsSearch;
 
 /**
  * Site controller
@@ -114,7 +117,23 @@ class SiteController extends Controller
 				'lansia' => $lansia,
 			]);
 		}else{
-			return $this->render('user_index');
+			$dbCommand = Yii::$app->db->createCommand("
+			   SELECT date(timestamp) as tanggal, COUNT(*) as count FROM user_activity WHERE nik = ".Yii::$app->user->id.
+			" group by date(timestamp)");
+			$userAct = $dbCommand->query();
+			$searchModelApi = new ApiRequestSearch();
+			$dataProviderApi = $searchModelApi->search(Yii::$app->request->queryParams);
+			$searchModel = new ApiLogsSearch();
+			$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+			$ipAddress = ApiLogs::find()->where('nik = '.Yii::$app->user->id)->orderBy('timestamp desc')->one()->ip;
+			return $this->render('user_index',[
+				'userAct' => $userAct,
+				'searchModelApi' => $searchModelApi,
+				'dataProviderApi' => $dataProviderApi,
+				'searchModel' => $searchModel,
+				'dataProvider' => $dataProvider,
+				'ipAddress' => $ipAddress,
+			]);
 		}
     }
 

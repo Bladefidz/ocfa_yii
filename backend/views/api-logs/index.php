@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\BaseStringHelper;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
@@ -30,10 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
 						//'id',
 						'ip',
-						'nik',
-						//'uri_access',
-						'timestamp',
+						//'nik',
+						[
+							'attribute' => 'uri_access',
+							'value' => function($model){
+								return BaseStringHelper::truncate($model->uri_access,50,' ..... ',null,true);
+							}
+						],
+						
 						'method',
+						'timestamp',
 						[
 							'class' => 'yii\grid\ActionColumn',
 							'template' => '{view}',

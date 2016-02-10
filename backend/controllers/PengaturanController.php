@@ -12,6 +12,7 @@ use common\models\Districts;
 use common\models\Villages;
 use common\models\TabelDomisili;
 use common\models\UserActivity;
+use common\models\User;
 use common\models\TabelKewarganegaraan;
 use backend\models\KeluargaSearch;
 use backend\models\DataExportSearch;
@@ -48,7 +49,57 @@ class PengaturanController extends Controller
      */
     public function actionIndex()
     {
-		$this->redirect('pengaturan/export');
+		// get user level from class User by id
+		$getUser = User::find(Yii::$app->user->id)->select(['level','status'])->one();
+		// check user level, if level equals 1 then user is an admin, he can through frontend or backend, if else user is a user, he only can through frontend
+		if($getUser->status != 0){
+			if($getUser->level == 1){
+				$this->redirect('pengaturan/export');
+			}else{
+				$user = User::find(Yii::$app->user->id)->select(['id','instansi','username','email','auth_key'])->one();
+				return $this->render('user_index',[
+					'user' => $user,
+				]);
+			}
+		}else{
+			Yii::$app->user->logout();
+			return $this->redirect('../../');
+		}
+		
+    }
+	
+	/**
+     * Edit Instansi in User Model.
+     * @return mixed
+     */
+    public function actionUbah()
+    {
+		// get user instansi from class User by id
+		$instansi = User::find(Yii::$app->user->id)->select('instansi')->one();
+		
+		if($instansi->load(Yii::$app->request->post())){
+			$instansi->update();
+		}else{
+			return $this->renderAjax('edit',[
+				'instansi' => $instansi,
+			]);
+		}
+		
+    }
+	
+	/**
+     * Deaktivasi User.
+     * @return mixed
+     */
+    public function actionDeaktivasi()
+    {
+		// get user instansi from class User by id
+		$status = User::find(Yii::$app->user->id)->select('status')->one();
+		$status->status = '0';
+		if($status->update()){
+			$this->actionIndex();
+		}
+		VarDumper::dump($status,5678,true);
     }
 	
 	public function actionExport()
