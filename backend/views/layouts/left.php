@@ -42,7 +42,7 @@ $user = new UserCreate();
                         'url' => '#',
                         'items' => [
                             ['label' => 'Registration', 'icon' => 'fa fa-circle-o', 'url' => ['/registration'],],
-							['label' => 'Access Control', 'icon' => 'fa fa-circle-o', 'url' => ['#'],],
+							['label' => 'Access Control', 'icon' => 'fa fa-circle-o', 'url' => ['/api-access'],],
 							['label' => 'Access Log', 'icon' => 'fa fa-circle-o', 'url' => ['/api-logs'],],
                         ],
 						'visible' => $user->isAdmin()

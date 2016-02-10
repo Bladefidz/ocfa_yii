@@ -33,7 +33,15 @@ $this->params['breadcrumbs'][] = $this->title;
 						'nik',
 						//'uri_access',
 						'timestamp',
-						'method',
+						// 'method',
+						[
+							'attribute' => 'method',
+							'format' => 'raw',
+							'value' => function ($data){
+								return $data->method;
+							},
+							'filter' => array('GET' => 'GET', 'POST' => 'POST', 'PUT' => 'PUT', 'DELETE' => 'DELETE', 'OPTION' => 'OPTION')
+						],
 						[
 							'class' => 'yii\grid\ActionColumn',
 							'template' => '{view}',

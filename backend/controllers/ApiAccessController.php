@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\User;
-use backend\models\RegistrationSearch;
+use backend\models\ApiAccessSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class RegistrationController extends Controller
+class ApiAccessController extends Controller
 {
     /**
      * @inheritdoc
@@ -35,8 +35,8 @@ class RegistrationController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new RegistrationSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel = new ApiAccessSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [3,4]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -55,20 +55,14 @@ class RegistrationController extends Controller
 		//echo var_dump($model);
         switch($model->level){
 			case '0':
-				$level = 'Internal Instansi Non Pemerintah';
+				$level = 'Instansi Non Pemerintah';
 				break;
 			case '1':
 				$level = 'Admin';
 				break;
 			case '2':
-				$level = 'Internal Instansi Pemerintah';
+				$level = 'Instansi Pemerintah';
 				break;
-            case '3':
-                $level = 'Eksternal Instansi Non Pemerintah';
-                break;
-            case '4':
-                $level = 'Eksternal Instansi Pemerintah';
-                break;
 		}
 		$model->level = $level;
 		return $model;
@@ -84,28 +78,6 @@ class RegistrationController extends Controller
         return $this->render('view', [
             'model' => $this->exchangeData($this->findModel($id)),
         ]);
-    }
-
-    /**
-     * Creates a new User model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionBuat()
-    {
-        $model = new UserCreate();
-		$userModel = new User();
-
-        if ($model->load(Yii::$app->request->post())) {
-			if ($user = $model->signup()) {
-				return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-				'userModel' => $userModel,
-            ]);
-        }
     }
 
     /**
@@ -138,10 +110,10 @@ class RegistrationController extends Controller
     public function actionBlock($id)
     {
         $user = $this->findModel($id);
-		$user->status = 0;
+		$user->status = 30;
 		$user->save();
 
-        return $this->redirect(['/registration']);
+        return $this->redirect(['/api-access']);
     }
 	
 	/**
@@ -150,26 +122,12 @@ class RegistrationController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionAccept($id)
+    public function actionAllow($id)
     {
         $user = $this->findModel($id);
-
-        $mail = \Yii::$app->mailer
-            ->compose('grant_api', ['user' => $user])
-            ->setFrom([\Yii::$app->params['apiDevEmail'] => 'OCFA API Developer'])
-            ->setTo($user->email)
-            ->setSubject('API Key');
-        
-        $render = ['/registration'];
-
-        if ($mail->send()) {
-            $user->status = 10;
-            if ($user->save()) {
-                $render = ['/registration'];
-            }
-        }
-
-        return $this->redirect($render);
+		$user->status = 10;
+		$user->save();
+        return $this->redirect(['/api-access']);
     }
 
     /**
