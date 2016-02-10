@@ -24,6 +24,16 @@ return [
                 'encryption' => 'tls',
             ],
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => false,
+            'showScriptName' => false,
+            // 'rules' => array(
+            //     '<controller:\w+>/<id:\d+>' => '<controller>/view',
+            //     '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+            //     '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            // ),
+        ],
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
             'timeZone' => 'Asia/Jakarta',
