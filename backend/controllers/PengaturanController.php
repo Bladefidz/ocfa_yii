@@ -104,9 +104,10 @@ class PengaturanController extends Controller
     }
 	
 	public function actionExport()
-    {
+    {		
+		// Excel
 		$upload = new \yii\base\DynamicModel([
-        'nama', 'file_id'
+        	'nama', 'file_id'
         ]);
  
 		// behavior untuk upload file
@@ -123,9 +124,31 @@ class PengaturanController extends Controller
 		
 		$model = new \yii\base\DynamicModel(['tabel']);
 		$model->addRule(['tabel'], 'string', ['max' => 20]);
-		
+		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+			//VarDumper::dump($model,5678,true);
+			switch($model->tabel){
+				case '1':
+					$this->exportPenduduk();
+					break;
+				case '2':
+					$this->exportKeluarga();
+					break;
+				case '3':
+					$this->exportAktivitasUser();
+					break;
+				default:
+					break;
+			}
+			// return $this->redirect('export');
+		} elseif ($upload->load(Yii::$app->request->post()) && $upload->validate()) {
+			if ($upload->saveUploadedFile() !== false) {
+				Yii::$app->session->setFlash('success', 'Upload Sukses');
+			}
+		}
+
+		// CSV
 		$uploadCsv = new \yii\base\DynamicModel([
-        'nama', 'file_id'
+        	'nama', 'file_id'
         ]);
  
 		// behavior untuk upload file
@@ -140,44 +163,21 @@ class PengaturanController extends Controller
 			->addRule('file', 'file', ['extensions' => 'xls,xlsx']);
 		//return $this->render('upload',['model' => $model]);
 		
-		$modelCsv = new \yii\base\DynamicModel(['tabel']);
-		$modelCsv->addRule(['tabel'], 'string', ['max' => 20]);
-		
-		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			//VarDumper::dump($model,5678,true);
-			switch($model->tabel){
-				case '1':
-					//$this->exportPenduduk();
-					//return $this->redirect('export');
-					break;
-				case '2':
-					//$this->exportKeluarga();
-					break;
-				case '3':
-					//$this->exportAktivitasUser();
-					break;
-				default:
-					break;
-			}
-		}elseif ($upload->load(Yii::$app->request->post()) && $upload->validate()) {
-			if ($upload->saveUploadedFile() !== false) {
-				Yii::$app->session->setFlash('success', 'Upload Sukses');
-			}
-		}
-		
+		$modelCsv = new \yii\base\DynamicModel(['tabelcsv']);
+		$modelCsv->addRule(['tabelcsv'], 'string', ['max' => 20]);
+
 		if ($modelCsv->load(Yii::$app->request->post()) && $modelCsv->validate()) {
 			//VarDumper::dump($modelCsv,5678,true);
-			switch($modelCsv->tabel){
+			switch($modelCsv->tabelcsv){
 				case '1':
-					$exCsv = theCsv::export(['tables' => 'base,base_updatable']);
-					// VarDumper::dump($this->exportDataCsv(),5678,true);
-					//return $this->redirect('export');
+					// theCsv::export(['tables' => 'base,base_updatable']);
+					$this->exportPendudukCsv();
 					break;
 				case '2':
-					//$this->exportKeluarga();
+					$this->exportKeluargaCsv();
 					break;
 				case '3':
-					//$this->exportAktivitasUser();
+					$this->exportAktivitasUserCsv();
 					break;
 			}
 		}elseif ($uploadCsv->load(Yii::$app->request->post()) && $uploadCsv->validate()) {
@@ -194,32 +194,224 @@ class PengaturanController extends Controller
 		]);
     }
 	
-	public function exportDataCsv()
+	private function exportPendudukCsv()
     {
 		$isi = DataManagement::find()->asArray()->all();
-		$filename = 'Data Penduduk-'.Date('YmdGis').'.csv';
-		header("Content-Type: text/csv");
+		$filename = 'Data_Penduduk-'.Date('YmdGis').'.csv';
+		header("Content-Type: application/csv");
 		header("Content-Disposition: attachment; filename=".$filename);
 		// Disable caching
 		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
 		header("Pragma: no-cache"); // HTTP 1.0
 		header("Expires: 0"); // Proxies
 		
-		$outstream = fopen("php://output", "w");
-
-		foreach($isi as $result)
-		{
-			fputcsv($outstream, $result);
+		$csv = '';
+		$i = 0;
+		$len = count($isi[0]);
+		foreach ($isi[0] as $k => $v) {
+			if ($i == $len-1) {
+				echo $k."\n";
+			} else {
+				echo $k.",";
+			}
+			$i++;
 		}
 
-		fclose($outstream);
+		$csv = substr($csv, 0, -1)."\r\n";
+		foreach ($isi as $key => $val) {
+			$tmp = '';
+			$ii = 0;
+			foreach ($val as $v) {
+				$tmp .= $v.",";
+				if ($ii == $len-1) {
+					echo $v."\n";
+				} else {
+					echo $v.",";
+				}
+				$ii++;
+			}
+			$csv .= substr($tmp, 0, -1)."\r\n";
+		}
+
+		// echo $csv;
+		return true;
+    }
+
+    private function exportKeluargaCsv() {
+    	$isi = Keluarga::find()->asArray()->all();
+    	$filename = 'Data_Keluarga-'.date('YmdGis').'.csv';
+
+    	header("Content-Type: application/csv");
+		header("Content-Disposition: attachment; filename=".$filename);
+		// Disable caching
+		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+		header("Pragma: no-cache"); // HTTP 1.0
+		header("Expires: 0"); // Proxies
+
+		echo "Nomor KK,Nama Kepala Keluarga,Alamat,RT,RW,Desa/Kelurahan,Kecamatan,Kabupaten/Kota,Provinsi,Dikeluarkan Tanggal,Nama Lengkap,NIK,Jenis Kelamin,Tempat Lahir,Tanggal Lahir,Agama,Pendidikan Terakhir,Pekerjaan,Status Perkawinan,Status Hubungan Dalam Keluarga,Kewarganegaraan,Nama Ayah,Nama Ibu";
+		echo "\n";
+
+		foreach ($isi as $data) {
+			$subData = BaseUpdatable::find()->where('status_keluarga = "1" and no_kk = "'.$data['id'].'"')->one();
+			$base = DataManagement::findOne($subData['nik']);
+			$domisili = TabelDomisili::find()->where('nik = '.$subData['nik'])->one();
+			$rawNikKeluarga = BaseUpdatable::find()->where('no_kk = '.$data['id'])->asArray()->all();
+			$nikKeluarga = "";
+			foreach($rawNikKeluarga as $val){
+				if($nikKeluarga != null){
+					$nikKeluarga .= ",";
+				}
+				$nikKeluarga .= $val['nik'];
+			}
+			$dataKeluarga = DataManagement::find()->joinWith('baseUpdatable')->where('base.nik in ('.$nikKeluarga.')')->asArray()->all();
+			$count = count($dataKeluarga);
+
+			foreach($dataKeluarga as $value){
+				echo $data['id'].",";
+				echo $base['nama'].",";
+				echo $domisili['alamat'].",";
+				echo $domisili['rt'].",";
+				echo $domisili['rw'].",";
+				echo Villages::findOne($domisili['kelurahan'])->name.",";
+				echo Districts::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-3))->name.",";
+				echo Regencies::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-6))->name.",";
+				echo Provinces::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-8))->name.",";
+				echo Keluarga::findOne($data['id'])->tanggal_terbit.",";
+				echo $value['nama'].",";
+				echo $value['nik'].",";
+				echo $value['jenis_kelamin'] == 1 ? "Laki-laki," : "Perempuan,";
+				echo $value['tempat_lahir'].",";
+				echo $value['tanggal_lahir'].",";
+				switch($value['baseUpdatable']['agama']){
+					case '1':
+						$agama = 'Islam';
+						break;
+					case '2':
+						$agama = 'Kristen';
+						break;
+					case '3':
+						$agama = 'Katholik';
+						break;
+					case '4':
+						$agama = 'Hindu';
+						break;
+					case '5':
+						$agama = 'Budha';
+						break;
+					case '6':
+						$agama = 'Konghucu';
+						break;
+					case '7':
+						$agama = 'Lainnya';
+						break;
+				}
+				echo $agama.",";
+				switch($value['baseUpdatable']['pendidikan_terakhir']){
+					case '1':
+						$pend = 'SD';
+						break;
+					case '2':
+						$pend = 'SMP';
+						break;
+					case '3':
+						$pend = 'SMA';
+						break;
+					case '4':
+						$pend = 'D 1';
+						break;
+					case '5':
+						$pend = 'D 2';
+						break;
+					case '6':
+						$pend = 'D 3';
+						break;
+					case '7':
+						$pend = 'Sarjana S 1/D 4';
+						break;
+					case '8':
+						$pend = 'Pasca Sarjana S 2';
+						break;
+					case '9':
+						$pend = 'Pasca Sarjana S 3';
+						break;
+				}
+				echo $pend.",";
+				echo $value['baseUpdatable']['pekerjaan'].",";
+				if($value['baseUpdatable']['status_perkawinan'] == 0){
+					$status_perkawinan = 'Belum Menikah';
+				}elseif($value['baseUpdatable']['status_perkawinan'] == 1){
+					$status_perkawinan = 'Menikah';
+				}elseif($value['baseUpdatable']['status_perkawinan'] == 2){
+					$status_perkawinan = 'Cerai';
+				}elseif($value['baseUpdatable']['status_perkawinan'] == 3){
+					$status_perkawinan = 'Cerai Ditinggal Mati';
+				}
+				echo $status_perkawinan.",";
+				$status_keluarga = $value['baseUpdatable']['status_keluarga'];
+				if($status_keluarga == 1){
+					$statusKeluarga = 'Kepala Keluarga';
+				}elseif($status_keluarga == 2){
+					$statusKeluarga = 'Istri';
+				}elseif($status_keluarga == 3){
+					$statusKeluarga = 'Anak';
+				}
+				echo $statusKeluarga.",";
+				if(TabelKewarganegaraan::findOne($value['nik']) !== null){
+					$kewarganegaraan = 'WNA';
+				}else{
+					$kewarganegaraan = 'WNI';
+				}
+				echo $kewarganegaraan.",";
+				echo DataManagement::findOne(BaseUpdatable::findOne($value['nik'])->ayah)['nama'].",";
+				echo DataManagement::findOne(BaseUpdatable::findOne($value['nik'])->ibu)['nama'];
+				echo "\n";
+			}
+		}
+		return true;
+    }
+
+    private function exportAktivitasUserCsv() {
+    	$isi = UserActivity::find()->orderBy('timestamp desc')->asArray()->all();
+    	$filename = 'Data_Aktivitas_User-'.Date('YmdGis').'.csv';
+		//VarDumper::dump($isi,5678);
+		header("Content-Type: application/csv");
+		header("Content-Disposition: attachment; filename=".$filename);
+		// Disable caching
+		header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+		header("Pragma: no-cache"); // HTTP 1.0
+		header("Expires: 0"); // Proxies
+
+		$head = '';
+		foreach ($isi[0] as $k => $v) {
+			$head .= $k.",";
+		}
+
+		echo substr($head, 0, -1);
+		echo "\n";
+
+		foreach($isi as $data){
+			$nama = DataManagement::findOne($data['nik'])->nama;
+			echo $data['nik'].",";
+			echo $nama.",";
+			echo $data['action'].",";
+			echo $data['timestamp'];
+			echo "\n";
+		}
+		return true;
     }
 	
-	function exportPenduduk(){
+	private function exportPenduduk()
+	{
 		$isi = DataManagement::find()->asArray()->all();
-		$filename = 'Data Penduduk-'.Date('YmdGis').'.xls';
+		$filename = 'Data_Penduduk-'.date('YmdGis').'.xls';
+		// header("Content-type: application/vnd-ms-excel");
 		header("Content-type: application/vnd-ms-excel");
 		header("Content-Disposition: attachment; filename=".$filename);
+		header("Pragma: no-cache");
+		header("Expires: 0");
+		echo "<html>";
+		echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
+		echo "<body>";
 		echo "<style> .str{ mso-number-format:\@; } </style>";
 		echo '<table border="1" width="100%">
 			<thead>
@@ -249,7 +441,8 @@ class PengaturanController extends Controller
 					<th>Pendidikan Terakhir</th>
 					<th>Foto</th>
 				</tr>
-			</thead>';
+			</thead>
+			<tbody>';
 			foreach($isi as $data){
 				$subData = BaseUpdatable::findOne($data['nik']);
 				$domisili = TabelDomisili::find()->where('current = 1 and nik = '.$data['nik'])->one();
@@ -357,18 +550,22 @@ class PengaturanController extends Controller
 						<td>'.$pend.'</td>
 						<td>http://localhost/ocfa_yii/site/user?id='.$data['nik'].'</td>
 					</tr>
-				';
+				</tbody>';
 			}
 		echo '</table>';
+		echo "</body>";
+		echo "</html>";
 		return true;
 	}
 	
-	function exportKeluarga(){
+	private function exportKeluarga(){
 		$isi = Keluarga::find()->asArray()->all();
 		
-		$filename = 'Data Keluarga-'.Date('YmdGis').'.xls';
-		header("Content-type: application/vnd-ms-excel");
-		header("Content-Disposition: attachment; filename=".$filename);
+		$filename = 'Data_Keluarga-'.date('YmdGis').'.xls';
+		header("Content-type: application/vnd.ms-excel");
+		header("Content-Disposition: attachment; filename=\"$filename\"");
+		header("Pragma: no-cache");
+		header("Expires: 0");
 		echo "<style> .str{ mso-number-format:\@; } </style>";
 		echo '<table border="1" width="100%">
 			<thead>
@@ -397,7 +594,8 @@ class PengaturanController extends Controller
 					<th>Nama Ayah</th>
 					<th>Nama Ibu</th>
 				</tr>
-			</thead>';
+			</thead>
+			<tbody>';
 			$i = 0;
 			foreach($isi as $data){
 				$subData = BaseUpdatable::find()->where('status_keluarga = "1" and no_kk = "'.$data['id'].'"')->one();
@@ -527,19 +725,21 @@ class PengaturanController extends Controller
 							}
 							$i++;
 						}
-						//echo '</tr>';
+						echo '</tbody>';
 					
 			}
 		echo '</table>';
 		return true;
 	}
 	
-	function exportAktivitasUser(){
+	private function exportAktivitasUser(){
 		$isi = UserActivity::find()->orderBy('timestamp desc')->asArray()->all();
 		//VarDumper::dump($isi,5678);
-		$filename = 'Data Aktivitas User-'.Date('YmdGis').'.xls';
-		header("Content-type: application/vnd-ms-excel");
+		$filename = 'Data_Aktivitas_User-'.Date('YmdGis').'.xls';
+		header("Content-type: application/msexcel");
 		header("Content-Disposition: attachment; filename=".$filename);
+		header("Pragma: no-cache");
+		header("Expires: 0");
 		echo "<style> .str{ mso-number-format:\@; } </style>";
 		echo '<table border="1" width="100%">
 			<thead>
