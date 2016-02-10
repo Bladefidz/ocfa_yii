@@ -13885,3 +13885,608 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1455069963.47
     'REQUEST_TIME' => 1455069963
 ]
+2016-02-10 11:45:34 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('site')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-10 11:45:34 [::1][-][-][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => '19b04b4a-1cdd-00de-5027-d568ea58b3b8'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '33195'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455079534.585
+    'REQUEST_TIME' => 1455079534
+]
+2016-02-10 11:45:51 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('site')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-10 11:45:51 [::1][-][-][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'eui2o8t9hn3viiah069r7o7ib6'
+    '_csrf' => '64f699856cd0c6882b081f697bdbabf3563c9989418ce9d4eab23e26fa5f59daa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Tejo9YhMBQMDIpDQiU1ygs_6aOTHp7A4\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=eui2o8t9hn3viiah069r7o7ib6; _csrf=64f699856cd0c6882b081f697bdbabf3563c9989418ce9d4eab23e26fa5f59daa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Tejo9YhMBQMDIpDQiU1ygs_6aOTHp7A4%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '33200'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455079551.124
+    'REQUEST_TIME' => 1455079551
+]
+2016-02-10 11:47:34 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('site')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-10 11:47:34 [::1][-][-][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'type' => 'tahun'
+    'mulai_tahun' => '2012'
+    'sampai_tahun' => '2017'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36'
+    'HTTP_POSTMAN_TOKEN' => 'b72bda9c-696c-b623-5ad8-eaeb37fd9fb7'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '33223'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&type=tahun&mulai_tahun=2012&sampai_tahun=2017'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/statistik?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&type=tahun&mulai_tahun=2012&sampai_tahun=2017'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&type=tahun&mulai_tahun=2012&sampai_tahun=2017'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/statistik?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&type=tahun&mulai_tahun=2012&sampai_tahun=2017'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455079654.028
+    'REQUEST_TIME' => 1455079654
+]
+2016-02-10 11:47:45 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('site')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-10 11:47:45 [::1][-][-][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '09nau081jhhqjha3pqktsam561'
+    '_csrf' => 'bfb57171a5da92adacaed47f5f32d2be2c833961deb2f353bfaf6096b107d3eda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Ek2743KdP5JR5DtSipU_Pmp03If8McTN\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=09nau081jhhqjha3pqktsam561; _csrf=bfb57171a5da92adacaed47f5f32d2be2c833961deb2f353bfaf6096b107d3eda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Ek2743KdP5JR5DtSipU_Pmp03If8McTN%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '33227'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455079665.921
+    'REQUEST_TIME' => 1455079665
+]
+2016-02-10 11:49:03 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('site')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-10 11:49:03 [::1][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => '09nau081jhhqjha3pqktsam561'
+    '_csrf' => 'bfb57171a5da92adacaed47f5f32d2be2c833961deb2f353bfaf6096b107d3eda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Ek2743KdP5JR5DtSipU_Pmp03If8McTN\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=09nau081jhhqjha3pqktsam561; _csrf=bfb57171a5da92adacaed47f5f32d2be2c833961deb2f353bfaf6096b107d3eda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Ek2743KdP5JR5DtSipU_Pmp03If8McTN%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '33231'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455079743.047
+    'REQUEST_TIME' => 1455079743
+]
+2016-02-10 13:09:13 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('site')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-10 13:09:13 [::1][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => '09nau081jhhqjha3pqktsam561'
+    '_csrf' => '04b333b4127e22f8f71975455bebadfa657d2247becda57cdfa0174bc7b04d73a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Ip859SyORS1X9Zv8jp6-kOCvYxzjrm3p\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=09nau081jhhqjha3pqktsam561; _csrf=04b333b4127e22f8f71975455bebadfa657d2247becda57cdfa0174bc7b04d73a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Ip859SyORS1X9Zv8jp6-kOCvYxzjrm3p%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '1274'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455084553.789
+    'REQUEST_TIME' => 1455084553
+]
+2016-02-10 13:58:58 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('site')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-10 13:58:58 [::1][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => '09nau081jhhqjha3pqktsam561'
+    '_csrf' => '0da714293add1f61e94f640926cd3fb77bf50959de2dcb022ad1141c7fe2fdd0a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2yfzztoOcgtNqBvMjxGuzPQnilZuk38X\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=09nau081jhhqjha3pqktsam561; _csrf=0da714293add1f61e94f640926cd3fb77bf50959de2dcb022ad1141c7fe2fdd0a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222yfzztoOcgtNqBvMjxGuzPQnilZuk38X%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2014'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/sizzle.min.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ocfa_yii/api/v1/sizzle.min.map'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455087538.278
+    'REQUEST_TIME' => 1455087538
+]
+2016-02-10 14:07:18 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php:561
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(561): yii\base\ErrorHandler->handleError(8, 'Array to string...', 'D:\\xampp\\htdocs...', 561, Array)
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(520): yii\base\Module->createControllerByID('site')
+#2 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(448): yii\base\Module->createController('')
+#3 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('', Array)
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#5 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#6 {main}
+2016-02-10 14:07:18 [::1][-][-][info][application] $_COOKIE = [
+    'PHPSESSID' => '09nau081jhhqjha3pqktsam561'
+    '_csrf' => '0da714293add1f61e94f640926cd3fb77bf50959de2dcb022ad1141c7fe2fdd0a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"2yfzztoOcgtNqBvMjxGuzPQnilZuk38X\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=09nau081jhhqjha3pqktsam561; _csrf=0da714293add1f61e94f640926cd3fb77bf50959de2dcb022ad1141c7fe2fdd0a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%222yfzztoOcgtNqBvMjxGuzPQnilZuk38X%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2139'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455088038.641
+    'REQUEST_TIME' => 1455088038
+]
