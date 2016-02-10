@@ -201,3 +201,22 @@ a.desc:after {
     font-weight: 700;
     font-size: 2em;
 }
+
+.api-doc {
+    padding-left: 0;
+    position: relative;
+}
+
+.api-doc .api-doc-content {
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+.api-doc .api-doc-content .detail {
+    padding-bottom: 50px;
+}
+
+.api-doc .side {
+    position: fixed;
+    padding-right: 40px;
+}
