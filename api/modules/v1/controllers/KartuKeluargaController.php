@@ -121,7 +121,10 @@ class KartukeluargaController extends \api\common\libraries\RestReactor
     		if (empty($accToken)) {
     			throw new yii\web\BadRequestHttpException;
     		} else {
+    			$accNIK = $user->findIdentityByAccessToken($accToken)->id;
     			$data = null;
+    		
+    			Logger::write($accNIK);
 
     			if (!empty($noKK) && empty($nik)) {
     				$data = $this->getKK($noKK);
@@ -134,7 +137,7 @@ class KartukeluargaController extends \api\common\libraries\RestReactor
 		    			"name" => "success",
 		    			'status' => '200',
 			        	'message' => 'found',
-			        	'nik_responsible' => $user->findIdentityByAccessToken($accToken)->id,
+			        	'nik_responsible' => $accNIK,
 			        	'data' => $data
 			      	];
 		    	} else {
