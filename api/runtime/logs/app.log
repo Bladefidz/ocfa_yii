@@ -14680,3 +14680,952 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1455118370.32
     'REQUEST_TIME' => 1455118370
 ]
+2016-02-11 13:12:53 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'base_updatable.kewarganegaraan' in 'field list'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php:839
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(839): PDOStatement->execute()
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(71): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(148): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(176): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'base_updatable.kewarganegaraan' in 'field list'
+The SQL being executed was: SELECT `base`.`nama`,`base`.`jenis_kelamin`,`base`.`tanggal_lahir`,`base`.`tempat_lahir`,`base`.`golongan_darah`,`base_updatable`.`kewarganegaraan`,`base_updatable`.`foto`,`base_updatable`.`agama`,`tabel_domisili`.`alamat`,`base_updatable`.`status_perkawinan`,`base_updatable`.`pekerjaan`,`base_updatable`.`pendidikan_terakhir` FROM `base` LEFT JOIN `base_updatable` ON base.nik = base_updatable.nik LEFT JOIN `tabel_kematian` ON base.nik = tabel_kematian.nik LEFT JOIN `tabel_domisili` ON base.nik = tabel_domisili.nik WHERE base.nik='3502100710940002'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'SELECT `base`.`...')
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(71): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(148): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(176): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'base_updatable.kewarganegaraan' in 'field list'
+)
+
+2016-02-11 13:12:53 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '55g8mfqnv6v3q9d223eb876mb1'
+    '_csrf' => '40a1b00b7e663097b72788d9e4a894650b210956f9a54c5c3f62e9e1b875e220a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"IgL3DpumZhcUMrrGoYuyK78ubyk77bEM\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=55g8mfqnv6v3q9d223eb876mb1; _csrf=40a1b00b7e663097b72788d9e4a894650b210956f9a54c5c3f62e9e1b875e220a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22IgL3DpumZhcUMrrGoYuyK78ubyk77bEM%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2574'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455171173.135
+    'REQUEST_TIME' => 1455171173
+]
+2016-02-11 13:13:09 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'base_updatable.kewarganegaraan' in 'field list'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php:839
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(839): PDOStatement->execute()
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(71): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(148): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(176): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'base_updatable.kewarganegaraan' in 'field list'
+The SQL being executed was: SELECT `base`.`nama`,`base`.`jenis_kelamin`,`base`.`tanggal_lahir`,`base`.`tempat_lahir`,`base`.`golongan_darah`,`base_updatable`.`kewarganegaraan`,`base_updatable`.`foto`,`base_updatable`.`agama`,`tabel_domisili`.`alamat`,`base_updatable`.`status_perkawinan`,`base_updatable`.`pekerjaan`,`base_updatable`.`pendidikan_terakhir` FROM `base` LEFT JOIN `base_updatable` ON base.nik = base_updatable.nik LEFT JOIN `tabel_kematian` ON base.nik = tabel_kematian.nik LEFT JOIN `tabel_domisili` ON base.nik = tabel_domisili.nik WHERE base.nik='3502100710940002'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'SELECT `base`.`...')
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(71): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(148): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(176): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'base_updatable.kewarganegaraan' in 'field list'
+)
+
+2016-02-11 13:13:09 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '55g8mfqnv6v3q9d223eb876mb1'
+    '_csrf' => '40a1b00b7e663097b72788d9e4a894650b210956f9a54c5c3f62e9e1b875e220a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"IgL3DpumZhcUMrrGoYuyK78ubyk77bEM\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=55g8mfqnv6v3q9d223eb876mb1; _csrf=40a1b00b7e663097b72788d9e4a894650b210956f9a54c5c3f62e9e1b875e220a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22IgL3DpumZhcUMrrGoYuyK78ubyk77bEM%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2579'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455171189.476
+    'REQUEST_TIME' => 1455171189
+]
+2016-02-11 13:27:06 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php:839
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(839): PDOStatement->execute()
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(71): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(149): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(177): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'
+The SQL being executed was: SELECT `base`.`nama`,`base`.`jenis_kelamin`,`base`.`tanggal_lahir`,`base`.`tempat_lahir`,`base`.`golongan_darah`,`tabel_kewarganegaraan`.`kewarganegaraan`,`base_updatable`.`foto`,`base_updatable`.`agama`,`tabel_domisili`.`alamat`,`base_updatable`.`status_perkawinan`,`base_updatable`.`pekerjaan`,`base_updatable`.`pendidikan_terakhir` FROM `base` LEFT JOIN `base_updatable` ON base.nik = base_updatable.nik LEFT JOIN `tabel_kematian` ON base.nik = tabel_kematian.nik LEFT JOIN `tabel_domisili` ON base.nik = tabel_domisili.nik WHERE base.nik='3502100710940002'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'SELECT `base`.`...')
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(71): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(149): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(177): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'
+)
+
+2016-02-11 13:27:06 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '55g8mfqnv6v3q9d223eb876mb1'
+    '_csrf' => 'c5ece48e1179166cc598a2746895a44d9b3ac3d192e39ca2281c02c4c8db0473a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Dc_nwCT40BkWb30wgPQCWKJPc5mQPGiJ\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=55g8mfqnv6v3q9d223eb876mb1; _csrf=c5ece48e1179166cc598a2746895a44d9b3ac3d192e39ca2281c02c4c8db0473a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Dc_nwCT40BkWb30wgPQCWKJPc5mQPGiJ%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2692'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455172026.069
+    'REQUEST_TIME' => 1455172026
+]
+2016-02-11 13:27:37 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ocfa_admin.tabel_kewarganegaraane' doesn't exist' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php:839
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(839): PDOStatement->execute()
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(72): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(149): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(177): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ocfa_admin.tabel_kewarganegaraane' doesn't exist
+The SQL being executed was: SELECT `base`.`nama`,`base`.`jenis_kelamin`,`base`.`tanggal_lahir`,`base`.`tempat_lahir`,`base`.`golongan_darah`,`tabel_kewarganegaraan`.`kewarganegaraan`,`base_updatable`.`foto`,`base_updatable`.`agama`,`tabel_domisili`.`alamat`,`base_updatable`.`status_perkawinan`,`base_updatable`.`pekerjaan`,`base_updatable`.`pendidikan_terakhir` FROM `base` LEFT JOIN `base_updatable` ON base.nik = base_updatable.nik LEFT JOIN `tabel_kematian` ON base.nik = tabel_kematian.nik LEFT JOIN `tabel_domisili` ON base.nik = tabel_domisili.nik LEFT JOIN `tabel_kewarganegaraane` ON base.nik = tabel_kewarganegaraan.nik WHERE base.nik='3502100710940002'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'SELECT `base`.`...')
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(72): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(149): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(177): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'ocfa_admin.tabel_kewarganegaraane' doesn't exist
+)
+
+2016-02-11 13:27:37 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '55g8mfqnv6v3q9d223eb876mb1'
+    '_csrf' => 'c5ece48e1179166cc598a2746895a44d9b3ac3d192e39ca2281c02c4c8db0473a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Dc_nwCT40BkWb30wgPQCWKJPc5mQPGiJ\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=55g8mfqnv6v3q9d223eb876mb1; _csrf=c5ece48e1179166cc598a2746895a44d9b3ac3d192e39ca2281c02c4c8db0473a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Dc_nwCT40BkWb30wgPQCWKJPc5mQPGiJ%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2698'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455172057.151
+    'REQUEST_TIME' => 1455172057
+]
+2016-02-11 13:27:50 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php:839
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(839): PDOStatement->execute()
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(72): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(149): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(177): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'
+The SQL being executed was: SELECT `base`.`nama`,`base`.`jenis_kelamin`,`base`.`tanggal_lahir`,`base`.`tempat_lahir`,`base`.`golongan_darah`,`tabel_kewarganegaraan`.`kewarganegaraan`,`base_updatable`.`foto`,`base_updatable`.`agama`,`tabel_domisili`.`alamat`,`base_updatable`.`status_perkawinan`,`base_updatable`.`pekerjaan`,`base_updatable`.`pendidikan_terakhir` FROM `base` LEFT JOIN `base_updatable` ON base.nik = base_updatable.nik LEFT JOIN `tabel_kematian` ON base.nik = tabel_kematian.nik LEFT JOIN `tabel_domisili` ON base.nik = tabel_domisili.nik LEFT JOIN `tabel_kewarganegaraan` ON base.nik = tabel_kewarganegaraan.nik WHERE base.nik='3502100710940002'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'SELECT `base`.`...')
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(72): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(149): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(177): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'
+)
+
+2016-02-11 13:27:50 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '55g8mfqnv6v3q9d223eb876mb1'
+    '_csrf' => 'c5ece48e1179166cc598a2746895a44d9b3ac3d192e39ca2281c02c4c8db0473a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Dc_nwCT40BkWb30wgPQCWKJPc5mQPGiJ\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=55g8mfqnv6v3q9d223eb876mb1; _csrf=c5ece48e1179166cc598a2746895a44d9b3ac3d192e39ca2281c02c4c8db0473a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Dc_nwCT40BkWb30wgPQCWKJPc5mQPGiJ%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2701'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455172070.208
+    'REQUEST_TIME' => 1455172070
+]
+2016-02-11 13:28:07 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php:839
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(839): PDOStatement->execute()
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(72): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(149): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(177): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'
+The SQL being executed was: SELECT `base`.`nama`,`base`.`jenis_kelamin`,`base`.`tanggal_lahir`,`base`.`tempat_lahir`,`base`.`golongan_darah`,`tabel_kewarganegaraan`.`kewarganegaraan`,`base_updatable`.`foto`,`base_updatable`.`agama`,`tabel_domisili`.`alamat`,`base_updatable`.`status_perkawinan`,`base_updatable`.`pekerjaan`,`base_updatable`.`pendidikan_terakhir` FROM `base` LEFT JOIN `base_updatable` ON base.nik = base_updatable.nik LEFT JOIN `tabel_kematian` ON base.nik = tabel_kematian.nik LEFT JOIN `tabel_domisili` ON base.nik = tabel_domisili.nik LEFT JOIN `tabel_kewarganegaraan` ON base.nik = tabel_kewargaan.nik WHERE base.nik='3502100710940002'' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'SELECT `base`.`...')
+#1 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\db\Command.php(375): yii\db\Command->queryInternal('fetch', NULL)
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\models\ApiResources.php(72): yii\db\Command->queryOne()
+#3 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(149): api\modules\v1\models\ApiResources->getPenduduk('350210071094000...', '`base`.`nama`,`...')
+#4 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(177): api\modules\v1\controllers\PendudukController->getPenduduk('350210071094000...', 'nama-jenis_kela...')
+#5 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#9 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#10 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'tabel_kewarganegaraan.kewarganegaraan' in 'field list'
+)
+
+2016-02-11 13:28:07 [::1][3520082506930001][55g8mfqnv6v3q9d223eb876mb1][info][application] $_GET = [
+    'access-token' => 'j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '55g8mfqnv6v3q9d223eb876mb1'
+    '_csrf' => 'c5ece48e1179166cc598a2746895a44d9b3ac3d192e39ca2281c02c4c8db0473a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Dc_nwCT40BkWb30wgPQCWKJPc5mQPGiJ\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3520082506930001'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=55g8mfqnv6v3q9d223eb876mb1; _csrf=c5ece48e1179166cc598a2746895a44d9b3ac3d192e39ca2281c02c4c8db0473a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Dc_nwCT40BkWb30wgPQCWKJPc5mQPGiJ%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '2705'
+    'REDIRECT_QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=j6kJVA5n_1hBTxjS_9yTCGVvWU_R-5Bh&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455172087.304
+    'REQUEST_TIME' => 1455172087
+]
+2016-02-11 15:38:54 [::1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected '}'' in D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php:175
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-02-11 15:38:54 [::1][-][-][info][application] $_GET = [
+    'access-token' => 'Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'apku32n4qgqgm2lbv0g5f51va5'
+    '_csrf' => 'd59b091a7f67b0ed4e19eecfd05ef8733d1e4befd6bf222fd2fde1b3e5f7ebc6a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"IcQGTMCmA_In2ot6Fox0EJ612ArqhJ8f\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=apku32n4qgqgm2lbv0g5f51va5; _csrf=d59b091a7f67b0ed4e19eecfd05ef8733d1e4befd6bf222fd2fde1b3e5f7ebc6a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22IcQGTMCmA_In2ot6Fox0EJ612ArqhJ8f%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3709'
+    'REDIRECT_QUERY_STRING' => 'access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455179934.698
+    'REQUEST_TIME' => 1455179934
+]
+2016-02-11 15:42:46 [::1][3502100710940012][apku32n4qgqgm2lbv0g5f51va5][error][yii\base\UnknownMethodException] exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: common\models\ApiLogs::gettError()' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Component.php:285
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php(26): yii\base\Component->__call('gettError', Array)
+#1 D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php(26): common\models\ApiLogs->gettError()
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(183): api\common\libraries\Logger::write('350210071094001...')
+#3 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#10 {main}
+2016-02-11 15:42:46 [::1][3502100710940012][apku32n4qgqgm2lbv0g5f51va5][info][application] $_GET = [
+    'access-token' => 'Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'apku32n4qgqgm2lbv0g5f51va5'
+    '_csrf' => 'd59b091a7f67b0ed4e19eecfd05ef8733d1e4befd6bf222fd2fde1b3e5f7ebc6a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"IcQGTMCmA_In2ot6Fox0EJ612ArqhJ8f\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3502100710940012'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=apku32n4qgqgm2lbv0g5f51va5; _csrf=d59b091a7f67b0ed4e19eecfd05ef8733d1e4befd6bf222fd2fde1b3e5f7ebc6a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22IcQGTMCmA_In2ot6Fox0EJ612ArqhJ8f%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3735'
+    'REDIRECT_QUERY_STRING' => 'access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455180166.153
+    'REQUEST_TIME' => 1455180166
+]
+2016-02-11 15:43:00 [::1][3502100710940012][apku32n4qgqgm2lbv0g5f51va5][error][yii\base\UnknownMethodException] exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: common\models\ApiLogs::getError()' in D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Component.php:285
+Stack trace:
+#0 D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php(26): yii\base\Component->__call('getError', Array)
+#1 D:\xampp\htdocs\ocfa_yii\api\common\libraries\Logger.php(26): common\models\ApiLogs->getError()
+#2 D:\xampp\htdocs\ocfa_yii\api\modules\v1\controllers\PendudukController.php(183): api\common\libraries\Logger::write('350210071094001...')
+#3 [internal function]: api\modules\v1\controllers\PendudukController->actionIndex()
+#4 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('', Array)
+#7 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('v1/penduduk', Array)
+#8 D:\xampp\htdocs\ocfa_yii\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 D:\xampp\htdocs\ocfa_yii\api\web\index.php(18): yii\base\Application->run()
+#10 {main}
+2016-02-11 15:42:59 [::1][3502100710940012][apku32n4qgqgm2lbv0g5f51va5][info][application] $_GET = [
+    'access-token' => 'Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi'
+    'nik' => '3502100710940002'
+    'field' => 'nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'apku32n4qgqgm2lbv0g5f51va5'
+    '_csrf' => 'd59b091a7f67b0ed4e19eecfd05ef8733d1e4befd6bf222fd2fde1b3e5f7ebc6a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"IcQGTMCmA_In2ot6Fox0EJ612ArqhJ8f\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '3502100710940012'
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'D:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'D:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.5'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_DNT' => '1'
+    'HTTP_COOKIE' => 'PHPSESSID=apku32n4qgqgm2lbv0g5f51va5; _csrf=d59b091a7f67b0ed4e19eecfd05ef8733d1e4befd6bf222fd2fde1b3e5f7ebc6a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22IcQGTMCmA_In2ot6Fox0EJ612ArqhJ8f%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'E:\\app\\devha\\product\\12.1.0\\dbhome_1\\bin;E:\\app\\bladefidz\\product\\12.1.0\\dbhome_1\\bin;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Files\\cpp\\bin\\Intel64;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files\\nodejs\\;D:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Program Files (x86)\\QuickTime\\QTSystem\\;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Brackets\\command;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\;C:\\Program Files (x86)\\MySQL\\MySQL Fabric 1.5 & MySQL Utilities 1.5\\Doctrine extensions for PHP\\;C:\\PROGRA~1\\CONDUS~1\\DISKEE~1\\;C:\\Ruby22-x64\\bin;C:\\Users\\Blade\\AppData\\Roaming\\npm;C:\\Users\\Blade\\AppData\\Local\\.meteor\\;C:\\Program Files\\MongoDB\\Server\\3.0\\bin;C:\\Users\\Blade\\AppData\\Local\\Programs\\Git\\cmd;C:\\Program Files (x86)\\MSBuild\\14.0\\Bin;C:\\Users\\Blade\\AppData\\Local\\atom\\bin;C:\\Python27\\'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'D:/xampp/htdocs/ocfa_yii/api/web/index.php'
+    'REMOTE_PORT' => '3738'
+    'REDIRECT_QUERY_STRING' => 'access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REDIRECT_URL' => 'http://localhost/ocfa_yii/api/web//v1/penduduk?access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'REQUEST_URI' => '/ocfa_yii/api/v1/penduduk?access-token=Sh9bEP30YUC-5QImbR4Azqx3DF6ZsHFi&nik=3502100710940002&field=nama-jenis_kelamin-tanggal_lahir-tempat_lahir-golongan_darah-kewarganegaraan-foto-agama-alamat-status_perkawinan-pekerjaan-pendidikan_terakhir'
+    'SCRIPT_NAME' => '/ocfa_yii/api/web/index.php'
+    'PHP_SELF' => '/ocfa_yii/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1455180179.859
+    'REQUEST_TIME' => 1455180179
+]

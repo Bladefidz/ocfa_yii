@@ -16,6 +16,7 @@ class Logger
 	 */
 	public static function write($nik){
 		$apiLog = new ApiLogs();
+		$apiLog->id = null;
 		$apiLog->ip = $_SERVER['REMOTE_ADDR']; 
 		$apiLog->nik = $nik;
 		$apiLog->uri_access = $_SERVER['REQUEST_URI'];

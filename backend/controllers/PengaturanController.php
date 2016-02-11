@@ -57,7 +57,7 @@ class PengaturanController extends Controller
 			if($getUser->level == 1){
 				$this->redirect('pengaturan/export');
 			}else{
-				$user = User::find(Yii::$app->user->id)->select(['id','instansi','username','email','auth_key'])->one();
+				$user = User::find()->select(['id','instansi','username','email','auth_key'])->where(["id" => Yii::$app->user->id])->one();
 				return $this->render('user_index',[
 					'user' => $user,
 				]);

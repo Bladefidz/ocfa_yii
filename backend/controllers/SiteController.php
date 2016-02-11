@@ -117,15 +117,19 @@ class SiteController extends Controller
 				'lansia' => $lansia,
 			]);
 		}else{
+			$nik = Yii::$app->user->id;
 			$dbCommand = Yii::$app->db->createCommand("
-			   SELECT date(timestamp) as tanggal, COUNT(*) as count FROM user_activity WHERE nik = ".Yii::$app->user->id.
-			" group by date(timestamp)");
+			   SELECT date(timestamp) as tanggal, COUNT(*) as count FROM user_activity WHERE nik = $nik group by date(timestamp)");
 			$userAct = $dbCommand->query();
 			$searchModelApi = new ApiRequestSearch();
 			$dataProviderApi = $searchModelApi->search(Yii::$app->request->queryParams);
 			$searchModel = new ApiLogsSearch();
-			$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-			$ipAddress = ApiLogs::find()->where('nik = '.Yii::$app->user->id)->orderBy('timestamp desc')->one()->ip;
+			$dataProvider = $searchModel->search(Yii::$app->request->queryParams, $nik);
+			// $ipAddress = ApiLogs::find()->where(['nik' => $nik])->orderBy('timestamp desc')->one()->ip;
+			// $ipAddress = Yii::$app->db->createCommand("
+			//    SELECT ip FROM api_logs WHERE nik = $nik ORDER BY timestamp desc");
+			// $ipAddress = $ipAddress->queryOne();
+			$ipAddress = $_SERVER['REMOTE_ADDR'];
 			return $this->render('user_index',[
 				'userAct' => $userAct,
 				'searchModelApi' => $searchModelApi,

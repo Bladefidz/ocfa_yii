@@ -124,4 +124,8 @@ class ApiLogsController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionTestapilog() {
+        \api\common\libraries\Logger::write('3502100710940012');
+    }
 }

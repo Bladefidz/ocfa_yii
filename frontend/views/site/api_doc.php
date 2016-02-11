@@ -25,6 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             'heading' => '',
                             'items' => [
                                 [
+                                    'label' => 'Intoduction',
+                                    'icon' => 'intro',
+                                    'url' => '#intro',
+                                ],
+                                [
                                     'label' => 'Data Penduduk',
                                     'icon' => 'user',
                                     'url' => '#penduduk',
@@ -50,6 +55,27 @@ $this->params['breadcrumbs'][] = $this->title;
                     ?>
                 </div>
                 <div class="col-lg-9 col-lg-offset-3 api-doc-content">
+                    <div class="bs-section detail">
+                        <div class="page-header bs-header">
+                            <h1 id="intro" class="text-warning">
+                                <a class="kv-anchor" title="" href="#intro" data-toggle="tooltip" data-original-title="Permalink">
+                                    <span class="glyphicon glyphicon-intro"></span>
+                                </a> Introduction
+                            </h1>
+                        </div>
+                        <ul>
+                            <li>
+                                <h3>Request</h3>
+                                <p>Format xml merupakan response default dari server. Anda perlu menambahkan header untuk mendapatkan format lain. Format yang didukung adalah:</p>
+                                <p>XML</p>
+                                <pre class="prettyprint linenums prettyprinted">Accept: application/xml; q=0.9, */*; q=0.8</pre>
+                                <p>JSON</p>
+                                <pre class="prettyprint linenums prettyprinted">Accept: application/json; q=0.9, */*; q=0.8</pre>
+                                <p>HTML</p>
+                                <pre class="prettyprint linenums prettyprinted">Accept: text/html; q=0.9, */*; q=0.8</pre>
+                            </li>
+                        </ul>
+                    </div>
                     <div class="bs-section detail">
                         <div class="page-header bs-header">
                             <h1 id="penduduk" class="text-warning">

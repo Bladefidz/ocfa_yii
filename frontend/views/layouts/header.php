@@ -65,18 +65,26 @@ use common\models\User;
                 </li>
 				<?php
 				}else{
+					$base = DataManagement::findOne(['nik' => Yii::$app->user->getId()]);
+                    $user = User::findOne(['id' => Yii::$app->user->getId()]);
+
+                    if(!empty($base)) {
+                        $name = $base->nama;
+                    } else {
+                        $name = $user->username;
+                    }
 				?>
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="hidden-xs">
-                            <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                            <?= $name ?>
                         </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User header -->
                         <li class="user-header">
                             <p>
-                                <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                                <?= $name ?>
                                 <small>Bergabung sejak <?= \Yii::$app->formatter->asDate(User::findOne(['id' => Yii::$app->user->getId()])->created_at,'php:d-M-Y');?></small>
                             </p>
 							<p>

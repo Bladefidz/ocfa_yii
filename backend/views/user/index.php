@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
@@ -33,23 +34,54 @@ $this->params['breadcrumbs'][] = $this->title;
 
 						'id',
 						'username',
-						'auth_key',
+						// 'auth_key',
+						[
+				            'attribute' => 'auth_key',
+				            'format' => 'raw',
+				            'value' => function ($data) {
+				                return substr($data->auth_key, 0, 10).'...';
+				            },
+				        ],
 						//'password_hash',
 						//'password_reset_token',
 						'email:email',
 						//'status',
 						'created_at:datetime',
 						'updated_at:datetime',
+						[
+				            'attribute' => 'status',
+				            'format' => 'html',
+				            'value' => function ($data) {
+				            	$stat = '';
+				            	switch ($data->status) {
+				            		case '0':
+				            			$stat = "<span class='label label-danger'>Tidak Aktif</span>";
+				            			break;
+				            		case '10':
+				            			$stat = "<span class='label label-success'>Aktif</span>";
+				            			break;
+				            		case '20':
+				            			$stat = "<span class='label label-warning'>Pending</span>";
+				            			break;
+				            		case '30':
+				            			$stat = "<span class='label label-danger'>Blocked</span>";
+				            			break;
+				            	}
+				                return $stat;
+				            },
+				            'filter' => User::isAdmin()?array('10' => 'Aktif', '0' => 'Tidak Aktif', '20' => 'Pending', '30' => 'Blocked'):array('10' => 'Aktif', '0' => 'Tidak Aktif')
+				        ],
 						//'level',
 
 						[
 							'class' => 'yii\grid\ActionColumn',
-							'template'=>'{view} {update} {block}',
+							'template'=>'{view} {update} {deactivate}',
 							'buttons' => [
-								'block' => function ($url, $model) {
-									return Html::a('<span class="fa fa-ban"></span>', $url, [
-												'title' => Yii::t('app', 'Block'),
-												'data-confirm' => Yii::t('app','Apakah Anda yakin ingin memblokir user '.$model->username.'?'),
+								'deactivate' => function ($url, $model) {
+									$hide = $model->status==0?'hidden':'';
+									return Html::a("<span class='fa fa-ban ".$hide."'></span>", $url, [
+												'title' => Yii::t('app', 'Deactivate'),
+												'data-confirm' => Yii::t('app','Apakah Anda yakin ingin menonaktifkan status user '.$model->username.'?'),
 									]);
 								}
 							  ],

@@ -2,6 +2,7 @@
 namespace frontend\models;
 
 use common\models\User;
+use common\models\DataManagement;
 use yii\base\Model;
 use yii\helpers\VarDumper;
 use Yii;
@@ -37,6 +38,7 @@ class SignupForm extends Model
             
             ['id', 'filter', 'filter' => 'trim'],
             ['id', 'required'],
+            ['id', 'exist', 'targetClass' => '\common\models\DataManagement', 'targetAttribute' => 'nik', 'message' => 'NIK anda tidak terdaftar di database kependudukan. Silahkan hubungi kantor dukcapil terdekat untuk melakukan validasi identitas kependudukan anda.'],
             ['id', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['id', 'string', 'min' => 16, 'max' => 16],
 
@@ -88,7 +90,7 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
         $user->id = $this->id;
         $user->username = $this->username;
