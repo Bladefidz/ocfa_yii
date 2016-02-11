@@ -42,7 +42,7 @@ class ApiRequestSearch extends ApiLogs
      */
     public function search($params)
     {
-        $query = ApiLogs::find()->select('uri_access, count(*) as count')->where('nik = '.Yii::$app->user->id)->groupBy('uri_access');
+        $query = ApiLogs::find()->select('uri_access, count(*) as count')->where('nik = '.Yii::$app->user->id)->groupBy('uri_access')->orderBy('count desc');
 
         // add conditions that should always apply here		
 
