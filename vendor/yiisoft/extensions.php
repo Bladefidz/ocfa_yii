@@ -156,15 +156,6 @@ return array (
       '@arturoliveira' => $vendorDir . '/arturoliveira/yii2-excelview',
     ),
   ),
-  'arogachev/yii2-excel' => 
-  array (
-    'name' => 'arogachev/yii2-excel',
-    'version' => '0.1.0.0',
-    'alias' => 
-    array (
-      '@arogachev/excel' => $vendorDir . '/arogachev/yii2-excel/src',
-    ),
-  ),
   'kartik-v/yii2-widget-sidenav' => 
   array (
     'name' => 'kartik-v/yii2-widget-sidenav',
@@ -209,6 +200,24 @@ return array (
     'alias' => 
     array (
       '@kartik/export' => $vendorDir . '/kartik-v/yii2-export',
+    ),
+  ),
+  'arogachev/yii2-excel' => 
+  array (
+    'name' => 'arogachev/yii2-excel',
+    'version' => '0.1.0.0',
+    'alias' => 
+    array (
+      '@arogachev/excel' => $vendorDir . '/arogachev/yii2-excel/src',
+    ),
+  ),
+  'moonlandsoft/yii2-phpexcel' => 
+  array (
+    'name' => 'moonlandsoft/yii2-phpexcel',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@moonland/phpexcel' => $vendorDir . '/moonlandsoft/yii2-phpexcel',
     ),
   ),
 );

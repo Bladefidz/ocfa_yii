@@ -37,8 +37,9 @@ class DataManagement extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'tanggal_diterbitkan', 'nip_pencatat'], 'required'],
-            [['nik', 'jenis_kelamin', 'nip_pencatat'], 'integer'],
+            [['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'golongan_darah', 'nik_pencatat'], 'required'],
+            ['tanggal_diterbitkan', 'default', 'value' => date('Y-m-d')],
+            [['nik', 'jenis_kelamin', 'nik_pencatat'], 'integer'],
             [['tanggal_lahir', 'tanggal_diterbitkan'], 'safe'],
             [['nama', 'tempat_lahir'], 'string', 'max' => 255],
             [['golongan_darah'], 'string', 'max' => 2],
@@ -58,7 +59,7 @@ class DataManagement extends \yii\db\ActiveRecord
             'jenis_kelamin' => 'Jenis Kelamin',
             'golongan_darah' => 'Golongan Darah',
             'tanggal_diterbitkan' => 'Tanggal Diterbitkan',
-            'nip_pencatat' => 'Nip Pencatat',
+            'nik_pencatat' => 'Nik Pencatat',
         ]; 
     }
 	

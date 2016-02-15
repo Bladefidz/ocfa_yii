@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h4 class="text-center" style="padding: 15px 0px 0px 0px">Informasi Detail Instansi / Perusahaan Pemohon</h4>
                 <hr>
                 <?= $form->field($userPublic, 'nama_aplikasi')->textInput(['maxlength' => true]) ?>
-                <?= $form->field($userPublic, 'nama_instansi')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($user, 'instansi')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($userPublic, 'email_instansi')->input('email') ?>
                 <?= $form->field($userPublic, 'no_telp_instansi')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($userPublic, 'alamat_instansi')->textInput(['maxlength' => true]) ?>

@@ -21,6 +21,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $instansi;
     public $id;
     public $telp;
     public $level;
@@ -51,6 +52,9 @@ class SignupForm extends Model
             ['telp', 'required'],
             ['telp', 'string', 'length' => [5, 20]],
 
+            ['instansi', 'required'],
+            ['instansi', 'string', 'max' => 20],
+
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 
@@ -66,7 +70,8 @@ class SignupForm extends Model
     {
         return [
             'id' => 'NIK',
-            'telp' => 'Telephone'
+            'telp' => 'Telephone',
+            'instansi' => 'Nama Instansi'
             ];
     }
     
@@ -96,6 +101,7 @@ class SignupForm extends Model
         $user->username = $this->username;
         $user->email = $this->email;
         $user->telp = $this->telp;
+        $user->instansi = $this->instansi;
         $user->status = 20;
         $user->level = $this->level;
         $user->setPassword($this->password);

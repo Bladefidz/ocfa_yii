@@ -53,7 +53,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username','email'], 'safe'],
-            [['id', 'username','email', 'telp'], 'required'],
+            [['id', 'username','email', 'telp', 'instansi'], 'required'],
 
             ['id', 'integer', 'min' => 16],
 
@@ -78,6 +78,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'NIK',
+            'instansi' => 'Nama Instansi'
 		];
 	}
 

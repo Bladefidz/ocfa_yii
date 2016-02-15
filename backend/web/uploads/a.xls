@@ -1,0 +1,165 @@
+<html><meta http-equiv="Content-Type" content="text/html; charset=Windows-1252"><body><style> .str{ mso-number-format:\@; } </style><table border="1" width="100%">
+			<thead>
+				<tr>
+					<th>NIK</th>
+					<th>Nama</th>
+					<th>Tempat Lahir</th>
+					<th>Tanggal lahir</th>
+					<th>Jenis Kelamin</th>
+					<th>Golongan Darah</th>
+					<th>Tanggal Diterbitkan</th>
+					<th>NIK Pencatat</th>
+					<th>Nomor KK</th>
+					<th>Status Keluarga</th>
+					<th>NIK Ayah</th>
+					<th>NIK Ibu</th>
+					<th>Agama</th>
+					<th>Provinsi</th>
+					<th>Kabupaten</th>
+					<th>Kecamatan</th>
+					<th>Kelurahan</th>
+					<th>RT</th>
+					<th>RW</th>
+					<th>Alamat</th>
+					<th>Status Perkawinan</th>
+					<th>Pekerjaan</th>
+					<th>Pendidikan Terakhir</th>
+					<th>Foto</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr>
+						<td class="str">3502092410940002</td>
+						<td>Kamal Fadl-lu Maulayal Matin</td>
+						<td>Ponorogo</td>
+						<td>1994-10-24</td>
+						<td>Laki-laki</td>
+						<td>o</td>
+						<td>2016-02-08</td>
+						<td class="str">3520082506930001</td>
+						<td class="str">3502100202160001</td>
+						<td>Anak</td>
+						<td class="str">3520082506930001</td>
+						<td class="str">3502100710940004</td>
+						<td>Islam</td>
+						<td>JAWA TIMUR</td>
+						<td>KABUPATEN PONOROGO</td>
+						<td>SIMAN</td>
+						<td>PATIHAN KIDUL</td>
+						<td>5</td>
+						<td>1</td>
+						<td>Jln. Letjend Suprapto Gg III 10 A</td>
+						<td>Belum Menikah</td>
+						<td>Mahasiswa</td>
+						<td>D 2</td>
+						<td>http://localhost/ocfa_yii/site/user?id=3502092410940002</td>
+					</tr>
+				</tbody>
+					<tr>
+						<td class="str">3502100710940002</td>
+						<td>Jaafar Hisyamudin Umar</td>
+						<td>Ponorogo</td>
+						<td>1994-10-07</td>
+						<td>Laki-laki</td>
+						<td>o</td>
+						<td>2016-01-27</td>
+						<td class="str">3520082506930001</td>
+						<td class="str">3502100202160001</td>
+						<td>Kepala Keluarga</td>
+						<td class="str">0</td>
+						<td class="str">0</td>
+						<td>Islam</td>
+						<td>JAWA TIMUR</td>
+						<td>KABUPATEN NGAWI</td>
+						<td>NGRAMBE</td>
+						<td>GIRIHARJO</td>
+						<td>2</td>
+						<td>1</td>
+						<td>Ds Jetis</td>
+						<td>Belum Menikah</td>
+						<td>Mahasiswa</td>
+						<td>D 2</td>
+						<td>http://localhost/ocfa_yii/site/user?id=3502100710940002</td>
+					</tr>
+				</tbody>
+					<tr>
+						<td class="str">3502100710940004</td>
+						<td>Mina Santi</td>
+						<td>Mesir</td>
+						<td>1993-08-01</td>
+						<td>Perempuan</td>
+						<td>AB</td>
+						<td>2016-02-01</td>
+						<td class="str">6768765556</td>
+						<td class="str"></td>
+						<td>Kepala Keluarga</td>
+						<td class="str">0</td>
+						<td class="str">0</td>
+						<td>Islam</td>
+						<td>JAWA TIMUR</td>
+						<td>KABUPATEN PONOROGO</td>
+						<td>JETIS</td>
+						<td>TURI</td>
+						<td>3</td>
+						<td>3</td>
+						<td>Jln Merbabu Timur</td>
+						<td>Belum Menikah</td>
+						<td>-</td>
+						<td>SMA</td>
+						<td>http://localhost/ocfa_yii/site/user?id=3502100710940004</td>
+					</tr>
+				</tbody>
+					<tr>
+						<td class="str">3502190905950003</td>
+						<td>Aziz Muin</td>
+						<td>Ponorogo</td>
+						<td>1995-05-09</td>
+						<td>Laki-laki</td>
+						<td>o</td>
+						<td>2016-02-01</td>
+						<td class="str">1230938974907129</td>
+						<td class="str">3502100202160001</td>
+						<td>Anak</td>
+						<td class="str">3502100710940002</td>
+						<td class="str">0</td>
+						<td>Islam</td>
+						<td>JAWA TIMUR</td>
+						<td>KABUPATEN PONOROGO</td>
+						<td>JENANGAN</td>
+						<td>WATES</td>
+						<td>3</td>
+						<td>2</td>
+						<td>Jenangan</td>
+						<td>Belum Menikah</td>
+						<td>Mahasiswa</td>
+						<td>D 2</td>
+						<td>http://localhost/ocfa_yii/site/user?id=3502190905950003</td>
+					</tr>
+				</tbody>
+					<tr>
+						<td class="str">3520082506930001</td>
+						<td>Hafidz Jazuli Luthfi</td>
+						<td>Balikpapan</td>
+						<td>1993-06-25</td>
+						<td>Laki-laki</td>
+						<td>o</td>
+						<td>2013-10-27</td>
+						<td class="str">87550988745</td>
+						<td class="str">3520080802160001</td>
+						<td>Kepala Keluarga</td>
+						<td class="str">0</td>
+						<td class="str">0</td>
+						<td>Islam</td>
+						<td>JAWA TIMUR</td>
+						<td>KABUPATEN MAGETAN</td>
+						<td>PANEKAN</td>
+						<td>NGILIRAN</td>
+						<td>2</td>
+						<td>1</td>
+						<td>Ds Turi</td>
+						<td>Belum Menikah</td>
+						<td>-</td>
+						<td>D 2</td>
+						<td>http://localhost/ocfa_yii/site/user?id=3520082506930001</td>
+					</tr>
+				</tbody></table></body></html>

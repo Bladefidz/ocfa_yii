@@ -12,6 +12,7 @@ use common\models\DataManagement;
 use nex\datepicker\DatePicker;
 use yii\web\View;
 use kartik\select2\Select2;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\DataManagement */
@@ -115,12 +116,26 @@ use kartik\select2\Select2;
 	
 	<?= $form->field($domisili, 'rw')->input('number',['min' => 1,'maxlength' => true]) ?>
 	
-	<?php $data = ArrayHelper::map(Keluarga::find()->asArray()->all(),'id','id'); ?>
+	<?php $urlNoKK = \yii\helpers\Url::to(['no-kk-list']); ?>
 	<?= $form->field($updatable, 'no_kk')->widget(Select2::classname(), [
-		'data' => $data,
 		'language' => 'id',
-		'options' => ['prompt' => 'Masukkan No KK','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/statkk?id=').'"+$(this).val(), function( data ) {$( "#kelurahan" ).html( data );});'],
-		'theme' => Select2::THEME_BOOTSTRAP,
+		'options' => [
+			'prompt' => 'Masukkan No KK',
+			'options' => ['placeholder' => 'Cari nomor KK ...'],
+		],
+		'pluginOptions' => [
+	        'allowClear' => true,
+	        'minimumInputLength' => 3,
+	        'ajax' => [
+	            'url' => $urlNoKK,
+	            'dataType' => 'json',
+	            'data' => new JsExpression('function(params) { return {q:params.term}; }')
+	        ],
+	        'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
+	        'templateResult' => new JsExpression('function(keluarga) { return keluarga.text; }'),
+	        'templateSelection' => new JsExpression('function (keluarga) { return keluarga.text; }'),
+	    ],
+		// 'theme' => Select2::THEME_BOOTSTRAP,
 	])->label('No KK'); ?>
 	
 	<?= $form->field($updatable, 'status_keluarga')->dropdownList(['2' => 'Istri','3' => 'Anak'],['prompt'=>'Pilih Status Keluarga', 'id' => 'status_keluarga']) ?>
@@ -136,25 +151,52 @@ use kartik\select2\Select2;
 		if(!$model->isNewRecord){
 			$ayah = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '.$model->nik.' and jenis_kelamin = 1')->all(),'nik','nik');
 			$ibu = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('nik != '.$model->nik.' and jenis_kelamin = 2')->all(),'nik','nik');
-		}else{
-			$ayah = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('jenis_kelamin = 1')->all(),'nik','nik');
-			$ibu = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('jenis_kelamin = 2')->all(),'nik','nik');
 		}
 	?>
 	
+	<?php $urlAyah = \yii\helpers\Url::to(['nik-ayah-list']); ?>
 	<?= $form->field($updatable, 'ayah')->widget(Select2::classname(), [
-		'data' => $ayah,
 		'language' => 'id',
-		'options' => ['prompt' => 'Pilih NIK Ayah','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/statkk?id=').'"+$(this).val(), function( data ) {$( "#kelurahan" ).html( data );});'],
-		'theme' => Select2::THEME_BOOTSTRAP,
-	]) ?>
+		'options' => [
+			'prompt' => 'Masukkan NIK Ayah',
+			'options' => ['placeholder' => 'Cari NIK Ayah ...'],
+		],
+		'pluginOptions' => [
+	        'allowClear' => true,
+	        'minimumInputLength' => 3,
+	        'ajax' => [
+	            'url' => $urlAyah,
+	            'dataType' => 'json',
+	            'data' => new JsExpression('function(arg) { return {q:arg.term}; }')
+	        ],
+	        'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
+	        'templateResult' => new JsExpression('function(ayah) { return ayah.text; }'),
+	        'templateSelection' => new JsExpression('function (ayah) { return ayah.text; }'),
+	    ],
+		// 'theme' => Select2::THEME_BOOTSTRAP,
+	])->label('NIK Ayah'); ?>
 	
+	<?php $urlIbu = \yii\helpers\Url::to(['nik-ibu-list']); ?>
 	<?= $form->field($updatable, 'ibu')->widget(Select2::classname(), [
-		'data' => $ibu,
 		'language' => 'id',
-		'options' => ['prompt' => 'Pilih NIK Ibu','onchange'=>'$.post( "'.Yii::$app->urlManager->createUrl('data/statkk?id=').'"+$(this).val(), function( data ) {$( "#kelurahan" ).html( data );});'],
-		'theme' => Select2::THEME_BOOTSTRAP,
-	]) ?>
+		'options' => [
+			'prompt' => 'Masukkan NIK Ibu',
+			'options' => ['placeholder' => 'Cari NIK Ibu ...'],
+		],
+		'pluginOptions' => [
+	        'allowClear' => true,
+	        'minimumInputLength' => 3,
+	        'ajax' => [
+	            'url' => $urlIbu,
+	            'dataType' => 'json',
+	            'data' => new JsExpression('function(params) { return {q:params.term}; }')
+	        ],
+	        'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
+	        'templateResult' => new JsExpression('function(ibu) { return ibu.text; }'),
+	        'templateSelection' => new JsExpression('function (ibu) { return ibu.text; }'),
+	    ],
+		// 'theme' => Select2::THEME_BOOTSTRAP,
+	])->label('NIK Ibu'); ?>
 	
 	<?= $form->field($updatable, 'status_perkawinan')->dropdownList(['0' => 'Belum Menikah','1' => 'Menikah', '2' => 'Cerai', '3' => 'Cerai ditinggal mati'],['prompt' => 'Pilih Status Perkawinan']) ?>
 	

@@ -153,6 +153,10 @@ class RegistrationController extends Controller
     public function actionAccept($id)
     {
         $user = $this->findModel($id);
+        // $user->status = 10;
+        // if ($user->save()) {
+        //     $render = ['/registration'];
+        // }
 
         $mail = \Yii::$app->mailer
             ->compose('grant_api', ['user' => $user])

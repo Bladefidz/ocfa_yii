@@ -35,13 +35,13 @@ $this->params['breadcrumbs'][] = $this->title;
 						'id',
 						'username',
 						// 'auth_key',
-						[
-				            'attribute' => 'auth_key',
-				            'format' => 'raw',
-				            'value' => function ($data) {
-				                return substr($data->auth_key, 0, 10).'...';
-				            },
-				        ],
+						// [
+				  //           'attribute' => 'auth_key',
+				  //           'format' => 'raw',
+				  //           'value' => function ($data) {
+				  //               return substr($data->auth_key, 0, 10).'...';
+				  //           },
+				  //       ],
 						//'password_hash',
 						//'password_reset_token',
 						'email:email',

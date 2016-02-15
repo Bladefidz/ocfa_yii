@@ -114,7 +114,7 @@ class SiteController extends Controller
      */
     public function actionUser($id)
     {
-        $user = BaseUpdatable::findOne($id)->foto;
+        $user = \common\models\BaseUpdatable::findOne($id)->foto;
 		echo '<img src="'.$user.'" width="320px"/>';
     }
 

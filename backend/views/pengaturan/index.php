@@ -48,11 +48,7 @@ $this->title = 'OCFA System Admin';
 
 					<?= $form->field($upload, 'file')->fileInput() ?>
 					
-					<?php if ($upload->file_id): ?>
-						<div class="form-group">
-							<?= Html::img(['/file', 'id' => $model->file_id]) ?>
-						</div>
-					<?php endif; ?>
+					
 					
 			  </div><!-- /.box-body -->
 				<div class="box-footer text-center">
@@ -97,11 +93,7 @@ $this->title = 'OCFA System Admin';
 
 					<?= $form->field($uploadCsv, 'file')->fileInput() ?>
 					
-					<?php if ($uploadCsv->file_id): ?>
-						<div class="form-group">
-							<?= Html::img(['/file', 'id' => $modelCsv->file_id]) ?>
-						</div>
-					<?php endif; ?>
+					
 					
 			  </div><!-- /.box-body -->
 				<div class="box-footer text-center">

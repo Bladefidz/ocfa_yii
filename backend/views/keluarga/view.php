@@ -41,7 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
 					}
 					$nik .= $val['nik'];
 				}
-				$dataNama = DataManagement::find()->select('nama')->where('nik in ('.$nik.')')->asArray()->all();
+				if (!empty($nik)) {
+					$dataNama = DataManagement::find()->select('nama')->where('nik in ('.$nik.')')->asArray()->all();
+				} else {
+					$dataNama = [];
+				}
+ 				
 				$namaIstri = DataManagement::findOne($istri)['nama'];
 				$nama = "";
 				foreach($dataNama as $val){

@@ -70,7 +70,7 @@ class KeluargaSearch extends Keluarga
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
+            // 'id' => $this->id,
             //'kepala_keluarga' => $this->kepala_keluarga,
             'tanggal_terbit' => $this->tanggal_terbit,
             'tanggal_pembaruan' => $this->tanggal_pembaruan,

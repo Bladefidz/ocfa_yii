@@ -14,15 +14,19 @@ use common\models\TabelDomisili;
 use common\models\UserActivity;
 use common\models\User;
 use common\models\TabelKewarganegaraan;
+use backend\libraries\Exchanger;
 use backend\models\KeluargaSearch;
 use backend\models\DataExportSearch;
 use backend\models\UploadForm;
+use backend\models\UploadXlsForm;
+use backend\models\UploadCsvForm;
 use yii\web\UploadedFile;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\VarDumper;
 use m35\thecsv\theCsv;
+use arogachev\excel\import\basic\Importer;
 
 /**
  * KeluargaController implements the CRUD actions for Keluarga model.
@@ -76,10 +80,11 @@ class PengaturanController extends Controller
     public function actionUbah()
     {
 		// get user instansi from class User by id
-		$instansi = User::find(Yii::$app->user->id)->select('instansi')->one();
+		$instansi = User::find(Yii::$app->user->id)->one();
 		
 		if($instansi->load(Yii::$app->request->post())){
-			$instansi->update();
+			$instansi->save();
+			// VarDumper::dump($instansi,5678,true);
 		}else{
 			return $this->renderAjax('edit',[
 				'instansi' => $instansi,
@@ -104,94 +109,158 @@ class PengaturanController extends Controller
     }
 	
 	public function actionExport()
-    {		
-		// Excel
-		$upload = new \yii\base\DynamicModel([
-        	'nama', 'file_id'
-        ]);
- 
-		// behavior untuk upload file
-		$upload->attachBehavior('upload', [
-			'class' => 'mdm\upload\UploadBehavior',
-			'attribute' => 'file',
-			'savedAttribute' => 'file_id' // coresponding with $model->file_id
-		]);
-	 
-		// rule untuk model
-		$upload->addRule('nama', 'string')
-			->addRule('file', 'file', ['extensions' => 'xls,xlsx']);
-		//return $this->render('upload',['model' => $model]);
-		
+    {
+    	$render = null;
+    	$exchanger = new Exchanger();
+
 		$model = new \yii\base\DynamicModel(['tabel']);
-		$model->addRule(['tabel'], 'string', ['max' => 20]);
+		$model->addRule(['tabel'], 'string', ['max' => 30]);
 		if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-			//VarDumper::dump($model,5678,true);
 			switch($model->tabel){
 				case '1':
 					$this->exportPenduduk();
+					die();
 					break;
 				case '2':
 					$this->exportKeluarga();
+					die();
 					break;
 				case '3':
 					$this->exportAktivitasUser();
+					die();
 					break;
 				default:
 					break;
 			}
-			// return $this->redirect('export');
-		} elseif ($upload->load(Yii::$app->request->post()) && $upload->validate()) {
-			if ($upload->saveUploadedFile() !== false) {
-				Yii::$app->session->setFlash('success', 'Upload Sukses');
+		} 
+
+		$xlsModel = new UploadXlsForm();
+		if ($xlsModel->load(Yii::$app->request->post())) {
+			libxml_use_internal_errors(true);
+			$file = UploadedFile::getInstance($xlsModel, 'file');
+			$filename = 'Data_Penduduk'.Date('YmdGis').'.'.$file->extension;
+			define('XLS_PATH', '../runtime/upload/');
+			$upload = $file->saveAs(XLS_PATH.$filename);
+
+			if($upload) {
+				$xlsFile = XLS_PATH . $filename;
+
+				try {
+					$inputFT = \PHPExcel_IOFactory::identify($xlsFile);
+					$objReader = \PHPExcel_IOFactory::createReader($inputFT);
+					$objPHPExcel = $objReader->load($xlsFile);
+				} catch (Exception $e) {
+					die('Error');
+				}
+
+				$sheet = $objPHPExcel->getSheet(0);
+				$highestRow = $sheet->getHighestRow();
+				$highestColumn = $sheet->getHighestColumn();
+
+				for ($row=0; $row <=$highestRow ; $row++) { 
+					$rowData = $sheet->rangeToArray('A'.$row.':'.$highestColumn.$row, NULL, True, False);
+					// VarDumper::dump($rowData);
+
+					if($row == 1) {
+						continue;
+					}
+
+					$baseModel = new DataManagement();
+					$subModel = new BaseUpdatable();
+					$domisili = new TabelDomisili();
+					
+					$baseModel->nik = $rowData[0][0];
+					$baseModel->nama = $rowData[0][1];
+					$baseModel->tempat_lahir = $rowData[0][2];
+					$baseModel->tanggal_lahir = $rowData[0][3];
+					$baseModel->jenis_kelamin = Exchanger::getKodeJK($rowData[0][4]);
+					$baseModel->golongan_darah = $rowData[0][5];
+					$baseModel->tanggal_diterbitkan = $rowData[0][6];
+					$baseModel->nik_pencatat = $rowData[0][7];
+
+					$subModel->nik = $baseModel->nik;
+					$subModel->no_kk = $rowData[0][8];
+					$subModel->status_keluarga = Exchanger::getKodeStatusKeluarga($rowData[0][9]);
+					$subModel->ayah = $rowData[0][10];
+					$subModel->ibu = $rowData[0][11];
+					$subModel->agama = Exchanger::getKodeAgama($rowData[0][12]);
+
+					$domisili->kelurahan = $rowData[0][16];
+					$domisili->rt = $rowData[0][17];
+					$domisili->rw = $rowData[0][18];
+					$domisili->alamat = $rowData[0][19];
+					$subModel->status_perkawinan = Exchanger::getKodeStatusPerkawinan($rowData[0][20]);
+					$subModel->pekerjaan = $rowData[0][21];
+					$subModel->pendidikan_terakhir = Exchanger::getKodePendidikan($rowData[0][22]);
+					// $subModel->foto = BaseUpdatable::findOne($baseModel->nik)->foto;
+
+					$baseModel->save();
+					$subModel->save();
+					$domisili->save();
+				}
+				unlink(XLS_PATH.$filename);
+				die();
+				$render = $this->redirect('export');
 			}
 		}
 
-		// CSV
-		$uploadCsv = new \yii\base\DynamicModel([
-        	'nama', 'file_id'
-        ]);
- 
-		// behavior untuk upload file
-		$uploadCsv->attachBehavior('upload', [
-			'class' => 'mdm\upload\UploadBehavior',
-			'attribute' => 'file',
-			'savedAttribute' => 'file_id' // coresponding with $model->file_id
-		]);
-	 
-		// rule untuk model
-		$uploadCsv->addRule('nama', 'string')
-			->addRule('file', 'file', ['extensions' => 'xls,xlsx']);
-		//return $this->render('upload',['model' => $model]);
-		
 		$modelCsv = new \yii\base\DynamicModel(['tabelcsv']);
-		$modelCsv->addRule(['tabelcsv'], 'string', ['max' => 20]);
-
-		if ($modelCsv->load(Yii::$app->request->post()) && $modelCsv->validate()) {
-			//VarDumper::dump($modelCsv,5678,true);
+		$modelCsv->addRule(['tabelcsv'], 'string', ['max' => 30]);
+		if ($modelCsv->load(Yii::$app->request->post())) {
 			switch($modelCsv->tabelcsv){
 				case '1':
-					// theCsv::export(['tables' => 'base,base_updatable']);
 					$this->exportPendudukCsv();
+					die();
 					break;
 				case '2':
 					$this->exportKeluargaCsv();
+					die();
 					break;
 				case '3':
 					$this->exportAktivitasUserCsv();
+					die();
 					break;
 			}
-		}elseif ($uploadCsv->load(Yii::$app->request->post()) && $uploadCsv->validate()) {
-			if ($uploadCsv->saveUploadedFile() !== false) {
-				Yii::$app->session->setFlash('success', 'Upload Sukses');
+		}
+
+		$uploadCsv = new UploadCsvForm();
+		if ($uploadCsv->load(Yii::$app->request->post())) {
+			$file = UploadedFile::getInstance($uploadCsv, 'file');
+			$filename = 'Data_Penduduk'.Date('YmdGis').'.'.$file->extension;
+			$upload = $file->saveAs('../runtime/upload/'.$filename);
+			if($upload) {
+				define('CSV_PATH', '../runtime/upload/');
+				$csvFile = CSV_PATH . $filename;
+				$csv = file($csvFile);
+				unset($csv[0]); // Remove headers
+				foreach ($csv as $data) {
+					$baseModel = new DataManagement();
+					$in = explode(",", $data);
+					$baseModel->nik = $in[0];
+					$baseModel->nama = $in[1];
+					$baseModel->tempat_lahir = $in[2];
+					$baseModel->tanggal_lahir = $in[3];
+					$baseModel->jenis_kelamin = $in[4];
+					$baseModel->golongan_darah = $in[5];
+					$baseModel->tanggal_diterbitkan = $in[6];
+					$baseModel->nik_pencatat = $in[7];
+					$baseModel->save();
+				}
+				unlink('../runtime/upload/'.$filename);
+				$render = $this->redirect('export');
 			}
 		}
 		
-		return $this->render('index',[
-			'modelCsv' => $modelCsv,
-			'uploadCsv' => $uploadCsv,
-			'model' => $model,
-			'upload' => $upload,
-		]);
+		if (empty($render)) {
+			return $this->render('index',[
+				'modelCsv' => $modelCsv,
+				'uploadCsv' => $uploadCsv,
+				'model' => $model,
+				'upload' => $xlsModel,
+			]);
+		} else {
+			return $render;
+		}
     }
 	
 	private function exportPendudukCsv()
@@ -223,10 +292,10 @@ class PengaturanController extends Controller
 			$ii = 0;
 			foreach ($val as $v) {
 				$tmp .= $v.",";
-				if ($ii == $len-1) {
-					echo $v."\n";
+				if ($ii < $len-1) {
+					echo (string)$v.",";
 				} else {
-					echo $v.",";
+					echo (string)$v."\n";
 				}
 				$ii++;
 			}
@@ -272,10 +341,11 @@ class PengaturanController extends Controller
 				echo $domisili['alamat'].",";
 				echo $domisili['rt'].",";
 				echo $domisili['rw'].",";
-				echo Villages::findOne($domisili['kelurahan'])->name.",";
-				echo Districts::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-3))->name.",";
-				echo Regencies::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-6))->name.",";
-				echo Provinces::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-8))->name.",";
+				$kel = Villages::findOne($domisili['kelurahan'])->name;
+				$kec = Districts::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-3))->name;
+				$kot = Regencies::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-6))->name;
+				$pro = Provinces::findOne(substr($domisili['kelurahan'],0,strlen($domisili['kelurahan'])-8))->name;
+				echo substr($kel, 0, -1).",".substr($kec, 0, -1).",".substr($kot, 0, -1).",".substr($pro, 0, -1).",";
 				echo Keluarga::findOne($data['id'])->tanggal_terbit.",";
 				echo $value['nama'].",";
 				echo $value['nik'].",";
@@ -404,14 +474,10 @@ class PengaturanController extends Controller
 	{
 		$isi = DataManagement::find()->asArray()->all();
 		$filename = 'Data_Penduduk-'.date('YmdGis').'.xls';
-		// header("Content-type: application/vnd-ms-excel");
-		header("Content-type: application/vnd-ms-excel");
-		header("Content-Disposition: attachment; filename=".$filename);
+		header("Content-type: application/vnd.ms-excel; charset=utf-8");
+		header("Content-Disposition: attachment; filename=\"$filename\"");
 		header("Pragma: no-cache");
 		header("Expires: 0");
-		echo "<html>";
-		echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
-		echo "<body>";
 		echo "<style> .str{ mso-number-format:\@; } </style>";
 		echo '<table border="1" width="100%">
 			<thead>
@@ -553,8 +619,6 @@ class PengaturanController extends Controller
 				</tbody>';
 			}
 		echo '</table>';
-		echo "</body>";
-		echo "</html>";
 		return true;
 	}
 	
