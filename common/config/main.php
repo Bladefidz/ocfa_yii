@@ -1,7 +1,6 @@
 <?php
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'homeUrl' => '/ocfa_yii/common',
     'timeZone' => 'Asia/Jakarta',
     'components' => [
         'cache' => [
