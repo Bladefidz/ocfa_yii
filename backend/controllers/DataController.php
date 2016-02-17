@@ -10,7 +10,6 @@ use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
-use common\models\UserActivity;
 use common\models\TabelDomisili;
 use common\models\TabelKematian;
 use common\models\TabelKewarganegaraan;
@@ -25,23 +24,8 @@ use yii\helpers\VarDumper;
 /**
  * DataController implements the CRUD actions for DataManagement model.
  */
-class DataController extends Controller
+class DataController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all DataManagement models.
      * @return mixed
@@ -427,20 +411,28 @@ class DataController extends Controller
         $model = $this->findModelUpdatable($id);
 		$domisili = new TabelDomisili();
 		$currentDomisili = TabelDomisili::find()->where('current = 1 and nik = '.$id)->one();
-		$lokasi = new \yii\base\DynamicModel(['kelurahan','kecamatan','kabupaten','provinsi']);
-		$lokasi->addRule(['kelurahan','kecamatan','kabupaten','provinsi'], 'string', ['max' => 20]);
+		$lokasi = new \yii\base\DynamicModel(['alamat','kelurahan','kecamatan','kabupaten','provinsi']);
+		$lokasi->addRule(['kelurahan','kecamatan','kabupaten','provinsi'], 'string', ['max' => 20])
+			->addRule(['alamat'], 'string', ['max' => 255]);
+		
+		$lokasi->alamat = $currentDomisili['alamat'];
 		$lokasi->kelurahan = $currentDomisili['kelurahan'];
 		$lokasi->kecamatan = substr($lokasi->kelurahan,0,strlen($lokasi->kelurahan)-3);
 		$lokasi->kabupaten = substr($lokasi->kecamatan,0,strlen($lokasi->kecamatan)-3);
 		$lokasi->provinsi = substr($lokasi->kabupaten,0,strlen($lokasi->kabupaten)-2);
+        
         if ($model->load(Yii::$app->request->post()) && $domisili->load(Yii::$app->request->post()) && $lokasi->load(Yii::$app->request->post()) && $model->save()) {
-			$domisili->current = 1;
-			$domisili->nik = $id;
-			$domisili->nik_pencatat = Yii::$app->user->id;
-			$domisili->kelurahan = $lokasi->kelurahan;
-			$domisili->save(false);
-			$currentDomisili['current'] = 0;
-			$currentDomisili->update();
+        	// VarDumper::dump($_POST["DynamicModel"]["kelurahan"], 6666, true);
+        	echo Yii::$app->request->post("DynamicModel['kelurahan']");
+        	if ($_POST["DynamicModel"]["kelurahan"] != $currentDomisili['kelurahan'] || $_POST["TabelDomisili"]["alamat"] != $currentDomisili['alamat']) {
+				$domisili->current = 1;
+				$domisili->nik = $id;
+				$domisili->nik_pencatat = Yii::$app->user->id;
+				$domisili->kelurahan = $lokasi->kelurahan;
+				$domisili->save(false);
+				$currentDomisili['current'] = 0;
+				$currentDomisili->update();
+			}
 			//VarDumper::dump($domisili->getErrors(),5678,true);
 			//VarDumper::dump($model->getErrors(),5678,true);
 			//echo var_dump($domisili);
@@ -541,16 +533,4 @@ class DataController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-	
-	/*
-	 * Write to table log
-	 * 
-	 * @param string $action
-	 */
-	public function writeLog($action){
-		$activity = new UserActivity();
-		$activity->nik = Yii::$app->user->id;
-		$activity->action = $action;
-		$activity->save();
-	}
 }
