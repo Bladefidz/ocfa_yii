@@ -3,6 +3,13 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use common\components\AccessRule;
+use yii\helpers\VarDumper;
 use common\models\Keluarga;
 use common\models\BaseUpdatable;
 use common\models\DataManagement;
@@ -20,11 +27,6 @@ use backend\models\DataExportSearch;
 use backend\models\UploadForm;
 use backend\models\UploadXlsForm;
 use backend\models\UploadCsvForm;
-use yii\web\UploadedFile;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\helpers\VarDumper;
 use m35\thecsv\theCsv;
 use arogachev\excel\import\basic\Importer;
 
@@ -33,17 +35,47 @@ use arogachev\excel\import\basic\Importer;
  */
 class PengaturanController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
+	public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'ruleConfig' => [
+			        'class' => AccessRule::className(),
+			    ],
+			    'only' => ['create', 'view', 'update', 'delete', 'export', 'ubah', 'deaktivasi'],
+                'rules' => [
+                    [
+                        'actions' => ['create', 'view', 'update', 'delete', 'export'],
+                        'allow' => true,
+                        'roles' => [
+                        	User::LEVEL_ADMIN
+                        ]
+                    ],
+                    [
+                        'actions' => ['ubah', 'deaktivasi'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+            ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
             ],
         ];
     }
@@ -80,14 +112,16 @@ class PengaturanController extends Controller
     public function actionUbah()
     {
 		// get user instansi from class User by id
-		$instansi = User::find(Yii::$app->user->id)->one();
+		$user = User::findOne(Yii::$app->user->id);
+		$oldInstansi = $user->instansi;
 		
-		if($instansi->load(Yii::$app->request->post())){
-			$instansi->save();
+		if($user->load(Yii::$app->request->post())){
+			if($user->save())
+				$this->writeLog("Mengubah nama instansi dari $oldInstansi menjadi Yii::$app->request->post('instansi')");
 			// VarDumper::dump($instansi,5678,true);
 		}else{
 			return $this->renderAjax('edit',[
-				'instansi' => $instansi,
+				'instansi' => $user,
 			]);
 		}
 		
@@ -103,6 +137,7 @@ class PengaturanController extends Controller
 		$status = User::findIdentity(Yii::$app->user->id);
 		$status->status = '0';
 		if($status->update()){
+			$this->writeLog("Melakukan deaktivasi akun");
 			$this->actionIndex();
 		}
 		VarDumper::dump($status->id,5678,true);
@@ -119,14 +154,17 @@ class PengaturanController extends Controller
 			switch($model->tabel){
 				case '1':
 					$this->exportPenduduk();
+					$this->writeLog("Melakukan eksport data Penduduk ke excel");
 					die();
 					break;
 				case '2':
 					$this->exportKeluarga();
+					$this->writeLog("Melakukan eksport data Kartu Keluarga ke excel");
 					die();
 					break;
 				case '3':
 					$this->exportAktivitasUser();
+					$this->writeLog("Melakukan eksport data Aktivitas User ke excel");
 					die();
 					break;
 				default:
@@ -199,6 +237,7 @@ class PengaturanController extends Controller
 					$domisili->save();
 				}
 				unlink(XLS_PATH.$filename);
+				$this->writeLog("Melakukan import excel Data Penduduk");
 				die();
 				$render = $this->redirect('export');
 			}
@@ -210,14 +249,17 @@ class PengaturanController extends Controller
 			switch($modelCsv->tabelcsv){
 				case '1':
 					$this->exportPendudukCsv();
+					$this->writeLog("Melakukan eksport data Penduduk ke csv");
 					die();
 					break;
 				case '2':
 					$this->exportKeluargaCsv();
+					$this->writeLog("Melakukan eksport data Kartu Keluarga ke csv");
 					die();
 					break;
 				case '3':
 					$this->exportAktivitasUserCsv();
+					$this->writeLog("Melakukan eksport data Aktivitas User ke csv");
 					die();
 					break;
 			}
@@ -247,6 +289,7 @@ class PengaturanController extends Controller
 					$baseModel->save();
 				}
 				unlink('../runtime/upload/'.$filename);
+				$this->writeLog("Melakukan import csv data penduduk");
 				$render = $this->redirect('export');
 			}
 		}

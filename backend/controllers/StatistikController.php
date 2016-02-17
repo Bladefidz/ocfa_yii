@@ -12,23 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * UserActivityController implements the CRUD actions for UserActivity model.
  */
-class StatistikController extends Controller
+class StatistikController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all UserActivity models.
      * @return mixed

@@ -12,23 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class RegistrationController extends Controller
+class RegistrationController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all User models.
      * @return mixed
@@ -139,7 +124,9 @@ class RegistrationController extends Controller
     {
         $user = $this->findModel($id);
 		$user->status = 0;
-		$user->save();
+		
+        if($user->save())
+            $this->writeLog("Menolak pendaftaran akses API untuk user dengan username $user->username");
 
         return $this->redirect(['/registration']);
     }
@@ -169,6 +156,7 @@ class RegistrationController extends Controller
         if ($mail->send()) {
             $user->status = 10;
             if ($user->save()) {
+                $this->writeLog("Menerima pendaftaran akses API untuk user dengan username $user->username");
                 $render = ['/registration'];
             }
         }

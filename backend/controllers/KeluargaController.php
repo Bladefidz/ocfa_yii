@@ -14,23 +14,8 @@ use yii\helpers\VarDumper;
 /**
  * KeluargaController implements the CRUD actions for Keluarga model.
  */
-class KeluargaController extends Controller
+class KeluargaController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all Keluarga models.
      * @return mixed
@@ -78,6 +63,7 @@ class KeluargaController extends Controller
 			$updatable->status_keluarga = 1;
 			//echo var_dump($model);
 			if($model->save() && $updatable->save()){
+                $this->writeLog("Membuat kartu keluarga dengan nomor KK $keluarga->id");
 				return $this->redirect(['view', 'id' => $model->id]);
 			}else{
 				VarDumper::dump($model->getErrors(),5678,true);
@@ -101,6 +87,7 @@ class KeluargaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->writeLog("Memperbarui kartu keluarga dengan nomor KK $keluarga->id");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -117,7 +104,10 @@ class KeluargaController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $keluarga = $this->findModel($id);
+        
+        if($keluarga->delete())
+            $this->writeLog("Menghapus kartu keluarga dengan nomor KK $keluarga->id");
 
         return $this->redirect(['index']);
     }

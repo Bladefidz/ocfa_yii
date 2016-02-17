@@ -2,62 +2,21 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\helpers\VarDumper;
 use common\models\LoginForm;
 use common\models\User;
-use common\models\UserActivity;
 use common\models\ApiLogs;
-use yii\filters\VerbFilter;
 use backend\models\ApiRequestSearch;
 use backend\models\ApiLogsSearch;
 
 /**
  * Site controller
  */
-class SiteController extends Controller
-{	
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
-
+class SiteController extends CoreController
+{
     public function actionIndex()
     {
 		// get user from class User by id
@@ -180,16 +139,4 @@ class SiteController extends Controller
         Yii::$app->user->logout();
         return $this->redirect('../../');
     }
-	
-	/*
-	 * Write to table log
-	 * 
-	 * @param string $action
-	 */
-	public function writeLog($action){
-		$activity = new UserActivity();
-		$activity->nik = Yii::$app->user->id;
-		$activity->action = $action;
-		$activity->save();
-	}
 }
