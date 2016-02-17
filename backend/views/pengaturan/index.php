@@ -20,17 +20,18 @@ $this->title = 'OCFA System Admin';
 		  <!-- Custom tabs (Charts with tabs)-->
 		  <div class="box box-info">
 			<div class="box-header with-border">
-			  <h3 class="box-title">Export/Import Semua Data</h3>
+			  <h3 class="box-title">Export Semua Data ke Excel</h3>
 			</div><!-- /.box-header -->
 			<?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
 			<div class="box-body">
 			  <div class="row">
 				<?= $form->field($model, 'tabel')->dropdownList(['1' => 'Data Penduduk', '2' => 'Data Kartu Keluarga', '3' => 'Data Aktivitas User'],['prompt' => 'Pilih salah satu'])->label('Jenis Data') ?>
+				
 			  </div><!-- /.row -->
 			</div><!-- /.box-body -->
 			<div class="box-footer text-center">	
 				<?= Html::submitButton('Export', ['class' => 'btn btn-success']) ?>
-				<?php ActiveForm::end(); ?>
+			<?php ActiveForm::end(); ?>
 			</div>
 		  </div><!-- /.box -->
 		</div><!-- /.Left col -->
@@ -38,10 +39,22 @@ $this->title = 'OCFA System Admin';
 		  <!-- Custom tabs (Charts with tabs)-->
 		  <div class="box box-info">
 			<div class="box-header with-border">
-			  <h3 class="box-title">Export/Import Data Penduduk</h3>
+			  <h3 class="box-title">Import Semua Data Penduduk dari Excel</h3>
 			</div><!-- /.box-header -->
 			<div class="box-body">
 			  <div class="row">
+
+				<?php $form = ActiveForm::begin(['layout' => 'horizontal','options' => ['enctype' => 'multipart/form-data']]) ?>
+
+					<?= $form->field($upload, 'file')->fileInput() ?>
+					
+					
+					
+			  </div><!-- /.box-body -->
+				<div class="box-footer text-center">
+					<?= Html::submitButton('Import', ['class' => 'btn btn-success']) ?>
+
+				<?php ActiveForm::end() ?>
 			  </div><!-- /.row -->
 			</div><!-- /.box-body -->
 		  </div><!-- /.box -->
@@ -53,14 +66,44 @@ $this->title = 'OCFA System Admin';
 		  <!-- Custom tabs (Charts with tabs)-->
 		  <div class="box box-info">
 			<div class="box-header with-border">
-			  <h3 class="box-title">Export/Import Data Spesifik</h3>
+			  <h3 class="box-title">Export Semua Data ke CSV</h3>
+			</div><!-- /.box-header -->
+			<?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
+			<div class="box-body">
+			  <div class="row">
+				<?= $form->field($modelCsv, 'tabelcsv')->dropdownList(['1' => 'Data Penduduk', '2' => 'Data Kartu Keluarga', '3' => 'Data Aktivitas User'],['prompt' => 'Pilih salah satu'])->label('Jenis Data') ?>
+			  </div><!-- /.row -->
+			</div><!-- /.box-body -->
+			<div class="box-footer text-center">	
+				<?= Html::submitButton('Export', ['class' => 'btn btn-success']) ?>
+			<?php ActiveForm::end(); ?>
+			</div>
+		  </div><!-- /.box -->
+		</div><!-- /.Left col -->
+		<div class="col-lg-6">
+		  <!-- Custom tabs (Charts with tabs)-->
+		  <div class="box box-info">
+			<div class="box-header with-border">
+			  <h3 class="box-title">Import Semua Data Penduduk dari CSV</h3>
 			</div><!-- /.box-header -->
 			<div class="box-body">
 			  <div class="row">
+
+				<?php $form = ActiveForm::begin(['layout' => 'horizontal','options' => ['enctype' => 'multipart/form-data']]) ?>
+
+					<?= $form->field($uploadCsv, 'file')->fileInput() ?>
+					
+					
+					
+			  </div><!-- /.box-body -->
+				<div class="box-footer text-center">
+					<?= Html::submitButton('Import', ['class' => 'btn btn-success']) ?>
+
+				<?php ActiveForm::end() ?>
 			  </div><!-- /.row -->
 			</div><!-- /.box-body -->
 		  </div><!-- /.box -->
-		</div><!-- /.Left col -->
+		</div>
 	  </div><!-- /.row (main row) -->
 	</section><!-- /.content -->
 </div>

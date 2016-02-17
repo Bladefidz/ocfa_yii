@@ -17,9 +17,16 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="intro-text">
-                            <center><span class="name">Your Registration Have Submitted. We send verification to your email !</span></center>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            <div class="jumbotron">
+                                <h1><span><i class="glyphicon glyphicon-thumbs-up" style="color:#00D463"></i></span></h1>
+                                <h2> Registration Successfull</h2>
+                                <hr class="star-primary">
+                                <h4><span class="name">Your Registration Have Submitted. We send verification to your email.<br> Please Check Your Email Now !</span></h4>
+                            </div>
                         </div>
+                        <div class="col-lg-2"></div>
                     </div>
                 </div>
             </div>

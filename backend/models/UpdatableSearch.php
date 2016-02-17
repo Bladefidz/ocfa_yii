@@ -18,8 +18,8 @@ class UpdatableSearch extends BaseUpdatable
     public function rules()
     {
         return [
-            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan', 'pendidikan_terakhir', 'kewarganegaraan', 'arsip'], 'integer'],
-            [['foto', 'alamat', 'pekerjaan', 'ket'], 'safe'],
+            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'status_perkawinan', 'pendidikan_terakhir'], 'integer'],
+            [['foto', 'pekerjaan'], 'safe'],
         ];
     }
 
@@ -65,22 +65,12 @@ class UpdatableSearch extends BaseUpdatable
             'ayah' => $this->ayah,
             'ibu' => $this->ibu,
             'agama' => $this->agama,
-            'provinsi' => $this->provinsi,
-            'kabupaten' => $this->kabupaten,
-            'kecamatan' => $this->kecamatan,
-            'kelurahan' => $this->kelurahan,
-            'rt' => $this->rt,
-            'rw' => $this->rw,
             'status_perkawinan' => $this->status_perkawinan,
             'pendidikan_terakhir' => $this->pendidikan_terakhir,
-            'kewarganegaraan' => $this->kewarganegaraan,
-            'arsip' => $this->arsip
         ]);
 
         $query->andFilterWhere(['like', 'foto', $this->foto])
-            ->andFilterWhere(['like', 'alamat', $this->alamat])
-            ->andFilterWhere(['like', 'pekerjaan', $this->pekerjaan])
-            ->andFilterWhere(['like', 'ket', $this->ket]);
+            ->andFilterWhere(['like', 'pekerjaan', $this->pekerjaan]);
 
         return $dataProvider;
     }

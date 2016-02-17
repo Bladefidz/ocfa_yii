@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\DataManagement;
+use common\models\BaseUpdatable;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Keluarga */
@@ -29,14 +31,53 @@ $this->params['breadcrumbs'][] = $this->title;
 					]) ?>
 				</p>
 
+				<?php 
+				$data = BaseUpdatable::find()->select('nik')->where(['no_kk' => $model->id,'status_keluarga' => 3])->asArray()->all();
+				$istri = BaseUpdatable::find()->select('nik')->where(['no_kk' => $model->id,'status_keluarga' => 2])->one()['nik'];
+				$nik = "";
+				foreach($data as $val){
+					if($nik != ""){
+						$nik .= ",";
+					}
+					$nik .= $val['nik'];
+				}
+				if (!empty($nik)) {
+					$dataNama = DataManagement::find()->select('nama')->where('nik in ('.$nik.')')->asArray()->all();
+				} else {
+					$dataNama = [];
+				}
+ 				
+				$namaIstri = DataManagement::findOne($istri)['nama'];
+				$nama = "";
+				foreach($dataNama as $val){
+					if($nama != ""){
+						$nama .= ", ";
+					}
+					$nama .= $val['nama'];
+				}
+				?>
 				<?= DetailView::widget([
 					'model' => $model,
 					'attributes' => [
 						'id',
-						'kepala_keluarga',
+						[
+							'attribute' => 'kepala_keluarga',
+							'value' => DataManagement::findOne($model->kepala_keluarga)->nama,
+						],
 						'tanggal_terbit',
 						'tanggal_pembaruan',
-						'status',
+						[
+							'label' => 'Status',
+							'value' => $model->status == 1 ? 'Aktif' : 'Tidak Aktif',
+						],
+						[
+							'label' => 'Anak',
+							'value' => $nama,
+						],
+						[
+							'label' => 'Istri',
+							'value' => $namaIstri,
+						],
 					],
 				]) ?>
 			</div><!--box footer-->

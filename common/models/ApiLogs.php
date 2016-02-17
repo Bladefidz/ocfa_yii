@@ -18,6 +18,7 @@ use Yii;
  */
 class ApiLogs extends \yii\db\ActiveRecord
 {
+	public $count;
     /**
      * @inheritdoc
      */
@@ -33,12 +34,12 @@ class ApiLogs extends \yii\db\ActiveRecord
     {
         return [
             [['ip', 'nik', 'uri_access', 'method'], 'required'],
-            [['nik'], 'integer'],
+            [['nik'], 'string'],
+            [['count'], 'integer'],
             [['timestamp'], 'safe'],
             [['ip'], 'string', 'max' => 45],
-            [['uri_access'], 'string', 'max' => 128],
+            [['uri_access'], 'string', 'max' => 512],
             [['method'], 'string', 'max' => 10],
-            [['nik'], 'exist', 'skipOnError' => true, 'targetClass' => DataManagement::className(), 'targetAttribute' => ['nik' => 'nik']],
         ];
     }
 

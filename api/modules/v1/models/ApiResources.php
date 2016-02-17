@@ -66,6 +66,7 @@ class ApiResources extends Model
 						->leftjoin('base_updatable', 'base.nik = base_updatable.nik')
 						->leftjoin('tabel_kematian', 'base.nik = tabel_kematian.nik')
 						->leftjoin('tabel_domisili', 'base.nik = tabel_domisili.nik')
+						->leftjoin('tabel_kewarganegaraan', 'base.nik = tabel_kewarganegaraan.nik')
 						->where('base.nik=:nik', array(':nik'=>$nik));
 		$command = $this->query->createCommand();
 		$data = $command->queryOne();

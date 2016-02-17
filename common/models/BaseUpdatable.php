@@ -14,19 +14,9 @@ use Yii;
  * @property string $ibu
  * @property resource $foto
  * @property integer $agama
- * @property integer $provinsi
- * @property integer $kabupaten
- * @property integer $kecamatan
- * @property string $kelurahan
- * @property integer $rt
- * @property integer $rw
- * @property string $alamat
  * @property integer $status_perkawinan
  * @property string $pekerjaan
  * @property integer $pendidikan_terakhir
- * @property integer $kewarganegaraan
- * @property integer $arsip
- * @property string $ket
  *
  * @property Base $nik0
  */
@@ -46,42 +36,31 @@ class BaseUpdatable extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nik', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'alamat', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir', 'kewarganegaraan', 'arsip', 'ket'], 'required'],
-            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'provinsi', 'kabupaten', 'kecamatan', 'kelurahan', 'rt', 'rw', 'status_perkawinan', 'pendidikan_terakhir', 'kewarganegaraan', 'arsip'], 'integer'],
+            [['nik', 'agama', 'status_perkawinan', 'pekerjaan', 'pendidikan_terakhir'], 'required'],
+            [['nik', 'no_kk', 'status_keluarga', 'ayah', 'ibu', 'agama', 'status_perkawinan', 'pendidikan_terakhir'], 'integer'],
+            [['no_kk', 'status_keluarga', 'ayah', 'ibu'], 'default', 'value' => 0],
             [['foto'], 'string'],
-            [['alamat', 'pekerjaan'], 'string', 'max' => 32],
-            [['ket'], 'string', 'max' => 100],
+            [['pekerjaan'], 'string', 'max' => 32],
             [['nik'], 'exist', 'skipOnError' => true, 'targetClass' => DataManagement::className(), 'targetAttribute' => ['nik' => 'nik']],
-        ]; 
+        ];
     }
 
     /**
      * @inheritdoc
-	 * status_keluarga => [1 => Kepala Keluarga, 2 => Istri, 3 => Anak]
      */
     public function attributeLabels()
     {
         return [
-            'nik' => 'NIK *',
-			'no_kk' => 'Nomor KK',
+            'nik' => 'Nik *',
+            'no_kk' => 'No Kk',
             'status_keluarga' => 'Status Keluarga',
-            'ayah' => 'NIK Ayah',
-            'ibu' => 'NIK Ibu',
+            'ayah' => 'Ayah',
+            'ibu' => 'Ibu',
             'foto' => 'Foto',
             'agama' => 'Agama *',
-            'provinsi' => 'Provinsi *',
-            'kabupaten' => 'Kabupaten *',
-            'kecamatan' => 'Kecamatan *',
-            'kelurahan' => 'Kelurahan *',
-            'rt' => 'Rt',
-            'rw' => 'Rw',
-            'alamat' => 'Alamat *',
             'status_perkawinan' => 'Status Perkawinan *',
             'pekerjaan' => 'Pekerjaan *',
             'pendidikan_terakhir' => 'Pendidikan Terakhir *',
-            'kewarganegaraan' => 'Kewarganegaraan *',
-            'arsip' => 'Arsip',
-            'ket' => 'Ket',
         ];
     }
 
@@ -90,6 +69,6 @@ class BaseUpdatable extends \yii\db\ActiveRecord
      */
     public function getNik0()
     {
-        return $this->hasOne(DataManagement::className(), ['nik' => 'nik']);
+        return $this->hasOne(Base::className(), ['nik' => 'nik']);
     }
 }

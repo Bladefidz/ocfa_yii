@@ -21,61 +21,29 @@ use common\models\User;
 
             <ul class="nav navbar-nav">
 
-                <li class="dropdown notifications-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">10</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 10 notifications</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-warning text-yellow"></i> Very long description here that may
-                                        not fit into the page and may cause design problems
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users text-red"></i> 5 new members joined
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user text-red"></i> You changed your username
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">View all</a></li>
-                    </ul>
-                </li>
+                
                 <!-- User Account: style can be found in dropdown.less -->
+		<?php
+                    $base = DataManagement::findOne(['nik' => Yii::$app->user->getId()]);
+                    $user = User::findOne(['id' => Yii::$app->user->getId()]);
 
+                    if(!empty($base)) {
+                        $name = $base->nama;
+                    } else {
+                        $name = $user->username;
+                    }
+                ?>
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="hidden-xs">
-                            <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                            <?= $name?>
                         </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User header -->
                         <li class="user-header">
                             <p>
-                                <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                                <?= $name?>
                                 <small>Bergabung sejak <?= \Yii::$app->formatter->asDate(User::findOne(['id' => Yii::$app->user->getId()])->created_at,'php:d-M-Y');?></small>
                             </p>
 							<p>

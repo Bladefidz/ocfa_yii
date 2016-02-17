@@ -18,7 +18,7 @@ class DataSearch extends DataManagement
     public function rules()
     {
         return [
-            [['nik', 'jenis_kelamin', 'nip_pencatat'], 'integer'],
+            [['nik', 'jenis_kelamin', 'nik_pencatat'], 'integer'],
             [['nama', 'tempat_lahir', 'tanggal_lahir', 'golongan_darah', 'tanggal_diterbitkan'], 'safe'],
         ];
     }
@@ -41,7 +41,13 @@ class DataSearch extends DataManagement
      */
     public function search($params)
     {
-        $query = DataManagement::find()->joinWith(['baseUpdatable'])->where('base_updatable.arsip = 0');
+		/*$tabelMeninggal = TabelKematian::find()->asArray->all();
+		$meninggal = "";
+		foreach($tabelMeninggal as $satuan){
+			$meninggal = $meninggal.",".$satuan['nik'];
+		}*/
+		
+		$query = DataManagement::find()->joinWith(['tabelKematian','tabelKewarganegaraan'])->where('tabel_kematian.tanggal_kematian is null and tabel_kewarganegaraan.tanggal_imigrasi is null');
 
         // add conditions that should always apply here
 		$cache = Yii::$app->cache;   
@@ -68,14 +74,14 @@ class DataSearch extends DataManagement
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'nik' => $this->nik,
             'tanggal_lahir' => $this->tanggal_lahir,
             'jenis_kelamin' => $this->jenis_kelamin,
             'tanggal_diterbitkan' => $this->tanggal_diterbitkan,
-            'nip_pencatat' => $this->nip_pencatat,
+            'nik_pencatat' => $this->nik_pencatat,
         ]);
 
-        $query->andFilterWhere(['like', 'nama', $this->nama])
+        $query->andFilterWhere(['like', 'base.nik', $this->nik])
+            ->andFilterWhere(['like', 'nama', $this->nama])
             ->andFilterWhere(['like', 'tempat_lahir', $this->tempat_lahir])
             ->andFilterWhere(['like', 'golongan_darah', $this->golongan_darah]);
 

@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
 		'js/webcam.js',
+        'js/jsapi.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

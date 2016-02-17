@@ -94,6 +94,13 @@ class StatistikController extends \api\common\libraries\RestReactor
     		$accToken = !empty($_GET['access-token'])?$_GET['access-token']:'';
     		$type = !empty($_GET['type'])?$_GET['type']:'';
 
+    		if (empty($accToken)) {
+    			throw new yii\web\UnauthorizedHttpException;
+    		}
+
+    		$accNIK = $user->findIdentityByAccessToken($accToken)->id;
+    		Logger::write($accNIK);
+
     		if (empty($type)) {
     			throw new yii\web\BadRequestHttpException;
     		} else {    			
@@ -113,7 +120,7 @@ class StatistikController extends \api\common\libraries\RestReactor
 	    			"name" => "success",
 	    			'status' => '200',
 		        	'message' => count($data)>0?'found':'not found',
-		        	'nik_responsible' => $user->findIdentityByAccessToken($accToken)->id,
+		        	'nik_responsible' => $accNIK,
 		        	'data' => $data
 		      	];
     		}

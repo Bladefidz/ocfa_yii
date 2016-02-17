@@ -13,23 +13,8 @@ use yii\filters\VerbFilter;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends Controller
+class UserController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all User models.
      * @return mixed
@@ -56,13 +41,19 @@ class UserController extends Controller
 		//echo var_dump($model);
         switch($model->level){
 			case '0':
-				$level = 'Instansi Non Pemerintah';
+				$level = 'Internal Instansi Non Pemerintah';
 				break;
 			case '1':
 				$level = 'Admin';
 				break;
 			case '2':
-				$level = 'Instansi Pemerintah';
+				$level = 'Internal Instansi Pemerintah';
+				break;
+			case '3':
+				$level = 'Eksternal Instansi Non Pemerintah';
+				break;
+			case '4':
+				$level = 'Eksternal Instansi Pemerintah';
 				break;
 		}
 		$model->level = $level;
@@ -93,6 +84,7 @@ class UserController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 			if ($user = $model->signup()) {
+                $this->writeLog("Membuat user baru dengan username $model->username");
 				return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -115,6 +107,7 @@ class UserController extends Controller
 		$model = $this->findCreateModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save() && $userModel->save()) {
+            $this->writeLog("Memperbarui informasi user dengan username $userModel->username");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -134,7 +127,9 @@ class UserController extends Controller
     {
         $user = $this->findModel($id);
 		$user->status = 0;
-		$user->save();
+		
+        if($user->save())
+            $this->writeLog("Memblokir user dengan username $user->username");;
 
         return $this->redirect(['/user']);
     }

@@ -14,23 +14,8 @@ use yii\filters\VerbFilter;
 /**
  * ApiLogsController implements the CRUD actions for ApiLogs model.
  */
-class ApiLogsController extends Controller
+class ApiLogsController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all ApiLogs models.
      * @return mixed
@@ -123,5 +108,9 @@ class ApiLogsController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionTestapilog() {
+        \api\common\libraries\Logger::write('3502100710940012');
     }
 }

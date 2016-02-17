@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2458ff569098c101d604fd93b0e9d721",
-    "content-hash": "ee560c116406d7fe46cad07ef2621186",
+    "hash": "5012deae42bd1470dca7ee929cedfb82",
+    "content-hash": "ef7ff536e9b0fa44b8448ae6730b16d3",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -95,6 +95,53 @@
                 "yii2"
             ],
             "time": "2015-05-16 11:51:20"
+        },
+        {
+            "name": "arturoliveira/yii2-excelview",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/artur_oliveira/yii2-excelview.git",
+                "reference": "80124fd9865c08c3d382c1559873098f5b668818"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/artur_oliveira/yii2-excelview/get/80124fd9865c08c3d382c1559873098f5b668818.zip",
+                "reference": "80124fd9865c08c3d382c1559873098f5b668818",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-grid": "*",
+                "phpoffice/phpexcel": "1.8.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "arturoliveira\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Artur Oliveira",
+                    "email": "artur.oliveira@gmail.com"
+                }
+            ],
+            "description": "ExcelView",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "extension",
+                "spreadsheet",
+                "xls",
+                "xlsx",
+                "yii2"
+            ],
+            "time": "2014-10-16 17:06:43"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -780,6 +827,114 @@
             "time": "2013-11-30 08:25:19"
         },
         {
+            "name": "kartik-v/yii2-export",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-export.git",
+                "reference": "90e5be7e6159c748487ae9ace23e676de8e92375"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-export/zipball/90e5be7e6159c748487ae9ace23e676de8e92375",
+                "reference": "90e5be7e6159c748487ae9ace23e676de8e92375",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-grid": "~3.0",
+                "phpoffice/phpexcel": "~1.8.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\export\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A library to export server/db data in various formats (e.g. excel, html, pdf, csv etc.)",
+            "homepage": "https://github.com/kartik-v/yii2-export",
+            "keywords": [
+                "OpenXML",
+                "csv",
+                "export",
+                "extension",
+                "html",
+                "json",
+                "pdf",
+                "spreadsheet",
+                "text",
+                "widget",
+                "xls",
+                "xlsx",
+                "yii2"
+            ],
+            "time": "2016-02-05 02:52:23"
+        },
+        {
+            "name": "kartik-v/yii2-grid",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-grid.git",
+                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/ea7bd283f086b06bec2f5705f642855cfca9088e",
+                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "~1.7"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\grid\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Yii 2 GridView on steroids. Various enhancements and utilities for the Yii 2.0 GridView widget.",
+            "homepage": "https://github.com/kartik-v/yii2-grid",
+            "keywords": [
+                "extension",
+                "grid",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-01-28 16:50:34"
+        },
+        {
             "name": "kartik-v/yii2-krajee-base",
             "version": "1.8.2",
             "source": {
@@ -923,6 +1078,95 @@
             "time": "2015-04-21 15:38:40"
         },
         {
+            "name": "m35/thecsv",
+            "version": "v1.0-stable",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/13552277443/yii2-thecsv.git",
+                "reference": "6d9d3285a82bac3d49f094db0bed309a2f0f5c73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/13552277443/yii2-thecsv/zipball/6d9d3285a82bac3d49f094db0bed309a2f0f5c73",
+                "reference": "6d9d3285a82bac3d49f094db0bed309a2f0f5c73",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "m35\\thecsv\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "m35",
+                    "email": "wsskoko@126.com",
+                    "homepage": "https://github.com/13552277443/",
+                    "role": "Creator"
+                }
+            ],
+            "description": "yii2 csv export extension",
+            "homepage": "https://github.com/13552277443/yii2-thecsv",
+            "keywords": [
+                "csv",
+                "export",
+                "yii",
+                "yii2"
+            ],
+            "time": "2015-07-08 03:17:55"
+        },
+        {
+            "name": "mdmsoft/yii2-upload-file",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mdmsoft/yii2-upload-file.git",
+                "reference": "c44f0d9694e02a7b62a270f142ae1cc1f2638435"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mdmsoft/yii2-upload-file/zipball/c44f0d9694e02a7b62a270f142ae1cc1f2638435",
+                "reference": "c44f0d9694e02a7b62a270f142ae1cc1f2638435",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "mdm\\upload\\Bootstrap",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "mdm\\upload\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Misbahul Munir",
+                    "email": "misbahuldmunir@gmail.com"
+                }
+            ],
+            "description": "Yii2 upload file tools",
+            "keywords": [
+                "file",
+                "upload",
+                "yii"
+            ],
+            "time": "2015-10-26 10:58:52"
+        },
+        {
             "name": "mikevanriel/text-to-latex",
             "version": "1.0.1",
             "source": {
@@ -960,6 +1204,51 @@
             ],
             "description": "A converter class that converts normal ASCII text to valid LaTeX",
             "time": "2015-12-13 07:33:35"
+        },
+        {
+            "name": "moonlandsoft/yii2-phpexcel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moonlandsoft/yii2-phpexcel.git",
+                "reference": "9408d09abc7ff4828302dafd5ffb709314f14589"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moonlandsoft/yii2-phpexcel/zipball/9408d09abc7ff4828302dafd5ffb709314f14589",
+                "reference": "9408d09abc7ff4828302dafd5ffb709314f14589",
+                "shasum": ""
+            },
+            "require": {
+                "phpoffice/phpexcel": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "moonland\\phpexcel\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moh Khoirul Anam",
+                    "email": "moh.khoirul.anaam@gmail.com"
+                }
+            ],
+            "description": "Exporting PHP to Excel or Importing Excel to PHP",
+            "keywords": [
+                "excel",
+                "export",
+                "extension",
+                "import",
+                "xls",
+                "yii2"
+            ],
+            "time": "2015-09-06 07:50:33"
         },
         {
             "name": "nex/yii2-datepicker",
@@ -1455,7 +1744,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7ccbfdf4cfb0ce025e27455dc3e516af23eb2800",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/8c3f3fce48649eebcb5739c797616bd49d4709e7",
                 "reference": "7ccbfdf4cfb0ce025e27455dc3e516af23eb2800",
                 "shasum": ""
             },
@@ -1612,7 +1901,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/dfd80567eecb761ace59cc069e390466c583837f",
+                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/13a051cebdaa19703a97a8e3a124e77cf29dd143",
                 "reference": "e593da06f6477d2fcb21323dfd0b766291c67fe5",
                 "shasum": ""
             },
@@ -1886,7 +2175,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/8d8e0e1a6151a46ea5cda344e2234b7225c61e7a",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/772feacf6849bf0114873e2b869bb500fccfd438",
                 "reference": "b312ab9d0c446971069e22a524fec01c7cddc75e",
                 "shasum": ""
             },
@@ -1925,55 +2214,6 @@
                 "fixtures"
             ],
             "time": "2016-02-01 17:08:46"
-        },
-        {
-            "name": "kartik-v/yii2-grid",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/ea7bd283f086b06bec2f5705f642855cfca9088e",
-                "reference": "ea7bd283f086b06bec2f5705f642855cfca9088e",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "~1.7"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "kartik\\grid\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Yii 2 GridView on steroids. Various enhancements and utilities for the Yii 2.0 GridView widget.",
-            "homepage": "https://github.com/kartik-v/yii2-grid",
-            "keywords": [
-                "extension",
-                "grid",
-                "widget",
-                "yii2"
-            ],
-            "time": "2016-01-28 16:50:34"
         },
         {
             "name": "phpspec/php-diff",
@@ -2206,7 +2446,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "scotthuangzl/yii2-google-chart": 20,
-        "kartik-v/yii2-widget-select2": 20
+        "kartik-v/yii2-widget-select2": 20,
+        "mdmsoft/yii2-upload-file": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\BaseStringHelper;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
@@ -27,13 +28,22 @@ $this->params['breadcrumbs'][] = $this->title;
 					'filterModel' => $searchModel,
 					'columns' => [
 						['class' => 'yii\grid\SerialColumn'],
-
-						//'id',
 						'ip',
-						'nik',
-						//'uri_access',
+						[
+							'attribute' => 'uri_access',
+							'value' => function($model){
+								return BaseStringHelper::truncate($model->uri_access,50,' ..... ',null,true);
+							}
+						],
 						'timestamp',
-						'method',
+						[
+							'attribute' => 'method',
+							'format' => 'raw',
+							'value' => function ($data){
+								return $data->method;
+							},
+							'filter' => array('GET' => 'GET', 'POST' => 'POST', 'PUT' => 'PUT', 'DELETE' => 'DELETE', 'OPTION' => 'OPTION')
+						],
 						[
 							'class' => 'yii\grid\ActionColumn',
 							'template' => '{view}',

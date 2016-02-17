@@ -12,23 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * UserActivityController implements the CRUD actions for UserActivity model.
  */
-class StatistikController extends Controller
+class StatistikController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all UserActivity models.
      * @return mixed
@@ -39,11 +24,11 @@ class StatistikController extends Controller
 		$request = Yii::$app->request;
 		if ($model->load(Yii::$app->request->post())){
 			if (!$model->hasErrors()) {
-				$dbCommand = Yii::$app->db->createCommand("SELECT YEAR(tanggal_diterbitkan) as tanggal_diterbitkan,COUNT(*) as count FROM base WHERE tanggal_diterbitkan BETWEEN '".\Yii::$app->formatter->asDate($model->dari,'php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate($model->sampai,'php:Y-m-d')."' GROUP BY tanggal_diterbitkan");
+				$dbCommand = Yii::$app->db->createCommand("SELECT YEAR(tanggal_lahir) as tanggal_diterbitkan,COUNT(*) as count FROM base WHERE YEAR(tanggal_lahir) BETWEEN '".$model->dari."' AND '".$model->sampai."' GROUP BY YEAR(tanggal_lahir)");
 		   }
 		}else{
 			$dbCommand = Yii::$app->db->createCommand("
-			   SELECT YEAR(tanggal_diterbitkan) as tanggal_diterbitkan,COUNT(*) as count FROM base WHERE tanggal_diterbitkan BETWEEN '".\Yii::$app->formatter->asDate('-1 year','php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate('now','php:Y-m-d')."' GROUP BY tanggal_diterbitkan
+			   SELECT YEAR(tanggal_lahir) as tanggal_diterbitkan,COUNT(*) as count FROM base WHERE tanggal_lahir BETWEEN '".\Yii::$app->formatter->asDate('-30 year','php:Y-m-d')."' AND '".\Yii::$app->formatter->asDate('now','php:Y-m-d')."' GROUP BY YEAR(tanggal_lahir)
 			");
 		}
 

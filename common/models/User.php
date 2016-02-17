@@ -25,8 +25,14 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
+    const STATUS_PENDING = 20;
+    const STATUS_BLOCKED = 30;
 
-    public $password;
+    const LEVEL_INTERNAL_NON_PEMERINTAH = 0;
+    const LEVEL_ADMIN = 1;
+    const LEVEL_INTERNAL_PEMERINTAH = 2;
+    const LEVEL_EKSTERNAL_NON_PEMERINTAH = 3;
+    const LEVEL_EKSTERNAL_PEMERINTAH = 4;
 
     /**
      * @inheritdoc
@@ -53,7 +59,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username','email'], 'safe'],
-            [['id', 'username','email', 'password', 'telp'], 'required'],
+            [['id', 'username','email', 'telp', 'instansi'], 'required'],
 
             ['id', 'integer', 'min' => 16],
 
@@ -66,12 +72,8 @@ class User extends ActiveRecord implements IdentityInterface
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
-            ['password', 'string', 'min' => 6],
-
-            ['telp', 'string', 'max' => 20],
-
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'default', 'value' => self::STATUS_BLOCKED],
+            ['status', 'in', 'range' => [self::STATUS_BLOCKED, self::STATUS_PENDING, self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
 
@@ -82,7 +84,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'NIK',
-            'telp' => 'Nomor Telepon'
+            'instansi' => 'Nama Instansi'
 		];
 	}
 
@@ -216,5 +218,16 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    /**
+     * is Admin?
+     * @param string $id
+     * @return boolean
+     */
+    public static function isAdmin()
+    {
+        $user = User::findIdentity(Yii::$app->user->id);
+        return $user->level == 1 ? true : false;
     }
 }

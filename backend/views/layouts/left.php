@@ -13,7 +13,7 @@ $user = new UserCreate();
                     ['label' => 'Admin Panel', 'options' => ['class' => 'header'], 'visible' => $user->isAdmin()],
 					['label' => 'User Panel', 'options' => ['class' => 'header'], 'visible' => !$user->isAdmin()],
                     ['label' => 'Dashboard', 'icon' => 'fa fa-dashboard', 'url' => ['../admin']],
-					['label' => 'Access Log', 'icon' => 'fa fa-gear', 'url' => ['/api-logs'],'visible' => !$user->isAdmin()],
+					['label' => 'Access Log', 'icon' => 'fa fa-exchange', 'url' => ['/api-logs'],'visible' => !$user->isAdmin()],
                     [
                         'label' => 'Data Management',
                         'icon' => 'fa fa-files-o',
@@ -42,13 +42,13 @@ $user = new UserCreate();
                         'url' => '#',
                         'items' => [
                             ['label' => 'Registration', 'icon' => 'fa fa-circle-o', 'url' => ['/registration'],],
-							['label' => 'Access Control', 'icon' => 'fa fa-circle-o', 'url' => ['#'],],
+							['label' => 'Access Control', 'icon' => 'fa fa-circle-o', 'url' => ['/api-access'],],
 							['label' => 'Access Log', 'icon' => 'fa fa-circle-o', 'url' => ['/api-logs'],],
                         ],
 						'visible' => $user->isAdmin()
                     ],
-					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['/pengaturan'],'visible' => $user->isAdmin()],
-					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web'],'visible' => !$user->isAdmin()],//'visible' => Yii::$app->user->isGuest
+					['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['/pengaturan']],
+					//['label' => 'Pengaturan', 'icon' => 'fa fa-gear', 'url' => ['../web'],'visible' => !$user->isAdmin()],//'visible' => Yii::$app->user->isGuest
                 ],
             ]
         ) ?>

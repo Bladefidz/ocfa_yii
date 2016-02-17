@@ -22,22 +22,13 @@ use common\models\User;
 		<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 		  <ul class="nav navbar-nav">
 			<li id="home"><a href="<?= Yii::$app->homeUrl;?>">Home <span class="sr-only">(current)</span></a></li>
-			<li id="api_doc" class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" id="api" aria-expanded="false" href="api_doc">
-					API
-					<span class="caret"></span>
-				</a>
-
-				<ul class="dropdown-menu" aria-labelledby="api" role="menu">
-    				<li><a href="api_doc">Dokumentasi</a></li>
-    				<?php 
-						if (Yii::$app->user->isGuest) {
-							echo "<li><a href='signup'>Registrasi</a></li>";
-						}
-					?>
-    			</ul>
-			</li>
-			<li id="tentang"><a href="tentang">Tentang OCFA</a></li>
+			<li id="tentang"><a href="#about">Tentang OCFA</a></li>
+			<li id="api_doc"><a href="#api">API</a></li>
+			<?php 
+				if (!Yii::$app->user->isGuest) {
+			?>
+			<li id="user_admin"><a href="admin">Admin</a></li>
+				<?php } ?>
 			<!-- <li class="dropdown">
 			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
 			  <ul class="dropdown-menu" role="menu">
@@ -51,11 +42,11 @@ use common\models\User;
 			  </ul>
 			</li> -->
 		  </ul>
-		  <form class="navbar-form navbar-left" role="search">
+		  <!--<form class="navbar-form navbar-left" role="search">
 			<div class="form-group">
 			  <input type="text" class="form-control" id="navbar-search-input" placeholder="Search">
 			</div>
-		  </form>
+		  </form>-->
 		</div><!-- /.navbar-collapse -->
 		<div class="navbar-custom-menu">
 
@@ -74,18 +65,26 @@ use common\models\User;
                 </li>
 				<?php
 				}else{
+					$base = DataManagement::findOne(['nik' => Yii::$app->user->getId()]);
+                    $user = User::findOne(['id' => Yii::$app->user->getId()]);
+
+                    if(!empty($base)) {
+                        $name = $base->nama;
+                    } else {
+                        $name = $user->username;
+                    }
 				?>
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="hidden-xs">
-                            <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                            <?= $name ?>
                         </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User header -->
                         <li class="user-header">
                             <p>
-                                <?= DataManagement::findOne(['nik' => Yii::$app->user->getId()])->nama?>
+                                <?= $name ?>
                                 <small>Bergabung sejak <?= \Yii::$app->formatter->asDate(User::findOne(['id' => Yii::$app->user->getId()])->created_at,'php:d-M-Y');?></small>
                             </p>
 							<p>

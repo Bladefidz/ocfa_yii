@@ -19,9 +19,26 @@ $this->title = 'My Yii Application';
     </div>
     <div class="col-lg-12 text-center blue" id="about">
         <div class="container">
+        	<h1>Tentang OCFA System</h1>
+        	<hr class="star-light">
             <p class="lead">
-                Sistem informasi kependudukan terintegrasi, mempermudah pemerintah dalam melakukan managemen data kependudukan dari tingkat desa sampai nasional. Menyediakan layanan API sehingga data kependudukan dapat diakses oleh siapapun dan kapanpun. 
+                 OCFA adalah sistem informasi kependudukan terintegrasi, yang mempermudah pemerintah dalam melakukan manajemen data kependudukan dari tingkat desa sampai nasional. Serta menyediakan layanan API sehingga data kependudukan dapat diakses oleh siapapun dan kapanpun. 
             </p>
         </div>
+    </div>
+    <div class="col-lg-12 white text-center" id="api">
+    	<div class="container">
+    		<h1>OCFA System API</h1>
+    		<hr class="star-primary">
+    		<h4>Registrasi sekarang juga !</h4>
+    			<a href="api_doc"><button type="button" style="margin: 3%;" class="btn btn-lg btn-success">Dokumentasi</button></a>
+    		
+    			<?php 
+						if (Yii::$app->user->isGuest) {
+							echo "<a href='signup'><button type='button' style='margin: 3%;' class='btn btn-lg btn-primary'>Registrasi</button></a>";
+						}
+					?>
+    		
+    	</div>
     </div>
 </div>

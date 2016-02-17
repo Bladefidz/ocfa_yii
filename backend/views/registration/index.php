@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use backend\libraries\DataExchanger;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
@@ -18,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<div class="col-md-11">
 		<div class="box box-info">
 			<div class="box-header with-border">
-				<h3 class="box-title"><?='Registered User'?></h3>
+				<h3 class="box-title"><?='Pending Verification of Registered User'?></h3>
 			</div>
 			<div class="box-body">
 				<?php Pjax::begin() ?>
@@ -35,23 +36,32 @@ $this->params['breadcrumbs'][] = $this->title;
 						//'password_reset_token',
 						'email:email',
 						//'status',
-						'created_at',
-						'updated_at',
+						// 'created_at',
+						[
+							'attribute' => 'created_at',
+							'value' => function ($data){
+								return $data->created_at;
+							},
+							'filter' => \yii\jui\DatePicker::widget(['dateFormat' => 'dd-MM-yyyy']),
+            				'format' => ['date', 'php:d-m-Y H:i:s'],
+						],
+						// 'updated_at',
 						//'level',
 
 						[
 							'class' => 'yii\grid\ActionColumn',
-							'template'=>'{view} {accept}',
+							'template'=>'{view} {accept} {block}',
 							'buttons' => [
-								'block' => function ($url, $model) {
-									return Html::a('<span class="fa fa-ban"></span>', $url, [
-												'title' => Yii::t('app', 'Block'),
-												'data-confirm' => Yii::t('app','Apakah Anda yakin ingin memblokir user '.$model->username.'?'),
-									]);
-								},
 								'accept' => function ($url, $model) {
 									return Html::a('<span class="fa fa-check"></span>', $url, [
 												'title' => Yii::t('app', 'Accept'),
+												'data-confirm' => Yii::t('app',"Apakah Anda yakin akan memberikan akses API kepada user ".$model->username."?"),
+									]);
+								},
+								'block' => function ($url, $model) {
+									return Html::a("<span class='fa fa-ban'></span>", $url, [
+												'title' => Yii::t('app', 'Block'),
+												'data-confirm' => Yii::t('app',"Apakah Anda yakin akan menolak pendaftaran akses dengan username ".$model->username."?"),
 									]);
 								}
 							],

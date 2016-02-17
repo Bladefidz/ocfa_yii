@@ -10,6 +10,7 @@ use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
+use api\common\libraries\Logger;
 
 /**
  * ApiControoler class
@@ -21,7 +22,8 @@ class RestReactor extends \yii\rest\Controller
 	 * Yii class behavior
 	 * @return
 	 */
-	public function behaviors(){
+	public function behaviors()
+	{
       	$behaviors = parent::behaviors();
       	$behaviors['authenticator'] = [
         	'class' => QueryParamAuth::className(),
@@ -41,7 +43,14 @@ class RestReactor extends \yii\rest\Controller
     	}
 
     	if(isset($data['kewarganegaraan'])) {
-    		$data['kewarganegaraan'] = DataManagement::getKewarganegaraan($data['kewarganegaraan']);
+    		switch ($data['kewarganegaraan']) {
+    			case 1:
+    				$data['kewarganegaraan'] = 'WNI';
+    				break;
+    			case 2:
+    				$data['kewarganegaraan'] = 'WNA';
+    				break;
+    		}
     	}
 
     	if(isset($data['provinsi'])) {

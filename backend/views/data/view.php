@@ -37,46 +37,47 @@ $this->params['breadcrumbs'][] = $this->title;
 						'jenis_kelamin',
 						'golongan_darah',
 						'tanggal_diterbitkan',
-						'nip_pencatat',
+						'nik_pencatat',
+						[
+							'attribute' => 'tabelDomisili.kelurahan',
+							'label' => 'Provinsi',
+							'value' => $lokasi->provinsi,
+						],
+						[
+							'attribute' => 'tabelDomisili.kelurahan',
+							'label' => 'Kabupaten/Kota',
+							'value' => $lokasi->kabupaten,
+						],
+						[
+							'attribute' => 'tabelDomisili.kelurahan',
+							'label' => 'Kecamatan',
+							'value' => $lokasi->kecamatan,
+						],
+						[
+							'attribute' => 'tabelDomisili.kelurahan',
+							'label' => 'Kelurahan',
+							'value' => $lokasi->kelurahan,
+						],
+						'baseUpdatable.agama',
+						'baseUpdatable.no_kk',
+						'baseUpdatable.status_keluarga',
+						'baseUpdatable.status_perkawinan',
+						'baseUpdatable.pekerjaan',
+						'baseUpdatable.pendidikan_terakhir',
+						[
+							'attribute'=>'baseUpdatable.foto',
+							'value'=>$model->baseUpdatable->foto,
+							'format' => ['image',['width'=>'320','height'=>'240']],
+						],
 					],
 					
 				]);
 				?>
 			</div>
-			<div class="box-header with-border">
-				<h3 class="box-title">Updateable Data</h3>
-			</div>
-			<div class="box-body">
+			<div class="box-footer text-center">
 				<p>
 					<?= Html::a('Update', ['update', 'id' => $model->nik], ['class' => 'btn btn-primary']) ?>
 				</p>
-				
-				<?= DetailView::widget([
-					'model' => $updateable,
-					'attributes' => [
-						[
-							'attribute'=>'foto',
-							'value'=>$updateable->foto,
-							'format' => ['image',['width'=>'320','height'=>'240']],
-						],
-						'agama',
-						'provinsi',
-						'kabupaten',
-						'kecamatan',
-						'kelurahan',
-						'rt',
-						'rw',
-						'alamat',
-						'no_kk',
-						'status_keluarga',
-						'status_perkawinan',
-						'pekerjaan',
-						'pendidikan_terakhir',
-						'kewarganegaraan',
-					],
-					
-				]);
-				?>
 			</div><!--box footer-->
 		</div><!--box-->
     </div>

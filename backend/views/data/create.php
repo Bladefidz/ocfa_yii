@@ -24,6 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
 				<?= $this->render('_form', [
 					'model' => $model,
 					'updatable' => $updatable,
+					'lokasi' => $lokasi,
+					'domisili' => $domisili,
 				]) ?>
 			</div><!--box footer-->
 		</div><!--box-->

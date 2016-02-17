@@ -87,7 +87,6 @@ class PendudukController extends \api\common\libraries\RestReactor
 			'status_perkawinan',
 			'pekerjaan',
 			'pendidikan_terakhir',
-			'kewarganegaraan'
 		);
 	}
 
@@ -125,12 +124,19 @@ class PendudukController extends \api\common\libraries\RestReactor
 				$selectedCols .= "`base_updatable`.`$col`".",";
 			} elseif (in_array($col, $this->domisiliCols)) {
 				$selectedCols .= "`tabel_domisili`.`$col`".",";
+			} elseif ($col == 'kewarganegaraan') {
+				$selectedCols .= "`tabel_kewarganegaraan`.`kewargaan`".",";
 			} else {
 				continue;
 			}
 		}
 
 		return substr_replace($selectedCols, '', -1);
+	}
+
+	private function postPenduduk()
+	{
+		
 	}
 
 	/**
@@ -169,17 +175,24 @@ class PendudukController extends \api\common\libraries\RestReactor
     		$search = !empty($_GET['search'])?$_GET['search']:'';
     		$accToken = !empty($_GET['access-token'])?$_GET['access-token']:'';
 
+    		if (empty($accToken)) {
+    			throw new yii\web\UnauthorizedHttpException;
+    		}
+
     		if(empty($nik)){
 		      	throw new yii\web\BadRequestHttpException;
 		    } else {
+		    	$accNIK = User::findIdentityByAccessToken($accToken)->id;
 		    	$data = $this->getPenduduk($nik, $field);
 		    	
+		    	Logger::write($accNIK);
+
 		    	if(!empty($data)) {
 		    		return [
 		    			"name" => "success",
 		    			'status' => '200',
 			        	'message' => 'found',
-			        	'nik_responsible' => $user->findIdentityByAccessToken($accToken)->id,
+			        	'nik_responsible' => $accNIK,
 			        	'data' => $data
 			      	];
 		    	} else {
@@ -188,10 +201,6 @@ class PendudukController extends \api\common\libraries\RestReactor
 		    }
     	} else {
     		throw new yii\web\MethodNotAllowedHttpException;
-    	}
-
-    	if (!empty($accToken)) {
-    		$logger->write($user->findIdentityByAccessToken($accToken)->id);
     	}
     }
 }

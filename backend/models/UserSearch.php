@@ -41,7 +41,11 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find()->where(['status' => '10']);
+        if (User::isAdmin()) {
+            $query = User::find();
+        } else {
+            $query = User::find()->where(['status' => ['10', '0']]);
+        }
 
         // add conditions that should always apply here
 

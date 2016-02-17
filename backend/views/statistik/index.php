@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						'value' => \Yii::$app->formatter->asDate('-1 month','php:d-M-Y'),
 						'language' => 'id',
 						'clientOptions' => [
-							'format' => 'D-MMM-YYYY',
+							'format' => 'YYYY',
 						],
 				]);?>
 				
@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						'value' => \Yii::$app->formatter->asDate('-1 month','php:d-M-Y'),
 						'language' => 'id',
 						'clientOptions' => [
-							'format' => 'D-MMM-YYYY',
+							'format' => 'YYYY',
 						],
 				]);?>
 				<div class="col-md-12">

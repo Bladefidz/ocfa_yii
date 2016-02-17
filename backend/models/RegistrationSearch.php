@@ -18,7 +18,8 @@ class RegistrationSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status', 'created_at', 'updated_at', 'level'], 'integer'],
+            [['id', 'status'], 'integer'],
+            [['created_at', 'updated_at', 'level'], 'string'],
             [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email'], 'safe'],
         ];
     }
@@ -36,12 +37,18 @@ class RegistrationSearch extends User
      * Creates data provider instance with search query applied
      *
      * @param array $params
+     * @param array $status
+     * @param array $level
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $status = [20], $level = null)
     {
-        $query = User::find()->where(['status' => '0']);
+        if(!empty($level)) {
+            $query = User::find()->where(['status' => $status, 'level' => $level]);
+        } else {
+            $query = User::find()->where(['status' => $status]);
+        }
 
         // add conditions that should always apply here
 
