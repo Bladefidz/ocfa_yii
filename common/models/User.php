@@ -28,6 +28,12 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_PENDING = 20;
     const STATUS_BLOCKED = 30;
 
+    const LEVEL_INTERNAL_NON_PEMERINTAH = 0;
+    const LEVEL_ADMIN = 1;
+    const LEVEL_INTERNAL_PEMERINTAH = 2;
+    const LEVEL_EKSTERNAL_NON_PEMERINTAH = 3;
+    const LEVEL_EKSTERNAL_PEMERINTAH = 4;
+
     /**
      * @inheritdoc
      */
