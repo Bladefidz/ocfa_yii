@@ -28,6 +28,12 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_PENDING = 20;
     const STATUS_BLOCKED = 30;
 
+    const LEVEL_INTERNAL_NON_PEMERINTAH = 0;
+    const LEVEL_ADMIN = 1;
+    const LEVEL_INTERNAL_PEMERINTAH = 2;
+    const LEVEL_EKSTERNAL_NON_PEMERINTAH = 3;
+    const LEVEL_EKSTERNAL_PEMERINTAH = 4;
+
     /**
      * @inheritdoc
      */
@@ -53,7 +59,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username','email'], 'safe'],
-            [['id', 'username','email', 'telp'], 'required'],
+            [['id', 'username','email', 'telp', 'instansi'], 'required'],
 
             ['id', 'integer', 'min' => 16],
 
@@ -78,6 +84,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'NIK',
+            'instansi' => 'Nama Instansi'
 		];
 	}
 
@@ -211,5 +218,16 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    /**
+     * is Admin?
+     * @param string $id
+     * @return boolean
+     */
+    public static function isAdmin()
+    {
+        $user = User::findIdentity(Yii::$app->user->id);
+        return $user->level == 1 ? true : false;
     }
 }

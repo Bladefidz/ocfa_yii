@@ -17,23 +17,8 @@ use yii\filters\VerbFilter;
 /**
  * ArsipController implements the CRUD actions for DataManagement model.
  */
-class ArsipController extends Controller
+class ArsipController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all DataManagement models.
      * @return mixed

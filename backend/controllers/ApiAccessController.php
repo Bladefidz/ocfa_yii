@@ -12,23 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * UserController implements the CRUD actions for User model.
  */
-class ApiAccessController extends Controller
+class ApiAccessController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all User models.
      * @return mixed
@@ -111,7 +96,9 @@ class ApiAccessController extends Controller
     {
         $user = $this->findModel($id);
 		$user->status = 30;
-		$user->save();
+		
+        if($user->save())
+            $this->writeLog("Memblokir akses API untuk user dengan username $user->username");
 
         return $this->redirect(['/api-access']);
     }
@@ -126,7 +113,10 @@ class ApiAccessController extends Controller
     {
         $user = $this->findModel($id);
 		$user->status = 10;
-		$user->save();
+
+		if($user->save())
+            $this->writeLog("Membuka akses API untuk user dengan username $user->username");
+
         return $this->redirect(['/api-access']);
     }
 

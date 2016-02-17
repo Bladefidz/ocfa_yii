@@ -31,7 +31,7 @@ $this->title = 'OCFA System Admin';
 			</div><!-- /.box-body -->
 			<div class="box-footer text-center">	
 				<?= Html::submitButton('Export', ['class' => 'btn btn-success']) ?>
-				<?php ActiveForm::end(); ?>
+			<?php ActiveForm::end(); ?>
 			</div>
 		  </div><!-- /.box -->
 		</div><!-- /.Left col -->
@@ -48,11 +48,7 @@ $this->title = 'OCFA System Admin';
 
 					<?= $form->field($upload, 'file')->fileInput() ?>
 					
-					<?php if ($upload->file_id): ?>
-						<div class="form-group">
-							<?= Html::img(['/file', 'id' => $model->file_id]) ?>
-						</div>
-					<?php endif; ?>
+					
 					
 			  </div><!-- /.box-body -->
 				<div class="box-footer text-center">
@@ -75,12 +71,12 @@ $this->title = 'OCFA System Admin';
 			<?php $form = ActiveForm::begin(['layout' => 'horizontal']); ?>
 			<div class="box-body">
 			  <div class="row">
-				<?= $form->field($modelCsv, 'tabel')->dropdownList(['1' => 'Data Penduduk', '2' => 'Data Kartu Keluarga', '3' => 'Data Aktivitas User'],['prompt' => 'Pilih salah satu'])->label('Jenis Data') ?>
+				<?= $form->field($modelCsv, 'tabelcsv')->dropdownList(['1' => 'Data Penduduk', '2' => 'Data Kartu Keluarga', '3' => 'Data Aktivitas User'],['prompt' => 'Pilih salah satu'])->label('Jenis Data') ?>
 			  </div><!-- /.row -->
 			</div><!-- /.box-body -->
 			<div class="box-footer text-center">	
 				<?= Html::submitButton('Export', ['class' => 'btn btn-success']) ?>
-				<?php ActiveForm::end(); ?>
+			<?php ActiveForm::end(); ?>
 			</div>
 		  </div><!-- /.box -->
 		</div><!-- /.Left col -->
@@ -97,11 +93,7 @@ $this->title = 'OCFA System Admin';
 
 					<?= $form->field($uploadCsv, 'file')->fileInput() ?>
 					
-					<?php if ($uploadCsv->file_id): ?>
-						<div class="form-group">
-							<?= Html::img(['/file', 'id' => $modelCsv->file_id]) ?>
-						</div>
-					<?php endif; ?>
+					
 					
 			  </div><!-- /.box-body -->
 				<div class="box-footer text-center">

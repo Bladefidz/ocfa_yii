@@ -93,8 +93,12 @@ class StatistikController extends \api\common\libraries\RestReactor
     	if ($request->isGet) {
     		$accToken = !empty($_GET['access-token'])?$_GET['access-token']:'';
     		$type = !empty($_GET['type'])?$_GET['type']:'';
+
+    		if (empty($accToken)) {
+    			throw new yii\web\UnauthorizedHttpException;
+    		}
+
     		$accNIK = $user->findIdentityByAccessToken($accToken)->id;
-    		
     		Logger::write($accNIK);
 
     		if (empty($type)) {

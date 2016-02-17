@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use common\models\User;
 use common\models\UserActivity;
 use backend\models\UserActivitySearch;
 use yii\web\Controller;
@@ -12,23 +13,8 @@ use yii\filters\VerbFilter;
 /**
  * UserActivityController implements the CRUD actions for UserActivity model.
  */
-class UserActivityController extends Controller
+class UserActivityController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all UserActivity models.
      * @return mixed
@@ -64,7 +50,9 @@ class UserActivityController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $userActv = $this->findModel($id);
+        if($userActv->delete())
+            $this->writeLog("Menghapus catatan aktivitas user dengan username ".User::findOne($id)->username." dan catatan ".$userActv->action);
 
         return $this->redirect(['index']);
     }

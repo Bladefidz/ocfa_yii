@@ -74,14 +74,14 @@ class DataSearch extends DataManagement
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'nik' => $this->nik,
             'tanggal_lahir' => $this->tanggal_lahir,
             'jenis_kelamin' => $this->jenis_kelamin,
             'tanggal_diterbitkan' => $this->tanggal_diterbitkan,
             'nik_pencatat' => $this->nik_pencatat,
         ]);
 
-        $query->andFilterWhere(['like', 'nama', $this->nama])
+        $query->andFilterWhere(['like', 'base.nik', $this->nik])
+            ->andFilterWhere(['like', 'nama', $this->nama])
             ->andFilterWhere(['like', 'tempat_lahir', $this->tempat_lahir])
             ->andFilterWhere(['like', 'golongan_darah', $this->golongan_darah]);
 

@@ -3,16 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use common\models\DataManagement;
 use common\models\BaseUpdatable;
 use common\models\Provinces;
 use common\models\Regencies;
 use common\models\Districts;
 use common\models\Villages;
-use common\models\UserActivity;
 use common\models\TabelDomisili;
 use common\models\TabelKematian;
 use common\models\TabelKewarganegaraan;
+use common\models\Keluarga;
 use backend\models\DataSearch;
 use backend\models\UpdatableSearch;
 use yii\web\Controller;
@@ -23,23 +24,8 @@ use yii\helpers\VarDumper;
 /**
  * DataController implements the CRUD actions for DataManagement model.
  */
-class DataController extends Controller
+class DataController extends CoreController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all DataManagement models.
      * @return mixed
@@ -148,6 +134,9 @@ class DataController extends Controller
 				break;
 			case '3':
 				$status_keluarga = 'Anak';
+				break;
+			default:
+				$status_keluarga = '-';
 				break;
 		}
 		$data->status_keluarga = $status_keluarga;
@@ -263,6 +252,94 @@ class DataController extends Controller
 	 
 	}
 
+    public function actionStatkk($nokk)
+    {
+		$parent = BaseUpdatable::find()->where(['no_kk' => $nokk, 'status_keluarga' => 1])->all();
+		if(count($parent)>0){
+		 	echo "<option selected disabled>Pilih NIK Ayah</option>";
+		 	foreach($parent as $p){
+				echo "<option value='".$p->nik."'>".$p->nik."</option>";
+		 	}
+		}
+		else{
+			echo "<option>-</option>";
+		}
+	}
+
+	public function actionNoKkList($q = null, $id = null)
+    {
+    	\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+	    $out = ['results' => ['id' => '', 'text' => '']];
+	    if (!is_null($q)) {
+	        $query = new \yii\db\Query;
+	        $query->select('id, id AS text')
+	            ->from('keluarga')
+	            ->where(['like', 'id', $q])
+	            ->limit(20);
+	        $command = $query->createCommand();
+	        $data = $command->queryAll();
+	        $out['results'] = array_values($data);
+	    }
+	    elseif ($id > 0) {
+	        $out['results'] = ['id' => $id, 'text' => Keluarga::find($id)->id];
+	    }
+	    return $out;
+    }
+
+    public function actionNikAyahList($q = null, $id = null)
+    {
+    	\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+	    $out = ['results' => ['id' => '', 'text' => '']];
+	    if (!is_null($q)) {
+	        $query = new \yii\db\Query;
+	        $query->select('base.nik AS id, base.nik AS text')
+	            ->from('base')
+	            ->innerJoin('base_updatable', 'base.nik = base_updatable.nik')
+	            ->andWhere(['base_updatable.status_keluarga' => 1, 'base.jenis_kelamin' => 1])
+	            ->andWhere(['like', 'base.nik', $q])
+	            ->limit(20);
+	        $command = $query->createCommand();
+	        $data = $command->queryAll();
+	        $out['results'] = array_values($data);
+	    }
+	    elseif ($id > 0) {
+	        $out['results'] = ['id' => $id, 'text' => BaseUpdatable::find($id)->nik];
+	    }
+	    return $out;
+    }
+
+    public function actionNikIbuList($q = null, $id = null)
+    {
+    	\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+	    $out = ['results' => ['id' => '', 'text' => '']];
+	    if (!is_null($q)) {
+	        $query = new \yii\db\Query;
+	        $query->select('base.nik AS id, base.nik AS text')
+	            ->from('base')
+	            ->innerJoin('base_updatable', 'base.nik = base_updatable.nik')
+	            ->andWhere(['base_updatable.status_keluarga' => 2, 'base.jenis_kelamin' => 2])
+	            ->andWhere(['like', 'base.nik', $q])
+	            ->limit(20);
+	        $command = $query->createCommand();
+	        $data = $command->queryAll();
+	        $out['results'] = array_values($data);
+	    }
+	    elseif ($id > 0) {
+	        $out['results'] = ['id' => $id, 'text' => BaseUpdatable::find($id)->nik];
+	    }
+	    return $out;
+    }
+
+    public function actionGetayah()
+    {
+    	$ayah = ArrayHelper::map(DataManagement::find()->select(['nik'])->where('jenis_kelamin = 1')->all(),'nik','nik');
+		if (count($ayah) > 0) {
+			foreach($ayah as $a){
+				echo "<option value='".$a->nik."'>".$a->nik."</option>";
+		 	}
+		}
+    }
+
     /**
      * Creates a new DataManagement model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -286,7 +363,7 @@ class DataController extends Controller
 			$temp = $model->nik;
 			$model->nik = $nik;
 			$model->tanggal_lahir = Yii::$app->formatter->asDate($model->tanggal_lahir, 'yyyy-MM-dd');
-			$model->tanggal_diterbitkan = date('Y-m-d');
+			// $model->tanggal_diterbitkan = date('Y-m-d');
 			$model->nik_pencatat = Yii::$app->user->id;
 			$updatable->nik = $nik;
 			$domisili->nik = $nik;
@@ -297,6 +374,7 @@ class DataController extends Controller
 				$this->writeLog('Menambah Data dengan NIK '.$model->nik.' atas Nama '.$model->nama);
 				return $this->redirect(['view', 'id' => $model->nik]);
 			}else{
+				// VarDumper::dump($model->getErrors(),5678,true);
 				//VarDumper::dump($updatable->getErrors(),5678,true);
 				//VarDumper::dump($domisili->getErrors(),5678,true);
 				$alert = ['options' => [
@@ -333,20 +411,28 @@ class DataController extends Controller
         $model = $this->findModelUpdatable($id);
 		$domisili = new TabelDomisili();
 		$currentDomisili = TabelDomisili::find()->where('current = 1 and nik = '.$id)->one();
-		$lokasi = new \yii\base\DynamicModel(['kelurahan','kecamatan','kabupaten','provinsi']);
-		$lokasi->addRule(['kelurahan','kecamatan','kabupaten','provinsi'], 'string', ['max' => 20]);
+		$lokasi = new \yii\base\DynamicModel(['alamat','kelurahan','kecamatan','kabupaten','provinsi']);
+		$lokasi->addRule(['kelurahan','kecamatan','kabupaten','provinsi'], 'string', ['max' => 20])
+			->addRule(['alamat'], 'string', ['max' => 255]);
+		
+		$lokasi->alamat = $currentDomisili['alamat'];
 		$lokasi->kelurahan = $currentDomisili['kelurahan'];
 		$lokasi->kecamatan = substr($lokasi->kelurahan,0,strlen($lokasi->kelurahan)-3);
 		$lokasi->kabupaten = substr($lokasi->kecamatan,0,strlen($lokasi->kecamatan)-3);
 		$lokasi->provinsi = substr($lokasi->kabupaten,0,strlen($lokasi->kabupaten)-2);
+        
         if ($model->load(Yii::$app->request->post()) && $domisili->load(Yii::$app->request->post()) && $lokasi->load(Yii::$app->request->post()) && $model->save()) {
-			$domisili->current = 1;
-			$domisili->nik = $id;
-			$domisili->nik_pencatat = Yii::$app->user->id;
-			$domisili->kelurahan = $lokasi->kelurahan;
-			$domisili->save(false);
-			$currentDomisili['current'] = 0;
-			$currentDomisili->update();
+        	// VarDumper::dump($_POST["DynamicModel"]["kelurahan"], 6666, true);
+        	echo Yii::$app->request->post("DynamicModel['kelurahan']");
+        	if ($_POST["DynamicModel"]["kelurahan"] != $currentDomisili['kelurahan'] || $_POST["TabelDomisili"]["alamat"] != $currentDomisili['alamat']) {
+				$domisili->current = 1;
+				$domisili->nik = $id;
+				$domisili->nik_pencatat = Yii::$app->user->id;
+				$domisili->kelurahan = $lokasi->kelurahan;
+				$domisili->save(false);
+				$currentDomisili['current'] = 0;
+				$currentDomisili->update();
+			}
 			//VarDumper::dump($domisili->getErrors(),5678,true);
 			//VarDumper::dump($model->getErrors(),5678,true);
 			//echo var_dump($domisili);
@@ -447,16 +533,4 @@ class DataController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-	
-	/*
-	 * Write to table log
-	 * 
-	 * @param string $action
-	 */
-	public function writeLog($action){
-		$activity = new UserActivity();
-		$activity->nik = Yii::$app->user->id;
-		$activity->action = $action;
-		$activity->save();
-	}
 }

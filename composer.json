@@ -30,7 +30,9 @@
         "kartik-v/yii2-widget-sidenav": "*",
         "mdmsoft/yii2-upload-file": "dev-master",
         "m35/thecsv": "^1.0",
-        "kartik-v/yii2-export": "*"
+        "kartik-v/yii2-export": "*",
+        "arogachev/yii2-excel": "^0.1.0",
+        "moonlandsoft/yii2-phpexcel": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

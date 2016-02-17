@@ -2,6 +2,7 @@
 namespace frontend\models;
 
 use common\models\User;
+use common\models\DataManagement;
 use yii\base\Model;
 use yii\helpers\VarDumper;
 use Yii;
@@ -20,6 +21,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $instansi;
     public $id;
     public $telp;
     public $level;
@@ -37,6 +39,7 @@ class SignupForm extends Model
             
             ['id', 'filter', 'filter' => 'trim'],
             ['id', 'required'],
+            ['id', 'exist', 'targetClass' => '\common\models\DataManagement', 'targetAttribute' => 'nik', 'message' => 'NIK anda tidak terdaftar di database kependudukan. Silahkan hubungi kantor dukcapil terdekat untuk melakukan validasi identitas kependudukan anda.'],
             ['id', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['id', 'string', 'min' => 16, 'max' => 16],
 
@@ -48,6 +51,9 @@ class SignupForm extends Model
 
             ['telp', 'required'],
             ['telp', 'string', 'length' => [5, 20]],
+
+            ['instansi', 'required'],
+            ['instansi', 'string', 'max' => 20],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
@@ -64,7 +70,8 @@ class SignupForm extends Model
     {
         return [
             'id' => 'NIK',
-            'telp' => 'Telephone'
+            'telp' => 'Telephone',
+            'instansi' => 'Nama Instansi'
             ];
     }
     
@@ -88,12 +95,13 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
         $user->id = $this->id;
         $user->username = $this->username;
         $user->email = $this->email;
         $user->telp = $this->telp;
+        $user->instansi = $this->instansi;
         $user->status = 20;
         $user->level = $this->level;
         $user->setPassword($this->password);

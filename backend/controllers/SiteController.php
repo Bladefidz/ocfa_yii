@@ -2,62 +2,21 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\helpers\VarDumper;
 use common\models\LoginForm;
 use common\models\User;
-use common\models\UserActivity;
 use common\models\ApiLogs;
-use yii\filters\VerbFilter;
 use backend\models\ApiRequestSearch;
 use backend\models\ApiLogsSearch;
 
 /**
  * Site controller
  */
-class SiteController extends Controller
-{	
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }
-
+class SiteController extends CoreController
+{
     public function actionIndex()
     {
 		// get user from class User by id
@@ -117,15 +76,19 @@ class SiteController extends Controller
 				'lansia' => $lansia,
 			]);
 		}else{
+			$nik = Yii::$app->user->id;
 			$dbCommand = Yii::$app->db->createCommand("
-			   SELECT date(timestamp) as tanggal, COUNT(*) as count FROM user_activity WHERE nik = ".Yii::$app->user->id.
-			" group by date(timestamp)");
+			   SELECT date(timestamp) as tanggal, COUNT(*) as count FROM user_activity WHERE nik = $nik group by date(timestamp)");
 			$userAct = $dbCommand->query();
 			$searchModelApi = new ApiRequestSearch();
 			$dataProviderApi = $searchModelApi->search(Yii::$app->request->queryParams);
 			$searchModel = new ApiLogsSearch();
-			$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-			$ipAddress = ApiLogs::find()->where('nik = '.Yii::$app->user->id)->orderBy('timestamp desc')->one()->ip;
+			$dataProvider = $searchModel->search(Yii::$app->request->queryParams, $nik);
+			// $ipAddress = ApiLogs::find()->where(['nik' => $nik])->orderBy('timestamp desc')->one()->ip;
+			// $ipAddress = Yii::$app->db->createCommand("
+			//    SELECT ip FROM api_logs WHERE nik = $nik ORDER BY timestamp desc");
+			// $ipAddress = $ipAddress->queryOne();
+			$ipAddress = $_SERVER['REMOTE_ADDR'];
 			return $this->render('user_index',[
 				'userAct' => $userAct,
 				'searchModelApi' => $searchModelApi,
@@ -176,16 +139,4 @@ class SiteController extends Controller
         Yii::$app->user->logout();
         return $this->redirect('../../');
     }
-	
-	/*
-	 * Write to table log
-	 * 
-	 * @param string $action
-	 */
-	public function writeLog($action){
-		$activity = new UserActivity();
-		$activity->nik = Yii::$app->user->id;
-		$activity->action = $action;
-		$activity->save();
-	}
 }

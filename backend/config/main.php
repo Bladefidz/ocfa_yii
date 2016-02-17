@@ -14,6 +14,9 @@ return [
     'modules' => [],
 	'homeUrl' => '/ocfa_yii/admin',
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

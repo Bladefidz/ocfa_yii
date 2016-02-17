@@ -30,7 +30,7 @@ $this->title = 'OCFA System Admin';
 					<label class="control-label pull-right">Nama</label>
 				</div>
 				<div class="col-md-9">
-					<?= DataManagement::find($user->id)->select('nama')->one()->nama?>
+					<?= DataManagement::find()->select('nama')->where(['nik' => $user->id])->one()->nama?>
 				</div>
 			  </div>
 			  <div class="row">
@@ -54,13 +54,18 @@ $this->title = 'OCFA System Admin';
 					<label class="control-label pull-right">Alamat</label>
 				</div>
 				<div class="col-md-9">
-					<?= TabelDomisili::find($user->id)->select('alamat')->one()->alamat?>
+					<?= TabelDomisili::find()->select('alamat')->where(['nik' => $user->id])->one()->alamat?>
 				</div>
 			  </div>
 			</div><!-- /.box-body -->
 			<div class="box-footer text-right">
 				<p>
-					<?= Html::a('Ubah Nama Instansi', ['ubah'], ['class' => 'btn btn-success','data-toggle' => 'modal','data-target' => '#edit','data-title' => 'Arsipkan']) ?>
+					<?= Html::a('Ubah Nama Instansi', ['ubah'], [
+						'class' => 'btn btn-success',
+						'data-toggle' => 'modal',
+						'data-target' => '#edit',
+						'data-title' => 'Ubah Nama Instansi'
+						]) ?>
 				</p>
 			</div>
 		  </div><!-- /.box -->
@@ -76,24 +81,33 @@ $this->title = 'OCFA System Admin';
 					<div class="col-md-3">
 						<label class="control-label pull-right">Username</label>
 					</div>
-					<div class="col-md-9">
+					<div class="col-md-7">
 						<?= $user->username?>
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="btn-xs btn-default" data-toggle='modal' data-target='#edit-username' data-title='Ubah Username'><span class="glyphicon glyphicon-edit"></span></button>
 					</div>
 			    </div>
 				<div class="row">
 					<div class="col-md-3">
 						<label class="control-label pull-right">Password</label>
 					</div>
-					<div class="col-md-9">
+					<div class="col-md-7">
 						**********
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="btn-xs btn-default" data-toggle='modal' data-target='#edit-username' data-title='Ubah Username'><span class="glyphicon glyphicon-edit"></span></button>
 					</div>
 			    </div>
 				<div class="row">
 					<div class="col-md-3">
 						<label class="control-label pull-right">Email</label>
 					</div>
-					<div class="col-md-9">
+					<div class="col-md-7">
 						<?= $user->email?>
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="btn-xs btn-default" data-toggle='modal' data-target='#edit-username' data-title='Ubah Username'><span class="glyphicon glyphicon-edit"></span></button>
 					</div>
 			    </div>
 				<div class="row">

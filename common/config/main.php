@@ -1,7 +1,6 @@
 <?php
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'homeUrl' => '/ocfa_yii/common',
     'timeZone' => 'Asia/Jakarta',
     'components' => [
         'cache' => [
@@ -40,6 +39,6 @@ return [
             'dateFormat' => 'php:d-M-Y',
             'datetimeFormat' => 'php:d-M-Y H:i:s',
             'timeFormat' => 'php:H:i:s',
-        ]
+        ],
     ],
 ];

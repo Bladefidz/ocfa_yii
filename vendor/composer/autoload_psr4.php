@@ -20,6 +20,7 @@ return array(
     'scotthuangzl\\googlechart\\' => array($vendorDir . '/scotthuangzl/yii2-google-chart'),
     'rmrevin\\yii\\fontawesome\\' => array($vendorDir . '/rmrevin/yii2-fontawesome'),
     'nex\\datepicker\\' => array($vendorDir . '/nex/yii2-datepicker'),
+    'moonland\\phpexcel\\' => array($vendorDir . '/moonlandsoft/yii2-phpexcel'),
     'mdm\\upload\\' => array($vendorDir . '/mdmsoft/yii2-upload-file'),
     'm35\\thecsv\\' => array($vendorDir . '/m35/thecsv'),
     'kartik\\sidenav\\' => array($vendorDir . '/kartik-v/yii2-widget-sidenav'),

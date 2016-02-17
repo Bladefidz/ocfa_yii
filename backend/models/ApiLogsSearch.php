@@ -36,12 +36,17 @@ class ApiLogsSearch extends ApiLogs
      * Creates data provider instance with search query applied
      *
      * @param array $params
+     * @param string $nik
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $nik=null)
     {
-        $query = ApiLogs::find();
+        if (!empty($nik)){
+            $query = ApiLogs::find()->where(['nik' => $nik]);
+        } else {
+            $query = ApiLogs::find();
+        }
 
         // add conditions that should always apply here
 

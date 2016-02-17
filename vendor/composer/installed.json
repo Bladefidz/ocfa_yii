@@ -56,7 +56,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7ccbfdf4cfb0ce025e27455dc3e516af23eb2800",
+            "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/8c3f3fce48649eebcb5739c797616bd49d4709e7",
             "reference": "7ccbfdf4cfb0ce025e27455dc3e516af23eb2800",
             "shasum": ""
         },
@@ -443,7 +443,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ff1d463edb2c74e39f4ec76f7eb99fd47b237507",
+            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/772feacf6849bf0114873e2b869bb500fccfd438",
             "reference": "b312ab9d0c446971069e22a524fec01c7cddc75e",
             "shasum": ""
         },
@@ -1753,7 +1753,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/dfd80567eecb761ace59cc069e390466c583837f",
+            "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/13a051cebdaa19703a97a8e3a124e77cf29dd143",
             "reference": "e593da06f6477d2fcb21323dfd0b766291c67fe5",
             "shasum": ""
         },
@@ -1998,57 +1998,6 @@
         ]
     },
     {
-        "name": "arogachev/yii2-excel",
-        "version": "0.1.0",
-        "version_normalized": "0.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/arogachev/yii2-excel.git",
-            "reference": "009d6acf734b1f603c96d97a3ea9663a35a3539f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/arogachev/yii2-excel/zipball/009d6acf734b1f603c96d97a3ea9663a35a3539f",
-            "reference": "009d6acf734b1f603c96d97a3ea9663a35a3539f",
-            "shasum": ""
-        },
-        "require": {
-            "phpoffice/phpexcel": "1.8.*",
-            "yiisoft/yii2": "*"
-        },
-        "require-dev": {
-            "yiisoft/yii2-codeception": "~2.0"
-        },
-        "time": "2015-05-16 11:51:20",
-        "type": "yii2-extension",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "arogachev\\excel\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Alexey Rogachev",
-                "email": "arogachev90@gmail.com"
-            }
-        ],
-        "description": "ActiveRecord import and export based on PHPExcel for Yii 2 framework",
-        "homepage": "https://github.com/arogachev/yii2-excel",
-        "keywords": [
-            "Active Record",
-            "PHPExcel",
-            "excel",
-            "export",
-            "import",
-            "yii2"
-        ]
-    },
-    {
         "name": "yiisoft/yii2-composer",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -2074,7 +2023,7 @@
                 "dev-master": "2.0.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "yii\\composer\\": ""
@@ -2485,6 +2434,104 @@
             "widget",
             "xls",
             "xlsx",
+            "yii2"
+        ]
+    },
+    {
+        "name": "arogachev/yii2-excel",
+        "version": "0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arogachev/yii2-excel.git",
+            "reference": "009d6acf734b1f603c96d97a3ea9663a35a3539f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arogachev/yii2-excel/zipball/009d6acf734b1f603c96d97a3ea9663a35a3539f",
+            "reference": "009d6acf734b1f603c96d97a3ea9663a35a3539f",
+            "shasum": ""
+        },
+        "require": {
+            "phpoffice/phpexcel": "1.8.*",
+            "yiisoft/yii2": "*"
+        },
+        "require-dev": {
+            "yiisoft/yii2-codeception": "~2.0"
+        },
+        "time": "2015-05-16 11:51:20",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "arogachev\\excel\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Alexey Rogachev",
+                "email": "arogachev90@gmail.com"
+            }
+        ],
+        "description": "ActiveRecord import and export based on PHPExcel for Yii 2 framework",
+        "homepage": "https://github.com/arogachev/yii2-excel",
+        "keywords": [
+            "Active Record",
+            "PHPExcel",
+            "excel",
+            "export",
+            "import",
+            "yii2"
+        ]
+    },
+    {
+        "name": "moonlandsoft/yii2-phpexcel",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/moonlandsoft/yii2-phpexcel.git",
+            "reference": "9408d09abc7ff4828302dafd5ffb709314f14589"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/moonlandsoft/yii2-phpexcel/zipball/9408d09abc7ff4828302dafd5ffb709314f14589",
+            "reference": "9408d09abc7ff4828302dafd5ffb709314f14589",
+            "shasum": ""
+        },
+        "require": {
+            "phpoffice/phpexcel": "*",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2015-09-06 07:50:33",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "moonland\\phpexcel\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Moh Khoirul Anam",
+                "email": "moh.khoirul.anaam@gmail.com"
+            }
+        ],
+        "description": "Exporting PHP to Excel or Importing Excel to PHP",
+        "keywords": [
+            "excel",
+            "export",
+            "extension",
+            "import",
+            "xls",
             "yii2"
         ]
     }
